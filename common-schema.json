@@ -1,0 +1,115 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "id": "https://fiware.github.io/dataModels/common-schema.json",
+  "title": "Common definitions for FIWARE Harmonized Data Models",
+  "definitions": {
+    "EntityIdentifierType": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256,
+      "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$"
+    },
+    "DateYearLess": {
+      "type": "string",
+      "pattern": "^--((0[13578]|1[02])-31|(0[1,3-9]|1[0-2])-30|(0\\d|1[0-2])-([0-2]\\d))$"
+    },
+    "GSMA-Commons": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/EntityIdentifierType"
+        },
+        "dateCreated": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "dateModified": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "source": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "alternateName": {
+           "type": "string" 
+        },
+        "description": {
+           "type": "string" 
+        },
+        "dataProvider": {
+          "type": "string"
+        },
+        "owner": {
+          "type": "array",
+          "items": {
+            "oneOf": [ 
+              {
+                "type": "string",
+                "format": "uri"
+              },
+              {
+                "$ref": "https://fiware.github.io/dataModels/common-schema.json#/definitions/EntityIdentifierType"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "Location-Commons": {
+      "type": "object",
+      "properties": {
+        "location": { "$ref": "http://json-schema.org/geojson/geometry.json#" },
+        "address": {
+          "type": "object",
+          "properties": {
+            "streetAddress": {
+              "type": "string"
+            },
+            "addressLocality": {
+              "type": "string"
+            },
+            "addressRegion": {
+              "type": "string"
+            },
+            "addressCountry": {
+              "type": "string"
+            },
+            "postalCode": {
+              "type": "string"
+            },
+            "postOfficeBoxNumber": {
+              "type": "string"
+            },
+            "areaServed": {
+              "type": "string"
+            }
+          }
+        },
+        "areaServed": {
+          "type": "string"
+        }
+      }
+    },
+    "PhysicalObject-Commons": {
+      "type": "object",
+      "properties": {
+        "color": {
+          "type": "string"
+        },
+        "image": {
+          "type": "string",
+          "format": "uri"
+        },
+        "annotations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
