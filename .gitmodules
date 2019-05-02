@@ -1,9 +1,6 @@
 [submodule "WasteManagement"]
 	path = specs/WasteManagement
 	url = https://github.com/front-runner-smart-cities/dataModel.WasteManagement
-[submodule "Streetlighting"]
-	path = specs/Streetlighting
-	url = https://github.com/front-runner-smart-cities/dataModel.Streetlighting
 [submodule "Weather"]
 	path = specs/Weather
 	url = https://github.com/front-runner-smart-cities/dataModel.Weather
