@@ -7,3 +7,6 @@
 [submodule "UrbanMobility"]
 	path = specs/UrbanMobility
 	url = https://github.com/front-runner-smart-cities/dataModel.UrbanMobility
+[submodule "Streetlighting"]
+	path = specs/Streetlighting
+	url = https://github.com/front-runner-smart-cities/dataModel.Streetlighting
