@@ -13,6 +13,3 @@
 [submodule "Environment"]
 	path = specs/Environment
 	url = https://github.com/front-runner-smart-cities/dataModel.Environment
-[submodule "Parking"]
-	path = specs/Parking
-	url = https://github.com/front-runner-smart-cities/dataModel.Parking
