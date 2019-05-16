@@ -1,6 +1,3 @@
-[submodule "Alert"]
-	path = specs/Alert
-	url = https://github.com/front-runner-smart-cities/dataModel.Alert
 [submodule "Streetlighting"]
 	path = specs/Streetlighting
 	url = https://github.com/front-runner-smart-cities/dataModel.Streetlighting
