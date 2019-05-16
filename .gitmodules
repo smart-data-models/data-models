@@ -1,6 +1,3 @@
-[submodule "Streetlighting"]
-	path = specs/Streetlighting
-	url = https://github.com/front-runner-smart-cities/dataModel.Streetlighting
 [submodule "Parking"]
 	path = specs/Parking
 	url = https://github.com/front-runner-smart-cities/dataModel.Parking
