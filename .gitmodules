@@ -13,3 +13,6 @@
 [submodule "Parking"]
 	path = specs/Parking
 	url = https://github.com/front-runner-smart-cities/dataModel.Parking
+[submodule "PointOfInterest"]
+	path = specs/PointOfInterest
+	url = https://github.com/front-runner-smart-cities/dataModel.PointOfInterest
