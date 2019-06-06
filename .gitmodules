@@ -10,3 +10,6 @@
 [submodule "Weather"]
 	path = specs/Weather
 	url = https://github.com/front-runner-smart-cities/dataModel.Weather
+[submodule "Parking"]
+	path = specs/Parking
+	url = https://github.com/front-runner-smart-cities/dataModel.Parking
