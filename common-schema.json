@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/schema#",
-  "id": "https://fiware.github.io/dataModels/common-schema.json",
+  "$id": "https://fiware.github.io/dataModels/common-schema.json",
   "title": "Common definitions for FIWARE Harmonized Data Models",
   "definitions": {
     "EntityIdentifierType": {
@@ -16,7 +16,7 @@
     "GSMA-Commons": {
       "type": "object",
       "properties": {
-        "id": {
+        "$id": {
           "$ref": "#/definitions/EntityIdentifierType"
         },
         "dateCreated": {
@@ -55,6 +55,24 @@
               }
             ]
           }
+        },
+        "seeAlso": {
+          "oneOf": [
+            {
+              "type": "array",
+              "minItems": 1,
+              "items": [
+                {
+                  "type": "string",
+                  "format": "uri"
+                }
+              ]
+            },
+            {
+              "type": "string",
+              "format": "uri"
+            }
+          ]
         }
       }
     },
