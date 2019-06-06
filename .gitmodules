@@ -16,3 +16,6 @@
 [submodule "PointOfInterest"]
 	path = specs/PointOfInterest
 	url = https://github.com/front-runner-smart-cities/dataModel.PointOfInterest
+[submodule "Transportation"]
+	path = specs/Transportation
+	url = https://github.com/front-runner-smart-cities/dataModel.Transportation
