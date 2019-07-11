@@ -100,7 +100,7 @@ By agreeing across different communities, the common definition of smart city da
 
 By way of example, the data models that have been harmonized to date can be found in this [Repository](https://github.com/fiware/dataModels). 
 
-In order to increase visibility of contributing cities (with their partners) and bring trust, the number of cities endorsing each specification will be documented. 
+**In order to increase visibility of contributing cities (with their partners) and bring trust, the number of cities endorsing each specification will be documented. **
 
 RFPs are under design to address the adoption of new data models for the following areas: 
 
