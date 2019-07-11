@@ -17,7 +17,7 @@ Combined with TM Forum Open APIs, data publication platforms can support organiz
 
 This GitHub organization structure contains **JSON Schemas and documentation** on harmonized Data Models for different Smart Domains, **starting with Smart Cities**. The following repositories are available:
 
-* dataModels repository which is an umbrella repository that contains all the Data Models from different verticals (e.g., Parking, Street lighting, etc.). *T his Repository does not admit Pull Requests. * 
+* dataModels repository which is an umbrella repository that contains all the Data Models from different verticals (e.g., Parking, Street lighting, etc.). *This Repository does not admit Pull Requests.* 
 
 * For each Vertical there is a Repository containing the Data Models related to that vertical. *These repositories do admit pull requests*.  
 
@@ -56,7 +56,7 @@ For new Data Models, periodically an **RFP process** might be issued. You should
 
 A Data Model specification shall contain the following artefacts:
 
-* `spec.md` Markdown specification in accordance with this template 
+* `spec.md` Markdown specification in accordance with this [template](templates/data-model-template.md). 
 
 * `schema.json` JSON Schema associated to the specification. Such JSON Schema should be based on Base Schemas, see for instance [schema.json](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/schema.json) of [WeatherObserved](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/doc/spec.md)
 
