@@ -11,7 +11,9 @@ Data Models play a crucial role because they define the **harmonised representat
 
 The FIWARE Foundation and TM Forum are leading a joint collaboration program to support the adoption of a reference architecture and compatible common data models that underpin a digital market of interoperable and replicable smart solutions in multiple sectors, starting with smart cities.
 
-The Reference Architecture and Data Models use the FIWARE NGSI API and TM Forum Open APIs for interoperability and scalability of smart solutions. The FIWARE Context Broker technology, implementing the FIWARE NGSI APIs (**NGSIv2 and NGSI-LD**), provides the basis for breaking information silos in organizations aiming at becoming smart. Actually, it enables  a real-time (or close to real time, i.e., right-time) view and foundation for the development of governance systems at global organization level.  Examples of such organizations include cities, factories, hospitals, airports, farms, etc. Combined with TM Forum Open APIs, data publication platforms can support organizations to realise the potential of real-time (or right-time) open data, easing development of innovative solutions by third parties. In addition, organizations can evolve their current data sharing policies towards a vision which, shared with other organizations, brings support to a Data Economy. This way, the proposed Reference Architecture is ready to solve the needs of organizations today while future-proofing for tomorrow’s requirements.
+The Reference Architecture and Data Models use the FIWARE NGSI API and TM Forum Open APIs for interoperability and scalability of smart solutions. The FIWARE Context Broker technology, implementing the FIWARE NGSI APIs (**NGSIv2 and NGSI-LD**), provides the basis for breaking information silos in organizations aiming at becoming smart. Actually, it enables  a real-time (or close to real time, i.e., right-time) view and foundation for the development of governance systems at global organization level.  Examples of such organizations include cities, factories, hospitals, airports, farms, etc. 
+
+Combined with TM Forum Open APIs, data publication platforms can support organizations to realise the potential of real-time (or right-time) open data, easing development of innovative solutions by third parties. In addition, organizations can evolve their current data sharing policies towards a vision which, shared with other organizations, brings support to a Data Economy. This way, the proposed Reference Architecture is ready to solve the needs of organizations today while future-proofing for tomorrow’s requirements.
 
 This GitHub organization structure contains **JSON Schemas and documentation** on harmonized Data Models for different Smart Domains, **starting with Smart Cities**. The following repositories are available:
 
@@ -21,13 +23,13 @@ This GitHub organization structure contains **JSON Schemas and documentation** o
 
 ## General Principles
 
-* Driven-by-implementation approach: Specifications will be considered stable as soon as enough end user organizations (e.g., cities) have validated them in practice. Stable specifications may become TM Forum formal deliverables by following TM Forum’s defined processes.
+* **Driven-by-implementation approach**: Specifications will be considered stable as soon as enough end user organizations (e.g., cities) have validated them in practice. Stable specifications may become TM Forum formal deliverables by following TM Forum’s defined processes.
 
-* Open-closed. Breaking changes to already approved specs are not allowed. Instead, new versions shall deprecate attributes, add new attributes, extend enumerations, etc. 
+* **Open-closed**. Breaking changes to already approved specs are not allowed. Instead, new versions shall deprecate attributes, add new attributes, extend enumerations, etc. 
 
-* Public and royalty-free nature of specifications. Data Model Licensing mode. Creative Commons by Attribution 4.0 https://creativecommons.org/licenses/by/4.0/ 
+* **Public and royalty-free** nature of specifications. Data Model Licensing mode. Creative Commons by Attribution 4.0 https://creativecommons.org/licenses/by/4.0/ 
 
-* Open contribution. Contributions open to anybody (not only members), while final decision making corresponds to TM Forum and FIWARE Foundation members
+* **Open contribution**. Contributions open to anybody (not only members), while final decision making corresponds to TM Forum and FIWARE Foundation members
 
 ## Lifecycle
 Specifications evolve over time through versions with RFC (Request for Comments) periods, of a typical duration of 6 months, in between.
@@ -37,8 +39,11 @@ The way to handle new Data Models is as follows:
 * At least 2 cities or technology providers propose new specifications for a given Smart City or Smart Service challenge to be addressed
 
 * FF and TM Forum launch an RFP (duration 4 months on average)
+
 * RFP is responded and proposals analysed
+
 * If more than one proposal is submitted, FF, TM Forum and interested cities (with their partners) align and create a single v1.0 draft (duration of alignment period is expected to be 2 months on average)
+
 * Afterwards an RFC is issued and the proposal workflow (described above) is put in place
 
  
