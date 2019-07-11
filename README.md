@@ -32,15 +32,15 @@ This GitHub organization structure contains **JSON Schemas and documentation** o
 * **Open contribution**. Contributions open to anybody (not only members), while final decision making corresponds to TM Forum and FIWARE Foundation members
 
 ## Lifecycle
-Specifications evolve over time through versions with RFC (Request for Comments) periods, of a typical duration of 6 months, in between.
+Specifications evolve over time through versions with *RFC (Request for Comments)* periods, of a typical duration of 6 months, in between.
 
 ![Data Model Lifecycle](docs/lifecycle.png)
 
 The way to handle new Data Models is as follows:
 
-* At least 2 cities or technology providers propose new specifications for a given Smart City or Smart Service challenge to be addressed
+* At least **2 cities** or technology providers propose new specifications for a given Smart City or Smart Service challenge to be addressed
 
-* FF and TM Forum launch an RFP (duration 4 months on average)
+* FF and TM Forum launch an **RFP** (duration *4 months* on average)
 
 * RFP is responded and proposals analysed
 
@@ -48,6 +48,7 @@ The way to handle new Data Models is as follows:
 
 * Afterwards an RFC is issued and the proposal workflow (described above) is put in place
 
+![Data Model RFP](docs/rfp.png)
  
 ## How to contribute
 
