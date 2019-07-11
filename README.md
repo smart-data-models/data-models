@@ -9,7 +9,7 @@ The availability of widely adopted (de-facto standard) information models is key
 
 Data Models play a crucial role because they define the **harmonised representation formats and semantics** that will be used by applications both to consume and to publish data. 
 
-The FIWARE Foundation and TM Forum are leading a joint collaboration program to support the adoption of a reference architecture and compatible common data models that underpin a digital market of interoperable and replicable smart solutions in multiple sectors, starting with smart cities.
+The **FIWARE Foundation** and **TM Forum** are leading a joint collaboration program to support the adoption of a reference architecture and compatible common data models that underpin a digital market of interoperable and replicable smart solutions in multiple sectors, starting with smart cities.
 
 The Reference Architecture and Data Models use the FIWARE NGSI API and TM Forum Open APIs for interoperability and scalability of smart solutions. The FIWARE Context Broker technology, implementing the FIWARE NGSI APIs (**NGSIv2 and NGSI-LD**), provides the basis for breaking information silos in organizations aiming at becoming smart. Actually, it enables  a real-time (or close to real time, i.e., right-time) view and foundation for the development of governance systems at global organization level.  Examples of such organizations include cities, factories, hospitals, airports, farms, etc. 
 
@@ -49,49 +49,37 @@ The way to handle new Data Models is as follows:
  
 ## How to contribute
 
-Contributions should come in the form of pull requests made against the corresponding Vertical Data Model repository. 
-For new Data Models, periodically an RFP process might be issued. You should check if a new RFP is open and then you may create a new Data Model Specification (or set of specifications) by providing a Github Repository which shall include such specification. Finally you should submit such specification to the Programme by filling the corresponding form. 
+Contributions should come in the form of **pull requests** made against the corresponding Vertical Data Model repository. 
+
+For new Data Models, periodically an **RFP process** might be issued. You should check if a new RFP is open and then you may create a new Data Model Specification (or set of specifications) by providing a Github Repository which shall include such specification. Finally you should submit such specification to the Programme by filling the corresponding form. 
+
+
 A Data Model specification shall contain the following artefacts:
-spec.md Markdown specification in accordance with this template 
-schema.json JSON Schema associated to the specification. Such JSON Schema should be based on Base Schemas, see for instance schema.json of WeatherObserved
-examples encoded in FIWARE NGSIv2 and NGSI-LD
+
+* `spec.md` Markdown specification in accordance with this template 
+
+* `schema.json` JSON Schema associated to the specification. Such JSON Schema should be based on Base Schemas, see for instance []() of [WeatherObserved]()
+
+* examples encoded in FIWARE NGSIv2 and NGSI-LD
  
 The artefacts referred below should be under a folder structured as follows:
-specs/
-NewModel/
-README.md
-doc/
-spec.md: A data model description based on the data model template, e.g. spec.md of WeatherObserved.
-README.md: A summary file (as an extract from the spec file), e.g. README.md of WeatherObserved
-schema.json: The JSON Schema definition, e.g. schema.json of WeatherObserved
-example.json: One or more JSON example file, e.g. example.json of WeatherObserved
-example-normalized.json: One or more JSON example file in NGSI v2 normalized format, e.g. example-normalized.json of WeatherObserved
-example-normalized-ld.jsonld: One or more JSON example file in NGSI-LD normalized format, e.g.example-normalized-ld.jsonld of WeatherObserved
-The name of the folder should match the Entity Type used in the JSON Schema (e.g. NewModel).
-If a complete new set of Data Models or vertical is defined then the following structure shall be followed:
-README.md
-specs/
-NewModel/
-doc/
-spec.md
-README.md
-newmodel-schema.json: the common schema for the different entities.
-NewModelEntityOne/
-doc/
-spec.md
-README.md
-schema.json
-example.json
-example-normalized.json
-example-normalized-ld.jsonld
-NewModelEntityTwo/
-doc/
-spec.md
-README.md
-schema.json
-example.json
-example-normalized.json
-example-normalized-ld.jsonld
+
+-   `specs/`
+    -   `NewModel/`
+        -   `doc/`
+            -   `spec.md`: A data model description based on the
+                [data model template](datamodel_template.md), e.g.
+                [spec.md of WeatherObserved](specs/Weather/WeatherObserved/doc/spec.md).
+        -   `README.md`: A summary file (as an extract from the spec file), e.g.
+            [README.md of WeatherObserved](specs/Weather/WeatherObserved/README.md)
+        -   `schema.json`: The JSON Schema definition, e.g.
+            [schema.json of WeatherObserved](specs/Weather/WeatherObserved/schema.json)
+        -   `example.json`: One or more JSON example file, e.g.
+            [example.json of WeatherObserved](specs/Weather/WeatherObserved/example.json)
+        -   `example-normalized.json`: One or more JSON example file in NGSI v2 normalized format, e.g.
+            [example-normalized.json of WeatherObserved](specs/Weather/WeatherObserved/example-normalized.json)
+        -   `example-normalized-ld.jsonld`: One or more JSON example file in **NGSI-LD** normalized format, e.g.
+            [example-normalized-ld.jsonld of WeatherObserved](specs/Weather/WeatherObserved/example-normalized-ld.jsonld)
  
 To facilitate contributions and their validation, we developed a tool that is also used for the Continuous Integration. 
 
@@ -110,7 +98,7 @@ We need to move beyond the 1% to create cleaner data and leverage it to drive fu
 
 By agreeing across different communities, the common definition of smart city data models, this will empower innovators and companies to develop solutions that adhere to this common definition and ultimately help enable interoperability of services. 
 
-By way of example, the data models that have been harmonized to date can be found here. 
+By way of example, the data models that have been harmonized to date can be found in this Repository. 
 
 In order to increase visibility of contributing cities (with their partners) and bring trust, the number of cities endorsing each specification will be documented. 
 
