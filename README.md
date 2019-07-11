@@ -58,7 +58,7 @@ A Data Model specification shall contain the following artefacts:
 
 * `spec.md` Markdown specification in accordance with this template 
 
-* `schema.json` JSON Schema associated to the specification. Such JSON Schema should be based on Base Schemas, see for instance []() of [WeatherObserved]()
+* `schema.json` JSON Schema associated to the specification. Such JSON Schema should be based on Base Schemas, see for instance [schema.json](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/schema.json) of [WeatherObserved](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/doc/spec.md)
 
 * examples encoded in FIWARE NGSIv2 and NGSI-LD
  
@@ -68,10 +68,10 @@ The artefacts referred below should be under a folder structured as follows:
     -   `NewModel/`
         -   `doc/`
             -   `spec.md`: A data model description based on the
-                [data model template](datamodel_template.md), e.g.
-                [spec.md of WeatherObserved](specs/Weather/WeatherObserved/doc/spec.md).
+                [data model template](https://github.com/smart-data-models/dataModels/blob/master/data-model-template.md), e.g.
+                [spec.md of WeatherObserved](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/doc/spec.md).
         -   `README.md`: A summary file (as an extract from the spec file), e.g.
-            [README.md of WeatherObserved](specs/Weather/WeatherObserved/README.md)
+            [README.md of WeatherObserved](https://github.com/smart-data-models/dataModel.Weather/blob/master/Weather/WeatherObserved/README.md)
         -   `schema.json`: The JSON Schema definition, e.g.
             [schema.json of WeatherObserved](specs/Weather/WeatherObserved/schema.json)
         -   `example.json`: One or more JSON example file, e.g.
