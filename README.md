@@ -34,6 +34,8 @@ This GitHub organization structure contains **JSON Schemas and documentation** o
 ## Lifecycle
 Specifications evolve over time through versions with RFC (Request for Comments) periods, of a typical duration of 6 months, in between.
 
+![Data Model Lifecycle](docs/lifecycle.png)
+
 The way to handle new Data Models is as follows:
 
 * At least 2 cities or technology providers propose new specifications for a given Smart City or Smart Service challenge to be addressed
