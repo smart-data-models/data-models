@@ -101,7 +101,7 @@ We need to move beyond the 1% to create cleaner data and leverage it to drive fu
 
 By agreeing across different communities, the common definition of smart city data models, this will empower innovators and companies to develop solutions that adhere to this common definition and ultimately help enable interoperability of services. 
 
-By way of example, the data models that have been harmonized to date can be found in this [Repository](https://github.com/fiware/dataModels). 
+By way of example, the data models that have been harmonized to date can be found in this [Repository](https://github.com/smart-data-models/dataModels/tree/master/specs). 
 
 **In order to increase visibility of contributing cities (with their partners) and bring trust, the number of cities endorsing each specification will be documented.**
 
