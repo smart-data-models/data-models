@@ -73,11 +73,11 @@ The artefacts referred below should be under a folder structured as follows:
         -   `README.md`: A summary file (as an extract from the spec file), e.g.
             [README.md of WeatherObserved](https://github.com/smart-data-models/dataModel.Weather/blob/master/README.md)
         -   `schema.json`: The JSON Schema definition, e.g.
-            [schema.json of WeatherObserved](https://github.com/smart-data-models/dataModel.Weather/specs/Weather/WeatherObserved/schema.json)
+            [schema.json of WeatherObserved](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/schema.json)
         -   `example.json`: One or more JSON example file, e.g.
             [example.json of WeatherObserved](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/example.json)
         -   `example-normalized.json`: One or more JSON example file in NGSI v2 normalized format, e.g.
-            [example-normalized.json of WeatherObserved](hhttps://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/example-normalized.json)
+            [example-normalized.json of WeatherObserved](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/example-normalized.json)
         -   `example-normalized-ld.jsonld`: One or more JSON example file in **NGSI-LD** normalized format, e.g.
             [example-normalized-ld.jsonld of WeatherObserved](https://github.com/fiware/dataModels/specs/Weather/WeatherObserved/example-normalized-ld.jsonld)
  
