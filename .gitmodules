@@ -19,9 +19,6 @@
 [submodule "Device"]
 	path = specs/Device
 	url = https://github.com/front-runner-smart-cities/dataModel.Device
-[submodule "Alert"]
-	path = specs/Alert
-	url = https://github.com/front-runner-smart-cities/dataModel.Alert
 [submodule "WasteManagement"]
 	path = specs/WasteManagement
 	url = https://github.com/smart-data-models/dataModel.WasteManagement
