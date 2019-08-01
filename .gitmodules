@@ -22,3 +22,6 @@
 [submodule "WasteManagement"]
 	path = specs/WasteManagement
 	url = https://github.com/smart-data-models/dataModel.WasteManagement
+[submodule "Alert"]
+	path = specs/Alert
+	url = https://github.com/smart-data-models/dataModel.Alert
