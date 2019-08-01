@@ -22,3 +22,6 @@
 [submodule "Transportation"]
 	path = specs/Transportation
 	url = https://github.com/smart-data-models/dataModel.Transportation
+[submodule "Weather"]
+	path = specs/Weather
+	url = https://github.com/smart-data-models/dataModel.Weather
