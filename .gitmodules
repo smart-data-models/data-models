@@ -22,3 +22,6 @@
 [submodule "Parking"]
 	path = specs/Parking
 	url = https://github.com/smart-data-models/dataModel.Parking
+[submodule "PointOfInterest"]
+	path = specs/PointOfInterest
+	url = https://github.com/smart-data-models/dataModel.PointOfInterest
