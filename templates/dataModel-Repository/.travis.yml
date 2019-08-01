@@ -11,10 +11,10 @@ before_install:
 install:
  - npm install -g ajv-cli
  - cd .. && mkdir integration && cd integration
- - git clone https://github.com/front-runner-smart-cities/tools
+ - git clone https://github.com/smart-data-models/tools
  - cd tools/validator && pip3 install -r requirements.txt
  - cd $TRAVIS_BUILD_DIR/../integration
- - git clone --recurse-submodules https://github.com/front-runner-smart-cities/dataModels
+ - git clone --recurse-submodules https://github.com/smart-data-models/dataModels
  - cd dataModels/specs/$DATA_MODEL_NAME
  - rm -Rf *
  - cd $TRAVIS_BUILD_DIR/ && cp -R * ../integration/dataModels/specs/$DATA_MODEL_NAME/
