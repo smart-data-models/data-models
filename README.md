@@ -2,7 +2,7 @@
 Umbrella Repository for Data Models
 
 [![Status badge](https://img.shields.io/badge/status-draft-red.svg)](RELEASE_NOTES)
-[![Build badge](https://img.shields.io/travis/smart-data-models/dataModels.svg "Travis build status")](https://travis-ci.org/front-runner-smart-cities/dataModels/)
+[![Build badge](https://img.shields.io/travis/smart-data-models/dataModels.svg "Travis build status")](https://travis-ci.org/smart-data-models/dataModels/)
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 
 The availability of widely adopted (de-facto standard) information models is key for creating a global digital single market of interoperable and replicable (portable) IoT-enabled smart solutions in multiple domains (smart cities, smart agrifood, smart utilities, smart industry, …). Such models provide an essential element in the common technical ground needed for standards-based open innovation and procurement. 
