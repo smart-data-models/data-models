@@ -63,7 +63,7 @@ A Data Model specification shall contain the following artefacts:
 
 * `schema.json` JSON Schema associated to the specification. Such JSON Schema should be based on Base Schemas, see for instance [schema.json](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/schema.json) of [WeatherObserved](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/doc/spec.md)
 
-* examples encoded in FIWARE NGSIv2 and NGSI-LD
+* examples encoded in FIWARE NGSIv2 and NGSI-LD, see for instance [example.json of WeatherObserved](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/example.json), example-normalized.json of WeatherObserved](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/example-normalized.json) and [example-normalized-ld.jsonld of WeatherObserved](https://github.com/smart-data-models/dataModel.Weather/blob/master/specs/Weather/WeatherObserved/example-normalized-ld.jsonld)
  
 The artefacts referred below should be under a folder structured as follows:
 
@@ -82,9 +82,9 @@ The artefacts referred below should be under a folder structured as follows:
         -   `example-normalized.json`: One or more JSON example file in NGSI v2 normalized format, e.g.
             [example-normalized.json of WeatherObserved](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/example-normalized.json)
         -   `example-normalized-ld.jsonld`: One or more JSON example file in **NGSI-LD** normalized format, e.g.
-            [example-normalized-ld.jsonld of WeatherObserved](https://github.com/FIWARE/dataModels/blob/master/specs/Weather/WeatherObserved/example-normalized-ld.jsonld)
+            [example-normalized-ld.jsonld of WeatherObserved](https://github.com/smart-data-models/dataModel.Weather/blob/master/specs/Weather/WeatherObserved/example-normalized-ld.jsonld)
  
-To facilitate contributions and their validation, we developed a tool that is also used for the Continuous Integration. 
+To facilitate contributions and their validation, we developed a [tool](https://github.com/smart-data-models/tools/tree/master/validator) that is also used for the Continuous Integration. 
 
 
 ## Front-runner Smart Cities program 
