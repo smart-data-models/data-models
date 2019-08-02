@@ -63,7 +63,7 @@ A Data Model specification shall contain the following artefacts:
 
 * `schema.json` JSON Schema associated to the specification. Such JSON Schema should be based on Base Schemas, see for instance [schema.json](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/schema.json) of [WeatherObserved](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/doc/spec.md)
 
-* examples encoded in FIWARE NGSIv2 and NGSI-LD, see for instance [example.json of WeatherObserved](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/example.json), example-normalized.json of WeatherObserved](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/example-normalized.json) and [example-normalized-ld.jsonld of WeatherObserved](https://github.com/smart-data-models/dataModel.Weather/blob/master/specs/Weather/WeatherObserved/example-normalized-ld.jsonld)
+* examples encoded in FIWARE NGSIv2 and NGSI-LD, see for instance [example.json of WeatherObserved](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/example.json), [example-normalized.json of WeatherObserved](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/example-normalized.json) and [example-normalized-ld.jsonld of WeatherObserved](https://github.com/smart-data-models/dataModel.Weather/blob/master/specs/Weather/WeatherObserved/example-normalized-ld.jsonld)
  
 The artefacts referred below should be under a folder structured as follows:
 
