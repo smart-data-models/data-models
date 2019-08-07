@@ -5,6 +5,7 @@ python:
 
 
 install:
+ - npm install
  - npm install -g ajv-cli
  - cd .. && mkdir integration && cd integration
  - git clone https://github.com/front-runner-smart-cities/tools
@@ -15,6 +16,8 @@ install:
  
 script:
  - python3 main.py $TRAVIS_BUILD_DIR/ --noLD
+ - npm run lint:text
+ - npm run lint:md
  
   
 notifications:

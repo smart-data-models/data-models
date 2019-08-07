@@ -14,7 +14,7 @@ Data Models play a crucial role because they define the **harmonised representat
 
 The **FIWARE Foundation** and **TM Forum** are leading a joint collaboration program to support the adoption of a reference architecture and compatible common data models that underpin a digital market of interoperable and replicable smart solutions in multiple sectors, starting with smart cities.
 
-The Reference Architecture and Data Models use the FIWARE NGSI API and TM Forum Open APIs for interoperability and scalability of smart solutions. The FIWARE Context Broker technology, implementing the FIWARE NGSI APIs (**NGSIv2 and NGSI-LD**), provides the basis for breaking information silos in organizations aiming at becoming smart. Actually, it enables  a real-time (or close to real time, i.e., right-time) view and foundation for the development of governance systems at global organization level.  Examples of such organizations include cities, factories, hospitals, airports, farms, etc. 
+The Reference Architecture and Data Models use the FIWARE NGSI API and TM Forum Open APIs for interoperability and scalability of smart solutions. The FIWARE Context Broker technology, implementing the FIWARE NGSI APIs (**NGSI v2 and NGSI-LD**), provides the basis for breaking information silos in organizations aiming at becoming smart. Actually, it enables  a real-time (or close to real time, i.e., right-time) view and foundation for the development of governance systems at global organization level.  Examples of such organizations include cities, factories, hospitals, airports, farms, etc. 
 
 Combined with TM Forum Open APIs, data publication platforms can support organizations to realise the potential of real-time (or right-time) open data, easing development of innovative solutions by third parties. In addition, organizations can evolve their current data sharing policies towards a vision which, shared with other organizations, brings support to a Data Economy. This way, the proposed Reference Architecture is ready to solve the needs of organizations today while future-proofing for tomorrow’s requirements.
 
@@ -57,7 +57,7 @@ The way to handle new Data Models is as follows:
 
 Contributions should come in the form of **pull requests** made against the corresponding Vertical Data Model repository. 
 
-For new Data Models, periodically an **RFP process** might be issued. You should check if a new RFP is open and then you may create a new Data Model Specification (or set of specifications) by providing a Github Repository which shall include such specification. Finally you should submit such specification to the Programme by filling the corresponding form. 
+For new Data Models, periodically an **RFP process** might be issued. You should check if a new RFP is open and then you may create a new Data Model Specification (or set of specifications) by providing a GitHub Repository which shall include such specification. Finally you should submit such specification to the Programme by filling the corresponding form. 
 
 
 A Data Model specification shall contain the following artefacts:
@@ -66,7 +66,7 @@ A Data Model specification shall contain the following artefacts:
 
 * `schema.json` JSON Schema associated to the specification. Such JSON Schema should be based on Base Schemas, see for instance [schema.json](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/schema.json) of [WeatherObserved](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/doc/spec.md)
 
-* examples encoded in FIWARE NGSIv2 and NGSI-LD, see for instance [example.json](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/example.json), [example-normalized.json](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/example-normalized.json) and [example-normalized-ld.jsonld](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/example-normalized-ld.jsonld) of `WeatherObserved`. 
+* examples encoded in FIWARE NGSI v2 and NGSI-LD, see for instance [example.json](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/example.json), [example-normalized.json](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/example-normalized.json) and [example-normalized-ld.jsonld](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/example-normalized-ld.jsonld) of `WeatherObserved`. 
  
 The artefacts referred below should be under a folder structured as follows:
 
