@@ -74,7 +74,7 @@ The artefacts referred below should be under a folder structured as follows:
     -   `NewModel/`
         -   `doc/`
             -   `spec.md`: A data model description based on the
-                [data model template](https://github.com/smart-data-models/dataModels/blob/master/data-model-template.md), e.g.
+                [data model template](https://github.com/smart-data-models/dataModels/blob/master/templates/data-model-template.md), e.g.
                 [spec.md of WeatherObserved](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/doc/spec.md).
         -   `README.md`: A summary file (as an extract from the spec file), e.g.
             [README.md of WeatherObserved](https://github.com/smart-data-models/dataModel.Weather/blob/master/README.md)
