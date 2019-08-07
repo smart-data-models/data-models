@@ -16,6 +16,7 @@ install:
  
 script:
  - python3 main.py $TRAVIS_BUILD_DIR/ --noLD
+ - cd $TRAVIS_BUILD_DIR
  - npm run lint:text
  - npm run lint:md
  
