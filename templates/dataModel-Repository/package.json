@@ -17,6 +17,7 @@
 	},
 	"devDependencies": {
 		"jest": "^24.8.0",
+		"npm-run-all": "^4.1.5",
 		"prettier": "^1.14.2",
 		"remark-cli": "^6.0.1",
 		"remark-preset-lint-recommended": "^3.0.2",
@@ -31,10 +32,12 @@
 		"node": ">=8.6"
 	},
 	"scripts": {
+		"lint": "npm-run-all --continue-on-error lint:text lint:md",
 		"lint:text": "textlint './README.md' 'README.md' './**/*.md'",
 		"lint:md": "remark -f 'README.md' './'",
-		"lint:text:fix": "textlint --fix './README.md' 'README.md' './**/*.md'"
-		"prettier": "prettier --single-quote --trailing-comma es5 --write ./**/*.json",
+		"lint:text:fix": "textlint --fix './README.md' 'README.md' './**/*.md'",
+		"prettier": "npm-run-all --continue-on-error prettier:json prettier:text",
+		"prettier:json": "prettier --single-quote --trailing-comma es5 --write ./**/*.json",
 		"prettier:text": "prettier './**/*.md' --tab-width 4 --print-width 80 --write --prose-wrap always"
 	}
 }
