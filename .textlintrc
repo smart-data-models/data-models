@@ -189,6 +189,7 @@
        "ignoreRedirects": true,
        "ignore": [
           "https://w3id.org/*",
+          "http://www.datex2.eu/*",
           "mailto:*",
           "https://schema.org/*",
           "http://schema.org/*",
