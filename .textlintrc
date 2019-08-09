@@ -186,8 +186,9 @@
       "so": false
     },
     "no-dead-link": {
-       "ignoreRedirects": false,
+       "ignoreRedirects": true,
        "ignore": [
+          "https://w3id.org/*",
           "mailto:*",
           "https://schema.org/*",
           "http://schema.org/*",
