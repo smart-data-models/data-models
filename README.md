@@ -66,8 +66,7 @@ Cities**. The following repositories are available:
     enumerations, etc.
 
 -   **Public and royalty-free** nature of specifications. Data Model Licensing
-    mode. Creative Commons by Attribution 4.0
-    https://creativecommons.org/licenses/by/4.0/
+    mode. [Creative Commons by Attribution 4.0](https://creativecommons.org/licenses/by/4.0/)
 
 -   **Open contribution**. Contributions open to anybody (not only members),
     while final decision making corresponds to TM Forum and FIWARE Foundation
