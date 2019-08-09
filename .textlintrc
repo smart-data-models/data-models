@@ -186,7 +186,7 @@
       "so": false
     },
     "no-dead-link": {
-       "ignoreRedirects": true,
+       "ignoreRedirects": false,
        "ignore": [
           "mailto:*",
           "https://schema.org/*",
