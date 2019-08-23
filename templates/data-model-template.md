@@ -18,12 +18,12 @@ A JSON Schema corresponding to this data model can be found at
 -   `modifiedAt` or `dateModified` (NGSIv2): Last update timestamp of this
     entity.
 
-    -   Attribute type: [DateTime](https://schema.org/DateTime)
+    -   Attribute type: Property. [DateTime](https://schema.org/DateTime)
     -   Read-Only. Automatically generated.
 
 -   `createdAt` or `dateCreated` (NGSIv2): Entity's creation timestamp.
 
-    -   Attribute type: [DateTime](https://schema.org/DateTime)
+    -   Attribute type: Property. [DateTime](https://schema.org/DateTime)
     -   Read-Only. Automatically generated.
 
 -   `owner` : Entity's owners.
