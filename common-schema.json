@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/schema#",
-  "$id": "https://fiware.github.io/dataModels/common-schema.json",
+  "$id": "https://smart-data-models.github.io/dataModels/common-schema.json",
   "title": "Common definitions for FIWARE Harmonized Data Models",
   "definitions": {
     "EntityIdentifierType": {
@@ -51,7 +51,7 @@
         "owner": {
           "type": "array",
           "items": {
-                "$ref": "https://fiware.github.io/dataModels/common-schema.json#/definitions/EntityIdentifierType"
+                "$ref": "https://smart-data-models.github.io/dataModels/common-schema.json#/definitions/EntityIdentifierType"
           }
         },
         "seeAlso": {

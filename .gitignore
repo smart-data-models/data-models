@@ -46,3 +46,4 @@ jspm_packages/
 *.tgz
 .env
 .next
+substitute.sh
