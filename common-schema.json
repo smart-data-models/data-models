@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/schema#",
   "$id": "https://smart-data-models.github.io/dataModels/common-schema.json",
-  "title": "Common definitions for FIWARE Harmonized Data Models",
+  "title": "Common definitions for  Harmonized Data Models",
   "definitions": {
     "EntityIdentifierType": {
       "anyOf": [{
