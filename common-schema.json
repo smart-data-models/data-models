@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/schema#",
-  "$id": "https://smart-data-models.github.io/dataModels/common-schema.json",
+  "$id": "https://smart-data-models.github.io/data-models/common-schema.json",
   "title": "Common definitions for  Harmonized Data Models",
   "definitions": {
     "EntityIdentifierType": {
