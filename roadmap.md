@@ -1,6 +1,6 @@
 ## Roadmap 
 
-The Roadmap of this project is the following: 
+The Roadmap of this initiative is the following: 
 
 * Adopt additional Data Models from the 
 [FIWARE Data Models Project](https://github.com/FIWARE/data-models). 
