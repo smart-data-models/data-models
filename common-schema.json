@@ -22,7 +22,7 @@
     "GSMA-Commons": {
       "type": "object",
       "properties": {
-        "id": {
+        "$id": {
           "$ref": "#/definitions/EntityIdentifierType"
         },
         "dateCreated": {
