@@ -22,7 +22,7 @@
     "GSMA-Commons": {
       "type": "object",
       "properties": {
-        "$id": {
+        "id": {
           "$ref": "#/definitions/EntityIdentifierType"
         },
         "dateCreated": {
@@ -51,7 +51,7 @@
         "owner": {
           "type": "array",
           "items": {
-                "$ref": "https://smart-data-models.github.io/dataModels/common-schema.json#/definitions/EntityIdentifierType"
+                "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
           }
         },
         "seeAlso": {
