@@ -49,7 +49,7 @@ This GitHub organization structure contains **JSON Schemas and documentation**
 on harmonized Data Models for different Smart Domains, **starting with Smart
 Cities**. The following repositories are available:
 
--   dataModels repository which is an umbrella repository that contains all the
+-   data-models repository which is an umbrella repository that contains all the
     Data Models from different verticals (e.g., Parking, Street lighting, etc.).
     _This Repository does not admit Pull Requests._
 
@@ -134,7 +134,7 @@ The artefacts referred below should be under a folder structured as follows:
     -   `NewModel/`
         -   `doc/`
             -   `spec.md`: A data model description based on the
-                [data model template](https://github.com/smart-data-models/dataModels/blob/master/templates/data-model-template.md),
+                [data model template](https://github.com/smart-data-models/data-models/blob/master/templates/data-model-template.md),
                 e.g.
                 [spec.md of WeatherObserved](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/doc/spec.md).
         -   `README.md`: A summary file (as an extract from the spec file), e.g.
@@ -197,7 +197,7 @@ interoperability of services.
 
 By way of example, the data models that have been harmonized to date can be
 found in this
-[Repository](https://github.com/smart-data-models/dataModels/tree/master/specs).
+[Repository](https://github.com/smart-data-models/data-models/tree/master/specs).
 
 **In order to increase visibility of contributing cities (with their partners)
 and bring trust, the number of cities endorsing each specification will be
