@@ -76,25 +76,25 @@ Cities**. The following repositories are available:
 
 ## Lifecycle
 
-Specifications evolve over time through versions with _RFC (Request for
+Specifications evolve over time through versions generated after _RFC (Request for
 Comments)_ periods, of a typical duration of 6 months, in between.
 
 ![Data Model Lifecycle](docs/lifecycle.png)
 
 The way to handle new Data Models is as follows:
 
--   At least **2 cities** or technology providers propose new specifications for
-    a given Smart City or Smart Service challenge to be addressed
+-   At least **2 users** propose the adoption of new specifications for
+    for addressing some specific challenge (e.g., smart parking in a City)
 
 -   FF and TM Forum launch an **RFP** (duration _4 months_ on average)
 
 -   RFP is responded and proposals analysed
 
--   If more than one proposal is submitted, FF, TM Forum and interested cities
-    (with their partners) align and create a single v1.0 draft (duration of
-    alignment period is expected to be 2 months on average)
+-   If more than one proposal is submitted, FF, TM Forum and interested users
+    align and create a single v1.0 draft (duration of alignment period is expected 
+    to be 2 months on average)
 
--   Afterwards an RFC is issued and the proposal workflow (described above) is
+-   Afterwards an RFC is issued and the RFC workflow (described above) is
     put in place
 
 ![Data Model RFP](docs/rfp.png)
