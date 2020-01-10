@@ -84,7 +84,7 @@ Comments)_ periods, of a typical duration of 6 months, in between.
 The way to handle new Data Models is as follows:
 
 -   At least **2 users** propose the adoption of new specifications for
-    for addressing some specific challenge (e.g., smart parking in a City)
+    addressing some specific challenge (e.g., smart parking in a City)
 
 -   FF and TM Forum launch an **RFP** (duration _4 months_ on average)
 
