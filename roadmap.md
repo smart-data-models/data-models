@@ -9,7 +9,7 @@ This will depend on the needs and priorities of cities (demand-side).
 * Adopt additional Data Models from the 
 [SynchroniCity Data Models Project](https://gitlab.com/synchronicity-iot/synchronicity-data-models)
 
-* Add additional Data Models as per RFC Processes defined by the FIWARE Foundation and TMForum. 
+* Add additional Data Models pero other methods defined by the FIWARE Foundation and TMForum. 
 
 * Validate NGSI-LD content. 
 The validation tool (see [tools repository](https://github.com/smart-data-models/tools)) has to be tweaked to perform NGSI-LD validation of examples
