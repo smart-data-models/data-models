@@ -81,34 +81,17 @@ Comments)_ periods, of a typical duration of 6 months, in between.
 
 ![Data Model Lifecycle](docs/lifecycle.png)
 
-The way to handle new Data Models is as follows:
+The way to handle new Data Models is administrated by the different topics and domains:
 
--   At least **2 users** propose the adoption of new specifications for
-    addressing some specific challenge (e.g., smart parking in a City)
+- FIWARE foundation and TMForum will check for th consitency and updating of the different
+data models in this group of repositories
 
--   FF and TM Forum launch an **RFP** (duration _4 months_ on average)
-
--   RFP is responded and proposals analysed
-
--   If more than one proposal is submitted, FF, TM Forum and interested users
-    align and create a single v1.0 draft (duration of alignment period is expected 
-    to be 2 months on average)
-
--   Afterwards an RFC is issued and the RFC workflow (described above) is
-    put in place
-
-![Data Model RFP](docs/rfp.png)
+- It is possible to request a [new data model](https://docs.google.com/forms/d/e/1FAIpQLSfoiKoVNkDC2eXLgJh3-6Wlu-DS4LJfizFKsinpNwGIeIox4g/viewform) through the link. 
 
 ## How to contribute
 
 Contributions should come in the form of **pull requests** made against the
 corresponding Vertical Data Model repository.
-
-For new Data Models, periodically an **RFP process** might be issued. You should
-check if a new RFP is open and then you may create a new Data Model
-Specification (or set of specifications) by providing a GitHub Repository which
-shall include such specification. Finally you should submit such specification
-to the Programme by filling the corresponding form.
 
 A Data Model specification shall contain the following artefacts:
 
@@ -154,59 +137,26 @@ To facilitate contributions and their validation, we developed a
 [tool](https://github.com/smart-data-models/tools/tree/master/validator) that is
 also used for the Continuous Integration.
 
-## Front-runner Smart Cities program
+To achieve a better performance, we need to break down silo’s of data, 
+ensuring that artificial intelligence can be applied across aggregated datasets 
+and to ensure that individual citizen experience can be optimized across 
+different services.
 
-Cities have a wealth of possible data sources, such as ticket sales on public
-transport, local tax information, police reports, local weather stations, waste
-management facilities and traffic information. Some now also have a wealth of
-information from photos and videos, where AI pattern recognition can be applied
-for improving traffic congestion and reducing crime.
+To achieve this, TM Forum and FIWARE launched this initiative, which seeks to 
+harmonize data models across Smart applications and with the Data Models of 
+TM Forum which have been deployed globally.
 
-In cities, internet of things (IoT) data is prevalent. Forrester Research
-predicts that IoT will become the backbone of customer value as it continues to
-grow. Early leaders in IoT are retailers who are using it to create intimate
-customer experience, with healthcare and supply chain not far behind. They are
-using IoT to connect with patients via wearable devices and track products from
-factory to floor.
-
-According to IBM, 90% of the world’s data was generated in the past two years,
-and a recent study by IDC and EMC forecasts that by 2025 data will grow
-exponentially by 10 times to reach 163 zettabytes (trillion gigabytes). However,
-we still have a long way to go to harness the power of the data that is being
-generated. The IDC/EMC report found that only about 1% of data generated is
-utilized, processed and acted upon. One of the key barriers to utilizing data
-effectively is the inconsistency in the data models blocking the ease of
-integration of data.
-
-Imagine what could happen if we were able to effectively leverage and manage
-more of this data at scale in smart cities. To achieve this, we need to break
-down silo’s of data, ensuring that artificial intelligence can be applied across
-aggregated data sets and to ensure that individual citizen experience can be
-optimized across different city services.
-
-We need to move beyond the 1% to create cleaner data and leverage it to drive
-future decisions for cities, and this means learning much more about how
-citizens experience their cities. To achieve this, TM Forum and FIWARE launched
-the Front Runner Initiative, which seeks to harmonize data models across Smart
-Cities and with the Data Models of TM Forum which have been deployed globally.
-
-By agreeing across different communities, the common definition of smart city
+By agreeing across different communities, the common definition of smart
 data models, this will empower innovators and companies to develop solutions
 that adhere to this common definition and ultimately help enable
 interoperability of services.
 
 By way of example, the data models that have been harmonized to date can be
-found in this
-[Repository](https://github.com/smart-data-models/data-models/tree/master/specs).
+found in the submodules in the [specs](https://github.com/smart-data-models/data-models/tree/master/specs) directory. 
 
-**In order to increase visibility of contributing cities (with their partners)
-and bring trust, the number of cities endorsing each specification will be
-documented.**
-
-RFPs are under design to address the adoption of new data models for the
-following areas:
+there are new data models in progress for the following areas:
 
 -   Tourism
 -   Water Management
 -   Energy
--   Electric Vehicle
+-   Robotics 
