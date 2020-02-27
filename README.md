@@ -95,7 +95,7 @@ corresponding Vertical Data Model repository.
 
 A Data Model specification shall contain the following artefacts:
 
--   `spec.md` Markdown specification in accordance with this
+-   `README.md` Markdown specification in accordance with this
     [template](templates/data-model-template.md).
 
 -   `schema.json` JSON Schema associated to the specification. Such JSON Schema
@@ -113,10 +113,9 @@ A Data Model specification shall contain the following artefacts:
 
 The artefacts referred below should be under a folder structured as follows:
 
--   `specs/`
-    -   `NewModel/`
+-   `NewModel/`
         -   `doc/`
-            -   `spec.md`: A data model description based on the
+            -   `README.md`: A data model description based on the
                 [data model template](https://github.com/smart-data-models/data-models/blob/master/templates/data-model-template.md),
                 e.g.
                 [spec.md of WeatherObserved](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/doc/spec.md).
@@ -152,11 +151,16 @@ that adhere to this common definition and ultimately help enable
 interoperability of services.
 
 By way of example, the data models that have been harmonized to date can be
-found in the submodules in the [specs](https://github.com/smart-data-models/data-models/tree/master/specs) directory. 
+found in the submodules in the [specs](https://github.com/smart-data-models/data-models/tree/master/specs) directory 
+and in their submodules.
 
+a full list of the data models in json format can be found in the file
+[official_list_data_models.json](https://github.com/smart-data-models/data-models/blob/master/specs/Alltopics/official_list_data_models.json) and a list only for the subrepositories containing 
+data models can be found in the file [official_list_repositories.json](https://github.com/smart-data-models/data-models/blob/master/specs/Alltopics/official_list_repositories.json)
 there are new data models in progress for the following areas:
 
 -   Tourism
 -   Water Management
 -   Energy
 -   Robotics 
+-   Agrifood
