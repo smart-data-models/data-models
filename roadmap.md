@@ -3,10 +3,6 @@
 The Roadmap of the Smart Data Models Initiative is the following: 
 
 * Adopt additional Data Models from the 
-[FIWARE Data Models Project](https://github.com/FIWARE/data-models). 
-This will depend on the needs and priorities of cities (demand-side). 
-
-* Adopt additional Data Models from the 
 [SynchroniCity Data Models Project](https://gitlab.com/synchronicity-iot/synchronicity-data-models)
 
 * Add additional Data Models pero other methods defined by the FIWARE Foundation and TMForum. 
