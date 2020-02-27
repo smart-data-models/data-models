@@ -185,7 +185,7 @@ In case of doubt check the existing data models!
 
 ## Versioning
 
-FIWARE Data Models Project aim to maintain backwards compatibility, however some
+FIWARE and TMForum Data Models Project aim to maintain backwards compatibility, however some
 incompatibilities will inevitably occur over time. Data providers may choose to
 tag Entities with an additional `schemaVersion` Attribute so that Data Consumers
 can behave accordingly. This aligns with the
