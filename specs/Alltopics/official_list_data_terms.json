@@ -1,0 +1,11 @@
+[{"name" : "dateActivityStarted","type": "Attribute","schemas": "https://smart-data-models.github.io/data-models/{}","topic": "dataModel.User","dataModel": "Activity"},
+{"name" : "dateActivityEnded","type": "Attribute","schemas": "https://smart-data-models.github.io/data-models/{}","topic": "dataModel.User","dataModel": "Activity"},
+{"name" : "refObject","type": "Attribute","schemas": "https://smart-data-models.github.io/data-models/{}","topic": "dataModel.User","dataModel": "Activity"},
+{"name" : "activityType","type": "Attribute","schemas": "https://smart-data-models.github.io/data-models/{}","topic": "dataModel.User","dataModel": "Activity"},
+{"name" : "refTarget","type": "Attribute","schemas": "https://smart-data-models.github.io/data-models/{}","topic": "dataModel.User","dataModel": "Activity"},
+{"name" : "refAgent","type": "Attribute","schemas": "https://smart-data-models.github.io/data-models/{}","topic": "dataModel.User","dataModel": "Activity"},
+{"name" : "UserActivity","type": "Entity Type","schemas": "https://smart-data-models.github.io/data-models/{}","topic": "dataModel.User","dataModel": "Activity"},
+{"name" : "refActivity","type": "Attribute","schemas": "https://smart-data-models.github.io/data-models/{}","topic": "dataModel.User","dataModel": "UserContext"},
+{"name" : "refUserDevice","type": "Attribute","schemas": "https://smart-data-models.github.io/data-models/{}","topic": "dataModel.User","dataModel": "UserContext"},
+{"name" : "refUser","type": "Attribute","schemas": "https://smart-data-models.github.io/data-models/{}","topic": "dataModel.User","dataModel": "UserContext"},
+{"name" : "UserContext","type": "Entity Type","schemas": "https://smart-data-models.github.io/data-models/{}","topic": "dataModel.User","dataModel": "UserContext"}]
