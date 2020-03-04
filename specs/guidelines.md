@@ -1,8 +1,5 @@
 # Data models guidelines
 
-This is a set of guidelines for defining new data models. Further information
-and a guideline update can be found at
-[D2.2 Synhronicity IoT LSP](http://synchronicity-iot.eu/wp-content/uploads/2018/05/synchronicity_d2_2_guidelines_for_the_definition_of_oasc_shared_data_models.pdf)
 
 Before creating a new data model, explore the existing ones to be sure there is
 already a data model that covers your use case. The search box in the
@@ -10,9 +7,6 @@ ReadTheDocs page can help you to search for specification connected to your
 needs. Recall to use synonyms in your search. E.g. what you might call Public
 Transport already exists under UrbanMobility.
 
-If you are looking for guidelines on adoption of existing data models, please
-refer to [How to use FIWARE Harmonised Data Models in your projects](howto.md)
-section.
 
 ## Syntax
 
@@ -86,7 +80,7 @@ section.
         (linked) entity type. For instance `refStreetlightModel`, represents an
         attribute which contains a reference to an entity of type
         `StreetlightModel`. This option has been extensively used by data models
-        initially intended to be used with NGSI v2 .
+        initially intended to be used with NGSI v2.
 
     2.  Name the attribute using a verb (plus optionally an object) such as
         `hasStop`, `operatedBy`, `hasTrip`, etc. This option is the one
@@ -217,7 +211,7 @@ containing your changes, and proceed with a
 Pull Request should be easy to review, so if the model, or the changes you are
 proposing are wide, please create different pull requests.
 
-New data models should be added under a folder structured as follows:
+New data models should be added under a folder structured as follows: [this structures is under discussion]
 
 -   `specs/`
     -   `NewModel/`
