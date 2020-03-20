@@ -213,16 +213,13 @@ proposing are wide, please create different pull requests.
 
 New data models should be added under a folder structured as follows: [this structures is under discussion]
 
--   `specs/`
-    -   `NewModel/`
-        -   `doc/`
-            -   `spec.md`: A data model description based on the
+-   `NewModelEntity/`
+    -   `README.md/` 
+        A data model description based on the
                 [data model template](https://github.com/smart-data-models/data-models/blob/master/templates/data-model-template.md),
                 e.g.
                 [spec.md of WeatherObserved](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/doc/spec.md).
-        -   `README.md`: A summary file (as an extract from the spec file), e.g.
-            [README.md of WeatherObserved](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/README.md)
-        -   `schema.json`: The JSON Schema definition, e.g.
+     -   `schema.json`: The JSON Schema definition, e.g.
             [schema.json of WeatherObserved](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/schema.json)
         -   `example.json`: One or more JSON example file, e.g.
             [example.json of WeatherObserved](./Weather/WeatherObserved/example.json)
@@ -232,37 +229,33 @@ New data models should be added under a folder structured as follows: [this stru
         -   `example-normalized-ld.jsonld`: One or more JSON example file in
             **NGSI-LD** normalized format, e.g.
             [example-normalized-ld.jsonld of WeatherObserved](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/example-normalized-ld.jsonld)
+        -    `AUTHORS.md`. [Templated document](https://github.com/smart-data-models/data-models/blob/master/templates/AUTHORS.md) with the authors that are already contributed to the entity
+        -    `LICENSE.md`. [Templated document](https://github.com/smart-data-models/data-models/blob/master/templates/LICENCE.md) with the text of the license default CC-BY 4.0
+        -    `CURRENT ADOPTERS.md`. [Templated document](https://github.com/smart-data-models/data-models/blob/master/templates/CURRENT-ADOPTERS.md) with references a actual adoption of the data model.
 
 The name of the folder should match the Entity Type used in the JSON Schema
 (e.g. `NewModel`). For data models including more entities, a hierarchical
 folder should be used. The father folder can include common JSON schemas shared
 among the entities. e.g.:
 
--   `specs/`
-    -   `NewModel/`
-        -   `doc/`
-            -   `spec.md`
-        -   `README.md`
-        -   `newmodel-schema.json`: the common schema for the different entities.
-        -   `NewModelEntityOne/`
-            -   `doc/`
-                -   `spec.md`
-            -   `README.md`
-            -   `schema.json`
-            -   `example.json`
-            -   `example-normalized.json`
-            -   `example-normalized-ld.jsonld`
-            -    `AUTHORS.md`
-            -    `LICENSE.md`
-            -    `CURRENT ADOPTERS.md`
-        -   `NewModelEntityTwo/`
-            -   `doc/`
-                -   `spec.md`
-            -   `README.md`
-            -   `schema.json`
-            -   `example.json`
-            -   `example-normalized.json`
-            -   `example-normalized-ld.jsonld`
-            -    `AUTHORS.md`
-            -    `LICENSE.md`
-            -    `CURRENT ADOPTERS.md`
+- `NewModel/`
+    -   `README.md`
+    -   `newmodel-schema.json`: the common schema for the different entities.
+    -   `NewModelEntityOne/`
+       -   `README.md`
+       -   `schema.json`
+       -   `example.json`
+       -   `example-normalized.json`
+       -   `example-normalized-ld.jsonld`
+       -    `AUTHORS.md`
+       -    `LICENSE.md`
+       -    `CURRENT ADOPTERS.md`
+   -    `NewModelEntityTwo/`
+       -   `README.md`
+       -   `schema.json`
+       -   `example.json`
+       -   `example-normalized.json`
+       -   `example-normalized-ld.jsonld`
+       -    `AUTHORS.md`
+       -    `LICENSE.md`
+       -    `CURRENT ADOPTERS.md`
