@@ -13,6 +13,3 @@
 [submodule "specs/SmartAgrifood"]
 	path = specs/SmartAgrifood
 	url = https://github.com/smart-data-models/SmartAgrifood.git
-[submodule "specs/Smart-Sensoring"]
-	path = specs/Smart-Sensoring
-	url = https://github.com/smart-data-models/Smart-Sensoring.git
