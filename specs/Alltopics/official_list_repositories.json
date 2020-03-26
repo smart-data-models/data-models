@@ -1,96 +1,23 @@
-{ "udpatedDate" : "2020-03-26T01:41:00.00Z",
-	"repositories" : [
-{
-  "repoName": "dataModel.User",
-  "repoLink": "https://github.com/smart-data-models/dataModel.User.git"
-},
-{
-  "repoName": "dataModel.PointOfInteraction",
-  "repoLink": "https://github.com/smart-data-models/dataModel.PointOfInteraction.git"
-},
-{
-  "repoName": "dataModel.KeyPerformanceIndicator",
-  "repoLink": "https://github.com/smart-data-models/dataModel.KeyPerformanceIndicator.git"
-},
-{
-  "repoName": "dataModel.UrbanMobility",
-  "repoLink": "https://github.com/smart-data-models/dataModel.UrbanMobility.git"
-},
-{
-  "repoName": "dataModel.ParksAndGardens",
-  "repoLink": "https://github.com/smart-data-models/dataModel.ParksAndGardens.git"
-},
-{
-  "repoName": "dataModel.Aquaculture",
-  "repoLink": "https://github.com/smart-data-models/dataModel.Aquaculture.git"
-},
-{
-  "repoName": "dataModel.Agrifood",
-  "repoLink": "https://github.com/smart-data-models/dataModel.Agrifood.git"
-},
-{
-  "repoName": "dataModel.WaterNetworkManagement",
-  "repoLink": "https://github.com/smart-data-models/dataModel.WaterNetworkManagement.git"
-},
-{
-  "repoName": "dataModel.Parking",
-  "repoLink": "https://github.com/smart-data-models/dataModel.Parking.git"
-},
-{
-  "repoName": "dataModel.Weather",
-  "repoLink": "https://github.com/smart-data-models/dataModel.Weather.git"
-},
-{
-  "repoName": "dataModel.WasteManagement",
-  "repoLink": "https://github.com/smart-data-models/dataModel.WasteManagement.git"
-},
-{
-  "repoName": "dataModel.Transportation",
-  "repoLink": "https://github.com/smart-data-models/dataModel.Transportation.git"
-},
-{
-  "repoName": "dataModel.PointOfInterest",
-  "repoLink": "https://github.com/smart-data-models/dataModel.PointOfInterest.git"
-},
-{
-  "repoName": "dataModel.Device",
-  "repoLink": "https://github.com/smart-data-models/dataModel.Device.git"
-},
-{
-  "repoName": "dataModel.Streetlighting",
-  "repoLink": "https://github.com/smart-data-models/dataModel.Streetlighting.git"
-},
-{
-  "repoName": "dataModel.IssueTracking",
-  "repoLink": "https://github.com/smart-data-models/dataModel.IssueTracking.git"
-},
-{
-  "repoName": "dataModel.Energy",
-  "repoLink": "https://github.com/smart-data-models/dataModel.Energy.git"
-},
-{
-  "repoName": "dataModel.Building",
-  "repoLink": "https://github.com/smart-data-models/dataModel.Building.git"
-},
-{
-  "repoName": "dataModel.Environment",
-  "repoLink": "https://github.com/smart-data-models/dataModel.Environment.git"
-},
-{
-  "repoName": "dataModel.Alert",
-  "repoLink": "https://github.com/smart-data-models/dataModel.Alert.git"
-},		
-{
-  "repoName": "dataModel.WaterConsumption",
-  "repoLink": "https://github.com/smart-data-models/dataModel.WaterConsumption.git"
-},		
-{
-  "repoName": "dataModel.WaterDistribution",
-  "repoLink": "https://github.com/smart-data-models/dataModel.WaterDistribution.git"
-},		
-{
-  "repoName": "dataModel.WaterQuality",
-  "repoLink": "https://github.com/smart-data-models/dataModel.WaterQuality.git"
-}
-]
-}
+{ "udpatedDate" : "2020-03-26T01:42:29.901302", "officialList" : [{ "repoName": "dataModel.User","repoLink": "https://github.com/smart-data-models/dataModel.User.git", "dataModels" : ["Activity","UserContext"]},
+{ "repoName": "dataModel.PointOfInteraction","repoLink": "https://github.com/smart-data-models/dataModel.PointOfInteraction.git", "dataModels" : ["SmartSpot","SmartPointOfInteraction"]},
+{ "repoName": "dataModel.KeyPerformanceIndicator","repoLink": "https://github.com/smart-data-models/dataModel.KeyPerformanceIndicator.git", "dataModels" : ["keyPerformanceIndicator"]},
+{ "repoName": "dataModel.UrbanMobility","repoLink": "https://github.com/smart-data-models/dataModel.UrbanMobility.git", "dataModels" : ["GtfsTrip","GtfsAgency","GtfsStopTime","GtfsFrequency","GtfsStation","GtfsStop","GtfsTransferRule","GtfsShape","GtfsCalendarDateRule","ArrivalEstimation","GtfsService","GtfsRoute","GtfsCalendarRule","GtfsAccessPoint"]},
+{ "repoName": "dataModel.ParksAndGardens","repoLink": "https://github.com/smart-data-models/dataModel.ParksAndGardens.git", "dataModels" : ["FlowerBed","Garden","GreenspaceRecord"]},
+{ "repoName": "dataModel.Aquaculture","repoLink": "https://github.com/smart-data-models/dataModel.Aquaculture.git", "dataModels" : ["BreedingOperation","FishCointaiment"]},
+{ "repoName": "dataModel.Agrifood","repoLink": "https://github.com/smart-data-models/dataModel.Agrifood.git", "dataModels" : ["AgriParcel","Animal","AgriProductType","AgriSoil","AgriFarm","AgriApp","AgriGreenhouse","AgriCrop","AgriParcelOperation","AgriParcelRecord","AgriPest"]},
+{ "repoName": "dataModel.WaterNetworkManagement","repoLink": "https://github.com/smart-data-models/dataModel.WaterNetworkManagement.git", "dataModels" : ["WaterNetwork"]},
+{ "repoName": "dataModel.Parking","repoLink": "https://github.com/smart-data-models/dataModel.Parking.git", "dataModels" : ["ParkingAccess","ParkingGroup","OnStreetParking","OffStreetParking","ParkingSpot"]},
+{ "repoName": "dataModel.Weather","repoLink": "https://github.com/smart-data-models/dataModel.Weather.git", "dataModels" : ["WeatherForecast","WeatherObserved","WeatherAlert"]},
+{ "repoName": "dataModel.WasteManagement","repoLink": "https://github.com/smart-data-models/dataModel.WasteManagement.git", "dataModels" : ["WasteContainer","WasteContainerIsle","WasteContainerModel"]},
+{ "repoName": "dataModel.Transportation","repoLink": "https://github.com/smart-data-models/dataModel.Transportation.git", "dataModels" : ["VehicleModel","EVChargingStation","RoadSegment","Vehicle","TrafficFlowObserved","CrowdFlowObserved","BikeHireDockingStation","Road"]},
+{ "repoName": "dataModel.PointOfInterest","repoLink": "https://github.com/smart-data-models/dataModel.PointOfInterest.git", "dataModels" : ["Beach","Museum","PointOfInterest"]},
+{ "repoName": "dataModel.Device","repoLink": "https://github.com/smart-data-models/dataModel.Device.git", "dataModels" : ["DeviceModel","Device"]},
+{ "repoName": "dataModel.Streetlighting","repoLink": "https://github.com/smart-data-models/dataModel.Streetlighting.git", "dataModels" : ["StreetlightControlCabinet","StreetlightGroup","StreetlightModel","Streetlight"]},
+{ "repoName": "dataModel.IssueTracking","repoLink": "https://github.com/smart-data-models/dataModel.IssueTracking.git", "dataModels" : ["Open311_ServiceRequest","Open311_ServiceType"]},
+{ "repoName": "dataModel.Energy","repoLink": "https://github.com/smart-data-models/dataModel.Energy.git", "dataModels" : ["ThreePhaseAcMeasurement"]},
+{ "repoName": "dataModel.Building","repoLink": "https://github.com/smart-data-models/dataModel.Building.git", "dataModels" : ["Building","BuildingOperation"]},
+{ "repoName": "dataModel.Environment","repoLink": "https://github.com/smart-data-models/dataModel.Environment.git", "dataModels" : ["AirQualityObserved","WaterQualityObserved","NoiseLevelObserved","AeroAllergenObserved"]},
+{ "repoName": "dataModel.Alert","repoLink": "https://github.com/smart-data-models/dataModel.Alert.git", "dataModels" : ["alert"]},
+{ "repoName": "dataModel.WaterConsumption","repoLink": "https://github.com/smart-data-models/dataModel.WaterConsumption.git", "dataModels" : ]},
+{ "repoName": "dataModel.WaterDistribution","repoLink": "https://github.com/smart-data-models/dataModel.WaterDistribution.git", "dataModels" : ]},
+{ "repoName": "dataModel.WaterQuality","repoLink": "https://github.com/smart-data-models/dataModel.WaterQuality.git", "dataModels" : ]}]}
