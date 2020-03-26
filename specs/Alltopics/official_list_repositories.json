@@ -79,6 +79,18 @@
 {
   "repoName": "dataModel.Alert",
   "repoLink": "https://github.com/smart-data-models/dataModel.Alert.git"
+},		
+{
+  "repoName": "dataModel.WaterConsumption",
+  "repoLink": "https://github.com/smart-data-models/dataModel.WaterConsumption.git"
+},		
+{
+  "repoName": "dataModel.WaterDistribution",
+  "repoLink": "https://github.com/smart-data-models/dataModel.WaterDistribution.git"
+},		
+{
+  "repoName": "dataModel.WaterQuality",
+  "repoLink": "https://github.com/smart-data-models/dataModel.WaterQuality.git"
 }
 ]
 }
