@@ -48,7 +48,7 @@
         "Chla": "https://uri.fiware.org/ns/data-models#Chla",
         "Cl-": "https://uri.fiware.org/ns/data-models#Cl-",
         "CrowdFlowObserved": "https://uri.fiware.org/ns/data-models#CrowdFlowObserved",
-        "Curve": "https://uri.fiware.org/ns/data-models#",
+        "Curve": "https://uri.fiware.org/ns/data-models#Curve",
         "Device": "https://uri.fiware.org/ns/data-models#Device",
         "DeviceModel": "https://uri.fiware.org/ns/data-models#DeviceModel",
         "DirectDebit": "http://purl.org/goodrelations/v1#DirectDebit",
