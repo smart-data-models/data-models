@@ -159,8 +159,13 @@ a full list of the data models in json format can be found in the file
 data models can be found in the file [official_list_repositories.json](https://github.com/smart-data-models/data-models/blob/master/specs/Alltopics/official_list_repositories.json)
 there are new data models in progress for the following areas:
 
--   Tourism
--   Water Management
--   Energy
--   Robotics 
--   Agrifood
+
+-   [Smart Cities](https://github.com/smart-data-models/SmartCities)
+-   [Smart Environment](https://github.com/smart-data-models/SmartEnvironment)
+-   [Smart Agrifood](https://github.com/smart-data-models/SmartAgrifood)
+-   [Smart Water](https://github.com/smart-data-models/SmartWater)
+-   [Smart Energy](https://github.com/smart-data-models/SmartEnergy)
+-   [Smart Sensoring](https://github.com/smart-data-models/Smart-Sensoring)
+-   [Smart Robotics](https://github.com/smart-data-models/SmartRobotics) (Just open)
+-   [Smart Manufacturing](https://github.com/smart-data-models/SmartManufacturing) (Just open)
+-   Tourism (pending)
