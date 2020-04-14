@@ -1,6 +1,6 @@
 # README Template
 
-This file is a template of a README.md file located in the root of a repository. Texts have to be customzied for Subject or domain
+This file is a template of a README.md file located in the root of a repository. Texts have to be customized for Subject or Domain
 
 if you want to find use cases of use you have to visit [CURRENT-ADOPTERS.md](CURRENT-ADOPTERS.md) 
 
