@@ -1,8 +1,7 @@
-# AUTHORS
-Every object has its AUTHORS.md file where these authors are credited
+# SUBJECT AUTHORS
+Every Subject has its AUTHORS.md file where the contributors are credited
 This is a compilation list of all AUTHORS across different objects alphabetically ordered
 
-## [domain] data model [Object] 
 
 ## List of authors
 ___
