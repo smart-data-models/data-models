@@ -1,0 +1,45 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "Entity.schema.json",
+    "title": "Entity",
+    "definitions": {
+        "Entity": {
+            "$id": "#Entity",
+            "type": "object",
+            "description": "Base entity schema for use in TMForum Open-APIs",
+            "discriminator": "@type",
+            "properties": {
+                "@schemaLocation": {
+                    "type": "string",
+                    "format": "uri",
+                    "description": "A URI to a JSON-Schema file that defines additional attributes and relationships",
+                    "examples": [
+                        "http://host/schemas/Subclass.schema.json"
+                    ]
+                },
+                "@baseType": {
+                    "type": "string",
+                    "description": "When sub-classing, this defines the super-class",
+                    "examples": [
+                        "Place",
+                        "ServiceSpecification"
+                    ]
+                },
+                "@type": {
+                    "type": "string",
+                    "description": "When sub-classing, this defines the sub-class entity name",
+                    "examples": [
+                        "VendorProductOffering",
+                        "DroneServiceSpecification"
+                    ]
+                }
+            },
+            "dependencies": {
+                "@schemaLocation": [
+                    "@baseType",
+                    "@type"
+                ]
+            }
+        }
+    }
+}

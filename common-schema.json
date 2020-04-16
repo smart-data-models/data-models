@@ -80,52 +80,63 @@
         "location": { "$ref": "http://geojson.org/schema/Geometry.json#" },
         "address": {
           "type": "object",
-          "properties": {
-            "streetAddress": {
-              "type": "string"
+          "allOf": [
+            {
+              "$ref": "https://raw.githubusercontent.com/smart-data-models/data-models/master/specs/Common/Address.schema.json#/definitions/Address"
             },
-            "addressLocality": {
-              "type": "string"
-            },
-            "addressRegion": {
-              "type": "string"
-            },
-            "addressCountry": {
-              "type": "string"
-            },
-            "postalCode": {
-              "type": "string"
-            },
-            "postOfficeBoxNumber": {
-              "type": "string"
-            },
-            "areaServed": {
-              "type": "string"
+            {
+            "properties": {
+              "streetAddress": {
+                "type": "string"
+              },
+              "addressLocality": {
+                "type": "string"
+              },
+              "addressRegion": {
+                "type": "string"
+              },
+              "addressCountry": {
+                "type": "string"
+              },
+              "postalCode": {
+                "type": "string"
+              },
+              "postOfficeBoxNumber": {
+                "type": "string"
+              },
+              "areaServed": {
+                "type": "string"
+              }
             }
           }
-        },
-        "areaServed": {
-          "type": "string"
-        }
-      }
+        ]}
+      }      
     },
     "PhysicalObject-Commons": {
       "type": "object",
-      "properties": {
-        "color": {
-          "type": "string"
+      "allOf": [
+        {
+          "$ref": "https://raw.githubusercontent.com/smart-data-models/data-models/master/specs/Common/PhysicalResource.schema.json#/definitions/PhysicalResource"
         },
-        "image": {
-          "type": "string",
-          "format": "uri"
-        },
-        "annotations": {
-          "type": "array",
-          "items": {
-            "type": "string"
+        {
+          "properties": {
+            "color": {
+              "type": "string"
+            },
+            "image": {
+              "type": "string",
+              "format": "uri"
+            },
+            "annotations": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
           }
         }
-      }
+      ]
+      
     }
   }
 }
