@@ -1,30 +1,45 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "$id": "Extensible.schema.json",
-    "title": "Extensible",
-    "definitions": {
-        "Extensible": {
-            "type": "object",
-            "description": "Base Extensible schema for use in TMForum Open-APIs",
-            "properties": {
-                "@baseType": {
-                    "type": "string",
-                    "description": "When sub-classing, this defines the super-class"
-                },
-                "@schemaLocation": {
-                    "$ref": "Uri.schema.json#/definitions/Uri",
-                    "description": "A URI to a JSON-Schema file that defines additional attributes and relationships"
-                },
-                "@type": {
-                    "type": "string",
-                    "description": "When sub-classing, this defines the sub-class Extensible name"
-                }
-            },
-            "allOf": [
-                {
-                    "$ref": "Entity.schema.json#/Entity"
-                }
-            ]
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "Extensible.schema.json",
+  "title": "Extensible",
+  "definitions": {
+    "Extensible": {
+      "$id": "#Extensible",
+      "type": "object",
+
+    
+      "description": "Base Extensible schema for use in TMForum Open-APIs",
+
+      "properties": {
+        "@schemaLocation": {
+          "type": "string",
+          "format": "uri",
+          "description": "A URI to a JSON-Schema file that defines additional attributes and relationships",
+          "examples": [
+            "https://mycsp.com:8080/tmf-api/schema/Resource/LogicalResourceSpecification.schema.json"
+          ]
+        },
+        "@baseType": {
+          "type": "string",
+          "description": "When sub-classing, this defines the super-class",
+          "examples": [
+            "ResourceSpecification"
+          ]
+        },
+        "@type": {
+          "type": "string",
+          "description": "When sub-classing, this defines the sub-class Extensible name",
+          "examples": [
+            "LogicalResourceSpecification"
+          ]
         }
+      },
+      "dependencies": {
+        "@schemaLocation": [
+          "@baseType",
+          "@type"
+        ]
+      }
     }
+  }
 }

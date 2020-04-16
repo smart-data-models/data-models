@@ -1,61 +1,62 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "$id": "SubAddress.schema.json",
-    "title": "SubAddress",
-    "definitions": {
-        "SubAddress": {
-            "type": "object",
-            "description": "Representation of a SubAddress \nIt is used for addressing within a property in an urban area (country properties are often defined differently). It may refer to a building, a building cluster, or a floor of a multistory building.",
-            "properties": {
-                "buildingName": {
-                    "type": "string",
-                    "description": "Allows for buildings that have well-known names"
-                },
-                "href": {
-                    "type": "string"
-                },
-                "id": {
-                    "type": "string",
-                    "description": "Unique ID for this SubAddress"
-                },
-                "levelNumber": {
-                    "type": "string",
-                    "description": "Used where a level type may be repeated e.g. BASEMENT 1, BASEMENT 2"
-                },
-                "levelType": {
-                    "type": "string",
-                    "description": "Describes level types within a building"
-                },
-                "name": {
-                    "type": "string",
-                    "description": "Name of the subAddress to identify it with a meaningful identification"
-                },
-                "privateStreetName": {
-                    "type": "string",
-                    "description": "Private streets internal to a property (e.g. a university) may have internal names that are not recorded by the land title office."
-                },
-                "privateStreetNumber": {
-                    "type": "string",
-                    "description": "Private streets numbers internal to a private street"
-                },
-                "subAddressType": {
-                    "type": "string",
-                    "description": "The type of subaddress : it can be a subunit or a private street"
-                },
-                "subUnitNumber": {
-                    "type": "string",
-                    "description": "The discriminator of the subunit, often just a simple number e.g. FLAT 5, may also be a range"
-                },
-                "subUnitType": {
-                    "type": "string",
-                    "description": "The type of subunit, such as BERTH, FLAT, PIER, SUITE, SHOP, TOWER, UNIT, WHARF"
-                }
-            },
-            "allOf": [
-                {
-                    "$ref": "Entity.schema.json#/Entity"
-                }
-            ]
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "SubAddress.schema.json",
+  "title": "SubAddress",
+  "definitions": {
+    "SubAddress": {
+      "$id": "#SubAddress",
+      "description": "Representation of a SubAddress \nIt is used for addressing within a property in an urban area (country properties are often defined differently). It may refer to a building, a building cluster, or a floor of a multistory building.",
+      "type": "object",
+      "properties": {
+        "buildingName": {
+          "type": "string",
+          "description": "Allows for buildings that have well-known names"
+        },
+        "href": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string",
+          "description": "Unique ID for this SubAddress"
+        },
+        "levelNumber": {
+          "type": "string",
+          "description": "Used where a level type may be repeated e.g. BASEMENT 1, BASEMENT 2"
+        },
+        "levelType": {
+          "type": "string",
+          "description": "Describes level types within a building"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the subAddress to identify it with a meaningful identification"
+        },
+        "privateStreetName": {
+          "type": "string",
+          "description": "Private streets internal to a property (e.g. a university) may have internal names that are not recorded by the land title office."
+        },
+        "privateStreetNumber": {
+          "type": "string",
+          "description": "Private streets numbers internal to a private street"
+        },
+        "subUnitNumber": {
+          "type": "string",
+          "description": "The discriminator of the subunit, often just a simple number e.g. FLAT 5, may also be a range"
+        },
+        "subUnitType": {
+          "type": "string",
+          "description": "The type of subunit, such as BERTH, FLAT, PIER, SUITE, SHOP, TOWER, UNIT, WHARF"
+        },
+        "subAddressType": {
+          "type": "string",
+          "description": "The type of subaddress : it can be a subunit or a private street"
         }
+      },
+      "allOf": [
+        {
+          "$ref": "../Common/Entity.schema.json#Entity"
+        }
+      ]
     }
+  }
 }
