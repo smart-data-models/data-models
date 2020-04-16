@@ -1,0 +1,70 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "Address.schema.json",
+    "title": "Address",
+    "definitions": {
+        "Address": {
+            "type": "object",
+            "description": "Structured textual way of describing how to find a Property in an urban area (country properties are often\ndefined differently).\nNote : Address corresponds to SID UrbanPropertyAddress",
+            "properties": {
+                "city": {
+                    "type": "string",
+                    "description": "City that the address is in"
+                },
+                "country": {
+                    "type": "string",
+                    "description": "Country that the address is in"
+                },
+                "locality": {
+                    "type": "string",
+                    "description": "\"An area of defined or undefined boundaries within a local authority or other legislatively defined area, usually rural or semi rural in nature.\" [ANZLIC-STREET], or a suburb \"a bounded locality within a city, town or shire principally of urban character \" [ANZLICSTREET]"
+                },
+                "postcode": {
+                    "type": "string",
+                    "description": "descriptor for a postal delivery area, used to speed and simplify the delivery of mail (also know as zipcode)"
+                },
+                "stateOrProvince": {
+                    "type": "string",
+                    "description": "the State or Province that the address is in"
+                },
+                "streetName": {
+                    "type": "string",
+                    "description": "Name of the street or other street type"
+                },
+                "streetNr": {
+                    "type": "string",
+                    "description": "Number identifying a specific property on a public street. It may be combined with streetNrLast for ranged addresses"
+                },
+                "streetNrLast": {
+                    "type": "string",
+                    "description": "Last number in a range of street numbers allocated to a property"
+                },
+                "streetNrLastSuffix": {
+                    "type": "string",
+                    "description": "Last street number suffix for a ranged address"
+                },
+                "streetNrSuffix": {
+                    "type": "string",
+                    "description": "the first street number suffix"
+                },
+                "streetSuffix": {
+                    "type": "string",
+                    "description": "A modifier denoting a relative direction"
+                },
+                "streetType": {
+                    "type": "string",
+                    "description": "alley, avenue, boulevard, brae, crescent, drive, highway, lane, terrace, parade, place, tarn, way, wharf "
+                },
+                "subAddress": {
+                    "$ref": "SubAddress.schema.json#/definitions/SubAddress",
+                    "description": "Within a property in an urban area, may refer to a building, building cluster, or a floor of a multistory building"
+                }
+            },
+            "allOf": [
+                {
+                    "$ref": "Entity.schema.json#/Entity"
+                }
+            ]
+        }
+    }
+}
