@@ -1,4 +1,4 @@
-{ "udpatedDate" : "2020-04-12T01:23:30.356440", "officialList" : [{ "repoName": "dataModel.User","repoLink": "https://github.com/smart-data-models/dataModel.User.git", "dataModels" : ["Activity","UserContext"]},
+{ "udpatedDate" : "2020-04-22T15:41:34.451876", "officialList" : [{ "repoName": "dataModel.User","repoLink": "https://github.com/smart-data-models/dataModel.User.git", "dataModels" : ["Activity","UserContext"]},
 { "repoName": "dataModel.PointOfInteraction","repoLink": "https://github.com/smart-data-models/dataModel.PointOfInteraction.git", "dataModels" : ["SmartSpot","SmartPointOfInteraction"]},
 { "repoName": "dataModel.KeyPerformanceIndicator","repoLink": "https://github.com/smart-data-models/dataModel.KeyPerformanceIndicator.git", "dataModels" : ["keyPerformanceIndicator"]},
 { "repoName": "dataModel.UrbanMobility","repoLink": "https://github.com/smart-data-models/dataModel.UrbanMobility.git", "dataModels" : ["GtfsTrip","GtfsAgency","GtfsStopTime","GtfsFrequency","GtfsStation","GtfsStop","GtfsTransferRule","GtfsShape","GtfsCalendarDateRule","ArrivalEstimation","GtfsService","GtfsRoute","GtfsCalendarRule","GtfsAccessPoint"]},
