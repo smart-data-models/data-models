@@ -73,32 +73,3 @@ A JSON Schema corresponding to this data model can be found at
 **Note**: JSON Schemas are intended to capture the data type and associated
 constraints of the different Attributes, regardless their final representation
 format in NGSI(v2, LD).
-
-## Examples of use
-
-### Normalized Example
-
-Normalized NGSI response
-
-{{Provide a JSON example in NGSIv2 Normalized Format}}
-
-### key-value pairs Example
-
-Sample uses simplified representation for data consumers `?options=keyValues`
-
-{{Provide a JSON example in NGSIv2 keyValues Format}}
-
-### LD Example
-
-Sample uses the NGSI-LD representation
-
-{{Provide a JSON example in NGSI-LD Format}}
-
-## Use it with a real service
-
-{{Provide a link to a real service providing data following the harmonized data format}}
-
-## Open Issues
-
-{{Describe here any open issue}}
-
