@@ -1,0 +1,62 @@
+{
+    "@context": [
+        "https://raw.githubusercontent.com/smart-data-models/data-models/master/context.jsonld"
+    ],
+    "id": "urn:ngsi-ld:FleetVehicleOperation:8e876a60-5aa3-11e8-b350-d7b51a09fb6c",
+    "type": "FleetVehicleOperation",
+    "createdAt": "2017-01-01T01:20:00Z",
+    "modifiedAt": "2017-05-04T12:30:00Z",
+    "source": "https://source.example.com",
+    "dataProvider": "https://provider.example.com",
+    "entityVersion": 2.0,
+    "fleetVehicle": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:FleetVehicle:84c6a3a8-5aa6-11e8-bedc-27e105edd16f"
+    },
+    "fleetVehicleStatus": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:FleetVehicleStatus:0284e0dc-5aa4-11e8-97e6-2351fc70c286"
+    },
+    "initiatingLocation": {
+        "type": "GeoProperty",
+        "value": {
+            "type": "Point",
+            "coordinates": [
+                -104.99404,
+                39.75621
+            ]
+        }
+    },
+    "startedAt": {
+        "type": "Property",
+        "value": "2016-08-22T10:18:16Z"
+    },
+    "endedAt": {
+        "type": "Property",
+        "value": "2016-08-28T10:18:16Z"
+    },
+    "operationType": {
+        "type": "Property",
+        "value": "Patient transportation"
+    },
+    "description": {
+        "type": "Property",
+        "value": "An emergency tranportation of a 3 year old boy"
+    },
+    "result": {
+        "type": "Property",
+        "value": "Completed"
+    },
+    "responseTime": {
+        "type": "Property",
+        "value": 2500,
+        "unitCode": "SEC",
+        "observedAt": "2016-08-28T10:18:16Z"
+    },
+    "transportTime": {
+        "type": "Property",
+        "value": 1220,
+        "unitCode": "SEC",
+        "observedAt": "2016-08-28T10:18:16Z"
+    }
+}

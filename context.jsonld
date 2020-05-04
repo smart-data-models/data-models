@@ -15,6 +15,10 @@
         "5": "https://uri.fiware.org/ns/data-models#5",
         "6": "https://uri.fiware.org/ns/data-models#6",
         "7": "https://uri.fiware.org/ns/data-models#7",
+        "addressedAt": {
+            "@type": "DateTime",
+            "@id": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/addressedat"
+        },
         "AeroAllergenObserved": "https://uri.fiware.org/ns/data-models#AeroAllergenObserved",
         "AgriApp": "https://uri.fiware.org/ns/data-models#AgriApp",
         "AgriCrop": "https://uri.fiware.org/ns/data-models#AgriCrop",
@@ -31,6 +35,7 @@
         "Animal": "https://uri.fiware.org/ns/data-models#Animal",
         "ArrivalEstimation": "https://uri.fiware.org/ns/data-models#ArrivalEstimation",
         "Beach": "https://uri.fiware.org/ns/data-models#Beach",
+        "bearing": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/bearing",
         "BikeHireDockingStation": "https://uri.fiware.org/ns/data-models#BikeHireDockingStation",
         "Building": "https://uri.fiware.org/ns/data-models#Building",
         "BuildingOperation": "https://uri.fiware.org/ns/data-models#BuildingOperation",
@@ -50,9 +55,28 @@
         "Chla": "https://uri.fiware.org/ns/data-models#Chla",
         "Cl-": "https://uri.fiware.org/ns/data-models#Cl-",
         "CrowdFlowObserved": "https://uri.fiware.org/ns/data-models#CrowdFlowObserved",
+        "currentOperative": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/currentoperative",
+        "currentStatus": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/currentstatus",
         "dataProvider": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/dataprovider",
+         "dateAddressed": {
+            "@type": "DateTime",
+            "@id": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/dateaddressed"
+        },
+        "dateFinished": {
+            "@type": "DateTime",
+            "@id": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/datefinished"
+        },
+        "dateReported": {
+            "@type": "DateTime",
+            "@id": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/datereported"
+        },
+        "dateStarted": {
+            "@type": "DateTime",
+            "@id": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/datestarted"
+        },
         "description": "https://schema.org/description",
         "Device": "https://uri.fiware.org/ns/data-models#Device",
+        "device": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/device",
         "DeviceModel": "https://uri.fiware.org/ns/data-models#DeviceModel",
         "DirectDebit": "http://purl.org/goodrelations/v1#DirectDebit",
         "Dual_CHAdeMO": "https://uri.fiware.org/ns/data-models#Dual_CHAdeMO",
@@ -62,8 +86,26 @@
         "E1": "https://uri.fiware.org/ns/data-models#E1",
         "E2": "https://uri.fiware.org/ns/data-models#E2",
         "E9": "https://uri.fiware.org/ns/data-models#E9",
+         "endedAt": {
+            "@type": "DateTime",
+            "@id": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/endedat"
+        },
+        "endDate": {
+            "@type": "DateTime",
+            "@id": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/enddate"
+        },
         "entityVersion": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/entityversion",
         "EVChargingStation": "https://uri.fiware.org/ns/data-models#EVChargingStation",
+         "eventStart": {
+            "@type": "DateTime",
+            "@id": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/eventstart"
+        },
+        "eventEnd": {
+            "@type": "DateTime",
+            "@id": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/eventend"
+        },
+        "fleetVehicle": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/fleetvehicle",
+        "fleetVehicleStatus": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/fleetvehiclestatus",
         "FlowerBed": "https://uri.fiware.org/ns/data-models#FlowerBed",
         "Garden": "https://uri.fiware.org/ns/data-models#Garden",
         "GoogleCheckout": "http://purl.org/goodrelations/v1#GoogleCheckout",
@@ -82,11 +124,20 @@
         "GtfsTransferRule": "https://uri.fiware.org/ns/data-models#GtfsTransferRule",
         "GtfsTrip": "https://uri.fiware.org/ns/data-models#GtfsTrip",
         "HPS": "https://uri.fiware.org/ns/data-models#HPS",
+        "initiatingLocation": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/initiatinglocation",
+        "inRestrictedArea": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/inrestrictedarea",
         "J-1772": "https://uri.fiware.org/ns/data-models#J-1772",
         "KeyPerformanceIndicator": "https://uri.fiware.org/ns/data-models#KeyPerformanceIndicator",
+        "lastFuellingAmount": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/lastfuellingamount",
+        "lastKnownPosition": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/lastknownposition",
+        "lastKnownPositionUpdatedAt": {
+            "@type": "DateTime",
+            "@id": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/lastknownpositionupdatedat"
+        },
         "LED": "https://uri.fiware.org/ns/data-models#LED",
         "LPS": "https://uri.fiware.org/ns/data-models#LPS",
         "Mennekes": "https://uri.fiware.org/ns/data-models#Mennekes",
+        "mileageFromOdometer": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/mileagefromodometer",
         "Museum": "https://uri.fiware.org/ns/data-models#Museum",
         "name": "https://schema.org/name",
         "NH3": "https://uri.fiware.org/ns/data-models#NH3",
@@ -98,6 +149,8 @@
         "OnStreetParking": "https://uri.fiware.org/ns/data-models#OnStreetParking",
         "Open311ServiceRequest": "https://uri.fiware.org/ns/data-models#Open311ServiceRequest",
         "Open311ServiceType": "https://uri.fiware.org/ns/data-models#Open311ServiceType",
+        "operator": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/operator",
+        "operationType": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/operationtype",
         "Other": "https://uri.fiware.org/ns/data-models#Other",
         "PC": "https://uri.fiware.org/ns/data-models#PC",
         "PE": "https://uri.fiware.org/ns/data-models#PE",
@@ -106,14 +159,39 @@
         "ParkingSpot": "https://uri.fiware.org/ns/data-models#ParkingSpot",
         "PayPal": "http://purl.org/goodrelations/v1#PayPal",
         "PaySwarm": "http://purl.org/goodrelations/v1#PaySwarm",
+        "plannedEndAt": {
+            "@type": "DateTime",
+            "@id": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/plannedendat"
+        },
+        "plannedStartAt": {
+            "@type": "DateTime",
+            "@id": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/plannedstartat"
+        },
         "Point": "https://uri.fiware.org/ns/data-models#Point",
         "PointOfInterest": "https://uri.fiware.org/ns/data-models#PointOfInterest",
         "Q-Quality": "https://uri.fiware.org/ns/data-models#Q-Quality",
+        "reportedAt": {
+            "@type": "DateTime",
+            "@id": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/reportedat"
+        },
+        "responseTime": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/responsetime",
+         "result": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/result",
+        "restFuelAmount": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/restfuelamount",
+        "speed": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/speed",
+         "startDate": {
+            "@type": "DateTime",
+            "@id": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/startdate"
+        },
         "Road": "https://uri.fiware.org/ns/data-models#Road",
         "RoadSegment": "https://uri.fiware.org/ns/data-models#RoadSegment",
         "root": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/root",
         "SmartPointOfInteraction": "https://uri.fiware.org/ns/data-models#SmartPointOfInteraction",
         "SmartSpot": "https://uri.fiware.org/ns/data-models#SmartSpot",
+        "startedAt": {
+            "@type": "DateTime",
+            "@id": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/startedat"
+        },
+        "status": "http://uri.etsi.org/ngsi-ld/status",
         "Streetlight": "https://uri.fiware.org/ns/data-models#Streetlight",
         "StreetlightControlCabinet": "https://uri.fiware.org/ns/data-models#StreetlightControlCabinet",
         "StreetlightGroup": "https://uri.fiware.org/ns/data-models#StreetlightGroup",
@@ -126,6 +204,7 @@
             "@type": "https://uri.etsi.org/ngsi-ld/DateTime"
         },
         "TrafficFlowObserved": "https://uri.fiware.org/ns/data-models#TrafficFlowObserved",
+        "transportTime": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/transporttime",
         "Type2": "https://uri.fiware.org/ns/data-models#Type2",
         "Type3": "https://uri.fiware.org/ns/data-models#Type3",
         "UserActivity": "https://uri.fiware.org/ns/data-models#UserActivity",
