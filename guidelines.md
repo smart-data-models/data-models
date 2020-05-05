@@ -1,12 +1,10 @@
-# Data models guidelines
+# Smart Data Models guidelines
 
 This is a set of guidelines for defining new data models.
 
-Before creating a new data model, explore the existing ones to be sure there is
-already a data model that covers your use case. The search box in the
-ReadTheDocs page can help you to search for specification connected to your
-needs. Recall to use synonyms in your search. E.g. what you might call Public
-Transport already exists under UrbanMobility.
+Before creating a new data model, [explore the existing ones](http://data-models.fiware.org/index.php/list-of-data-models/) to be sure there is
+already a data model that covers your use case. Recall to use synonyms in your search. E.g. what you might call Public
+Transport already exists under UrbanMobility. Check [this resource](https://docs.google.com/spreadsheets/d/1vp9rU63R2YXleEg6w2tn1tWx5sb4heY0APK-tHV9e5M) to find it out.
 
 If you are looking for guidelines on adoption of existing data models, please
 refer to [How to use FIWARE Harmonised Data Models in your projects](howto.md)
@@ -26,7 +24,7 @@ section.
 ## Reuse
 
 -   Check for the existence of the same Attribute on any of the other models and
-    reuse it, if pertinent.
+    reuse it, in [this resource](https://docs.google.com/spreadsheets/d/1vp9rU63R2YXleEg6w2tn1tWx5sb4heY0APK-tHV9e5M) if pertinent.
 -   Have a look at [schema.org](http://schema.org) trying to find a similar term
     with the same semantics.
 -   Try to find common used ontologies or existing standards well accepted by
@@ -48,7 +46,8 @@ section.
     new value is not semantically covered by any of the existing ones.
 
 -   State clearly what attributes are mandatory and what are optional. Remember
-    that `null` value should be avoided as it is prohibited in NGSI-LD.
+    that `null` value should be avoided as it is prohibited in NGSI-LD. The minimum required 
+    attributes will make the data models more flexible for other to use them. 
 
 ## Units
 
@@ -74,6 +73,8 @@ section.
 
 -   Use the `location` Attribute for geographical coordinates. GeoJSON must be
     used for encoding geospatial properties.
+    
+- There is a shared resource including both at [https://github.com/smart-data-models/data-models/blob/master/common-schema.json](https://github.com/smart-data-models/data-models/blob/master/common-schema.json#Location-Commons)    
 
 ## Modelling linked data
 
@@ -89,7 +90,7 @@ section.
 -   In NGSI v2 the Attribute type must be `DateTime`.
 
 -   In NGSI-LD, please check the date and time encoding at the
-    [NGSI-LD FAQ](https://github.com/FIWARE/data-models/blob/master/specs/ngsi-ld_howto.md#airquality-in-ngsi-ld-format).
+    [NGSI-LD FAQ](https://github.com/smart-data-models/data-models/blob/master/ngsi-ld_howto.md#airquality-in-ngsi-ld-format).
 
 -   Use the `date` prefix for naming entity attributes representing dates (or
     complete timestamps). Ex. `dateLastEmptying`.
@@ -128,7 +129,7 @@ section.
 
 There can be certain entity attributes which content is subject to be
 internationalized. For instance, the description of a Point of Interest. The
-internationalization (i18N) guidelines for the FIWARE Data Models are defined as
+internationalization (i18N) guidelines for the Smart Data Models are defined as
 follows:
 
 -   By default, the value of an attribute subject to be internationalized
