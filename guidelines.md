@@ -7,7 +7,7 @@ already a data model that covers your use case. Recall to use synonyms in your s
 Transport already exists under UrbanMobility. Check [this resource](https://docs.google.com/spreadsheets/d/1vp9rU63R2YXleEg6w2tn1tWx5sb4heY0APK-tHV9e5M) to find it out.
 
 If you are looking for guidelines on adoption of existing data models, please
-refer to [How to use FIWARE Harmonised Data Models in your projects](howto.md)
+refer to [How to use FIWARE Harmonised Data Models in your projects](specs/howto.md)
 section.
 
 ## Syntax
@@ -253,3 +253,7 @@ among the entities. e.g.:
             -   `example.json`
             -   `example-normalized.json`
             -   `example-normalized-ld.jsonld`
+
+## Going through the data models
+
+For a clear explanation on the current use of the data models. Check the [Going through the data models](specs/howto.md#going-through-a-data-model)
