@@ -1,0 +1,36 @@
+{
+  "coordinates": {
+    "@id": "https://purl.org/geojson/vocab#coordinates",
+    "@container": "@list"
+  },
+  "description": "https://uri.etsi.org/ngsi-ld/description",
+  "location": "http://uri.etsi.org/ngsi-ld/location",
+  "name": "https://uri.etsi.org/ngsi-ld/name",
+  "title": "https://uri.etsi.org/ngsi-ld/title",
+  "alternateName": "https://schema.org/alternateName",
+  "image": "https://schema.org/image",
+  "aggregateRating": "https://schema.org/aggregateRating",
+  "openingHours": "https://schema.org/openingHours",
+  "address": "https://schema.org/address",
+  "areaServed": "https://schema.org/areaServed",
+  "LineString": "https://purl.org/geojson/vocab#LineString",
+  "MultiLineString": "https://purl.org/geojson/vocab#MultiLineString",
+  "MultiPoint": "https://purl.org/geojson/vocab#MultiPoint",
+  "MultiPolygon": "https://purl.org/geojson/vocab#MultiPolygon",
+  "Point": "https://purl.org/geojson/vocab#Point",
+  "Polygon": "https://purl.org/geojson/vocab#Polygon",
+  "bbox": {
+    "@container": "@list",
+    "@id": "https://purl.org/geojson/vocab#bbox"
+  },
+  "ByBankTransferInAdvance": "http://purl.org/goodrelations/v1#ByBankTransferInAdvance",
+  "ByInvoice": "http://purl.org/goodrelations/v1#ByInvoice", 
+  "Cash": "http://purl.org/goodrelations/v1#Cash",
+  "CheckInAdvance": "http://purl.org/goodrelations/v1#CheckInAdvance",
+  "COD": "http://purl.org/goodrelations/v1#COD",
+  "DirectDebit": "http://purl.org/goodrelations/v1#DirectDebit",
+  "GoogleCheckout": "http://purl.org/goodrelations/v1#GoogleCheckout",
+  "PayPal": "http://purl.org/goodrelations/v1#PayPal",
+  "PaySwarm": "http://purl.org/goodrelations/v1#PaySwarm",
+  "Animal": "https://w3id.org/def/saref4agri#Animal"
+}
