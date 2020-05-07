@@ -1,0 +1,8 @@
+{ "udpatedDate" : "2020-05-07T22:17:52.368701", "officialList" : [
+  { "repoName": "dataModel.UrbanMobility","repoLink": "https://github.com/smart-data-models/dataModel.UrbanMobility.git", "schemaName" : "gtfs-schema.json"},
+  { "repoName": "dataModel.Alert","repoLink": "https://github.com/smart-data-models/dataModel.Alert.git", "schemaName" : "alert-schema.json"},
+  { "repoName": "dataModel.Device","repoLink": "https://github.com/smart-data-models/dataModel.Device.git", "schemaName" : "device-schema.json"},
+  { "repoName": "dataModel.Weather","repoLink": "https://github.com/smart-data-models/dataModel.Weather.git", "schemaName" : "weather-schema.json"},
+  { "repoName": "dataModel.Agrifood","repoLink": "https://github.com/smart-data-models/dataModel.Agrifood.git", "schemaName" : "agrifood-schema.json"},
+  { "repoName": "dataModel.WaterNetworkManagement","repoLink": "https://github.com/smart-data-models/dataModel.WaterNetworkManagement.git", "schemaName" : "WaterNetworkManagement-schema.json"}
+  ]}
