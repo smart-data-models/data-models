@@ -3,6 +3,7 @@
 ## Description
 
 {{Data Model Description}}
+Link to the (specification)[/doc/spec.md]
 
 ## Examples of use
 
@@ -31,4 +32,7 @@ Sample uses the NGSI-LD representation
 ## Open Issues
 
 {{Describe here any open issue}}
+## Open Issues
+
+i.e. This data model is being adapted to the (guidelines)[https://github.com/smart-data-models/data-models/blob/master/guidelines.md]
 
