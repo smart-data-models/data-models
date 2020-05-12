@@ -7,26 +7,43 @@ This file are the rules for accepted spec.md inthe smart data models initiative.
 
 ## spec.md structure
 
-# [data model name]
-
-## Description (One single line, no CR) 
-This is the description in one single line
-
 ## Schema
 [schema](../schema.json)
 
 ## Properties
-- `propertyname`: one line description
-    - `type` : Object, String, Number, Boolean, Geopoint, Relationship (only these are valid values). Do not include if it is attribute 
-    - `Required`: yes / no
-    - `Range`: (i.e 0-1)
-    - `Format`: 
-    - `Normative` : In case there is one. One single line
-    - 
+datamodel name
+- required: "object" `list required properties of the model`
+    - propertyName1
+    - propertyName2
+- type: ["object"]
+- description:  `This is the description (in several lines if required)`
+- properties:
+    - propertyname1: `reference to other external models`
+        - $ref = `link to other spec`
+    - propertyname2:
+        - x-attr-type: ["EnumProperty", "Relationship", "Property"] `regular type`
+        - type: "string"  `Mandatory if not $ref. String is just an example, other values could be number, `
+        - format: "URL" `optional. Optional to be included for every propery`
+        - description: `Mandatory. Description of the property`
+    - propertyname3: `complex type`
+        - x-attr-type: "Property"
+        - x-model: "https://schema.org/openingHours"
+        - type: array
+            - items:
+                - type: object
+                    - properties:
+                        - type:
+                            - type: string
+                            - values:
+                                - type:
+                                    - type: array
+                                    - items:
+                                        - type: string
+            - externalDocs:
+            url: "https://schema.org/openingHours"
     
 It can be included as many properties as needed. All lines of a property has to be single line
-property line has to be hyphen, space, `quoted property` : description
-Depending lines has to be in the form 4 spaces, hyphen, space, `quoted elelements` : description
+indentation has to be respected (4 spaces, tab is not valid)
 
 ## Open questions:
 - How to include references to already defined properties (i.e. locations commons) 
