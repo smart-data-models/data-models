@@ -1,0 +1,53 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0",
+  "$id": "https://smart-data-models.github.io/dataModel.Building/BuildingType/schema.json",
+  "title": "Smart Data Models - Building schema",
+  "description": "Information on a given Building",
+  "type": "object",
+  "allOf": [
+    {
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uri"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "BuildingType"
+          ],
+          "description": "NGSI Entity type"
+        },
+        "source": {
+          "type": "string",
+          "format": "uri",
+          "description": " Specifies the URL to the source of this data (either organisation or where relevant more specific source)"
+        },
+        "dataProvider": {
+          "type": "string",
+          "format": "uri",
+          "description": "Specifies the URL to information about the provider of this information "
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of this BuildingType"
+        },
+        "root": {
+          "type": "boolean",
+          "description": "A logical indicator that this is the root of a BuildingType hierarchy. True indicates it is the root, false indicates that it is not the root"
+        },
+        "buildingTypeParent": {
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+        },
+        "buildingTypeChildren": {
+          "type" : "array",
+          "items": {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+          }
+        }
+      }
+    }
+  ],
+  "required": ["type", "id", "name", "root"]
+}

@@ -95,13 +95,11 @@ section.
 -   Use the `date` prefix for naming entity attributes representing dates (or
     complete timestamps). Ex. `dateLastEmptying`.
 
--   `dateCreated` (`createdAt` in NGSI-LD) must be used to denote the (digital)
-    Entity's creation date.
+-   `dateCreated` in NGSIv2 (`createdAt` in NGSI-LD) must not be used as long as they are internal attributes of the NGSI specification.
 
--   `dateModified` (`modifiedAt` in NGSI-LD) must be used to denote the
-    (digital) Entity's last update date.
+-   `dateModified` in NGSIv2 (`modifiedAt` in NGSI-LD) must not be used as long as they are internal attributes of the NGSI specification.
 
--   `dateCreated` and `dateModified` are special Entity Attributes provided
+-   `dateCreated` and `dateModified` are special read-only Entity Attributes provided
     off-the-shelf by NGSI implementations. Be careful because they can be
     different than the actual creation or update date of the real world entity
     represented by its corresponding digital entity.
@@ -109,9 +107,9 @@ section.
 -   When necessary define additional Attributes to capture precisely all the
     details about dates. For instance, to denote the date at which a weather
     forecast was delivered an attribute named `dateIssued` can be used. In that
-    particular case just reusing `dateCreated` would be incorrect because the
-    latter would be the creation date of the (digital) entity representing the
-    weather forecast which typically might have a delay.
+    particular case just reusing the internal attribute `dateCreated` would be 
+    incorrect because the latter would be the creation date of the (digital) entity 
+    representing the weather forecast which typically might have a delay.
 
 ## Dynamic attributes
 
@@ -172,7 +170,8 @@ attribute named `description_es` used to convey the value of such a
 
 ## Some of the most used attributes
 
-In case of doubt check the existing data models!
+In case of doubt check the existing data models. The full list can be got in the 
+[attributes search tool]() by using an empty string.
 
 -   `name`
 -   `alternateName`
@@ -200,6 +199,7 @@ Contributions should come in the form of pull requests.
 [Create a branch](https://help.github.com/articles/creating-and-deleting-branches-within-your-repository/)
 containing your changes, and proceed with a
 [Pull Request](https://help.github.com/articles/creating-a-pull-request-from-a-fork/).
+[Submit a form](http://data-models.fiware.org/index.php/submit-a-data-model/)
 
 Pull Request should be easy to review, so if the model, or the changes you are
 proposing are wide, please create different pull requests.
@@ -226,12 +226,12 @@ New data models should be added under a folder structured as follows:
             **NGSI-LD** normalized format, e.g.
             [example-normalized-ld.jsonld of WeatherObserved](./Weather/WeatherObserved/example-normalized-ld.jsonld)
 
-The name of the folder should match the Entity Type used in the JSON Schema
-(e.g. `NewModel`). For data models including more entities, a hierarchical
+The name of the folder should match the Subject Type used in the JSON Schema
+(e.g. `Subject`). For data models including more entities, a hierarchical
 folder should be used. The father folder can include common JSON schemas shared
 among the entities. e.g.:
 
-    -   `NewModel/`
+    -   `Subject/`
         -   `doc/`
             -   `spec.md`
         -   `README.md`

@@ -5,11 +5,11 @@ Umbrella Repository for Data Models
 **Note: This Repository does not accept Pull Requests concerning Data Models.
 Pull Requests concerning Data Models shall be made against the corresponding
 subject Repository where the data model is located**
-
+<!--
 [![Status badge](https://img.shields.io/badge/status-draft-red.svg)](RELEASE_NOTES)
 [![Build badge](https://img.shields.io/travis/smart-data-models/data-models.svg "Travis build status")](https://travis-ci.org/smart-data-models/data-models/)
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
-
+-->
 :dart: [Roadmap](roadmap.md)
 
 The availability of widely adopted (de-facto standard) information models is key
@@ -87,11 +87,14 @@ choose option **new data model** in the dropdown list.
 ## How to contribute
 
 Contributions should come in the form of **pull requests** made against the corresponding Vertical Data Model repository.
+An [introductory presentation](http://data-models.fiware.org/index.php/2020/05/15/contribution-manual/) about it.
 
 A Data Model specification shall contain the following artefacts:
 
 -   `spec.md` Markdown specification in accordance with this
     [template](templates/spec.md-template.md).
+    coming version
+    [template](https://github.com/smart-data-models/data-models/blob/master/templates/dataModel/doc/spec-example.md)
     
 -   `README.md` Markdown examples and other related 
 information
@@ -108,13 +111,11 @@ information
     [example-normalized-ld.jsonld](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/example-normalized-ld.jsonld)
     of `WeatherObserved`.
 
-The artefacts referred below should be under a folder structured as follows:
+The artifacts referred below should be under a folder structured as follows:
 
 -   `NewModel/`
         -   `README.md`: A data model description based on the
                Example: [spec.md of WeatherObserved](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/README.md)
-        -   `spec.md`: Specification of the data model.
-               Example: 
         -   `schema.json`: The JSON Schema definition, 
                Example: [schema.json of WeatherObserved](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/schema.json)
         -   `example.json`: One or more JSON example files
@@ -123,6 +124,8 @@ The artefacts referred below should be under a folder structured as follows:
                Example: [example-normalized.json of WeatherObserved](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/example-normalized.json)
         -   `example-normalized-ld.jsonld`: One or more JSON example file in **NGSI-LD** normalized format
                Example: [example-normalized-ld.jsonld of WeatherObserved](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/example-normalized-ld.jsonld)
+               `/doc/spec.md` Specification of the data model.
+               Example: [spec.md](https://github.com/smart-data-models/data-models/blob/master/templates/dataModel/doc/spec-example.md)
 
 To facilitate contributions and their validation, we developed a
 [tool](https://github.com/smart-data-models/tools/tree/master/validator) that is
@@ -148,12 +151,14 @@ A full list only for the repositories containing  data models can be found in th
 
 There are new data models in progress for the following areas:
 
--   [Smart Cities](https://github.com/smart-data-models/SmartCities)
--   [Smart Environment](https://github.com/smart-data-models/SmartEnvironment)
+-   [Cross Sector](https://github.com/smart-data-models/CrossSector/tree/master)
 -   [Smart Agrifood](https://github.com/smart-data-models/SmartAgrifood)
--   [Smart Water](https://github.com/smart-data-models/SmartWater)
+-   [Smart Cities](https://github.com/smart-data-models/SmartCities)
 -   [Smart Energy](https://github.com/smart-data-models/SmartEnergy)
+-   [Smart Environment](https://github.com/smart-data-models/SmartEnvironment)
 -   [Smart Sensoring](https://github.com/smart-data-models/Smart-Sensoring)
--   [Smart Robotics](https://github.com/smart-data-models/SmartRobotics) (Just open)
--   [Smart Manufacturing](https://github.com/smart-data-models/SmartManufacturing) (Just open)
--   Tourism (pending)
+-   [Smart Water](https://github.com/smart-data-models/SmartWater)
+
+-   [Smart Robotics](https://github.com/smart-data-models/SmartRobotics) (Just opened)
+-   [Smart Manufacturing](https://github.com/smart-data-models/SmartManufacturing) (Just opened)
+-   Smart Tourism (pending)
