@@ -48,6 +48,17 @@ section.
 -   State clearly what attributes are mandatory and what are optional. Remember
     that `null` value should be avoided as it is prohibited in NGSI-LD. The minimum required 
     attributes will make the data models more flexible for other to use them. 
+    
+-   Internal attributes. In NGSIv2 there are two special attributes created by the system:
+    - dateCreated 
+    - dateModified
+    
+    Similarly in NGSI-LD there are two different:
+    - createdAt
+    - modifiedAt
+    
+    those attributes **must NOT be included into the definition of the data model** (spec.md and \*schema.*)
+    but they can appear in the payloads of the examples included.
 
 ## Units
 
