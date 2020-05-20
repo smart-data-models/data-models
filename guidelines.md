@@ -4,7 +4,7 @@ This is a set of guidelines for defining new data models.
 
 Before creating a new data model, [explore the existing ones](http://data-models.fiware.org/index.php/list-of-data-models/) to be sure there is
 already a data model that covers your use case. Recall to use synonyms in your search. E.g. what you might call Public
-Transport already exists under UrbanMobility. Check [this resource](https://docs.google.com/spreadsheets/d/1vp9rU63R2YXleEg6w2tn1tWx5sb4heY0APK-tHV9e5M) to find it out.
+Transport already exists under UrbanMobility. Check [this resource](https://docs.google.com/spreadsheets/d/1vp9rU63R2YXleEg6w2tn1tWx5sb4heY0APK-tHV9e5M/edit#gid=1357587034) to find it out.
 
 If you are looking for guidelines on adoption of existing data models, please
 refer to [How to use FIWARE Harmonised Data Models in your projects](specs/howto.md)
@@ -17,7 +17,7 @@ section.
 -   Entity Type names must start with a Capital letter, for instance,
     `WasteContainer`.
 -   Use names and not verbs for Attributes of type Property, ex. `name`,
-    qualifying it when necessary, ex. `totalSpotNumber` or `dateCreated`.
+    qualifying it when necessary, ex. `totalSpotNumber` or `dateIssued`.
 -   Avoid plurals in Attribute names, but state clearly when a list of items
     fits. Ex. `category`.
 
