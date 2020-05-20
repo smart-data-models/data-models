@@ -91,6 +91,14 @@
 { 
     "repoName": "dataModel.WaterConsumption",
     "repoLink": "https://github.com/smart-data-models/dataModel.WaterConsumption.git"
+},
+{ 
+    "repoName": "dataModel.GreenEnergy",
+    "repoLink": "https://github.com/smart-data-models/dataModel.GreenEnergy.git"
+},
+{ 
+    "repoName": "dataModel.Battery",
+    "repoLink": "https://github.com/smart-data-models/dataModel.Battery.git"
 }
 ]
 }
