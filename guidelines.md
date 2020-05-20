@@ -60,6 +60,10 @@ section.
     those attributes **must NOT be included into the definition of the data model** (spec.md and \*schema.*)
     but they can appear in the payloads of the examples included.
 
+## Numbers 
+
+-   When a value is a number, when relevant include range limits if they exist. Otherwise do not do it. 
+
 ## Units
 
 -   Define a default unit for magnitudes. Normally it will be the unit as stated
