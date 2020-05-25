@@ -25,3 +25,6 @@
 [submodule "specs/SmartWater"]
 	path = specs/SmartWater
 	url = https://github.com/smart-data-models/SmartWater.git
+[submodule "specs/pending"]
+	path = specs/pending
+	url = https://github.com/smart-data-models/pending.git
