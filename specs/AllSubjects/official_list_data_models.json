@@ -1,7 +1,7 @@
-{ "udpatedDate" : "2020-04-22T17:17:52.368701", "officialList" : [{ "repoName": "dataModel.User","repoLink": "https://github.com/smart-data-models/dataModel.User.git", "dataModels" : ["Activity","UserContext"]},
+{ "udpatedDate" : "2020-06-01T16:51:02.126330", "officialList" : [{ "repoName": "dataModel.User","repoLink": "https://github.com/smart-data-models/dataModel.User.git", "dataModels" : ["Activity","UserContext"]},
 { "repoName": "dataModel.PointOfInteraction","repoLink": "https://github.com/smart-data-models/dataModel.PointOfInteraction.git", "dataModels" : ["SmartPointOfInteraction","SmartSpot"]},
 { "repoName": "dataModel.KeyPerformanceIndicator","repoLink": "https://github.com/smart-data-models/dataModel.KeyPerformanceIndicator.git", "dataModels" : ["keyPerformanceIndicator"]},
-{ "repoName": "dataModel.UrbanMobility","repoLink": "https://github.com/smart-data-models/dataModel.UrbanMobility.git", "dataModels" : ["ArrivalEstimation","GtfsAccessPoint","GtfsAgency","GtfsCalendarDateRule","GtfsCalendarRule","GtfsFrequency","GtfsRoute","GtfsService","GtfsShape","GtfsStation","GtfsStop","GtfsStopTime","GtfsTransferRule","GtfsTrip"]},
+{ "repoName": "dataModel.UrbanMobility","repoLink": "https://github.com/smart-data-models/dataModel.UrbanMobility.git", "dataModels" : ["ArrivalEstimation","GtfsAccessPoint","GtfsAgency","GtfsCalendarDateRule","GtfsCalendarRule","GtfsFrequency","GtfsRoute","GtfsService","GtfsShape","GtfsStation","GtfsStop","GtfsStopTime","GtfsTransferRule","GtfsTrip","PublicTransportRoute","PublicTransportStop"]},
 { "repoName": "dataModel.ParksAndGardens","repoLink": "https://github.com/smart-data-models/dataModel.ParksAndGardens.git", "dataModels" : ["FlowerBed","Garden","GreenspaceRecord"]},
 { "repoName": "dataModel.Aquaculture","repoLink": "https://github.com/smart-data-models/dataModel.Aquaculture.git", "dataModels" : ["BreedingOperation","FishCointaiment"]},
 { "repoName": "dataModel.Agrifood","repoLink": "https://github.com/smart-data-models/dataModel.Agrifood.git", "dataModels" : ["AgriApp","AgriCrop","AgriFarm","AgriGreenhouse","AgriParcel","AgriParcelOperation","AgriParcelRecord","AgriPest","AgriProductType","AgriSoil","Animal"]},
@@ -16,8 +16,11 @@
 { "repoName": "dataModel.IssueTracking","repoLink": "https://github.com/smart-data-models/dataModel.IssueTracking.git", "dataModels" : ["Open311_ServiceRequest","Open311_ServiceType"]},
 { "repoName": "dataModel.Energy","repoLink": "https://github.com/smart-data-models/dataModel.Energy.git", "dataModels" : ["ThreePhaseAcMeasurement"]},
 { "repoName": "dataModel.Building","repoLink": "https://github.com/smart-data-models/dataModel.Building.git", "dataModels" : ["Building","BuildingOperation"]},
-{ "repoName": "dataModel.Environment","repoLink": "https://github.com/smart-data-models/dataModel.Environment.git", "dataModels" : ["AeroAllergenObserved","AirQualityObserved","NoiseLevelObserved","WaterQualityObserved"]},
+{ "repoName": "dataModel.Environment","repoLink": "https://github.com/smart-data-models/dataModel.Environment.git", "dataModels" : ["AeroAllergenObserved","AirQualityObserved","NoiseLevelObserved","WaterObserved","WaterQualityObserved"]},
 { "repoName": "dataModel.Alert","repoLink": "https://github.com/smart-data-models/dataModel.Alert.git", "dataModels" : ["alert"]},
 { "repoName": "dataModel.WaterDistribution","repoLink": "https://github.com/smart-data-models/dataModel.WaterDistribution.git", "dataModels" : []},
 { "repoName": "dataModel.WaterQuality","repoLink": "https://github.com/smart-data-models/dataModel.WaterQuality.git", "dataModels" : []},
-{ "repoName": "dataModel.WaterConsumption","repoLink": "https://github.com/smart-data-models/dataModel.WaterConsumption.git", "dataModels" : []}]}
+{ "repoName": "dataModel.WaterConsumption","repoLink": "https://github.com/smart-data-models/dataModel.WaterConsumption.git", "dataModels" : []},
+{ "repoName": "dataModel.GreenEnergy","repoLink": "https://github.com/smart-data-models/dataModel.GreenEnergy.git", "dataModels" : []},
+{ "repoName": "dataModel.Battery","repoLink": "https://github.com/smart-data-models/dataModel.Battery.git", "dataModels" : []},
+{ "repoName": "dataModel.AutonomousMobileRobot","repoLink": "https://github.com/smart-data-models/dataModel.AutonomousMobileRobot.git", "dataModels" : []}]}
