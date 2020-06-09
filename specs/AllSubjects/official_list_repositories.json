@@ -103,6 +103,11 @@
 { 
     "repoName": "dataModel.AutonomousMobileRobot",
     "repoLink": "https://github.com/smart-data-models/dataModel.AutonomousMobileRobot.git"
+},
+{ 
+    "repoName": "dataModel.Battery",
+    "repoLink": "https://github.com/smart-data-models/dataModel.Battery.git"
 }		
 ]
 }
+
