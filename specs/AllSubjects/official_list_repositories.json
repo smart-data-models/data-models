@@ -1,4 +1,4 @@
-{ "udpatedDate" : "2020-03-09T02:06:00.00Z",
+{ "udpatedDate" : "2020-06-19T01:13:00.00Z",
 	"repositories" : [
 {
   "repoName": "dataModel.User",
@@ -95,10 +95,6 @@
 { 
     "repoName": "dataModel.GreenEnergy",
     "repoLink": "https://github.com/smart-data-models/dataModel.GreenEnergy.git"
-},
-{ 
-    "repoName": "dataModel.Battery",
-    "repoLink": "https://github.com/smart-data-models/dataModel.Battery.git"
 },
 { 
     "repoName": "dataModel.AutonomousMobileRobot",
