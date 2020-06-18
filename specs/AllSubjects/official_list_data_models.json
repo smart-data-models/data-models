@@ -23,5 +23,5 @@
 { "repoName": "dataModel.WaterConsumption","repoLink": "https://github.com/smart-data-models/dataModel.WaterConsumption.git", "dataModels" : []},
 { "repoName": "dataModel.GreenEnergy","repoLink": "https://github.com/smart-data-models/dataModel.GreenEnergy.git", "dataModels" : []},
 { "repoName": "dataModel.Battery","repoLink": "https://github.com/smart-data-models/dataModel.Battery.git", "dataModels" : ["Battery","BatteryStatus"]},
-{ "repoName": "dataModel.AutonomousMobileRobot","repoLink": "https://github.com/smart-data-models/dataModel.AutonomousMobileRobot.git", "dataModels" : []},
-{ "repoName": "dataModel.Battery","repoLink": "https://github.com/smart-data-models/dataModel.Battery.git", "dataModels" : ["Battery","BatteryStatus"]}]}
+{ "repoName": "dataModel.AutonomousMobileRobot","repoLink": "https://github.com/smart-data-models/dataModel.AutonomousMobileRobot.git", "dataModels" : []}
+]}
