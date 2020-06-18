@@ -1,0 +1,137 @@
+--- 
+
+# Standard GeoJSON terms.
+Geometry: 
+  description: "GeoJSon geometry"
+  externalDocs: 
+    url: "http://geojson.org/geojson-spec.html#geometry-objects"
+  properties: 
+    type: 
+      description: "the geometry type"
+      enum: 
+        - Point
+        - LineString
+        - Polygon
+        - MultiPoint
+        - MultiLineString
+        - MultiPolygon
+      type: string
+  required: 
+    - type
+  type: object
+  x-ngsi: 
+    type: GeoProperty
+LineString: 
+  allOf: 
+    - 
+      $ref: "#/Geometry"
+    - 
+      properties: 
+        coordinates: 
+          items: 
+            $ref: "#/Point2D"
+          type: array
+  description: "GeoJSON LineString"
+  externalDocs: 
+    url: "http://geojson.org/geojson-spec.html#id3"
+  type: object
+  x-ngsi: 
+    uri: "https://purl.org/geojson/vocab#LineString"
+    uri-prefix: "https://purl.org/geojson/vocab#"
+MultiLineString: 
+  allOf: 
+    - 
+      $ref: "#/Geometry"
+    - 
+      properties: 
+        coordinates: 
+          items: 
+            items: 
+              $ref: "#/Point2D"
+            type: array
+          type: array
+  description: "GeoJSON Multi Line String"
+  externalDocs: 
+    url: "http://geojson.org/geojson-spec.html#id6"
+  type: object
+  x-ngsi: 
+    uri: "https://purl.org/geojson/vocab#MultiLineString"
+    uri-prefix: "https://purl.org/geojson/vocab#"
+MultiPoint: 
+  allOf: 
+    - 
+      $ref: "#/Geometry"
+    - 
+      properties: 
+        coordinates: 
+          items: 
+            $ref: "#/Point2D"
+          type: array
+  description: "GeoJSON Multi Point"
+  externalDocs: 
+    url: "http://geojson.org/geojson-spec.html#id5"
+  type: object
+  x-ngsi: 
+    uri: "https://purl.org/geojson/vocab#MultiPoint"
+    uri-prefix: "https://purl.org/geojson/vocab#"
+MultiPolygon: 
+  allOf: 
+    - 
+      $ref: "#/Geometry"
+    - 
+      properties: 
+        coordinates: 
+          items: 
+            items: 
+              items: 
+                $ref: "#/Point2D"
+              type: array
+            type: array
+          type: array
+  description: "GeoJSON Multi Polygon"
+  externalDocs: 
+    url: "http://geojson.org/geojson-spec.html#id6"
+  type: object
+  x-ngsi: 
+    uri: "https://purl.org/geojson/vocab#MultiPolygon"
+    uri-prefix: "https://purl.org/geojson/vocab#"
+Point: 
+  allOf: 
+    - 
+      $ref: "#/Geometry"
+    - 
+      properties: 
+        coordinates: 
+          $ref: "#/Point2D"
+  description: "GeoJSON Point"
+  externalDocs: 
+    url: "http://geojson.org/geojson-spec.html#id2"
+  type: object
+  x-ngsi: 
+    uri: "https://purl.org/geojson/vocab#Point"
+    uri-prefix: "https://purl.org/geojson/vocab#"
+Point2D: 
+  items: 
+    type: number
+  maxItems: 2
+  minItems: 2
+  type: array
+Polygon: 
+  allOf: 
+    - 
+      $ref: "#/Geometry"
+    - 
+      properties: 
+        coordinates: 
+          items: 
+            items: 
+              $ref: "#/Point2D"
+            type: array
+          type: array
+  description: "GeoJSON Polygon"
+  externalDocs: 
+    url: "http://geojson.org/geojson-spec.html#id4"
+  type: object
+  x-ngsi: 
+    uri: "https://purl.org/geojson/vocab#Polygon"
+    uri-prefix: "https://purl.org/geojson/vocab#"
