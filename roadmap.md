@@ -2,26 +2,27 @@
 
 The Roadmap of the Smart Data Models Initiative is the following: 
 
-* To launch its community not only in the github repository but also in a dedicated website
+* To launch its community not only in the github repository but also in a dedicated website. Done
 
-* Finish the integration of the testing tools for the decentralised approach of repositories
+* Finish the integration of the testing tools for the decentralised approach of repositories. In progress.
 
 * Automation of the testing tools to check consistency within the data models
-  * Check that all files are included
-  * Check that all properties are included into the examples
+  * Check that all files are included. [partially done](https://github.com/smart-data-models/data-models/blob/master/specs/AllSubjects/documentationStatus.json).
+  * Check that all properties are included into the examples. In progress
  
 * Adopt additional Data Models from: 
-- [SynchroniCity Data Models Project](https://gitlab.com/synchronicity-iot/synchronicity-data-models)
-- [Fiware4Water](https://www.fiware4water.eu/) belonging to the ICT4water cluster in Europe
+- [SynchroniCity Data Models Project](https://gitlab.com/synchronicity-iot/synchronicity-data-models). done for those willing to move.
+- [Fiware4Water](https://www.fiware4water.eu/) belonging to the ICT4water cluster in Europe. In progress
 
 * Launch other domains
-- Smart Robotics
-- Smart Manufacturing 
+- Smart Robotics. done
+- Smart Manufacturing. done
+- Smart Destinations. In progress
 
-* Add additional Data Models per other methods defined by the FIWARE Foundation and TMForum. 
+* Add additional Data Models per other methods defined by the FIWARE Foundation and TMForum. done
 
 * Adopt automatic documentation generation to be developed by FIWARE Data Models. 
-It hs been drafting a new template for generating this documentation. First example [here](https://github.com/smart-data-models/data-models/blob/master/templates/dataModel/doc/spec-example.md)
+It hs been drafting a new template for generating this documentation. First example [here](https://github.com/smart-data-models/data-models/blob/master/templates/dataModel/doc/spec-example.md). In progress.
 
 * Generate Schema definitions in JSON JSON-LD as suggested by 
 
