@@ -1,4 +1,72 @@
 --- 
+ContactPoint: 
+  properties: 
+    areaServed: 
+      $ref: "#/areaServed"
+      description: "The geographic area where a service or offered item is provided. Supersedes serviceArea."
+    availableLanguage: 
+      description: "A language someone may use with or at the item, service or place. Please use one of the language codes from the IETF BCP 47 standard. See also inLanguage"
+      oneOf: 
+        - type: string
+        - type: object
+      externalDocs: 
+        url: "https://schema.org/availableLanguage"
+      x-ngsi: 
+        model: 
+          - "https://schema.org/Text"
+          - "https://schema.org/Language"
+        type: Property
+    contactOption: 
+      description: "An option available on this contact point (e.g. a toll-free number or support for hearing-impaired callers)."
+      type: object
+      externalDocs: 
+        url: "https://schema.org/contactOption"
+      x-ngsi: 
+        model: "https://schema.org/ContactPointOption"
+        type: Property
+    contactType: 
+      description: "A person or organization can have different contact points, for different purposes. For example, a sales contact point, a PR contact point and so on. This property is used to specify the kind of contact point."
+      type: string
+      x-ngsi: 
+        model: "https://schema.org/Text"
+        type: Property
+    email: 
+      description: "Email address."
+      type: string
+      x-ngsi: 
+        model: "https://schema.org/Text"
+        type: Property
+    faxNumber: 
+      description: "The fax number."
+      type: string
+      x-ngsi: 
+        model: "https://schema.org/Text"
+        type: Property
+    hoursAvailable: 
+      description: "The hours during which this service or contact is available."
+      type: object
+      externalDocs: 
+        url: "https://schema.org/OpeningHoursSpecification"
+      x-ngsi: 
+        model: "https://schema.org/OpeningHoursSpecification"
+        type: Property
+    productSupported: 
+      description: "The product or service this support contact point is related to (such as product support for a particular product line). This can be a specific product or product line (e.g. \"iPhone\") or a general category of products or services (e.g. \"smartphones\")."
+      type: string
+      x-ngsi: 
+        model: "https://schema.org/Text"
+        type: Property
+    telephone: 
+      description: "The telephone number."
+      type: string
+      x-ngsi: 
+        model: "https://schema.org/Text"
+        type: Property
+  type: object
+  x-ngsi: 
+    uri: "https://schema.org/ContactPoint"
+    uri-prefix: "https://schema.org/"
+
 GenderType: 
   description: "An enumeration of genders"
   enum: 
@@ -8,8 +76,6 @@ GenderType:
   x-ngsi: 
     uri: "https://schema.org/GenderType"
     uri-prefix: "https://schema.org/"
-
-
 Person: 
   properties: 
     additionalName: 
@@ -157,6 +223,7 @@ PostalAddress:
     uri-prefix: "https://schema.org/"
 
 
+
 address: 
   allOf: 
     - 
@@ -167,7 +234,53 @@ address:
   type: object
   x-ngsi: 
     attr-type: Property
-    model: "https://schema.org/address"
+    model: "https://schema.org/PostalAddress"
+    uri-prefix: "https://schema.org/"
+
+alternateName: 
+  description: "An alias for the item."
+  externalDocs: 
+    url: "https://schema.org/alternateName"
+  type: string
+  x-ngsi: 
+    model: "https://schema.org/Text"
+    type: Property
+    uri-prefix: "https://schema.org/"
+
+areaServed: 
+  description: "The geographic area where a service or offered item is provided."
+  externalDocs: 
+    url: "https://schema.org/areaServed"
+  oneOf: 
+    - 
+      type: string
+    - 
+      $ref: "./geojson-ld.yaml#/Polygon"
+  type: string
+  x-ngsi: 
+    model: "https://schema.org/Text"
+    type: Property
+    uri-prefix: "https://schema.org/"
+
+color: 
+  description: "The color of the product."
+  externalDocs: 
+    url: "https://schema.org/color"
+  type: string
+  x-ngsi: 
+    model: "https://schema.org/Text"
+    type: Property
+    uri-prefix: "https://schema.org/"
+
+image: 
+  description: "The image of the product."
+  externalDocs: 
+    url: "https://schema.org/image"
+  format: uri
+  type: string
+  x-ngsi: 
+    model: "https://schema.org/URL"
+    type: Property
     uri-prefix: "https://schema.org/"
 
 openingHours: 
@@ -184,6 +297,6 @@ openingHours:
     type: object
   type: array
   x-ngsi: 
-    model: "https://schema.org/openingHours"
+    model: "https://schema.org/OpeningHoursSpecification"
     type: Property
-    uri: "https://schema.org/openingHours"
+    uri-prefix: "https://schema.org/"

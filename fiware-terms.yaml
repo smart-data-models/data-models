@@ -1,0 +1,50 @@
+--- 
+annotations:
+  description: A field reserved for annotations (incidences, remarks, etc.). 
+  items: 
+    type: string
+  type: array
+  x-ngsi: 
+    type: Property
+    uri-prefix: "https://uri.fiware.org/ns/data-models#"
+dataProvider: 
+  description: "An alias for the item."
+  type: string
+  x-ngsi: 
+    model: "https://schema.org/Text"
+    type: Property
+    uri-prefix: "https://uri.fiware.org/ns/data-models#"
+owner: 
+  description: "The owner of the item."
+  items: 
+    anyOf: 
+      - 
+        maxLength: 256
+        minLength: 1
+        pattern: "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$"
+        type: string
+      - 
+        format: uri
+        type: string
+  type: array
+  x-ngsi: 
+    model: "https://schema.org/URL"
+    type: Relationship
+seeAlso: 
+  description: "Additional information for the item."
+  format: uri
+  type: string
+  x-ngsi: 
+    model: "https://schema.org/URL"
+    type: Property
+    uri-prefix: "https://uri.fiware.org/ns/data-models#"
+source: 
+  description: "A sequence of characters giving the source of the entity data"
+  format: uri
+  type: string
+  x-ngsi: 
+    model: 
+      - "http://schema.org/Text"
+      - "http://schema.org/URL"
+    type: Property
+    uri-prefix: "https://uri.fiware.org/ns/data-models#"
