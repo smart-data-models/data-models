@@ -8,7 +8,7 @@ annotations:
     type: Property
     uri-prefix: "https://uri.fiware.org/ns/data-models#"
 dataProvider: 
-  description: "An alias for the item."
+  description: "Specifies the URL to information about the provider of this information."
   type: string
   x-ngsi: 
     model: "https://schema.org/Text"
@@ -30,7 +30,7 @@ owner:
   x-ngsi: 
     model: "https://schema.org/URL"
     type: Relationship
-seeAlso: 
+refSeeAlso: 
   description: "Additional information for the item."
   format: uri
   type: string

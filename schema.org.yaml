@@ -272,6 +272,19 @@ color:
     type: Property
     uri-prefix: "https://schema.org/"
 
+contactPoint: 
+  allOf: 
+    - 
+      $ref: "#/ContactPoint"
+  description: "A contact point for a person or organization."
+  externalDocs: 
+    url: "https://schema.org/contactPoint"
+  type: object
+  x-ngsi: 
+    attr-type: Property
+    model: "https://schema.org/ContactPoint"
+    uri-prefix: "https://schema.org/"
+
 image: 
   description: "The image of the product."
   externalDocs: 
