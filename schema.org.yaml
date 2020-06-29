@@ -1,4 +1,7 @@
 --- 
+# Copyright (c) 2020 Contributors to Smart-Data-Models
+# see https://github.com/smart-data-models
+
 ContactPoint: 
   properties: 
     areaServed: 
