@@ -10,6 +10,8 @@ subject Repository where the data model is located**
 [![Build badge](https://img.shields.io/travis/smart-data-models/data-models.svg "Travis build status")](https://travis-ci.org/smart-data-models/data-models/)
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 -->
+**[29-7-2020] Moved examples in every data model to the examples directory**
+
 :dart: [Roadmap](roadmap.md)
 
 The availability of widely adopted (de-facto standard) information models is key
