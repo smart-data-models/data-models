@@ -10,14 +10,15 @@ subject Repository where the data model is located**
 [![Build badge](https://img.shields.io/travis/smart-data-models/data-models.svg "Travis build status")](https://travis-ci.org/smart-data-models/data-models/)
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 -->
-**[29-7-2020] Moved examples in every data model to the examples directory**
+**[29-6-2020] Moved examples in every data model to the examples directory**
+**[8-7-2020] Created model.yaml and swagger.yaml for making data models more portable**
 
 :dart: [Roadmap](roadmap.md)
 
 The availability of widely adopted (de-facto standard) information models is key
 for creating a global digital single market of interoperable and replicable
-(portable) smart solutions in multiple domains (smart cities, smart
-agrifood, smart utilities, smart industry, …). Such models provide an essential
+(portable) smart solutions in multiple domains (smart cities, smart agrifood, 
+smart utilities, smart industry, …). Such models provide an essential
 element in the common technical ground needed for standards-based open
 innovation and procurement.
 
@@ -25,9 +26,9 @@ Data Models play a crucial role because they define the **harmonised
 representation formats and semantics** that will be used by applications both to
 consume and to publish data.
 
-The **FIWARE Foundation** and **TM Forum** are leading a joint collaboration
-program to support the adoption of a reference architecture and compatible
-common data models that underpin a digital market of interoperable and
+The **FIWARE Foundation** and **TM Forum** and other entities to join, are leading 
+a joint collaboration program to support the adoption of a reference architecture 
+and compatible common data models that underpin a digital market of interoperable and
 replicable smart solutions in multiple sectors, starting with smart cities.
 
 The Reference Architecture and Data Models use the FIWARE NGSI API and TM Forum
@@ -39,23 +40,28 @@ time, i.e., right-time) view and foundation for the development of governance
 systems at global organization level. Examples of such organizations include
 cities, factories, hospitals, airports, farms, etc.
 
-Combined with TM Forum Open APIs, data publication platforms can support
-organizations to realise the potential of real-time (or right-time) open data,
-easing development of innovative solutions by third parties. In addition,
-organizations can evolve their current data sharing policies towards a vision
-which, shared with other organizations, brings support to a Data Economy. This
-way, the proposed Reference Architecture is ready to solve the needs of
-organizations today while future-proofing for tomorrow’s requirements.
+Combined with [TM Forum Open APIs](https://www.tmforum.org/open-apis/), data 
+publication platforms can support organizations to realise the potential of 
+real-time (or right-time) open data, easing development of innovative solutions 
+by third parties. In addition, organizations can evolve their current data sharing 
+policies towards a vision which, shared with other organizations, brings support 
+to a Data Economy. This way, the proposed Reference Architecture is ready to 
+solve the needs of organizations today while future-proofing for 
+tomorrow’s requirements.
 
 This GitHub organization structure contains **JSON Schemas and documentation**
-on harmonized Data Models for different Smart Domains. The following repositories are available:
+on Smart Data Models for different Smart Domains. The following repositories are available:
 
 -   [data-models repository](https://github.com/smart-data-models/data-models) which is an umbrella repository that contains all the
     Data Models from different verticals (e.g., Parking, Street lighting, etc.).
-    _This Repository only admit Pull Requests for templates and general documentation and nof for data models._
+    _This Repository only admit Pull Requests for templates and general documentation and 
+    not for data models._
+
+-   For each Domain (industrial sector) there is a Repository containing as submodules the link to the 
+    Subjects containing all the Data Models related. And some other shared elements for all the domain.
 
 -   For each Vertical(Subject) there is a Repository containing the Data Models related
-    to that vertical. _These repositories do admit pull requests_.
+    to that vertical. _These repositories do admit pull requests regardign data models_.
 
 ## General Principles
 
@@ -69,7 +75,7 @@ on harmonized Data Models for different Smart Domains. The following repositorie
     enumerations, etc.
 
 -   **Public and royalty-free** nature of specifications. Data Model Licensing
-    mode. [Creative Commons by Attribution 4.0](https://creativecommons.org/licenses/by/4.0/)
+    mode. Preferred [Creative Commons by Attribution 4.0](https://creativecommons.org/licenses/by/4.0/)
 
 -   **Open contribution**. Contributions open to anybody (not only members),
     while final decision making corresponds to the administrators of the domains and Subjects. Management (currently TM Forum and FIWARE Foundation) could opposed to some contributions if it does not meet coding guidelines.
@@ -77,7 +83,9 @@ on harmonized Data Models for different Smart Domains. The following repositorie
 
 ## Lifecycle
 
-Specifications evolve over time through versions generated by the contributors in the communities of every Subjects. A minimum of a version each year is recommended. The parameter schemaVersion in the schema denotes the version.
+Specifications evolve over time through versions generated by the contributors in the communities 
+of every Subject. A minimum of a version each year is recommended. The parameter schemaVersion in 
+the schema denotes the version.
 
 The way to handle new Data Models is administrated by the different subjects and domains:
 
@@ -93,6 +101,7 @@ An [introductory presentation](http://data-models.fiware.org/index.php/2020/05/1
 
 A Data Model specification shall contain the following artefacts:
 
+- **This specification will be updated soon [8-7-2020]**
 -   `spec.md` Markdown specification in accordance with this
     [template](templates/spec.md-template.md).
     coming version
@@ -116,22 +125,25 @@ information
 The artifacts referred below should be under a folder structured as follows:
 
 -   `NewModel/`
-        -   `README.md`: A data model description based on the
+  -   `README.md`: A data model description based on the
                Example: [spec.md of WeatherObserved](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/README.md)
-        -   `schema.json`: The JSON Schema definition, 
+  -   `schema.json`: The JSON Schema definition, 
                Example: [schema.json of WeatherObserved](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/schema.json)
-        -   `example.json`: One or more JSON example files
+  -   `example.json`: One or more JSON example files
                Example: [example.json of WeatherObserved](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/example.json)
-        -   `example-normalized.json`: One or more JSON example file in NGSI v2 normalized format
+  -   `example-normalized.json`: One or more JSON example file in NGSI v2 normalized format
                Example: [example-normalized.json of WeatherObserved](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/example-normalized.json)
-        -   `example-normalized-ld.jsonld`: One or more JSON example file in **NGSI-LD** normalized format
+  -   `example-normalized-ld.jsonld`: One or more JSON example file in **NGSI-LD** normalized format
                Example: [example-normalized-ld.jsonld of WeatherObserved](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/example-normalized-ld.jsonld)
-               `/doc/spec.md` Specification of the data model.
-               Example: [spec.md](https://github.com/smart-data-models/data-models/blob/master/templates/dataModel/doc/spec-example.md)
+               `/doc/spec.md` : Specification of the data model. Example: [spec.md](https://github.com/smart-data-models/data-models/blob/master/templates/dataModel/doc/spec-example.md)
+               
+Automatically generated                   
+  -    `examplexxx.csv`: Automatically generated examples of the data model exported to csv format.
+  -    `model.yaml`: Automatically generated model exported from schema.json. Only descriptions are completed manually (if not set in schema).         
+  -    `swagger.yaml`: Automatically generated opbject to be visualized in [swagger editor](https://swagger.lab.fiware.org/?url=https://raw.githubusercontent.com/smart-data-models/dataModel.WaterNetworkManagement/master/Valve/swagger.yaml).       
 
 To facilitate contributions and their validation, we developed a
-[tool](https://github.com/smart-data-models/tools/tree/master/validator) that is
-also used for the Continuous Integration.
+[tool](https://github.com/smart-data-models/tools/tree/master/validator) that is also used for the Continuous Integration.
 
 To achieve a better performance, we need to break down silo’s of data, 
 ensuring that artificial intelligence can be applied across aggregated datasets 
@@ -163,4 +175,11 @@ There are new data models in progress for the following areas:
 
 -   [Smart Robotics](https://github.com/smart-data-models/SmartRobotics) (Just opened)
 -   [Smart Manufacturing](https://github.com/smart-data-models/SmartManufacturing) (Just opened)
--   Smart Tourism (pending)
+-   [Smart Destinations](https://github.com/smart-data-models/SmartDestination) (pending)
+
+A frontend [web page](http://data-models.fiware.org/) provides global updates on the Smart data models.  
+Additionally there is a repository for drafting data models named [pending](https://github.com/smart-data-models/pending/tree/master) where anybody
+(under request) can draft data models that later can submit by PR or any other method. This repo is uncontrolled but open to collaboration.
+
+[general contact](http://data-models.fiware.org/index.php/submit-an-issue-2/)
+[mail contact](mailto:alberto.abella@fiware.org)
