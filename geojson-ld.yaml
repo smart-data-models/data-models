@@ -3,12 +3,16 @@
 # see https://github.com/smart-data-models
 
 # Standard GeoJSON terms.
-Geometry: 
+Geometry:
   description: "GeoJSon geometry"
   externalDocs: 
     url: "http://geojson.org/geojson-spec.html#geometry-objects"
-  properties: 
-    type: 
+  type: object
+  discriminator:
+    propertyName: type
+  properties:
+    type:
+      type: string
       description: "the geometry type"
       enum: 
         - Point
@@ -17,21 +21,50 @@ Geometry:
         - MultiPoint
         - MultiLineString
         - MultiPolygon
-      type: string
-  required: 
+  required:
     - type
-  type: object
+    - coordinates
   x-ngsi: 
     type: GeoProperty
+
+Point:
+  allOf: 
+    - 
+      $ref: "#/Geometry"
+    - 
+      properties:
+        type:
+          type: string
+          description: "the geometry type"
+          enum: 
+            - Point
+        coordinates: &Position
+          items: 
+            type: number
+          maxItems: 3
+          minItems: 2
+          type: array
+  description: "GeoJSON Point"
+  externalDocs: 
+    url: "http://geojson.org/geojson-spec.html#id2"
+  type: object
+  x-ngsi: 
+    uri: "https://purl.org/geojson/vocab#Point"
+    uri-prefix: "https://purl.org/geojson/vocab#"
+
 LineString: 
   allOf: 
     - 
       $ref: "#/Geometry"
     - 
       properties: 
+        type:
+          type: string
+          description: "the geometry type"
+          enum: 
+            - LineString
         coordinates: 
-          items: 
-            $ref: "#/Point2D"
+          items: *Position
           type: array
   description: "GeoJSON LineString"
   externalDocs: 
@@ -40,16 +73,20 @@ LineString:
   x-ngsi: 
     uri: "https://purl.org/geojson/vocab#LineString"
     uri-prefix: "https://purl.org/geojson/vocab#"
-MultiLineString: 
+MultiLineString:
   allOf: 
     - 
       $ref: "#/Geometry"
     - 
       properties: 
+        type:
+          type: string
+          description: "the geometry type"
+          enum: 
+            - MultiLineString
         coordinates: 
           items: 
-            items: 
-              $ref: "#/Point2D"
+            items: *Position
             type: array
           type: array
   description: "GeoJSON Multi Line String"
@@ -59,15 +96,19 @@ MultiLineString:
   x-ngsi: 
     uri: "https://purl.org/geojson/vocab#MultiLineString"
     uri-prefix: "https://purl.org/geojson/vocab#"
-MultiPoint: 
+MultiPoint:
   allOf: 
     - 
       $ref: "#/Geometry"
     - 
       properties: 
+        type:
+          type: string
+          description: "the geometry type"
+          enum: 
+            - MultiPoint
         coordinates: 
-          items: 
-            $ref: "#/Point2D"
+          items: *Position
           type: array
   description: "GeoJSON Multi Point"
   externalDocs: 
@@ -76,17 +117,21 @@ MultiPoint:
   x-ngsi: 
     uri: "https://purl.org/geojson/vocab#MultiPoint"
     uri-prefix: "https://purl.org/geojson/vocab#"
-MultiPolygon: 
+MultiPolygon:
   allOf: 
     - 
       $ref: "#/Geometry"
     - 
       properties: 
+        type:
+          type: string
+          description: "the geometry type"
+          enum: 
+            - MultiPolygon
         coordinates: 
           items: 
             items: 
-              items: 
-                $ref: "#/Point2D"
+              items: *Position
               type: array
             type: array
           type: array
@@ -97,37 +142,21 @@ MultiPolygon:
   x-ngsi: 
     uri: "https://purl.org/geojson/vocab#MultiPolygon"
     uri-prefix: "https://purl.org/geojson/vocab#"
-Point: 
-  allOf: 
-    - 
-      $ref: "#/Geometry"
-    - 
-      properties: 
-        coordinates: 
-          $ref: "#/Point2D"
-  description: "GeoJSON Point"
-  externalDocs: 
-    url: "http://geojson.org/geojson-spec.html#id2"
-  type: object
-  x-ngsi: 
-    uri: "https://purl.org/geojson/vocab#Point"
-    uri-prefix: "https://purl.org/geojson/vocab#"
-Point2D: 
-  items: 
-    type: number
-  maxItems: 2
-  minItems: 2
-  type: array
+
 Polygon: 
   allOf: 
     - 
       $ref: "#/Geometry"
     - 
-      properties: 
+      properties:
+        type:
+          type: string
+          description: "the geometry type"
+          enum: 
+            - Polygon
         coordinates: 
           items: 
-            items: 
-              $ref: "#/Point2D"
+            items: *Position
             type: array
           type: array
   description: "GeoJSON Polygon"

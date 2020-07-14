@@ -65,26 +65,19 @@ location:
   description: "The current location of the item\n"
   externalDocs: 
     url: "http://geojson.org/geojson-spec.html#geometry-objects"
-  properties: 
-    coordinates: 
-      oneOf: 
-        - 
-          $ref: "./geojson-ld.yaml#/Point/allOf/1/properties/coordinates"
-        - 
-          $ref: "./geojson-ld.yaml#/LineString/allOf/1/properties/coordinates"
-        - 
-          $ref: "./geojson-ld.yaml#/Polygon/allOf/1/properties/coordinates"
-        - 
-          $ref: "./geojson-ld.yaml#/MultiPoint/allOf/1/properties/coordinates"
-        - 
-          $ref: "./geojson-ld.yaml#/MultiLineString/allOf/1/properties/coordinates"
-        - 
-          $ref: "./geojson-ld.yaml#/MultiPolygon/allOf/1/properties/coordinates"
-    type: 
-      $ref: "./geojson-ld.yaml#/Geometry/properties/type"
-  required: 
-    - type
-    - coordinates
+  oneOf: 
+    - 
+      $ref: "./geojson-ld.yaml#Point"
+    - 
+      $ref: "./geojson-ld.yaml#LineString"
+    - 
+      $ref: "./geojson-ld.yaml#Polygon"
+    - 
+      $ref: "./geojson-ld.yaml#MultiPoint"
+    - 
+      $ref: "./geojson-ld.yaml#MultiLineString"
+    - 
+      $ref: "./geojson-ld.yaml#MultiPolygon"
   type: object
   x-ngsi: 
     model: 
