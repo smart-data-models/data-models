@@ -4,16 +4,18 @@
   "title": "Common definitions for  Harmonized Data Models",
   "definitions": {
     "EntityIdentifierType": {
-      "anyOf": [{
-        "type": "string",
-        "minLength": 1,
-        "maxLength": 256,
-        "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$"
-      },
-      {
-        "type": "string",
-        "format": "uri"
-      }]
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256,
+          "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$"
+        },
+        {
+          "type": "string",
+          "format": "uri"
+        }
+      ]
     },
     "DateYearLess": {
       "type": "string",
@@ -40,10 +42,10 @@
           "type": "string"
         },
         "alternateName": {
-           "type": "string" 
+          "type": "string"
         },
         "description": {
-           "type": "string" 
+          "type": "string"
         },
         "dataProvider": {
           "type": "string"
@@ -51,7 +53,7 @@
         "owner": {
           "type": "array",
           "items": {
-                "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
           }
         },
         "seeAlso": {
@@ -77,7 +79,9 @@
     "Location-Commons": {
       "type": "object",
       "properties": {
-        "location": { "$ref": "http://geojson.org/schema/Geometry.json#" },
+        "location": {
+          "$ref": "http://geojson.org/schema/Geometry.json#"
+        },
         "address": {
           "type": "object",
           "properties": {
@@ -124,6 +128,50 @@
           "items": {
             "type": "string"
           }
+        }
+      }
+    },
+    "DateTime-Commons": {
+      "type": "object",
+      "description" : "All date-time elements in data models unless explicitly stated are ISO 8601 compliant",
+      "properties": {
+        "openingHoursSpecification": {
+          "type": "array",
+          "description": "A structured value providing information about the opening hours of a place or a certain service inside a place.",
+          "items": {
+            "properties": {
+              "opens": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "closes": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "dayOfWeek": {
+                "type": "string",
+                "enum": [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday",
+                  "Sunday",
+                  "PublicHolidays"
+                ]
+              },
+              "validFrom": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "validThrough": {
+                "type": "string",
+                "format": "date-time"
+              }
+            }
+          },
+          "minItems": 1
         }
       }
     }
