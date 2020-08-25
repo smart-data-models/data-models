@@ -372,7 +372,7 @@
  {"dataModel": "AgriParcelOperation", "repoName": "dataModel.Agrifood", "property": "source", "description": "A sequence of characters giving the source of the entity data"},
  {"dataModel": "AgriParcelOperation", "repoName": "dataModel.Agrifood", "property": "startedAt", "description": "Timestamp when the operation actually started to be performed."},
  {"dataModel": "AgriParcelOperation", "repoName": "dataModel.Agrifood", "property": "status", "description": "A choice from an enumerated list describing the status. One of: planned, ongoing, finished, scheduled, cancelled."},
- {"dataModel": "AgriParcelOperation", "repoName": "dataModel.Agrifood", "property": "watersource", "description": "A sequence of characters giving the source of the entity data"},
+ {"dataModel": "AgriParcelOperation", "repoName": "dataModel.Agrifood", "property": "waterSource", "description": "A sequence of characters giving the source of the entity data"},
  {"dataModel": "AgriParcelRecord", "repoName": "dataModel.Agrifood", "property": "address", "description": "The mailing address."},
  {"dataModel": "AgriParcelRecord", "repoName": "dataModel.Agrifood", "property": "alternateName", "description": "An alias for the item."},
  {"dataModel": "AgriParcelRecord", "repoName": "dataModel.Agrifood", "property": "areaServed", "description": "The geographic area where a service or offered item is provided."},
