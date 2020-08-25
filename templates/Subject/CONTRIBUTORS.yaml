@@ -1,16 +1,16 @@
-description: "This is a compilation list of all CONTRIBUTORS across different objects (data models) alphabetically ordered. All fields are non mandatory"
+description: This is a compilation list of all CONTRIBUTORS across different objects (data models) alphabetically ordered. All fields are non mandatory
 contributors:
 -
- name: name1
- surname: surname1
- mail: mail1@example.com
- organization: organization1
- project: project1
- comments: comments
+ name: NAMEOFCONTRIBUTOR
+ surname: SURNAMEOFCONTRIBUTOR
+ mail: MAILOFCONTRIBUTOR
+ organization: ORGOFCONTRIBUTOR
+ project:
+ comments:
 -
- name: name1
- surname: surname1
- mail: mail1@example.com
- organization: organization1
- project: project1
- comments: comments
+ name: NAMEOFCONTRIBUTOR
+ surname: SURNAMEOFCONTRIBUTOR
+ mail: MAILOFCONTRIBUTOR
+ organization: ORGOFCONTRIBUTOR
+ project:
+ comments:

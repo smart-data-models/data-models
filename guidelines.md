@@ -269,6 +269,12 @@ among the entities. e.g.:
             -   `example-normalized.json`
             -   `example-normalized-ld.jsonld`
 
+## Definitions' section
+The section definitions will be included into the subject-schema.json name of the subject.
+
+## $ref values
+Whenever possible they will be absolute references in order to provide the ability to use the data models isolated from the rest of documents
+
 ## Going through the data models
 
 For a clear explanation on the current use of the data models. Check the [Going through the data models](specs/howto.md#going-through-a-data-model)

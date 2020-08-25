@@ -300,6 +300,7 @@ image:
     uri-prefix: "https://schema.org/"
 
 openingHours: 
+  description: "The general opening hours for a business. Opening hours can be specified as a weekly time range, starting with days, then times per day. Multiple days can be listed with commas ',' separating each day. "
   externalDocs: 
     url: "https://schema.org/openingHours"
   items: 

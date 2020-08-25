@@ -10,14 +10,14 @@ annotations:
   x-ngsi: 
     type: Property
     uri-prefix: "https://uri.fiware.org/ns/data-models#"
-dataProvider: 
+dataProvider:
   description: "Specifies the URL to information about the provider of this information."
   type: string
   x-ngsi: 
     model: "https://schema.org/Text"
     type: Property
     uri-prefix: "https://uri.fiware.org/ns/data-models#"
-owner: 
+owner:
   description: "The owner of the item."
   items: 
     anyOf: 
@@ -33,7 +33,7 @@ owner:
   x-ngsi: 
     model: "https://schema.org/URL"
     type: Relationship
-refSeeAlso: 
+refSeeAlso:
   description: "Additional information for the item."
   format: uri
   type: string
@@ -41,7 +41,7 @@ refSeeAlso:
     model: "https://schema.org/URL"
     type: Property
     uri-prefix: "https://uri.fiware.org/ns/data-models#"
-source: 
+source:
   description: "A sequence of characters giving the source of the entity data"
   format: uri
   type: string
