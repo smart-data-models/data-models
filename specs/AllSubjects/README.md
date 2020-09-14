@@ -1,4 +1,4 @@
-In this directory can see som files compiling the contents of all the initiative
+In this directory can see some files compiling the contents of all the initiative
 
 [official_list_repositories.json](https://github.com/smart-data-models/data-models/blob/master/specs/AllSubjects/official_list_repositories.json) compiles all the subjects included in all the domains included into the initiative 
 
