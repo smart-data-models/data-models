@@ -142,11 +142,11 @@
             "properties": {
               "opens": {
                 "type": "string",
-                "format": "date-time"
+                "format": "time"
               },
               "closes": {
                 "type": "string",
-                "format": "date-time"
+                "format": "time"
               },
               "dayOfWeek": {
                 "type": "string",
