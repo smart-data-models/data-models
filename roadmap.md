@@ -17,15 +17,15 @@ The Roadmap of the Smart Data Models Initiative is the following:
 * Launch other domains
 - Smart Robotics. done
 - Smart Manufacturing. done
-- Smart Destinations. In progress
+- Smart Destinations. done
+- Smart Aeronautics. done
 
 * Add additional Data Models per other methods defined by the FIWARE Foundation and TMForum. done
 
-* Adopt automatic documentation generation to be developed by FIWARE Data Models. 
-It hs been drafting a new template for generating this documentation. First example [here](https://github.com/smart-data-models/data-models/blob/master/templates/dataModel/doc/spec-example.md). In progress.
+* Adopt automatic documentation generation to be developed by FIWARE Data Models. done.
 
-* Generate Schema definitions in JSON JSON-LD as suggested by 
+* Generate Schema definitions in JSON JSON-LD. fixed
 
 * Validate NGSI-LD content.
 The validation tool (see [tools repository](https://github.com/smart-data-models/tools)) has to be tweaked to perform NGSI-LD validation of examples
-, once Orion-LD is in a more mature state. 
+, once Orion-LD is in a more mature state. In progress.
