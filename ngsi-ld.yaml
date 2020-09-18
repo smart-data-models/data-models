@@ -5,7 +5,7 @@
 Common: 
   properties: 
     dateCreated: 
-      description: "Entity's creation timestamp.\n"
+      description: "Creation timestamp of the entity.\n"
       format: date-time
       readOnly: true
       type: string
