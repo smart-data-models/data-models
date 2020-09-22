@@ -277,4 +277,4 @@ Whenever possible they will be absolute references in order to provide the abili
 
 ## Going through the data models
 
-For a clear explanation on the current use of the data models. Check the [Going through the data models](specs/howto.md#going-through-a-data-model)
+For a clear explanation on the current use of the data models. Check the [Going through the data models](https://github.com/smart-data-models/data-models/blob/master/specs/howto.md#going-through-a-data-model)
