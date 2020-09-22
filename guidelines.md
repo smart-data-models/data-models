@@ -7,7 +7,7 @@ already a data model that covers your use case. Recall to use synonyms in your s
 Transport already exists under UrbanMobility. Check [this resource](https://docs.google.com/spreadsheets/d/1vp9rU63R2YXleEg6w2tn1tWx5sb4heY0APK-tHV9e5M/edit#gid=1357587034) to find it out.
 
 If you are looking for guidelines on adoption of existing data models, please
-refer to [How to use FIWARE Harmonised Data Models in your projects](specs/howto.md)
+refer to [How to use FIWARE Harmonised Data Models in your projects](https://github.com/smart-data-models/data-models/blob/master/specs/howto.md)
 section.
 
 ## Syntax
