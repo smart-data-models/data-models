@@ -74,6 +74,7 @@ section.
 
 -   In NGSI-LD the Property `unitCode` is already defined and available to be
     used.
+-   The list of UN/CEFACT Common Code (3 characters) can be download from this [page](https://www.unece.org/cefact/codesfortrade/codes_index.html). of the list directly from [here](https://www.unece.org/fileadmin/DAM/cefact/recommendations/rec20/rec20.zip). 
 
 ## Relative values
 
