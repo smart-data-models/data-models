@@ -3,7 +3,7 @@
   "type": "WeatherObserved",
   "address": {
     "addressLocality": "__T_city()",
-    "addressRegion": "__T_region()",
+    "addressRegion": "Leon",
     "addressCountry": "__T_country_code()",
     "postalcode": "__T_postcode()",
     "postOfficeBoxNumber": "__T_bothify(#####)",
