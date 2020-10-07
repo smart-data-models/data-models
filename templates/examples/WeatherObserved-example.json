@@ -9,7 +9,7 @@
     "postOfficeBoxNumber": "__T_bothify(\"####\")",
     "streetAddress": "__T_street_name()"
   },
-  "atmosphericPressure": "__R_rand.randint(920,1024)",
+  "atmosphericPressure": "__R_random.randint(920,1024)",
   "dataProvider": "__T_bothify(\"???\")",
   "dateObserved": "__D_iso8601()",
   "location": {
@@ -31,5 +31,5 @@
   "refDevice": "__T_bothify(\"device-#?####\")",
   "streamGauge": "__R_round(random.uniform(0,100),1)",
   "snowHeight": "__R_round(random.uniform(0,50),0)",
-  "uvIndexMax": "__R_rand.randint(1,11)"
+  "uvIndexMax": "__R_random.randint(1,11)"
 }
