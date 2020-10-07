@@ -1,0 +1,35 @@
+{
+  "id": "__T_uri()",
+  "type": "WeatherObserved",
+  "address": {
+    "addressLocality": "__T_city()",
+    "addressRegion": "__T_region()",
+    "addressCountry": "__T_country_code()",
+    "postalcode": "__T_postcode()",
+    "postOfficeBoxNumber": "__T_bothify(#####)",
+    "streetAddress": "__T_street_name()"
+  },
+  "atmosphericPressure": "__R_random_int(920,1024)",
+  "dataProvider": "__T_bothify(\"???\")",
+  "dateObserved": "__D_iso8601()",
+  "location": {
+    "type": "Point",
+    "coordinates": [
+      "_C__local_latlng(coords_only=True)"
+    ]
+  },
+  "precipitation": "__N_bothify(\"##\")",
+  "pressureTendency": "__N_bothify(\"##\")",
+  "relativeHumidity": "__R_random()",
+  "source": "__T_url()",
+  "stationCode": "__T_bothify(\"####\")",
+  "stationName": "__T_city",
+  "temperature": "__R_random(0,30)",
+  "windDirection": "__R_random(-180,180)",
+  "windSpeed": "__R_random(0,100)",
+  "illuminance": "__R_random(0,1000)",
+  "refDevice": "__T_bothify(\"device-#?####\")",
+  "streamGauge": "__R_random(0,100)",
+  "snowHeight": "__R_random(0,50)",
+  "uvIndexMax": "__R_random(1,11)"
+}
