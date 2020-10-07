@@ -24,12 +24,12 @@
   "source": "__T_url()",
   "stationCode": "__T_bothify(\"####\")",
   "stationName": "__T_city()",
-  "temperature": "__R_random(0,30)",
-  "windDirection": "__R_random(-180,180)",
-  "windSpeed": "__R_random(0,100)",
-  "illuminance": "__R_random(0,1000)",
+  "temperature": "__R_uniform(0,30)",
+  "windDirection": "__R_uniform(-180,180)",
+  "windSpeed": "__R_uniform(0,100)",
+  "illuminance": "__R_uniform(0,1000)",
   "refDevice": "__T_bothify(\"device-#?####\")",
-  "streamGauge": "__R_random(0,100)",
-  "snowHeight": "__R_random(0,50)",
-  "uvIndexMax": "__R_random(1,11)"
+  "streamGauge": "__R_uniform(0,100)",
+  "snowHeight": "__R_uniform(0,50)",
+  "uvIndexMax": "__R_uniform(1,11)"
 }
