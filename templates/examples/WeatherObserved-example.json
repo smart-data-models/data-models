@@ -19,7 +19,7 @@
     ]
   },
   "precipitation": "__N_bothify(\"##\")",
-  "pressureTendency": "__N_random_choices(elements=(\"falling\",\"raising\",\"steady\"), length=1)",
+  "pressureTendency": "__T_random_choices(elements=(\"falling\",\"raising\",\"steady\"), length=1)",
   "relativeHumidity": "__R_rand.random()",
   "source": "__T_url()",
   "stationCode": "__T_bothify(\"####\")",
