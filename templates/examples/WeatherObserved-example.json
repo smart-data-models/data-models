@@ -15,7 +15,7 @@
   "location": {
     "type": "Point",
     "coordinates": [
-      "_C__local_latlng(coords_only=True)"
+      "__C_local_latlng(coords_only=True)"
     ]
   },
   "precipitation": "__N_bothify(\"##\")",
