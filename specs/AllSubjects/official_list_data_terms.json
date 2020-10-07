@@ -2436,7 +2436,7 @@
  {"name": "provider", "type": "Attribute", "dataType": "string", "schema": "https://github.com/smart-data-models/dataModel.Device/blob/master/Device/schema.json", "dataModel": "Device"},
  {"name": "refDeviceModel", "type": "Attribute", "dataType": "N/A", "schema": "https://github.com/smart-data-models/dataModel.Device/blob/master/Device/schema.json", "dataModel": "Device"},
  {"name": "batteryLevel", "type": "Attribute", "dataType": "N/A", "schema": "https://github.com/smart-data-models/dataModel.Device/blob/master/Device/schema.json", "dataModel": "Device"},
- {"name": "rssi", "type": "Attribute", "dataType": "N/A", "schema": "https://github.com/smart-data-models/dataModel.Device/blob/master/Device/schema.json", "dataModel": "Device"},
+ {"name": "rssi", "type": "Attribute", "dataType": "number", "schema": "https://github.com/smart-data-models/dataModel.Device/blob/master/Device/schema.json", "dataModel": "Device"},
  {"name": "deviceState", "type": "Attribute", "dataType": "string", "schema": "https://github.com/smart-data-models/dataModel.Device/blob/master/Device/schema.json", "dataModel": "Device"},
  {"name": "dateLastValueReported", "type": "Attribute", "dataType": "string", "format": "date-time", "schema": "https://github.com/smart-data-models/dataModel.Device/blob/master/Device/schema.json", "dataModel": "Device"},
  {"name": "value", "type": "Attribute", "dataType": "string", "schema": "https://github.com/smart-data-models/dataModel.Device/blob/master/Device/schema.json", "dataModel": "Device"},
