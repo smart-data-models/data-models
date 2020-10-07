@@ -9,7 +9,7 @@
     "postOfficeBoxNumber": "__T_bothify(\"#####\")",
     "streetAddress": "__T_street_name()"
   },
-  "atmosphericPressure": "__R_random_int(920,1024)",
+  "atmosphericPressure": "__R_randint(920,1024)",
   "dataProvider": "__T_bothify(\"???\")",
   "dateObserved": "__D_iso8601()",
   "location": {
