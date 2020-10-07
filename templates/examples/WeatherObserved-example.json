@@ -6,7 +6,7 @@
     "addressRegion": "Leon",
     "addressCountry": "__T_country_code()",
     "postalcode": "__T_postcode()",
-    "postOfficeBoxNumber": "__T_bothify(#####)",
+    "postOfficeBoxNumber": "__T_bothify(\"#####\")",
     "streetAddress": "__T_street_name()"
   },
   "atmosphericPressure": "__R_random_int(920,1024)",
