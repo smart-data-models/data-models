@@ -18,7 +18,7 @@
       "__C_local_latlng(coords_only=True)"
     ]
   },
-  "precipitation": "__N_bothify(\"##\")",
+  "precipitation": "__N_bothify(\"%#\")",
   "pressureTendency": "__T_random_choices(elements=(\"falling\",\"raising\",\"steady\"), length=1)",
   "relativeHumidity": "__R_round(random.random(),2)",
   "source": "__T_url()",
