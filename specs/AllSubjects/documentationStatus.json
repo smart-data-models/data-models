@@ -1,4 +1,4 @@
-{"updateDate": "2020-10-08T14:35:16.677992",
+{"updateDate": "2020-10-09T14:35:13.876522",
  "officialList": [{"repoName": "dataModel.User",
  "repoLink": "https://github.com/smart-data-models/dataModel.User.git",
  "dataModel": "Activity",
@@ -754,7 +754,6 @@
  "docAvailable": ["LICENSE.md",
  "README.md",
  "doc",
- "example.jsonld",
  "examples",
  "model.yaml",
  "schema.json",
