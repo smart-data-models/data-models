@@ -25,5 +25,5 @@
   "volumeCurve": "__T_bothify(\"%%%%%%%?-%###-%###-%###-??%#?###??##\")",
   "mixingFraction": 0.7,
   "bulkReactionCoefficient": "__R_round(random.random(),1)",
-  "tag": "__T_text(max_nb_chars=3)"
+  "tag": "__T_text(max_nb_chars=5)"
 }
