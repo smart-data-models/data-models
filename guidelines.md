@@ -2,7 +2,7 @@
 
 This is a set of guidelines for defining new data models.
 
-Before creating a new data model, [explore the existing ones](http://data-models.fiware.org/index.php/list-of-data-models/) to be sure there is
+Before creating a new data model, [explore the existing ones](http://smartdatamodels.org/index.php/list-of-data-models/) to be sure there is
 already a data model that covers your use case. Recall to use synonyms in your search. E.g. what you might call Public
 Transport already exists under UrbanMobility. Check [this resource](https://docs.google.com/spreadsheets/d/1vp9rU63R2YXleEg6w2tn1tWx5sb4heY0APK-tHV9e5M/edit#gid=1357587034) to find it out.
 
@@ -24,7 +24,9 @@ section.
 ## Reuse
 
 -   Check for the existence of the same Attribute on any of the other models and
-    reuse it, in [this resource](https://docs.google.com/spreadsheets/d/1vp9rU63R2YXleEg6w2tn1tWx5sb4heY0APK-tHV9e5M) if pertinent.
+    reuse it, in [this resource](http://smartdatamodels.org) if pertinent.
+-   It is also available a resource for looking into the descriptions of the different 
+    properties. Access to this [resource](https://smartdatamodels.org/index.php/ddbb-of-properties-descriptions/).
 -   Have a look at [schema.org](http://schema.org) trying to find a similar term
     with the same semantics.
 -   Try to find common used ontologies or existing standards well accepted by
@@ -74,7 +76,7 @@ section.
 
 -   In NGSI-LD the Property `unitCode` is already defined and available to be
     used.
--   The list of UN/CEFACT Common Code (3 characters) can be download from this [page](https://www.unece.org/cefact/codesfortrade/codes_index.html). The list i available directly from [here](https://www.unece.org/fileadmin/DAM/cefact/recommendations/rec20/rec20.zip). 
+-   The list of UN/CEFACT Common Code (3 characters) can be download from this [page](https://www.unece.org/cefact/codesfortrade/codes_index.html). The list is available directly from [here](https://www.unece.org/fileadmin/DAM/cefact/recommendations/rec20/rec20.zip). 
 
 ## Relative values
 
@@ -85,7 +87,7 @@ section.
 ## Modelling location
 
 -   Use `address` attribute for civic locations as per
-    [schema.org](http://schema.org/address)
+    [schema.org](http://schema.org/address). You can read the [location-commons](https://github.com/smart-data-models/data-models/blob/master/common-schema.json)
 
 -   Use the `location` Attribute for geographical coordinates. GeoJSON must be
     used for encoding geospatial properties.
@@ -157,7 +159,7 @@ follows:
     allowed to have Entity representations which only contain terms associated
     to language variants.
 
--   For each language variant of an internationalized attribute, there shall be
+-   [Under revision] For each language variant of an internationalized attribute, there shall be
     an additional Entity Attribute which name shall be in the form:
 
 `<AttributeName>_<LanguageTag>` where `AttributeName` is the original attribute
@@ -177,7 +179,7 @@ attribute. For instance, by validating that the term's suffix actually
 corresponds to a valid language tag and by checking that the corresponding
 original attribute is contained in the entity.
 
-Example:
+[Under review] Example:
 
 An entity may contain an attribute named `description`. The value of such
 attribute shall be expressed in American English. Additionally it might exist an
@@ -187,7 +189,7 @@ attribute named `description_es` used to convey the value of such a
 ## Some of the most used attributes
 
 In case of doubt check the existing data models. The full list can be got in the 
-[attributes search tool]() by using an empty string.
+[attributes search tool](https://smartdatamodels.org/index.php/ddbb-of-properties-descriptions/) by using an empty string.
 
 -   `name`
 -   `alternateName`
@@ -215,7 +217,7 @@ Contributions should come in the form of pull requests.
 [Create a branch](https://help.github.com/articles/creating-and-deleting-branches-within-your-repository/)
 containing your changes, and proceed with a
 [Pull Request](https://help.github.com/articles/creating-a-pull-request-from-a-fork/).
-[Submit a form](http://data-models.fiware.org/index.php/submit-a-data-model/)
+[Submit a form](http://smartdatamodels.org/index.php/submit-a-data-model/)
 
 Pull Request should be easy to review, so if the model, or the changes you are
 proposing are wide, please create different pull requests.
@@ -233,6 +235,8 @@ New data models should be added under a folder structured as follows:
             [README.md of WeatherObserved](https://github.com/FIWARE/data-models/tree/master/specs/Weather/WeatherObserved)
         -   `schema.json`: The JSON Schema definition, e.g.
             [schema.json of WeatherObserved](./Weather/WeatherObserved/schema.json)
+            
+      - `examples/`
         -   `example.json`: One or more JSON example file, e.g.
             [example.json of WeatherObserved](./Weather/WeatherObserved/example.json)
         -   `example-normalized.json`: One or more JSON example file in NGSI v2
@@ -249,26 +253,30 @@ among the entities. e.g.:
 
     -   `Subject/`
         -   `doc/`
-            -   `spec.md`
         -   `README.md`
-        -   `newmodel-schema.json`: the common schema for the different
+        -   `subhect-schema.json`: the common schema for the different
             entities.
         -   `NewModelEntityOne/`
             -   `doc/`
                 -   `spec.md`
             -   `README.md`
             -   `schema.json`
-            -   `example.json`
-            -   `example-normalized.json`
-            -   `example-normalized-ld.jsonld`
+            -   `examples`
+                -   `example.json` (keyvalues on NGSI v2)
+                -   `example.jsonld`  (keyvalues on NGSI LD)
+                -   `example-normalized.json` (normalized on NGSI v2)
+                -   `example-normalized.jsonld`  (normalized on NGSI LD)
         -   `NewModelEntityTwo/`
+
             -   `doc/`
                 -   `spec.md`
             -   `README.md`
             -   `schema.json`
-            -   `example.json`
-            -   `example-normalized.json`
-            -   `example-normalized-ld.jsonld`
+            -   `examples`
+                -   `example.json` (keyvalues on NGSI v2)
+                -   `example.jsonld`  (keyvalues on NGSI LD)
+                -   `example-normalized.json` (normalized on NGSI v2)
+                -   `example-normalized.jsonld`  (normalized on NGSI LD)
 
 ## Definitions' section
 The section definitions will be included into the subject-schema.json name of the subject.
