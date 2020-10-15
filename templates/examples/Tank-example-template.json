@@ -23,7 +23,7 @@
   },
   "mixingModel": "__T_random_choices(elements=(\"MIXED\",\"2COMP\",\"FIFO\",\"LIFO\"), length=1)",
   "volumeCurve": "__T_bothify(\"%%%%%%%?-%###-%###-%###-??%#?###??##\")",
-  "mixingFraction": "__R_round(random.random(),1)",,
+  "mixingFraction": "__R_round(random.random(),1)",
   "bulkReactionCoefficient": "__R_round(random.random(),1)",
   "tag": "__T_text(max_nb_chars=6)"
 }
