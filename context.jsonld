@@ -751,6 +751,6 @@
     "workingLife": "https://raw.githubusercontent.com/smart-data-models/data-models/master/terms.jsonld#workingLife",
     "workingMode": "https://raw.githubusercontent.com/smart-data-models/data-models/master/terms.jsonld#workingMode",
     "zoneCode": "https://raw.githubusercontent.com/smart-data-models/data-models/master/terms.jsonld#zoneCode",
-    "@vocab": "https://uri.etsi.org/ngsi-ld/default-context/"
+    "@vocab": "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.3.jsonld"
   }
 }
