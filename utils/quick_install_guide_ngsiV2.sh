@@ -28,7 +28,7 @@ sudo docker network create fiware_default
 sudo docker run -d --name=mongo-db --network=fiware_default --expose=27017 mongo:3.6 --bind_ip_all --smallfiles
 sudo docker run -d --name fiware-orion -h orion --network=fiware_default -p 1026:1026  fiware/orion -dbhost mongo-db
 
-# 2.- In case you already had a installation it is better to run these instructions
+# 2.- In case you already had a installation it is better to run these instructions first to (1)
 docker stop fiware-orion
 docker rm fiware-orion
 docker stop mongo-db
