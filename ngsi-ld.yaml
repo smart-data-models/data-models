@@ -5,7 +5,7 @@
 Common: 
   properties: 
     dateCreated: 
-      description: "Creation timestamp of the entity.\n"
+      description: "Creation timestamp of the entity."
       format: date-time
       readOnly: true
       type: string
@@ -14,7 +14,7 @@ Common:
         model: "https://schema.org/DateTime"
         type: Property
     dateModified: 
-      description: "Update timestamp of this entity.\n"
+      description: "Update timestamp of this entity."
       format: date-time
       readOnly: true
       type: string
@@ -23,7 +23,7 @@ Common:
         auto-gen: true
         model: "https://schema.org/DateTime"
     id: 
-      description: "URN holding the id of the attribute\n"
+      description: "URN holding the id of the attribute"
       type: string
     type: 
       description: "The entity type\n"
@@ -47,7 +47,7 @@ Error:
 
 # Standard NGSI-LD definition of a description attribute
 description: 
-  description: "A description of the item\n"
+  description: "A description of the item"
   externalDocs: 
     url: "http://purl.org/dc/elements/1.1/description"
     x-see-also: 
@@ -62,7 +62,7 @@ description:
 
 # Standard NGSI-LD definition of a location attribute
 location: 
-  description: "The current location of the item\n"
+  description: "The current location of the itemr"
   externalDocs: 
     url: "http://geojson.org/geojson-spec.html#geometry-objects"
   oneOf: 
