@@ -1,4 +1,4 @@
-{"definitions": {"0": "https://uri.fiware.org/ns/data-models#0", 
+{"@context": {"0": "https://uri.fiware.org/ns/data-models#0", 
 "1": "https://uri.fiware.org/ns/data-models#1", 
 "2": "https://uri.fiware.org/ns/data-models#2", 
 "3": "https://uri.fiware.org/ns/data-models#3", 
