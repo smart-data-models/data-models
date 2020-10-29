@@ -188,7 +188,7 @@
 "createdAt": "Entitys creation timestamp.\n", 
 "diameter": "The pipe diameter\n", 
 "endsAt": "The ID of the node where the pipe ends.\nReference to an entity of type `Node (Reservoir, Junction, Tank)`\n", 
-"initialStatus": "Determines whether the pipe is initially open, closed, or contains a check valve.\nValues are restricted to: "OPEN","CLOSED","CV"\n", 
+"initialStatus": "Determines whether the pipe is initially open, closed, or contains a check valve.\nValues are restricted to: OPEN,CLOSED,CV\n", 
 "length": "The actual length of the pipe\n", 
 "minorLoss": "Unitless minor loss coefficient associated with bends, fittings, etc.\n", 
 "modifiedAt": "", 
