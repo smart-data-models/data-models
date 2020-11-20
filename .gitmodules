@@ -16,9 +16,6 @@
 [submodule "specs/SmartEnvironment"]
 	path = specs/SmartEnvironment
 	url = https://github.com/smart-data-models/SmartEnvironment.git
-[submodule "specs/SmartEnergy"]
-	path = specs/SmartEnergy
-	url = https://github.com/smart-data-models/SmartEnergy.git
 [submodule "specs/CrossSector"]
 	path = specs/CrossSector
 	url = https://github.com/smart-data-models/CrossSector.git
