@@ -9,11 +9,13 @@
           "type": "string",
           "minLength": 1,
           "maxLength": 256,
-          "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$"
+          "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+          "description" : "Property. Identifier format of any NGSI entity"
         },
         {
           "type": "string",
-          "format": "uri"
+          "format": "uri",
+          "description" : "Property. Identifier format of any NGSI entity"
         }
       ]
     },
@@ -29,29 +31,37 @@
         },
         "dateCreated": {
           "type": "string",
-          "format": "date-time"
+          "format": "date-time",
+          "description": "Property. Entity creation timestamp. This will usually be allocated by the storage platform."
         },
         "dateModified": {
           "type": "string",
-          "format": "date-time"
+          "format": "date-time",
+          "description": "Property. Timestamp of the last modification of the entity. This will usually be allocated by the storage platform."
         },
         "source": {
-          "type": "string"
+          "type": "string",
+          "description":  "Property. A sequence of characters giving the original source of the entity data as a URL. Recommended to be the fully qualified domain name of the source provider, or the URL to the source object."
         },
         "name": {
-          "type": "string"
+          "type": "string",
+          "description":  "Property. The name of this item."
         },
         "alternateName": {
-          "type": "string"
+          "type": "string",
+          "description":  "Property. An alternative name for this item"
         },
         "description": {
-          "type": "string"
+          "type": "string",
+          "description":  "Property. A description of this item"
         },
         "dataProvider": {
-          "type": "string"
+          "type": "string",
+          "description":  "Property. A sequence of characters identifying the provider of the harmonised data entity."
         },
         "owner": {
           "type": "array",
+          "description":  "Property. A List containing a JSON encoded sequence of characters referencing the unique Ids of the owner(s)",
           "items": {
             "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
           }
@@ -84,6 +94,7 @@
         },
         "address": {
           "type": "object",
+          "description" : "Property. The mailing address.",
           "properties": {
             "streetAddress": {
               "type": "string"
@@ -109,7 +120,8 @@
           }
         },
         "areaServed": {
-          "type": "string"
+          "type": "string",
+        "description": "Property. The geographic area where a service or offered item is provided."
         }
       }
     },
@@ -117,11 +129,13 @@
       "type": "object",
       "properties": {
         "color": {
-          "type": "string"
+          "type": "string",
+          "description": "The color of the product."
         },
         "image": {
           "type": "string",
-          "format": "uri"
+          "format": "uri",
+          "description": "An image of the item."
         },
         "annotations": {
           "type": "array",
@@ -133,11 +147,11 @@
     },
     "DateTime-Commons": {
       "type": "object",
-      "description" : "All date-time elements in data models unless explicitly stated are ISO 8601 compliant",
+      "description" : "Property. All date-time elements in data models unless explicitly stated are ISO 8601 compliant",
       "properties": {
         "openingHoursSpecification": {
           "type": "array",
-          "description": "A structured value providing information about the opening hours of a place or a certain service inside a place.",
+          "description": "Property.A structured value providing information about the opening hours of a place or a certain service inside a place.",
           "items": {
             "properties": {
               "opens": {
