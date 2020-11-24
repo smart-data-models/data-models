@@ -1,12 +1,13 @@
+# Temporal files in repositories 
 The new spec is a new format for documenting the Smart Data Models.
 
-It will allow the generation of specifications in several languages
+It will allow the **generation of specifications in several languages**
 
 The properties are taken from the schema.json file
 
-It has to be included for every property in the description attribute for every property. 
+It has to be included a description for every property in the schema.json
 
-This also applies for those properties which are referenced through $ref clauses (i.e. those in the root of the subject in the file 'subject'-schema.json)
+This also applies for those properties which are referenced through $ref clauses (i.e. those in the root of the subject in the file 'subject'-schema.json). They have to be described in the referenced file.
 
 In order to provide additional service from this description some conventions are agreed:
     
