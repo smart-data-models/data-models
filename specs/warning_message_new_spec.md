@@ -16,3 +16,18 @@ In order to provide additional service from this description some conventions ar
     - For those properties which can be measured include `Units:'(units)'` where (units) is the description of the units i.e. meters
     - Include also, when available the list of allowed values
  
+ A example:
+ ...
+ "properties":{
+   "property1":{
+     "type": "string",
+     "description": "Property. Model:'http://schema.org/property1'. Units:'meters'. This is the description of property one. Its allowed values are (value1, value2, value3)",
+     "enum": ["value1", "value2", "value3"]
+   },
+   "refProperty2":{
+     "type": "string",
+     "format": "uri",
+     "description": "Relationship. This is the refrence to another Entity property2",
+     "enum": ["value1", "value2", "value3"]
+   },
+   ...
