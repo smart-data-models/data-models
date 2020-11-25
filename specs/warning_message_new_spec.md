@@ -19,16 +19,16 @@ In order to provide additional service from this description some conventions ar
  
  A example:
  ...
- "properties":{
-   "property1":{
-     "type": "string",
-     "description": "Property. Model:'http://schema.org/property1'. Units:'meters'. This is the description of property one. Its allowed values are (value1, value2, value3)",
-     "enum": ["value1", "value2", "value3"]
-   },
-   "refProperty2":{
-     "type": "string",
-     "format": "uri",
-     "description": "Relationship. This is the refrence to another Entity property2",
-     "enum": ["value1", "value2", "value3"]
+ "properties":{  
+   "property1":{  
+     "type": "string",  
+     "description": "Property. Model:'http://schema.org/property1'. Units:'meters'. This is the description of property one. Its allowed values are (value1, value2, value3)",  
+     "enum": ["value1", "value2", "value3"]  
+   },  
+   "refProperty2":{  
+     "type": "string",  
+     "format": "uri",  
+     "description": "Relationship. This is the refrence to another Entity property2",  
+     "enum": ["value1", "value2", "value3"]  
    },
    ...
