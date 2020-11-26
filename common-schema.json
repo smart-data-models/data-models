@@ -9,7 +9,7 @@
           "type": "string",
           "minLength": 1,
           "maxLength": 256,
-          "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+          "pattern": "^[\w\-\.\{\}\$\+\*\[\]`|~^@!,:\\]+$",
           "description" : "Property. Identifier format of any NGSI entity"
         },
         {
