@@ -19,9 +19,6 @@
 [submodule "specs/SmartEnvironment"]
 	path = specs/SmartEnvironment
 	url = https://github.com/smart-data-models/SmartEnvironment.git
-[submodule "specs/CrossSector"]
-	path = specs/CrossSector
-	url = https://github.com/smart-data-models/CrossSector.git
 [submodule "specs/Smart-Sensoring"]
 	path = specs/Smart-Sensoring
 	url = https://github.com/smart-data-models/Smart-Sensoring.git
