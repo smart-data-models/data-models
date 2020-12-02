@@ -20,7 +20,8 @@ section.
     qualifying it when necessary, ex. `totalSpotNumber` or `dateIssued`.
 -   Avoid plurals in Attribute names, but state clearly when a list of items
     fits. Ex. `category`.
-
+-   All first level properties defined in the  json schema has to have a description attribute
+    
 ## Reuse
 
 -   Check for the existence of the same Attribute on any of the other models and
