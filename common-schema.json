@@ -67,7 +67,7 @@
           }
         },
         "seeAlso": {
-          "description": "Property. list of uri poiting to additional resources about the item",
+          "description": "Property. list of uri pointing to additional resources about the item",
           "oneOf": [
             {
               "type": "array",
