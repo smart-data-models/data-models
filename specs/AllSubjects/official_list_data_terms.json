@@ -2420,7 +2420,6 @@
  {"name": "validFrom", "type": "Attribute", "dataType": "string", "format": "date-time", "schema": "https://github.com/smart-data-models/dataModel.PointOfInterest/blob/master/Store/schema.json", "dataModel": "Store"},
  {"name": "validThrough", "type": "Attribute", "dataType": "string", "format": "date-time", "schema": "https://github.com/smart-data-models/dataModel.PointOfInterest/blob/master/Store/schema.json", "dataModel": "Store"},
  {"name": "Store", "type": "Enumerated Value", "dataType": "string", "schema": "https://github.com/smart-data-models/dataModel.PointOfInterest/blob/master/Store/schema.json", "dataModel": "Store"},
- {"name": "image", "type": "Attribute", "dataType": "string", "schema": "https://github.com/smart-data-models/dataModel.PointOfInterest/blob/master/Store/schema.json", "dataModel": "Store"},
  {"name": "currenciesAccepted", "type": "Attribute", "dataType": "array", "schema": "https://github.com/smart-data-models/dataModel.PointOfInterest/blob/master/Store/schema.json", "dataModel": "Store"},
  {"name": "paymentAccepted", "type": "Attribute", "dataType": "array", "schema": "https://github.com/smart-data-models/dataModel.PointOfInterest/blob/master/Store/schema.json", "dataModel": "Store"},
  {"name": "logo", "type": "Attribute", "dataType": "string", "schema": "https://github.com/smart-data-models/dataModel.PointOfInterest/blob/master/Store/schema.json", "dataModel": "Store"},
