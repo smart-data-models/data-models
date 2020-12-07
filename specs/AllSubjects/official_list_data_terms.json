@@ -785,7 +785,7 @@
  {"name": "relatedSource", "type": "Attribute", "dataType": "array", "schema": "https://github.com/smart-data-models/dataModel.Agrifood/blob/master/AgriApp/schema.json", "dataModel": "AgriApp"},
  {"name": "AgriApp", "type": "Enumerated Value", "dataType": "string", "schema": "https://github.com/smart-data-models/dataModel.Agrifood/blob/master/AgriApp/schema.json", "dataModel": "AgriApp"},
  {"name": "version", "type": "Attribute", "dataType": "string", "schema": "https://github.com/smart-data-models/dataModel.Agrifood/blob/master/AgriApp/schema.json", "dataModel": "AgriApp"},
- {"name": "hasProvider", "type": "Relationship", "dataType": "string", "schema": "https://github.com/smart-data-models/dataModel.Agrifood/blob/master/AgriApp/schema.json", "dataModel": "AgriApp"},
+ {"name": "hasProvider", "type": "Attribute", "dataType": "N/A", "schema": "https://github.com/smart-data-models/dataModel.Agrifood/blob/master/AgriApp/schema.json", "dataModel": "AgriApp"},
  {"name": "endpoint", "type": "Attribute", "dataType": "string", "schema": "https://github.com/smart-data-models/dataModel.Agrifood/blob/master/AgriApp/schema.json", "dataModel": "AgriApp"},
  {"name": "category", "type": "Attribute", "dataType": "array", "schema": "https://github.com/smart-data-models/dataModel.Agrifood/blob/master/AgriApp/schema.json", "dataModel": "AgriApp"},
  {"name": "id", "type": "Attribute", "dataType": "object", "schema": "https://github.com/smart-data-models/dataModel.Agrifood/blob/master/AgriCrop/schema.json", "dataModel": "AgriCrop"},
