@@ -10,12 +10,12 @@
           "minLength": 1,
           "maxLength": 256,
           "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
-          "description" : "Property. Identifier format of any NGSI entity"
+          "description": "Property. Identifier format of any NGSI entity"
         },
         {
           "type": "string",
           "format": "uri",
-          "description" : "Property. Identifier format of any NGSI entity"
+          "description": "Property. Identifier format of any NGSI entity"
         }
       ]
     },
@@ -41,27 +41,27 @@
         },
         "source": {
           "type": "string",
-          "description":  "Property. A sequence of characters giving the original source of the entity data as a URL. Recommended to be the fully qualified domain name of the source provider, or the URL to the source object."
+          "description": "Property. A sequence of characters giving the original source of the entity data as a URL. Recommended to be the fully qualified domain name of the source provider, or the URL to the source object."
         },
         "name": {
           "type": "string",
-          "description":  "Property. The name of this item."
+          "description": "Property. The name of this item."
         },
         "alternateName": {
           "type": "string",
-          "description":  "Property. An alternative name for this item"
+          "description": "Property. An alternative name for this item"
         },
         "description": {
           "type": "string",
-          "description":  "Property. A description of this item"
+          "description": "Property. A description of this item"
         },
         "dataProvider": {
           "type": "string",
-          "description":  "Property. A sequence of characters identifying the provider of the harmonised data entity."
+          "description": "Property. A sequence of characters identifying the provider of the harmonised data entity."
         },
         "owner": {
           "type": "array",
-          "description":  "Property. A List containing a JSON encoded sequence of characters referencing the unique Ids of the owner(s)",
+          "description": "Property. A List containing a JSON encoded sequence of characters referencing the unique Ids of the owner(s)",
           "items": {
             "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
           }
@@ -96,7 +96,7 @@
         },
         "address": {
           "type": "object",
-          "description" : "Property. The mailing address.",
+          "description": "Property. The mailing address.",
           "properties": {
             "streetAddress": {
               "type": "string"
@@ -123,7 +123,7 @@
         },
         "areaServed": {
           "type": "string",
-        "description": "Property. The geographic area where a service or offered item is provided."
+          "description": "Property. The geographic area where a service or offered item is provided."
         }
       }
     },
@@ -149,7 +149,7 @@
     },
     "DateTime-Commons": {
       "type": "object",
-      "description" : "Property. All date-time elements in data models unless explicitly stated are ISO 8601 compliant",
+      "description": "Property. All date-time elements in data models unless explicitly stated are ISO 8601 compliant",
       "properties": {
         "openingHoursSpecification": {
           "type": "array",
@@ -188,6 +188,30 @@
             }
           },
           "minItems": 1
+        }
+      }
+    },
+    "Contact-Commons": {
+      "description": "Property. All contact elements in data models unless explicitly stated according to schema.org",
+      "properties": {
+        "contactPoint": {
+          "type": "object",
+          "description": "Property. Model:'https://schema.org/ContactPoint'. The details to contact with the item.",
+          "properties": {
+            "contactType": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string",
+              "format": "idn-email"
+            },
+            "telephone": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          }
         }
       }
     }
