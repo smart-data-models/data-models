@@ -35,6 +35,12 @@ section.
     [Open311](http://www.open311.org/) for civic issue tracking or
     [Datex II](http://www.datex2.eu/) for transport systems.
 
+## Payload validation
+
+-   The schemas defined here are aimed to validate key-values representation of the payloads
+-   It means that it is possible to have arrays of relationships (something which is not allowed in 
+    NGSI-LD, although it could be implemented through the datasetId)
+
 ## Data types
 
 -   When possible reuse schema.org data types (`Text`, `Number`, `DateTime`,
@@ -183,7 +189,7 @@ original attribute is contained in the entity.
 [Under review] Example:
 
 An entity may contain an attribute named `description`. The value of such
-attribute shall be expressed in American English. Additionally it might exist an
+attribute shall be expressed in American English. Additionally, it might exist an
 attribute named `description_es` used to convey the value of such a
 `description` attribute in Spanish.
 
