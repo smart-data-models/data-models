@@ -1,4 +1,4 @@
-{"updateDate": "2020-12-07T14:36:56.569614",
+{"updateDate": "2020-12-08T14:36:55.450274",
  "officialList": [{"repoName": "dataModel.User",
  "repoLink": "https://github.com/smart-data-models/dataModel.User.git",
  "dataModel": "Activity",
@@ -2043,6 +2043,7 @@
  "examples",
  "model.yaml",
  "new_model.yaml",
+ "notes.yaml",
  "schema.json",
  "swagger.yaml",
  "new_spec_EN-US.md",
