@@ -602,7 +602,7 @@
  {"name": "shape", "type": "Attribute", "dataType": "array", "schema": "https://github.com/smart-data-models/dataModel.ParksAndGardens/blob/master/FlowerBed/schema.json", "dataModel": "FlowerBed"},
  {"name": "dateLastWatering", "type": "Attribute", "dataType": "string", "format": "date-time", "schema": "https://github.com/smart-data-models/dataModel.ParksAndGardens/blob/master/FlowerBed/schema.json", "dataModel": "FlowerBed"},
  {"name": "nextWateringDeadline", "type": "Attribute", "dataType": "string", "format": "date-time", "schema": "https://github.com/smart-data-models/dataModel.ParksAndGardens/blob/master/FlowerBed/schema.json", "dataModel": "FlowerBed"},
- {"name": "refGarden", "type": "Relationship", "dataType": "string", "schema": "https://github.com/smart-data-models/dataModel.ParksAndGardens/blob/master/FlowerBed/schema.json", "dataModel": "FlowerBed"},
+ {"name": "refGarden", "type": "Attribute", "dataType": "N/A", "schema": "https://github.com/smart-data-models/dataModel.ParksAndGardens/blob/master/FlowerBed/schema.json", "dataModel": "FlowerBed"},
  {"name": "id", "type": "Attribute", "dataType": "object", "schema": "https://github.com/smart-data-models/dataModel.ParksAndGardens/blob/master/Garden/schema.json", "dataModel": "Garden"},
  {"name": "dateCreated", "type": "Attribute", "dataType": "string", "format": "date-time", "schema": "https://github.com/smart-data-models/dataModel.ParksAndGardens/blob/master/Garden/schema.json", "dataModel": "Garden"},
  {"name": "dateModified", "type": "Attribute", "dataType": "string", "format": "date-time", "schema": "https://github.com/smart-data-models/dataModel.ParksAndGardens/blob/master/Garden/schema.json", "dataModel": "Garden"},
