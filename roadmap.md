@@ -4,11 +4,11 @@ The Roadmap of the Smart Data Models Initiative is the following:
 
 * To launch its community not only in the github repository but also in a dedicated website. Done
 
-* Finish the integration of the testing tools for the decentralised approach of repositories. In progress.
+* Finish the integration of the testing tools for the decentralised approach of repositories. Done. Now second phase.
 
 * Automation of the testing tools to check consistency within the data models
-  * Check that all files are included. [partially done](https://github.com/smart-data-models/data-models/blob/master/specs/AllSubjects/documentationStatus.json).
-  * Check that all properties are included into the examples. In progress
+  * Changing the data models to include all the comments in the json schema
+  
  
 * Adopt additional Data Models from: 
 - [SynchroniCity Data Models Project](https://gitlab.com/synchronicity-iot/synchronicity-data-models). done for those willing to move.
