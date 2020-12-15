@@ -140,15 +140,16 @@
       "properties": {
         "color": {
           "type": "string",
-          "description": "The color of the product."
+          "description": "Property. The color of the product. Model:'https://schema.org/color'"
         },
         "image": {
           "type": "string",
           "format": "uri",
-          "description": "An image of the item."
+          "description": "Property. An image of the item. Model:'https://schema.org/URL'"
         },
         "annotations": {
           "type": "array",
+          "description": "Property. Annotations about the item.",
           "items": {
             "type": "string"
           }
