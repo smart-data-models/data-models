@@ -17,7 +17,8 @@
           "format": "uri",
           "description": "Property. Identifier format of any NGSI entity"
         }
-      ]
+      ],
+      "description": "Property. Unique identifier of the entity"
     },
     "DateYearLess": {
       "type": "string",
@@ -99,31 +100,38 @@
           "description": "Property. The mailing address.",
           "properties": {
             "streetAddress": {
-              "type": "string"
+              "type": "string",
+              "description": "Property. The street address. Model:'https://schema.org/Text'"
             },
             "addressLocality": {
-              "type": "string"
+              "type": "string",
+              "description": "Property. The locality in which the street address is, and which is in the region. Model:'https://schema.org/Text'"
             },
             "addressRegion": {
-              "type": "string"
+              "type": "string",
+              "description": "Property. The region in which the locality is, and which is in the country. Model:'https://schema.org/Text'"
             },
             "addressCountry": {
-              "type": "string"
+              "type": "string",
+              "description": "Property. The country. For example, Spain. Model:'https://schema.org/Text'"
             },
             "postalCode": {
-              "type": "string"
+              "type": "string",
+              "description": "Property. The postal code. For example, Spain. Model:'https://schema.org/Text'"
             },
             "postOfficeBoxNumber": {
-              "type": "string"
+              "type": "string",
+              "description": "Property. The post office box number for PO box addresses. For example, Spain. Model:'https://schema.org/Text'"
             },
             "areaServed": {
-              "type": "string"
+              "type": "string",
+              "description": "Property. The geographic area where a service or offered item is provided. Model:'https://schema.org/Text'"
             }
           }
         },
         "areaServed": {
           "type": "string",
-          "description": "Property. The geographic area where a service or offered item is provided."
+          "description": "Property. The geographic area where a service or offered item is provided. Model:'https://schema.org/Text'"
         }
       }
     },
