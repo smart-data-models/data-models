@@ -98,7 +98,7 @@
       "properties": {
         "location": {
           "$ref": "http://geojson.org/schema/Geometry.json#",
-          "description": "Property. Geojson reference to the item"
+          "description": "Geoproperty. Geojson reference to the item"
         },
         "address": {
           "type": "object",
