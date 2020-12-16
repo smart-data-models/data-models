@@ -20,206 +20,240 @@
       ],
       "description": "Property. Unique identifier of the entity"
     },
-    "DateYearLess": {
+    "email": {
       "type": "string",
-      "pattern": "^--((0[13578]|1[02])-31|(0[1,3-9]|1[0-2])-30|(0\\d|1[0-2])-([0-2]\\d))$"
-    },
-    "GSMA-Commons": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "$ref": "#/definitions/EntityIdentifierType"
-        },
-        "dateCreated": {
-          "type": "string",
-          "format": "date-time",
-          "description": "Property. Entity creation timestamp. This will usually be allocated by the storage platform."
-        },
-        "dateModified": {
-          "type": "string",
-          "format": "date-time",
-          "description": "Property. Timestamp of the last modification of the entity. This will usually be allocated by the storage platform."
-        },
-        "source": {
-          "type": "string",
-          "description": "Property. A sequence of characters giving the original source of the entity data as a URL. Recommended to be the fully qualified domain name of the source provider, or the URL to the source object."
-        },
-        "name": {
-          "type": "string",
-          "description": "Property. The name of this item."
-        },
-        "alternateName": {
-          "type": "string",
-          "description": "Property. An alternative name for this item"
-        },
-        "description": {
-          "type": "string",
-          "description": "Property. A description of this item"
-        },
-        "dataProvider": {
-          "type": "string",
-          "description": "Property. A sequence of characters identifying the provider of the harmonised data entity."
-        },
-        "owner": {
-          "type": "array",
-          "description": "Property. A List containing a JSON encoded sequence of characters referencing the unique Ids of the owner(s)",
-          "items": {
-            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+      "format": "idn-email",
+      "description": "Property. Email address of owner."
+    }
+  },
+  "DateYearLess": {
+    "type": "string",
+    "pattern": "^--((0[13578]|1[02])-31|(0[1,3-9]|1[0-2])-30|(0\\d|1[0-2])-([0-2]\\d))$"
+  },
+  "GSMA-Commons": {
+    "type": "object",
+    "properties": {
+      "id": {
+        "$ref": "#/definitions/EntityIdentifierType"
+      },
+      "dateCreated": {
+        "type": "string",
+        "format": "date-time",
+        "description": "Property. Entity creation timestamp. This will usually be allocated by the storage platform."
+      },
+      "dateModified": {
+        "type": "string",
+        "format": "date-time",
+        "description": "Property. Timestamp of the last modification of the entity. This will usually be allocated by the storage platform."
+      },
+      "source": {
+        "type": "string",
+        "description": "Property. A sequence of characters giving the original source of the entity data as a URL. Recommended to be the fully qualified domain name of the source provider, or the URL to the source object."
+      },
+      "name": {
+        "type": "string",
+        "description": "Property. The name of this item."
+      },
+      "alternateName": {
+        "type": "string",
+        "description": "Property. An alternative name for this item"
+      },
+      "description": {
+        "type": "string",
+        "description": "Property. A description of this item"
+      },
+      "dataProvider": {
+        "type": "string",
+        "description": "Property. A sequence of characters identifying the provider of the harmonised data entity."
+      },
+      "owner": {
+        "type": "array",
+        "description": "Property. A List containing a JSON encoded sequence of characters referencing the unique Ids of the owner(s)",
+        "items": {
+          "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
+        }
+      },
+      "seeAlso": {
+        "description": "Property. list of uri pointing to additional resources about the item",
+        "oneOf": [
+          {
+            "type": "array",
+            "minItems": 1,
+            "items": [
+              {
+                "type": "string",
+                "format": "uri"
+              }
+            ]
+          },
+          {
+            "type": "string",
+            "format": "uri"
           }
-        },
-        "seeAlso": {
-          "description": "Property. list of uri pointing to additional resources about the item",
-          "oneOf": [
-            {
-              "type": "array",
-              "minItems": 1,
-              "items": [
-                {
-                  "type": "string",
-                  "format": "uri"
-                }
+        ]
+      }
+    }
+  },
+  "Location-Commons": {
+    "type": "object",
+    "properties": {
+      "location": {
+        "$ref": "http://geojson.org/schema/Geometry.json#",
+        "description": "Property. Geojson reference to the item"
+      },
+      "address": {
+        "type": "object",
+        "description": "Property. The mailing address.",
+        "properties": {
+          "streetAddress": {
+            "type": "string",
+            "description": "Property. The street address. Model:'https://schema.org/Text'"
+          },
+          "addressLocality": {
+            "type": "string",
+            "description": "Property. The locality in which the street address is, and which is in the region. Model:'https://schema.org/Text'"
+          },
+          "addressRegion": {
+            "type": "string",
+            "description": "Property. The region in which the locality is, and which is in the country. Model:'https://schema.org/Text'"
+          },
+          "addressCountry": {
+            "type": "string",
+            "description": "Property. The country. For example, Spain. Model:'https://schema.org/Text'"
+          },
+          "postalCode": {
+            "type": "string",
+            "description": "Property. The postal code. For example, Spain. Model:'https://schema.org/Text'"
+          },
+          "postOfficeBoxNumber": {
+            "type": "string",
+            "description": "Property. The post office box number for PO box addresses. For example, Spain. Model:'https://schema.org/Text'"
+          },
+          "areaServed": {
+            "type": "string",
+            "description": "Property. The geographic area where a service or offered item is provided. Model:'https://schema.org/Text'"
+          }
+        }
+      },
+      "areaServed": {
+        "type": "string",
+        "description": "Property. The geographic area where a service or offered item is provided. Model:'https://schema.org/Text'"
+      }
+    }
+  },
+  "PhysicalObject-Commons": {
+    "type": "object",
+    "properties": {
+      "color": {
+        "type": "string",
+        "description": "Property. The color of the product. Model:'https://schema.org/color'"
+      },
+      "image": {
+        "type": "string",
+        "format": "uri",
+        "description": "Property. An image of the item. Model:'https://schema.org/URL'"
+      },
+      "annotations": {
+        "type": "array",
+        "description": "Property. Annotations about the item. Model:'https://schema.org/Text'",
+        "items": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "DateTime-Commons": {
+    "type": "object",
+    "description": "Property. All date-time elements in data models unless explicitly stated are ISO 8601 compliant",
+    "properties": {
+      "openingHoursSpecification": {
+        "type": "array",
+        "description": "Property. A structured value providing information about the opening hours of a place or a certain service inside a place.",
+        "items": {
+          "properties": {
+            "opens": {
+              "type": "string",
+              "format": "time"
+            },
+            "closes": {
+              "type": "string",
+              "format": "time"
+            },
+            "dayOfWeek": {
+              "type": "string",
+              "enum": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday",
+                "PublicHolidays"
               ]
             },
-            {
+            "validFrom": {
               "type": "string",
-              "format": "uri"
-            }
-          ]
-        }
-      }
-    },
-    "Location-Commons": {
-      "type": "object",
-      "properties": {
-        "location": {
-          "$ref": "http://geojson.org/schema/Geometry.json#",
-          "description": "Property. Geojson reference to the item"
-        },
-        "address": {
-          "type": "object",
-          "description": "Property. The mailing address.",
-          "properties": {
-            "streetAddress": {
-              "type": "string",
-              "description": "Property. The street address. Model:'https://schema.org/Text'"
+              "format": "date-time"
             },
-            "addressLocality": {
+            "validThrough": {
               "type": "string",
-              "description": "Property. The locality in which the street address is, and which is in the region. Model:'https://schema.org/Text'"
-            },
-            "addressRegion": {
-              "type": "string",
-              "description": "Property. The region in which the locality is, and which is in the country. Model:'https://schema.org/Text'"
-            },
-            "addressCountry": {
-              "type": "string",
-              "description": "Property. The country. For example, Spain. Model:'https://schema.org/Text'"
-            },
-            "postalCode": {
-              "type": "string",
-              "description": "Property. The postal code. For example, Spain. Model:'https://schema.org/Text'"
-            },
-            "postOfficeBoxNumber": {
-              "type": "string",
-              "description": "Property. The post office box number for PO box addresses. For example, Spain. Model:'https://schema.org/Text'"
-            },
-            "areaServed": {
-              "type": "string",
-              "description": "Property. The geographic area where a service or offered item is provided. Model:'https://schema.org/Text'"
+              "format": "date-time"
             }
           }
         },
-        "areaServed": {
-          "type": "string",
-          "description": "Property. The geographic area where a service or offered item is provided. Model:'https://schema.org/Text'"
-        }
+        "minItems": 1
       }
-    },
-    "PhysicalObject-Commons": {
-      "type": "object",
-      "properties": {
-        "color": {
-          "type": "string",
-          "description": "Property. The color of the product. Model:'https://schema.org/color'"
-        },
-        "image": {
-          "type": "string",
-          "format": "uri",
-          "description": "Property. An image of the item. Model:'https://schema.org/URL'"
-        },
-        "annotations": {
-          "type": "array",
-          "description": "Property. Annotations about the item. Model:'https://schema.org/Text'",
-          "items": {
+    }
+  },
+  "Contact-Commons": {
+    "description": "Property. All contact elements in data models unless explicitly stated according to schema.org",
+    "properties": {
+      "contactPoint": {
+        "type": "object",
+        "description": "Property. Model:'https://schema.org/ContactPoint'. The details to contact with the item.",
+        "properties": {
+          "contactType": {
+            "type": "string"
+          },
+          "email": {
+            "$ref": "#/definitions/email"
+          },
+          "telephone": {
+            "type": "string"
+          },
+          "name": {
             "type": "string"
           }
         }
       }
-    },
-    "DateTime-Commons": {
-      "type": "object",
-      "description": "Property. All date-time elements in data models unless explicitly stated are ISO 8601 compliant",
-      "properties": {
-        "openingHoursSpecification": {
-          "type": "array",
-          "description": "Property. A structured value providing information about the opening hours of a place or a certain service inside a place.",
-          "items": {
-            "properties": {
-              "opens": {
-                "type": "string",
-                "format": "time"
-              },
-              "closes": {
-                "type": "string",
-                "format": "time"
-              },
-              "dayOfWeek": {
-                "type": "string",
-                "enum": [
-                  "Monday",
-                  "Tuesday",
-                  "Wednesday",
-                  "Thursday",
-                  "Friday",
-                  "Saturday",
-                  "Sunday",
-                  "PublicHolidays"
-                ]
-              },
-              "validFrom": {
-                "type": "string",
-                "format": "date-time"
-              },
-              "validThrough": {
-                "type": "string",
-                "format": "date-time"
-              }
-            }
+    }
+  },
+  "Person-Commons": {
+    "description": "Property. All properties to identify a person according to schema.org",
+    "properties": {
+      "person": {
+        "type": "object",
+        "description": "Property. Model:'https://schema.org/Person'. A person (alive, dead, undead, or fictional).",
+        "properties": {
+          "additionalName": {
+            "type": "string",
+            "description": "Property. Model:'https://schema.org/Text'. An additional name for a Person, can be used for a middle name."
           },
-          "minItems": 1
-        }
-      }
-    },
-    "Contact-Commons": {
-      "description": "Property. All contact elements in data models unless explicitly stated according to schema.org",
-      "properties": {
-        "contactPoint": {
-          "type": "object",
-          "description": "Property. Model:'https://schema.org/ContactPoint'. The details to contact with the item.",
-          "properties": {
-            "contactType": {
-              "type": "string"
-            },
-            "email": {
-              "type": "string",
-              "format": "idn-email"
-            },
-            "telephone": {
-              "type": "string"
-            },
-            "name": {
-              "type": "string"
-            }
+          "familyName": {
+            "type": "string",
+            "description": "Property. Model:'https://schema.org/Text'. Family name. In the U.S., the last name of a Person."
+          },
+          "givenName": {
+            "type": "string",
+            "description": "Property. Model:'https://schema.org/Text'. Given name. In the U.S., the first name of a Person."
+          },
+          "telephone": {
+            "type": "string",
+            "description": "Property. Model:'https://schema.org/Text'. Given name. The telephone number."
+          },
+          "email": {
+            "$ref": "#/definitions/email"
           }
         }
       }
