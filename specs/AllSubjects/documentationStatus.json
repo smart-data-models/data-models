@@ -1,4 +1,4 @@
-{"updateDate": "2020-12-18T14:36:48.244199",
+{"updateDate": "2020-12-19T14:36:31.183428",
  "officialList": [{"repoName": "dataModel.User",
  "repoLink": "https://github.com/smart-data-models/dataModel.User.git",
  "dataModel": "Activity",
@@ -1239,7 +1239,6 @@
  "new_spec_ES.md",
  "new_spec_FR.md",
  "spec.md",
- "example-normalized-ld.jsonld.csv",
  "example-normalized.json",
  "example-normalized.json.csv",
  "example-normalized.jsonld",
