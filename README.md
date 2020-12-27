@@ -10,8 +10,7 @@ subject Repository where the data model is located**
 [![Build badge](https://img.shields.io/travis/smart-data-models/data-models.svg "Travis build status")](https://travis-ci.org/smart-data-models/data-models/)
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 -->
-**[29-6-2020] Moved examples in every data model to the examples directory**
-**[8-7-2020] Created model.yaml and swagger.yaml for making data models more portable**
+**[22-12-2020] All specifications created automatically. Translations into French and Spanish available. [Last news](https://smartdatamodels.org/)
 
 :dart: [Roadmap](roadmap.md)
 
