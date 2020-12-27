@@ -26,7 +26,7 @@ Data Models play a crucial role because they define the **harmonised
 representation formats and semantics** that will be used by applications both to
 consume and to publish data.
 
-The **FIWARE Foundation** and **TM Forum** and other entities to join, are leading 
+The **FIWARE Foundation** **IUDX** and **TM Forum** and other entities to join, are leading 
 a joint collaboration program to support the adoption of a reference architecture 
 and compatible common data models that underpin a digital market of interoperable and
 replicable smart solutions in multiple sectors, starting with smart cities.
@@ -66,9 +66,8 @@ on Smart Data Models for different Smart Domains. The following repositories are
 ## General Principles
 
 -   **Driven-by-implementation approach**: Specifications will be considered
-    stable as soon as enough end user organizations (e.g., cities) have
-    validated them in practice. Stable specifications may become TM Forum formal
-    deliverables by following TM Forum’s defined processes.
+    stable as soon as enough end user organizations (i.e., cities) have
+    validated them in practice.
 
 -   **Open-closed**. Breaking changes to already approved specs are not allowed.
     Instead, new versions shall deprecate attributes, add new attributes, extend
@@ -78,8 +77,8 @@ on Smart Data Models for different Smart Domains. The following repositories are
     mode. Preferred [Creative Commons by Attribution 4.0](https://creativecommons.org/licenses/by/4.0/)
 
 -   **Open contribution**. Contributions open to anybody (not only members),
-    while final decision making corresponds to the administrators of the domains and Subjects. Management (currently TM Forum and FIWARE Foundation) could opposed to some contributions if it does not meet coding guidelines.
-    members
+    while final decision making corresponds to the administrators of the domains and Subjects. Steerin board could opposed to some contributions if it does not meet coding guidelines.
+   
 
 ## Lifecycle
 
@@ -89,70 +88,70 @@ the schema denotes the version.
 
 The way to handle new Data Models is administrated by the different subjects and domains:
 
-- Management (currently FIWARE foundation and TMForum) will check for the consistency and updating of the different data models in this group of repositories
+- Steering board (currently FIWARE foundation, IUDX and TMForum) will check for the consistency and updating of the different data models in this group of repositories
 
-- It is possible to request a [new data model](http://data-models.fiware.org/index.php/submit-an-issue-2/) 
-choose option **new data model** in the dropdown list. 
 
 ## How to contribute
 
 Contributions should come in the form of **pull requests** made against the corresponding Vertical Data Model repository.
 An [introductory presentation](http://data-models.fiware.org/index.php/2020/05/15/contribution-manual/) about it.
 
-A Data Model specification shall contain the following artefacts:
+As an alternative it is also possible to request a [new data model](http://smartdatamodels.org/index.php/submit-an-issue-2/) 
+choose option **new data model** in the dropdown list. 
 
-- **This specification will be updated soon [8-7-2020]**
--   `spec.md` Markdown specification in accordance with this
-    [template](templates/spec.md-template.md).
-    coming version
-    [template](https://github.com/smart-data-models/data-models/blob/master/templates/dataModel/doc/spec-example.md)
-    
--   `README.md` Markdown examples and other related 
-information
-    [template](templates/README.md-template.md).
+A Data Model will contain the following artefacts:
+
+-   `spec.md` 
+- **This specification generated automatically out the json schema and examples**
+-   `README.md` 
+
 
 -   `schema.json` JSON Schema associated to the specification. Such JSON Schema
     should be based on Base Schemas, see for instance
-    [schema.json](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/schema.json)
+    [schema.json](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/schema.json) 
 
--   examples encoded in FIWARE NGSI v2 and NGSI-LD, see for instance
+-   4 examples encoded in FIWARE NGSI v2 and NGSI-LD, see for instance in the /examples directory
     [example.json](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/example.json),
+    [example.jsonld](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/example.jsonld),
     [example-normalized.json](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/example-normalized.json)
-    and
-    [example-normalized-ld.jsonld](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/example-normalized-ld.jsonld)
+    [example-normalized.jsonld](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/examples/example-normalized.jsonld)
     of `WeatherObserved`.
 
 The artifacts referred below should be under a folder structured as follows:
 
--   `NewModel/`
-  -   `README.md`: A data model description based on the
-               Example: [spec.md of WeatherObserved](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/README.md)
-  -   `schema.json`: The JSON Schema definition, 
+-   `dataModel/`
+  -   `README.md`: Pointing to the schema, the specifications in different formats and languages, etc 
+information **This README.md is generated automatically**
+  -   `schema.json`: The JSON Schema definition. It includes in the description of every property the type of property, the model, the valid values and some other elements according to the [contribution manual](https://bit.ly/contribution_manual)
+  -    `notes.yaml`: Optional. File for customizing the specification of the data model.
+   -  `/doc`. This directory contains the specifications of the data model . They are generated automatically out of the json schema. 
                Example: [schema.json of WeatherObserved](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/schema.json)
-  -   `example.json`: One or more JSON example files
+    -   `example.json`: a JSON example file key values of NGSI v2
                Example: [example.json of WeatherObserved](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/example.json)
-  -   `example-normalized.json`: One or more JSON example file in NGSI v2 normalized format
+    -   `example-normalized.json`: An example file in NGSI v2 normalized format
                Example: [example-normalized.json of WeatherObserved](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/example-normalized.json)
-  -   `example-normalized-ld.jsonld`: One or more JSON example file in **NGSI-LD** normalized format
-               Example: [example-normalized-ld.jsonld of WeatherObserved](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/example-normalized-ld.jsonld)
-               `/doc/spec.md` : Specification of the data model. Example: [spec.md](https://github.com/smart-data-models/data-models/blob/master/templates/dataModel/doc/spec-example.md)
+    -   `example.jsonld`: a JSON example file key values of NGSI LD
+               Example: [example.json of WeatherObserved](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/example.jsonld)
+
+    -   `example-normalized.jsonld`: A JSON example file in **NGSI-LD** normalized format
+               Example: [example-normalized-ld.jsonld of WeatherObserved](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/example-normalized.jsonld)
                
-Automatically generated                   
+Other files automatically generated                   
   -    `examplexxx.csv`: Automatically generated examples of the data model exported to csv format.
   -    `model.yaml`: Automatically generated model exported from schema.json. Only descriptions are completed manually (if not set in schema).         
   -    `swagger.yaml`: Automatically generated opbject to be visualized in [swagger editor](https://swagger.lab.fiware.org/?url=https://raw.githubusercontent.com/smart-data-models/dataModel.WaterNetworkManagement/master/Valve/swagger.yaml).       
 
-To facilitate contributions and their validation, we developed a
-[tool](https://github.com/smart-data-models/tools/tree/master/validator) that is also used for the Continuous Integration.
+To facilitate contributions and their validation, we developed:
+- [payload validator tool](https://smartdatamodels.org/index.php/check-a-schema-validates-a-payload/) for validating if keyvalues examples are valid for the json schema
+- [json schema validator](https://smartdatamodels.org/index.php/data-models-contribution-api/) for validating that the documented properties are complete and compliant with the [contribution manual](https://bit.ly/contribution_manual)
 
 To achieve a better performance, we need to break down silo’s of data, 
 ensuring that artificial intelligence can be applied across aggregated datasets 
 and to ensure that individual citizen experience can be optimized across 
 different services.
 
-To achieve this, TM Forum and FIWARE launched this initiative, which seeks to 
-harmonize data models across Smart applications and with the Data Models of 
-TM Forum which have been deployed globally.
+To achieve this, TM Forum and FIWARE launched this initiative, later IUDX has joined it which seeks to 
+harmonize data models across Smart applications.
 
 By agreeing across different communities, the common definition of smart
 data models, this will empower innovators and companies to develop solutions
@@ -165,7 +164,7 @@ A full list only for the repositories containing  data models can be found in th
 
 There are new data models in progress for the following areas:
 
--   [Cross Sector](https://github.com/smart-data-models/CrossSector/tree/master)
+-   [Cross Sector](https://github.com/smart-data-models/CrossSector)
 -   [Smart Agrifood](https://github.com/smart-data-models/SmartAgrifood)
 -   [Smart Cities](https://github.com/smart-data-models/SmartCities)
 -   [Smart Energy](https://github.com/smart-data-models/SmartEnergy)
@@ -177,9 +176,9 @@ There are new data models in progress for the following areas:
 -   [Smart Manufacturing](https://github.com/smart-data-models/SmartManufacturing) (Just opened)
 -   [Smart Destinations](https://github.com/smart-data-models/SmartDestination) (pending)
 
-A frontend [web page](http://data-models.fiware.org/) provides global updates on the Smart data models.  
-Additionally there is a repository for drafting data models named [pending](https://github.com/smart-data-models/pending/tree/master) where anybody
+A frontend [web page](http://smartdatamodels.org/) provides global updates on the Smart data models.  
+Additionally there is a repository for drafting data models named [incuabated](https://github.com/smart-data-models/incubated/tree/master) where anybody
 (under request) can draft data models that later can submit by PR or any other method. This repo is uncontrolled but open to collaboration.
 
-[general contact](http://data-models.fiware.org/index.php/submit-an-issue-2/)
+[general contact](http://smartdata-models.org/index.php/submit-an-issue-2/)
 [mail contact](mailto:alberto.abella@fiware.org)
