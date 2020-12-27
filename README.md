@@ -118,6 +118,7 @@ information **This README.md is generated automatically**
 
     -   `example-normalized.jsonld`: A JSON example file in **NGSI-LD** normalized format
                Example: [example-normalized-ld.jsonld of WeatherObserved](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/example-normalized.jsonld)
+  -    `CURRENT ADOPTERS.md`. [Templated document](https://github.com/smart-data-models/data-models/blob/master/templates/CURRENT-ADOPTERS.md) with references a actual adoption of the data model.
                
 Other files automatically generated                   
   -    `examplexxx.csv`: Automatically generated examples of the data model exported to csv format and located in the `/examples` directory
