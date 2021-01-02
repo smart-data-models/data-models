@@ -103,7 +103,11 @@
 { 
     "repoName": "dataModel.Battery",
     "repoLink": "https://github.com/smart-data-models/dataModel.Battery.git"
-}		
+},
+{ 
+    "repoName": "dataModel.Ports",
+    "repoLink": "https://github.com/smart-data-models/dataModel.Ports.git"
+}
 ]
 }
 
