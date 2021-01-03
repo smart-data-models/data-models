@@ -10,8 +10,7 @@ subject Repository where the data model is located**
 [![Build badge](https://img.shields.io/travis/smart-data-models/data-models.svg "Travis build status")](https://travis-ci.org/smart-data-models/data-models/)
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 -->
-**[29-6-2020] Moved examples in every data model to the examples directory**
-**[8-7-2020] Created model.yaml and swagger.yaml for making data models more portable**
+**[22-12-2020] All specifications created automatically. Translations into French and Spanish available. [Last news](https://smartdatamodels.org/)
 
 :dart: [Roadmap](roadmap.md)
 
@@ -99,32 +98,16 @@ An [introductory presentation](http://data-models.fiware.org/index.php/2020/05/1
 As an alternative it is also possible to request a [new data model](http://smartdatamodels.org/index.php/submit-an-issue-2/) 
 choose option **new data model** in the dropdown list. 
 
-A Data Model will contain the following artefacts:
-
--   `spec.md` 
-- **This specification generated automatically out the json schema and examples**
--   `README.md` 
-
-
--   `schema.json` JSON Schema associated to the specification. Such JSON Schema
-    should be based on Base Schemas, see for instance
-    [schema.json](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/schema.json) 
-
--   4 examples encoded in FIWARE NGSI v2 and NGSI-LD, see for instance in the /examples directory
-    [example.json](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/example.json),
-    [example.jsonld](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/example.jsonld),
-    [example-normalized.json](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/example-normalized.json)
-    [example-normalized.jsonld](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/examples/example-normalized.jsonld)
-    of `WeatherObserved`.
-
-The artifacts referred below should be under a folder structured as follows:
+A Data Model will contain the following artefacts in this structure:
 
 -   `dataModel/`
   -   `README.md`: Pointing to the schema, the specifications in different formats and languages, etc 
 information **This README.md is generated automatically**
   -   `schema.json`: The JSON Schema definition. It includes in the description of every property the type of property, the model, the valid values and some other elements according to the [contribution manual](https://bit.ly/contribution_manual)
   -    `notes.yaml`: Optional. File for customizing the specification of the data model.
-   -  `/doc`. This directory contains the specifications of the data model . They are generated automatically out of the json schema. 
+  -    `LICENSE.md`. [Templated document](https://github.com/smart-data-models/data-models/blob/master/templates/LICENCE.md) with the text of the license default CC-BY 4.0
+   -  `/doc`. This directory contains the specifications of the data model. They are generated automatically out of the json schema. 
+   -  `/examples`. This directory contains the examples for the different versions of NGSI standard and different formats. 
                Example: [schema.json of WeatherObserved](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/schema.json)
     -   `example.json`: a JSON example file key values of NGSI v2
                Example: [example.json of WeatherObserved](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/example.json)
@@ -135,11 +118,12 @@ information **This README.md is generated automatically**
 
     -   `example-normalized.jsonld`: A JSON example file in **NGSI-LD** normalized format
                Example: [example-normalized-ld.jsonld of WeatherObserved](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/example-normalized.jsonld)
+  -    `CURRENT ADOPTERS.md`. [Templated document](https://github.com/smart-data-models/data-models/blob/master/templates/CURRENT-ADOPTERS.md) with references a actual adoption of the data model.
                
 Other files automatically generated                   
-  -    `examplexxx.csv`: Automatically generated examples of the data model exported to csv format.
-  -    `model.yaml`: Automatically generated model exported from schema.json. Only descriptions are completed manually (if not set in schema).         
-  -    `swagger.yaml`: Automatically generated opbject to be visualized in [swagger editor](https://swagger.lab.fiware.org/?url=https://raw.githubusercontent.com/smart-data-models/dataModel.WaterNetworkManagement/master/Valve/swagger.yaml).       
+  -    `examplexxx.csv`: Automatically generated examples of the data model exported to csv format and located in the `/examples` directory
+  -    `model.yaml`: Automatically generated model exported from schema.json. Only descriptions are completed manually (if not set in schema). Located in the root directory.        
+  -    `swagger.yaml`: Automatically generated opbject to be visualized in [swagger editor](https://swagger.lab.fiware.org/?url=https://raw.githubusercontent.com/smart-data-models/dataModel.WaterNetworkManagement/master/Valve/swagger.yaml). Located in the root directory.
 
 To facilitate contributions and their validation, we developed:
 - [payload validator tool](https://smartdatamodels.org/index.php/check-a-schema-validates-a-payload/) for validating if keyvalues examples are valid for the json schema

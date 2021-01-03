@@ -21,7 +21,7 @@ Transport already exists under UrbanMobility.
 
 ## Reuse
 
--   Check for the existence of the same Attribute on any of the other models and
+-   Check for the [existence of the same Attribute on any of the other models](https://smartdatamodels.org/index.php/ddbb-of-properties-descriptions/) and
     reuse it, if pertinent.
 -   Have a look at [schema.org](http://schema.org) trying to find a similar term
     with the same semantics.
@@ -102,11 +102,11 @@ be considered as the recommended one and 1. option is to some extent
 -   Use the `date` prefix for naming entity attributes representing dates (or
     complete timestamps). Ex. `dateLastEmptying`.
 
--   `dateCreated` (`createdAt` in NGSI-LD) must be used to denote the (digital)
-    Entity's creation date.
+-   `dateCreated` (`createdAt` in NGSI-LD) is not necessary to be included into the data model because
+    they are internal parameters of NGSI standard.
 
--   `dateModified` (`modifiedAt` in NGSI-LD) must be used to denote the
-    (digital) Entity's last update date.
+-   `dateModified` (`modifiedAt` in NGSI-LD) is not necessary to be included into the data model because
+    they are internal parameters of NGSI standard.
 
 -   `dateCreated` and `dateModified` are special Entity Attributes provided
     off-the-shelf by NGSI implementations. Be careful because they can be
@@ -211,51 +211,12 @@ containing your changes, and proceed with a
 Pull Request should be easy to review, so if the model, or the changes you are
 proposing are wide, please create different pull requests.
 
-New data models should be added under a folder structured as follows: [this structures is under discussion]
 
--   `NewModelEntity/`
-    -   `README.md/` 
-        A data model description based on the
-                [data model template](https://github.com/smart-data-models/data-models/blob/master/templates/data-model-template.md),
-                e.g.
-                [spec.md of WeatherObserved](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/doc/spec.md).
-     -   `schema.json`: The JSON Schema definition, e.g.
-            [schema.json of WeatherObserved](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/schema.json)
-        -   `example.json`: One or more JSON example file, e.g.
-            [example.json of WeatherObserved](./Weather/WeatherObserved/example.json)
-        -   `example-normalized.json`: One or more JSON example file in NGSI v2
-            normalized format, e.g.
-            [example-normalized.json of WeatherObserved](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/example-normalized.json)
-        -   `example-normalized-ld.jsonld`: One or more JSON example file in
-            **NGSI-LD** normalized format, e.g.
-            [example-normalized-ld.jsonld of WeatherObserved](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/example-normalized-ld.jsonld)
-        -    `AUTHORS.md`. [Templated document](https://github.com/smart-data-models/data-models/blob/master/templates/AUTHORS.md) with the authors that are already contributed to the entity
-        -    `LICENSE.md`. [Templated document](https://github.com/smart-data-models/data-models/blob/master/templates/LICENCE.md) with the text of the license default CC-BY 4.0
-        -    `CURRENT ADOPTERS.md`. [Templated document](https://github.com/smart-data-models/data-models/blob/master/templates/CURRENT-ADOPTERS.md) with references a actual adoption of the data model.
+New data models should be added under a folder structured as follows:
 
-The name of the folder should match the Entity Type used in the JSON Schema
-(e.g. `NewModel`). For data models including more entities, a hierarchical
-folder should be used. The father folder can include common JSON schemas shared
-among the entities. e.g.:
-
-- `NewModel/`
-    -   `README.md`
-    -   `newmodel-schema.json`: the common schema for the different entities.
-    -   `NewModelEntityOne/`
-       -   `README.md`
-       -   `schema.json`
-       -   `example.json`
-       -   `example-normalized.json`
-       -   `example-normalized-ld.jsonld`
-       -    `AUTHORS.md`
-       -    `LICENSE.md`
-       -    `CURRENT ADOPTERS.md`
-   -    `NewModelEntityTwo/`
-       -   `README.md`
-       -   `schema.json`
-       -   `example.json`
-       -   `example-normalized.json`
-       -   `example-normalized-ld.jsonld`
-       -    `AUTHORS.md`
-       -    `LICENSE.md`
-       -    `CURRENT ADOPTERS.md`
+Subjects (groups of data models can have these files) 
+    -   `README.md/` . it is generated automatically based on the available data models of the Subject
+    -   `CONTRIBUTORS.yaml`. [See an example](https://github.com/smart-data-models/dataModel.Weather/blob/master/CONTRIBUTORS.yaml)
+    -   `subject-schema.json`. for compiling those shared elements used across the different models in the subject. They are referenced from the data models schemas
+    - And the list for directories corresponding to the data models. Their structure is described in the [README.md](README.md)
+           

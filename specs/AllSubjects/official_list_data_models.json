@@ -16,7 +16,7 @@
 { "repoName": "dataModel.IssueTracking","repoLink": "https://github.com/smart-data-models/dataModel.IssueTracking.git", "dataModels" : ["Open311_ServiceRequest","Open311_ServiceType"]},
 { "repoName": "dataModel.Energy","repoLink": "https://github.com/smart-data-models/dataModel.Energy.git", "dataModels" : ["ThreePhaseAcMeasurement"]},
 { "repoName": "dataModel.Building","repoLink": "https://github.com/smart-data-models/dataModel.Building.git", "dataModels" : ["Building","BuildingOperation"]},
-{ "repoName": "dataModel.Environment","repoLink": "https://github.com/smart-data-models/dataModel.Environment.git", "dataModels" : ["AeroAllergenObserved","AirQualityObserved","NoiseLevelObserved","WaterObserved","WaterQualityObserved"]},
+{ "repoName": "dataModel.Environment","repoLink": "https://github.com/smart-data-models/dataModel.Environment.git", "dataModels" : ["AeroAllergenObserved","AirQualityObserved","NoiseLevelObserved","WaterObserved","WaterQualityObserved", "PhreaticObserved", "IndoorEnvironmentObserved"]},
 { "repoName": "dataModel.Alert","repoLink": "https://github.com/smart-data-models/dataModel.Alert.git", "dataModels" : ["Alert"]},
 { "repoName": "dataModel.WaterDistribution","repoLink": "https://github.com/smart-data-models/dataModel.WaterDistribution.git", "dataModels" : []},
 { "repoName": "dataModel.WaterQuality","repoLink": "https://github.com/smart-data-models/dataModel.WaterQuality.git", "dataModels" : []},
@@ -24,5 +24,5 @@
 { "repoName": "dataModel.GreenEnergy","repoLink": "https://github.com/smart-data-models/dataModel.GreenEnergy.git", "dataModels" : ["GreenEnergyGenerator","GreenEnergyMeasurement"]},
 { "repoName": "dataModel.AutonomousMobileRobot","repoLink": "https://github.com/smart-data-models/dataModel.AutonomousMobileRobot.git", "dataModels" : []},
 { "repoName": "dataModel.Battery","repoLink": "https://github.com/smart-data-models/dataModel.Battery.git", "dataModels" : ["Battery","BatteryStatus"]},
-{ "repoName": "dataModel.Ports","repoLink": "https://github.com/smart-data-models/dataModel.Ports.git", "dataModels" : []}
+{ "repoName": "dataModel.Ports","repoLink": "https://github.com/smart-data-models/dataModel.Ports.git", "dataModels" : ["BoatAuthorized","SeaportFacilities"]}
 ]}
