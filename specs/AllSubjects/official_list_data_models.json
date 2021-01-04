@@ -9,7 +9,7 @@
 { "repoName": "dataModel.Parking","repoLink": "https://github.com/smart-data-models/dataModel.Parking.git", "dataModels" : ["OffStreetParking","OnStreetParking","ParkingAccess","ParkingGroup","ParkingSpot"]},
 { "repoName": "dataModel.Weather","repoLink": "https://github.com/smart-data-models/dataModel.Weather.git", "dataModels" : ["WeatherAlert","WeatherForecast","WeatherObserved"]},
 { "repoName": "dataModel.WasteManagement","repoLink": "https://github.com/smart-data-models/dataModel.WasteManagement.git", "dataModels" : ["WasteContainer","WasteContainerIsle","WasteContainerModel"]},
-{ "repoName": "dataModel.Transportation","repoLink": "https://github.com/smart-data-models/dataModel.Transportation.git", "dataModels" : ["BikeHireDockingStation","CrowdFlowObserved","EVChargingStation","Road","RoadSegment","TrafficFlowObserved","Vehicle","VehicleModel"]},
+{ "repoName": "dataModel.Transportation","repoLink": "https://github.com/smart-data-models/dataModel.Transportation.git", "dataModels" : ["BikeHireDockingStation","CrowdFlowObserved","EVChargingStation","Road","RoadSegment","TrafficFlowObserved","TransportStation","Vehicle","VehicleModel"]},
 { "repoName": "dataModel.PointOfInterest","repoLink": "https://github.com/smart-data-models/dataModel.PointOfInterest.git", "dataModels" : ["Beach","Museum","PointOfInterest","Store"]},
 { "repoName": "dataModel.Device","repoLink": "https://github.com/smart-data-models/dataModel.Device.git", "dataModels" : ["Device","DeviceModel"]},
 { "repoName": "dataModel.Streetlighting","repoLink": "https://github.com/smart-data-models/dataModel.Streetlighting.git", "dataModels" : ["Streetlight","StreetlightControlCabinet","StreetlightGroup","StreetlightModel"]},
