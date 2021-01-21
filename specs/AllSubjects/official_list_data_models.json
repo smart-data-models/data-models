@@ -771,7 +771,9 @@
         "WindType1or2UserDefined",
         "WindType3or4UserDefined"
       ],
-      "domains": "SmartEnergy"
+      "domains": [
+        "SmartEnergy"
+      ]
     }
   ]
 }
