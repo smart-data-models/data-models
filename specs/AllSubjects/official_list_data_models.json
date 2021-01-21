@@ -7,6 +7,9 @@
       "dataModels": [
         "Activity",
         "UserContext"
+      ],
+      "domains": [
+        "CrossSector"
       ]
     },
     {
@@ -15,6 +18,9 @@
       "dataModels": [
         "SmartPointOfInteraction",
         "SmartSpot"
+      ],
+      "domains": [
+        "CrossSector"
       ]
     },
     {
@@ -22,6 +28,9 @@
       "repoLink": "https://github.com/smart-data-models/dataModel.KeyPerformanceIndicator.git",
       "dataModels": [
         "keyPerformanceIndicator"
+      ],
+      "domains": [
+        "CrossSector"
       ]
     },
     {
@@ -44,6 +53,9 @@
         "GtfsTrip",
         "PublicTransportRoute",
         "PublicTransportStop"
+      ],
+      "domains": [
+        "SmartCities"
       ]
     },
     {
@@ -53,6 +65,9 @@
         "FlowerBed",
         "Garden",
         "GreenspaceRecord"
+      ],
+      "domains": [
+        "SmartCities"
       ]
     },
     {
@@ -61,6 +76,9 @@
       "dataModels": [
         "BreedingOperation",
         "FishContainment"
+      ],
+      "domains": [
+        "SmartAgrifood"
       ]
     },
     {
@@ -78,6 +96,9 @@
         "AgriProductType",
         "AgriSoil",
         "Animal"
+      ],
+      "domains": [
+        "SmartAgrifood"
       ]
     },
     {
@@ -92,6 +113,9 @@
         "Reservoir",
         "Tank",
         "Valve"
+      ],
+      "domains": [
+        "SmartWater"
       ]
     },
     {
@@ -103,6 +127,9 @@
         "ParkingAccess",
         "ParkingGroup",
         "ParkingSpot"
+      ],
+      "domains": [
+        "SmartCities"
       ]
     },
     {
@@ -112,6 +139,13 @@
         "WeatherAlert",
         "WeatherForecast",
         "WeatherObserved"
+      ],
+      "domains": [
+        "SmartEnvironment",
+        "CrossSector",
+        "SmartAgrifood",
+        "SmartDestination",
+        "SmartCities"
       ]
     },
     {
@@ -121,6 +155,10 @@
         "WasteContainer",
         "WasteContainerIsle",
         "WasteContainerModel"
+      ],
+      "domains": [
+        "SmartEnvironment",
+        "SmartCities"
       ]
     },
     {
@@ -136,6 +174,9 @@
         "TransportStation",
         "Vehicle",
         "VehicleModel"
+      ],
+      "domains": [
+        "SmartCities"
       ]
     },
     {
@@ -146,6 +187,11 @@
         "Museum",
         "PointOfInterest",
         "Store"
+      ],
+      "domains": [
+        "CrossSector",
+        "SmartDestination",
+        "SmartCities"
       ]
     },
     {
@@ -154,6 +200,9 @@
       "dataModels": [
         "Device",
         "DeviceModel"
+      ],
+      "domains": [
+        "Smart-Sensoring"
       ]
     },
     {
@@ -164,6 +213,9 @@
         "StreetlightControlCabinet",
         "StreetlightGroup",
         "StreetlightModel"
+      ],
+      "domains": [
+        "SmartCities"
       ]
     },
     {
@@ -172,6 +224,9 @@
       "dataModels": [
         "Open311_ServiceRequest",
         "Open311_ServiceType"
+      ],
+      "domains": [
+        "CrossSector"
       ]
     },
     {
@@ -179,6 +234,9 @@
       "repoLink": "https://github.com/smart-data-models/dataModel.Energy.git",
       "dataModels": [
         "ThreePhaseAcMeasurement"
+      ],
+      "domains": [
+        "SmartEnergy"
       ]
     },
     {
@@ -187,6 +245,9 @@
       "dataModels": [
         "Building",
         "BuildingOperation"
+      ],
+      "domains": [
+        "SmartCities"
       ]
     },
     {
@@ -201,6 +262,9 @@
         "PhreaticObserved",
         "RainFallRadarObservation",
         "IndoorEnvironmentObserved"
+      ],
+      "domains": [
+        "SmartEnvironment"
       ]
     },
     {
@@ -208,22 +272,34 @@
       "repoLink": "https://github.com/smart-data-models/dataModel.Alert.git",
       "dataModels": [
         "Alert"
+      ],
+      "domains": [
+        "CrossSector"
       ]
     },
     {
       "repoName": "dataModel.WaterDistribution",
       "repoLink": "https://github.com/smart-data-models/dataModel.WaterDistribution.git",
-      "dataModels": []
+      "dataModels": [],
+      "domains": [
+        "SmartWater"
+      ]
     },
     {
       "repoName": "dataModel.WaterQuality",
       "repoLink": "https://github.com/smart-data-models/dataModel.WaterQuality.git",
-      "dataModels": []
+      "dataModels": [],
+      "domains": [
+        "SmartWater"
+      ]
     },
     {
       "repoName": "dataModel.WaterConsumption",
       "repoLink": "https://github.com/smart-data-models/dataModel.WaterConsumption.git",
-      "dataModels": []
+      "dataModels": [],
+      "domains": [
+        "SmartWater"
+      ]
     },
     {
       "repoName": "dataModel.GreenEnergy",
@@ -231,12 +307,18 @@
       "dataModels": [
         "GreenEnergyGenerator",
         "GreenEnergyMeasurement"
+      ],
+      "domains": [
+        "SmartEnergy"
       ]
     },
     {
       "repoName": "dataModel.AutonomousMobileRobot",
       "repoLink": "https://github.com/smart-data-models/dataModel.AutonomousMobileRobot.git",
-      "dataModels": []
+      "dataModels": [],
+      "domains": [
+        "SmartRobotics"
+      ]
     },
     {
       "repoName": "dataModel.Battery",
@@ -245,6 +327,9 @@
         "Battery",
         "BatteryStatus",
         "StorageBattery"
+      ],
+      "domains": [
+        "CrossSector"
       ]
     },
     {
@@ -254,6 +339,9 @@
         "BoatAuthorized",
         "SeaportFacilities",
         "BoatPlacesAvailable"
+      ],
+      "domains": [
+        "SmartCities"
       ]
     },
     {
@@ -266,6 +354,9 @@
         "Airport",
         "Flight",
         "FlightNotification"
+      ],
+      "domains": [
+        "SmartAeronautics"
       ]
     },
     {
@@ -679,7 +770,8 @@
         "WindTurbineType4bIEC",
         "WindType1or2UserDefined",
         "WindType3or4UserDefined"
-      ]
+      ],
+      "domains": "SmartEnergy"
     }
   ]
 }
