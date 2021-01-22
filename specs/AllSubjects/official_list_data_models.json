@@ -774,6 +774,22 @@
       "domains": [
         "SmartEnergy"
       ]
+    },
+    {
+      "repoName": "dataModel.SatelliteImagery",
+      "repoLink": "https://github.com/smart-data-models/dataModel.SatelliteImagery.git",
+      "dataModels": [
+        "EOAnalysis",
+        "EODataHub",
+        "EOGeoDataLayer",
+        "EOInstrument",
+        "EOProduct",
+        "EOSatellitePlatform"
+      ],
+      "domains": [
+        "CrossSector",
+        "SmartWater"
+      ]
     }
   ]
 }
