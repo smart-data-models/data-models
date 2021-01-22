@@ -326,7 +326,7 @@
       "dataModels": [
         "Battery",
         "BatteryStatus",
-        "StorageBattery"
+        "StorageBatteryDevice"
       ],
       "domains": [
         "CrossSector"
