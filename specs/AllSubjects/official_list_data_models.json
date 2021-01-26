@@ -258,7 +258,6 @@
         "AirQualityObserved",
         "NoiseLevelObserved",
         "WaterObserved",
-        "WaterQualityObserved",
         "PhreaticObserved",
         "RainFallRadarObservation",
         "IndoorEnvironmentObserved"
@@ -288,9 +287,12 @@
     {
       "repoName": "dataModel.WaterQuality",
       "repoLink": "https://github.com/smart-data-models/dataModel.WaterQuality.git",
-      "dataModels": [],
+      "dataModels": [
+        "WaterQualityObserved"
+      ],
       "domains": [
-        "SmartWater"
+        "SmartWater",
+        "SmartEnvironment"
       ]
     },
     {
