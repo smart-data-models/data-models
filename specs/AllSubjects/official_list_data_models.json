@@ -796,7 +796,9 @@
     {
       "repoName": "dataModel.Multimedia",
       "repoLink": "https://github.com/smart-data-models/dataModel.Multimedia.git",
-      "dataModels": [],
+      "dataModels": [
+        "MediaEvent"
+      ],
       "domains": [
         "CrossSector"
       ]
