@@ -3,22 +3,87 @@
   "$id": "https://smart-data-models.github.io/data-models/common-schema.json",
   "title": "Common definitions for data models coming from schema.org",
   "definitions": {
-    "Thing" : {
-      "additionalType"
+    "image": {
+      "type": "string",
+      "format": "uri",
+      "description": "Property. Model:'https://schema.org/URL'. Url with image related to the item"
     },
-    "EntityIdentifierType": {
-      "anyOf": [
-        {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 256,
-          "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$"
-        },
-        {
-          "type": "string",
-          "format": "uri"
-        }
-      ]
+    "video": {
+      "type": "string",
+      "format": "uri",
+      "description": "Property. Model:'https://schema.org/URL'. Url with video related to the item"
+    },
+    "touristType": {
+      "type": "string",
+      "enum": [
+        "ADVENTURE TOURISM",
+        "ASTRONOMY TOURISM",
+        "BACKPACKING TOURISM",
+        "BEACH AND SUN TOURISM",
+        "BEER TOURISM",
+        "BIRDING TOURISM",
+        "BULLFIGHTING TOURISM",
+        "BUSINESS",
+        "COMMUNITY-BASED TOURISM",
+        "CRUISE TOURISM",
+        "CULTURAL TOURISM",
+        "CYCLING TOURISM",
+        "DIVING TOURISM",
+        "ECOTOURISM",
+        "EVENTS AND FESTIVALS TOURISM",
+        "FAMILY TOURISM",
+        "FILM TOURISM",
+        "FISHING TOURISM",
+        "FOOD TOURISM",
+        "GAMBLING TOURISM",
+        "GEOLOGICAL TOURISM",
+        "HERITAGE TOURISM",
+        "HUNTING TOURISM",
+        "INDUSTRIAL TOURISM",
+        "LANGUAGE TOURISM",
+        "LGTBI TOURISM",
+        "LUXURY TOURISM",
+        "MEDICAL TOURISM",
+        "MEMORIAL TOURISM",
+        "MICE TOURISM",
+        "NATURE TOURISM",
+        "OLIVE OIL TOURISM",
+        "PARTY TOURISM",
+        "PHOTOGRAPHY TOURISM",
+        "RELIGIOUS TOURISM",
+        "ROMANTIC TOURISM",
+        "RURAL TOURISM",
+        "SAFARI TOURISM",
+        "SAILING TOURISM",
+        "SENIOR TOURISM",
+        "SHOPPING TOURISM",
+        "SHORT BREAK TOURISM",
+        "SINGLES TOURISM",
+        "SPORTS TOURISM",
+        "TOURISM",
+        "TREKKING TOURISM",
+        "URBAN TOURISM",
+        "WATER SPORTS TOURISM",
+        "WEDDING & HONEYMOON TOURISM",
+        "WELLNESS TOURISM",
+        "WHISKY TOURISM",
+        "WINE TOURISM",
+        "WINTER SPORTS TOURISM",
+        "WOMEN TOURISM"
+      ],
+      "description": "Property. Model:'https://schema.org/Text'. Type of tourism depending on the segment and the motivation of the trip."
+    },
+    "url": {
+      "type": "string",
+      "description": "Property. Model:'https://schema.org/URL'.  "
+    },
+    "latitude": {
+      "type": "number",
+      "description": "Property. Model:'https://schema.org/Number'. Latitude of a geopoint"
+    },
+    "longitude": {
+      "type": "number",
+      "description": "Property. Model:'https://schema.org/Number'. Longitude of a geopoint"
     },
     "DateYearLess": {
       "type": "string",
@@ -136,7 +201,7 @@
     },
     "DateTime-Commons": {
       "type": "object",
-      "description" : "All date-time elements in data models unless explicitly stated are ISO 8601 compliant",
+      "description": "All date-time elements in data models unless explicitly stated are ISO 8601 compliant",
       "properties": {
         "openingHoursSpecification": {
           "type": "array",

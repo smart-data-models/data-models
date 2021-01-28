@@ -102,35 +102,35 @@
         },
         "address": {
           "type": "object",
-          "description": "Property. The mailing address.",
+          "description": "Property. The mailing address. Model:'https://schema.org/adddress'",
           "properties": {
             "streetAddress": {
               "type": "string",
-              "description": "Property. The street address. Model:'https://schema.org/Text'"
+              "description": "Property. The street address. Model:'https://schema.org/streetAddress'"
             },
             "addressLocality": {
               "type": "string",
-              "description": "Property. The locality in which the street address is, and which is in the region. Model:'https://schema.org/Text'"
+              "description": "Property. The locality in which the street address is, and which is in the region. Model:'https://schema.org/addressLocality'"
             },
             "addressRegion": {
               "type": "string",
-              "description": "Property. The region in which the locality is, and which is in the country. Model:'https://schema.org/Text'"
+              "description": "Property. The region in which the locality is, and which is in the country. Model:'https://schema.org/addressRegion'"
             },
             "addressCountry": {
               "type": "string",
-              "description": "Property. The country. For example, Spain. Model:'https://schema.org/Text'"
+              "description": "Property. The country. For example, Spain. Model:'https://schema.org/addressCountry'"
             },
             "postalCode": {
               "type": "string",
-              "description": "Property. The postal code. For example, Spain. Model:'https://schema.org/Text'"
+              "description": "Property. The postal code. For example, Spain. Model:'https://schema.org/https://schema.org/postalCode'"
             },
             "postOfficeBoxNumber": {
               "type": "string",
-              "description": "Property. The post office box number for PO box addresses. For example, Spain. Model:'https://schema.org/Text'"
+              "description": "Property. The post office box number for PO box addresses. For example, Spain. Model:'https://schema.org/postOfficeBoxNumber'"
             },
             "areaServed": {
               "type": "string",
-              "description": "Property. The geographic area where a service or offered item is provided. Model:'https://schema.org/Text'"
+              "description": "Property. The geographic area where a service or offered item is provided. Model:'https://schema.org/areaServed'"
             }
           }
         },
@@ -167,7 +167,7 @@
       "properties": {
         "openingHoursSpecification": {
           "type": "array",
-          "description": "Property. A structured value providing information about the opening hours of a place or a certain service inside a place.",
+          "description": "Property. A structured value providing information about the opening hours of a place or a certain service inside a place. Model:'https://schema.org/openingHoursSpecification'",
           "items": {
             "properties": {
               "opens": {
