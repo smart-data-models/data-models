@@ -803,6 +803,15 @@
       "domains": [
         "CrossSector"
       ]
+    },
+    {
+      "repoName": "dataModel.TourismDestinations",
+      "repoLink": "https://github.com/smart-data-models/dataModel.TourismDestinations.git",
+      "dataModels": [
+      ],
+      "domains": [
+        "SmartDestinations"
+      ]
     }
   ]
 }
