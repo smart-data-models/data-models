@@ -75,173 +75,850 @@
     },
     "url": {
       "type": "string",
-      "description": "Property. Model:'https://schema.org/URL'.  "
+      "description": "Property. Model:'https://schema.org/URL'."
+    },
+    "sameAs": {
+      "type": "string",
+      "description": "Property. Model:'https://schema.org/URL'."
     },
     "latitude": {
       "type": "number",
-      "description": "Property. Model:'https://schema.org/Number'. Latitude of a geopoint"
+      "minimum": -90,
+      "maximum": 90,
+      "description": "Property. Model:'https://schema.org/latitude'. Latitude of a geopoint"
     },
     "longitude": {
       "type": "number",
-      "description": "Property. Model:'https://schema.org/Number'. Longitude of a geopoint"
+      "minimum": -180,
+      "maximum": 180,
+      "description": "Property. Model:'https://schema.org/longitude'. Longitude of a geopoint"
     },
-    "DateYearLess": {
+    "openingHours": {
       "type": "string",
-      "pattern": "^--((0[13578]|1[02])-31|(0[1,3-9]|1[0-2])-30|(0\\d|1[0-2])-([0-2]\\d))$"
+      "description": "Property. Model:'https://schema.org/openingHours'. The general opening hours for a business. Opening hours can be specified as a weekly time range, starting with days, then times per day. Multiple days can be listed with commas ',' separating each day. Day or time ranges are specified using a hyphen '-'."
     },
-    "GSMA-Commons": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "$ref": "#/definitions/EntityIdentifierType"
-        },
-        "dateCreated": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "dateModified": {
-          "type": "string",
-          "format": "date-time"
-        },
-        "source": {
-          "type": "string"
-        },
-        "name": {
-          "type": "string"
-        },
-        "alternateName": {
-          "type": "string"
-        },
-        "description": {
-          "type": "string"
-        },
-        "dataProvider": {
-          "type": "string"
-        },
-        "owner": {
-          "type": "array",
-          "items": {
-            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/EntityIdentifierType"
-          }
-        },
-        "seeAlso": {
-          "oneOf": [
-            {
-              "type": "array",
-              "minItems": 1,
-              "items": [
-                {
+    "availableLanguage": {
+      "type": "array",
+      "description": "Property. Model:''. A language someone may use with or at the item, service or place. Please use one of the language codes from the IETF BCP 47 standard. ",
+      "items": {
+        "type": "string",
+        "enum": [
+          "AD",
+          "AE",
+          "AF",
+          "AG",
+          "AI",
+          "AL",
+          "AM",
+          "AO",
+          "AQ",
+          "AR",
+          "AS",
+          "AT",
+          "AU",
+          "AW",
+          "AX",
+          "AZ",
+          "BA",
+          "BB",
+          "BD",
+          "BE",
+          "BF",
+          "BG",
+          "BH",
+          "BI",
+          "BJ",
+          "BL",
+          "BM",
+          "BN",
+          "BO",
+          "BQ",
+          "BR",
+          "BS",
+          "BT",
+          "BV",
+          "BW",
+          "BY",
+          "BZ",
+          "CA",
+          "CC",
+          "CD",
+          "CF",
+          "CG",
+          "CH",
+          "CI",
+          "CK",
+          "CL",
+          "CM",
+          "CN",
+          "CO",
+          "CR",
+          "CU",
+          "CV",
+          "CW",
+          "CX",
+          "CY",
+          "CZ",
+          "DE",
+          "DJ",
+          "DK",
+          "DM",
+          "DO",
+          "DZ",
+          "EC",
+          "EE",
+          "EG",
+          "EH",
+          "ER",
+          "ES",
+          "ET",
+          "FI",
+          "FJ",
+          "FK",
+          "FM",
+          "FO",
+          "FR",
+          "GA",
+          "GB",
+          "GD",
+          "GE",
+          "GF",
+          "GG",
+          "GH",
+          "GI",
+          "GL",
+          "GM",
+          "GN",
+          "GP",
+          "GQ",
+          "GR",
+          "GS",
+          "GT",
+          "GU",
+          "GW",
+          "GY",
+          "HK",
+          "HM",
+          "HN",
+          "HR",
+          "HT",
+          "HU",
+          "ID",
+          "IE",
+          "IL",
+          "IM",
+          "IN",
+          "IO",
+          "IQ",
+          "IR",
+          "IS",
+          "IT",
+          "JE",
+          "JM",
+          "JO",
+          "JP",
+          "KE",
+          "KG",
+          "KH",
+          "KI",
+          "KM",
+          "KN",
+          "KP",
+          "KR",
+          "KW",
+          "KY",
+          "KZ",
+          "LA",
+          "LB",
+          "LC",
+          "LI",
+          "LK",
+          "LR",
+          "LS",
+          "LT",
+          "LU",
+          "LV",
+          "LY",
+          "MA",
+          "MC",
+          "MD",
+          "ME",
+          "MF",
+          "MG",
+          "MH",
+          "MK",
+          "ML",
+          "MM",
+          "MN",
+          "MO",
+          "MP",
+          "MQ",
+          "MR",
+          "MS",
+          "MT",
+          "MU",
+          "MV",
+          "MW",
+          "MX",
+          "MY",
+          "MZ",
+          "NA",
+          "NC",
+          "NE",
+          "NF",
+          "NG",
+          "NI",
+          "NL",
+          "NO",
+          "NP",
+          "NR",
+          "NU",
+          "NZ",
+          "OM",
+          "PA",
+          "PE",
+          "PF",
+          "PG",
+          "PH",
+          "PK",
+          "PL",
+          "PM",
+          "PN",
+          "PR",
+          "PS",
+          "PT",
+          "PW",
+          "PY",
+          "QA",
+          "RE",
+          "RO",
+          "RS",
+          "RU",
+          "RW",
+          "SA",
+          "SB",
+          "SC",
+          "SD",
+          "SE",
+          "SG",
+          "SH",
+          "SI",
+          "SJ",
+          "SK",
+          "SL",
+          "SM",
+          "SN",
+          "SO",
+          "SR",
+          "SS",
+          "ST",
+          "SV",
+          "SX",
+          "SY",
+          "SZ",
+          "TC",
+          "TD",
+          "TF",
+          "TG",
+          "TH",
+          "TJ",
+          "TK",
+          "TL",
+          "TM",
+          "TN",
+          "TO",
+          "TR",
+          "TT",
+          "TV",
+          "TW",
+          "TZ",
+          "UA",
+          "UG",
+          "UM",
+          "US",
+          "UY",
+          "UZ",
+          "VA",
+          "VC",
+          "VE",
+          "VG",
+          "VI",
+          "VN",
+          "VU",
+          "WF",
+          "WS",
+          "YE",
+          "YT",
+          "ZA",
+          "ZM",
+          "ZW"
+        ]
+      }
+    },
+    "isAccessibleForFree": {
+      "type": "boolean",
+      "description": "Property. Model:'https://schema.org/isAccessibleForFree'. A flag to signal that the item, event, or place is accessible for free."
+    },
+    "publicAccess": {
+      "type": "boolean",
+      "description": "Property. Model:'https://schema.org/publicAccess'. A flag to signal that the Place is open to public visitors. If this property is omitted there is no assumed default boolean value"
+    },
+    "offeredBy": {
+      "type": "array",
+      "description": "Property. Model:'https://schema.org/offeredBy'. A pointer to the organization or person making the offer.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "price": {
+            "type": "number"
+          },
+          "priceCurrency": {
+            "type": "string",
+            "enum": [
+              "AED",
+              "AFN",
+              "ALL",
+              "AMD",
+              "ANG",
+              "AOA",
+              "ARS",
+              "AUD",
+              "AWG",
+              "AZN",
+              "BAM",
+              "BBD",
+              "BDT",
+              "BGN",
+              "BHD",
+              "BIF",
+              "BMD",
+              "BND",
+              "BOB",
+              "BOV",
+              "BRL",
+              "BSD",
+              "BTN",
+              "BWP",
+              "BYN",
+              "BZD",
+              "CAD",
+              "CDF",
+              "CHE",
+              "CHF",
+              "CHW",
+              "CLF",
+              "CLP",
+              "CNY",
+              "COP",
+              "COU",
+              "CRC",
+              "CUC",
+              "CUP",
+              "CVE",
+              "CZK",
+              "DJF",
+              "DKK",
+              "DOP",
+              "DZD",
+              "EGP",
+              "ERN",
+              "ETB",
+              "EUR",
+              "FJD",
+              "FKP",
+              "GBP",
+              "GEL",
+              "GHS",
+              "GIP",
+              "GMD",
+              "GNF",
+              "GTQ",
+              "GYD",
+              "HKD",
+              "HNL",
+              "HRK",
+              "HTG",
+              "HUF",
+              "IDR",
+              "ILS",
+              "INR",
+              "IQD",
+              "IRR",
+              "ISK",
+              "JMD",
+              "JOD",
+              "JPY",
+              "KES",
+              "KGS",
+              "KHR",
+              "KMF",
+              "KPW",
+              "KRW",
+              "KWD",
+              "KYD",
+              "KZT",
+              "LAK",
+              "LBP",
+              "LKR",
+              "LRD",
+              "LSL",
+              "LYD",
+              "MAD",
+              "MDL",
+              "MGA",
+              "MKD",
+              "MMK",
+              "MNT",
+              "MOP",
+              "MRU",
+              "MUR",
+              "MVR",
+              "MWK",
+              "MXN",
+              "MXV",
+              "MYR",
+              "MZN",
+              "NAD",
+              "NGN",
+              "NIO",
+              "NOK",
+              "NPR",
+              "NZD",
+              "OMR",
+              "PAB",
+              "PEN",
+              "PGK",
+              "PHP",
+              "PKR",
+              "PLN",
+              "PYG",
+              "QAR",
+              "RON",
+              "RSD",
+              "RUB",
+              "RWF",
+              "SAR",
+              "SBD",
+              "SCR",
+              "SDG",
+              "SEK",
+              "SGD",
+              "SHP",
+              "SLL",
+              "SOS",
+              "SRD",
+              "SSP",
+              "STN",
+              "SVC",
+              "SYP",
+              "SZL",
+              "THB",
+              "TJS",
+              "TMT",
+              "TND",
+              "TOP",
+              "TRY",
+              "TTD",
+              "TWD",
+              "TZS",
+              "UAH",
+              "UGX",
+              "USD",
+              "USN",
+              "UYI",
+              "UYU",
+              "UYW",
+              "UZS",
+              "VES",
+              "VND",
+              "VUV",
+              "WST",
+              "XAF",
+              "XAG",
+              "XAU",
+              "XBA",
+              "XBB",
+              "XBC",
+              "XBD",
+              "XCD",
+              "XDR",
+              "XOF",
+              "XPD",
+              "XPF",
+              "XPT",
+              "XSU",
+              "XTS",
+              "XUA",
+              "XXX",
+              "YER",
+              "ZAR",
+              "ZMW",
+              "ZWL"
+            ]
+          },
+          "availabilityStarts": {
+            "$ref": "https://smart-data-models.github.io/data-models/schema-org.json/#definitions/availabilityStarts"
+          },
+          "availabilityEnds": {
+            "$ref": "https://smart-data-models.github.io/data-models/schema-org.json/#definitions/availabilityEnds"
+          },
+          "url": {
+            "type": "string"
+          },
+          "offeredBy": {
+            "type": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "url": {
                   "type": "string",
                   "format": "uri"
                 }
-              ]
-            },
-            {
-              "type": "string",
-              "format": "uri"
-            }
-          ]
-        }
-      }
-    },
-    "Location-Commons": {
-      "type": "object",
-      "properties": {
-        "location": {
-          "$ref": "http://geojson.org/schema/Geometry.json#"
-        },
-        "address": {
-          "type": "object",
-          "properties": {
-            "streetAddress": {
-              "type": "string"
-            },
-            "addressLocality": {
-              "type": "string"
-            },
-            "addressRegion": {
-              "type": "string"
-            },
-            "addressCountry": {
-              "type": "string"
-            },
-            "postalCode": {
-              "type": "string"
-            },
-            "postOfficeBoxNumber": {
-              "type": "string"
-            },
-            "areaServed": {
-              "type": "string"
-            }
-          }
-        },
-        "areaServed": {
-          "type": "string"
-        }
-      }
-    },
-    "PhysicalObject-Commons": {
-      "type": "object",
-      "properties": {
-        "color": {
-          "type": "string"
-        },
-        "image": {
-          "type": "string",
-          "format": "uri"
-        },
-        "annotations": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        }
-      }
-    },
-    "DateTime-Commons": {
-      "type": "object",
-      "description": "All date-time elements in data models unless explicitly stated are ISO 8601 compliant",
-      "properties": {
-        "openingHoursSpecification": {
-          "type": "array",
-          "description": "A structured value providing information about the opening hours of a place or a certain service inside a place.",
-          "items": {
-            "properties": {
-              "opens": {
-                "type": "string",
-                "format": "time"
-              },
-              "closes": {
-                "type": "string",
-                "format": "time"
-              },
-              "dayOfWeek": {
-                "type": "string",
-                "enum": [
-                  "Monday",
-                  "Tuesday",
-                  "Wednesday",
-                  "Thursday",
-                  "Friday",
-                  "Saturday",
-                  "Sunday",
-                  "PublicHolidays"
-                ]
-              },
-              "validFrom": {
-                "type": "string",
-                "format": "date-time"
-              },
-              "validThrough": {
-                "type": "string",
-                "format": "date-time"
               }
             }
+          }
+        }
+      }
+    },
+    "offers": {
+      "type": "array",
+      "description": "Property. Model:'https://schema.org/offers'. An offer to provide this item—for example, an offer to sell a product, rent the DVD of a movie, perform a service, or give away tickets to an event. Use businessFunction to indicate the kind of transaction offered, i.e. sell, lease, etc. This property can also be used to describe a Demand. While this property is listed as expected on a number of common types, it can be used in others. In that case, using a second type, such as Product or a subtype of Product, can clarify the nature of the offer.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
           },
-          "minItems": 1
+          "name": {
+            "type": "string"
+          },
+          "price": {
+            "$ref": "https://smart-data-models.github.io/data-models/schema-org.json/#definitions/price"
+          },
+          "priceCurrency": {
+            "$ref": "https://smart-data-models.github.io/data-models/schema-org.json/#definitions/priceCurrency"
+          },
+          "availabilityStarts": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "offeredBy": {
+            "$ref": "https://smart-data-models.github.io/data-models/schema-org.json/#definitions/offeredBy"
+          }
+        }
+      }
+    },
+    "event": {
+      "type": "array",
+      "description": "Property. Model:'https://schema.org/event'. Upcoming or past event associated with this place, organization, or action.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "addressLocality": {
+            "type": "string"
+          },
+          "startDate": {
+            "$ref": "https://smart-data-models.github.io/data-models/schema-org.json#/definitions/startDate"
+          },
+          "endDate": {
+            "$ref": "https://smart-data-models.github.io/data-models/schema-org.json#/definitions/endDate"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          }
         }
       }
     }
+  },
+  "includesAttraction": {
+    "type": "array",
+    "items": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "latitude": {
+            "$ref": "https://smart-data-models.github.io/data-models/schema-org.json#/definitions/latitude"
+          },
+          "longitude": {
+            "$ref": "https://smart-data-models.github.io/data-models/schema-org.json#/definitions/longitude"
+          },
+          "isAccessibleForFree": {
+            "$ref": "https://smart-data-models.github.io/data-models/schema-org.json#/definitions/isAccessibleForFree"
+          },
+          "publicAccess": {
+            "$ref": "https://smart-data-models.github.io/data-models/schema-org.json#/definitions/publicAccess"
+          },
+          "openingHours": {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/DateTime-Commons/openingHours"
+          }
+        }
+      }
+    }
+  },
+  "ratingValue": {
+    "type": "integer",
+    "minimum": 1,
+    "maximum": 6,
+    "description": "Property. Model:'https://schema.org/ratingValue'. The rating for the content.\nUsage guidelines:\n Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially similar Unicode symbols.\n Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator."
+  },
+  "servesCuisine": {
+    "type": "array",
+    "description": "Property. Model:'https://schema.org/servesCuisine'. The cuisine of the restaurant.",
+    "items": {
+      "type": "string"
+    }
+  },
+  "hasMenu": {
+    "type": "string",
+    "format": "uri",
+    "description": "Property. Model:'https://schema.org/hasMenu'. Either the actual menu as a structured representation, as text, or a URL of the menu."
+  },
+  "startDate": {
+    "type": "string",
+    "format": "date-time",
+    "description": "Property. Model:'https://schema.org/startDate'. The start date and time of the item (in ISO 8601 date format)."
+  },
+  "endDate": {
+    "type": "string",
+    "format": "date-time",
+    "description": "Property. Model:'https://schema.org/endDate'. The end date and time of the item (in ISO 8601 date format)."
+  },
+  "about": {
+    "type": "array",
+    "description": "Property. Model:'https://schema.org/about'. The subject matter of the content",
+    "items": {
+      "type": "string"
+    }
+  },
+  "price": {
+    "type": "number",
+    "description": "Property. Model:'https://schema.org/price'. The offer price of a product, or of a price component when attached to PriceSpecification and its subtypes.\n Usage guidelines:\n    Use the priceCurrency property (with standard formats: ISO 4217 currency format e.g. 'USD'; Ticker symbol for cryptocurrencies e.g. 'BTC'; well known names for Local Exchange Tradings Systems (LETS) and other currency types e.g. 'Ithaca HOUR') instead of including ambiguous symbols such as '$' in the value.\n Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator.\n Note that both RDFa and Microdata syntax allow the use of a 'content=' attribute for publishing simple machine-readable values alongside more human-friendly formatting.\n Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially similiar Unicode symbols."
+  },
+  "priceCurrency": {
+    "type": "string",
+    "description": "Property. Model:'https://schema.org/priceCurrency'. The currency of the price, or a price component when attached to PriceSpecification and its subtypes.\n Use standard formats: ISO 4217 currency format e.g. 'USD'; Ticker symbol for cryptocurrencies e.g. 'BTC'; well known names for Local Exchange Tradings Systems (LETS) and other currency types e.g. 'Ithaca HOUR'.",
+    "enum": [
+      "AED",
+      "AFN",
+      "ALL",
+      "AMD",
+      "ANG",
+      "AOA",
+      "ARS",
+      "AUD",
+      "AWG",
+      "AZN",
+      "BAM",
+      "BBD",
+      "BDT",
+      "BGN",
+      "BHD",
+      "BIF",
+      "BMD",
+      "BND",
+      "BOB",
+      "BOV",
+      "BRL",
+      "BSD",
+      "BTN",
+      "BWP",
+      "BYN",
+      "BZD",
+      "CAD",
+      "CDF",
+      "CHE",
+      "CHF",
+      "CHW",
+      "CLF",
+      "CLP",
+      "CNY",
+      "COP",
+      "COU",
+      "CRC",
+      "CUC",
+      "CUP",
+      "CVE",
+      "CZK",
+      "DJF",
+      "DKK",
+      "DOP",
+      "DZD",
+      "EGP",
+      "ERN",
+      "ETB",
+      "EUR",
+      "FJD",
+      "FKP",
+      "GBP",
+      "GEL",
+      "GHS",
+      "GIP",
+      "GMD",
+      "GNF",
+      "GTQ",
+      "GYD",
+      "HKD",
+      "HNL",
+      "HRK",
+      "HTG",
+      "HUF",
+      "IDR",
+      "ILS",
+      "INR",
+      "IQD",
+      "IRR",
+      "ISK",
+      "JMD",
+      "JOD",
+      "JPY",
+      "KES",
+      "KGS",
+      "KHR",
+      "KMF",
+      "KPW",
+      "KRW",
+      "KWD",
+      "KYD",
+      "KZT",
+      "LAK",
+      "LBP",
+      "LKR",
+      "LRD",
+      "LSL",
+      "LYD",
+      "MAD",
+      "MDL",
+      "MGA",
+      "MKD",
+      "MMK",
+      "MNT",
+      "MOP",
+      "MRU[11]",
+      "MUR",
+      "MVR",
+      "MWK",
+      "MXN",
+      "MXV",
+      "MYR",
+      "MZN",
+      "NAD",
+      "NGN",
+      "NIO",
+      "NOK",
+      "NPR",
+      "NZD",
+      "OMR",
+      "PAB",
+      "PEN",
+      "PGK",
+      "PHP",
+      "PKR",
+      "PLN",
+      "PYG",
+      "QAR",
+      "RON",
+      "RSD",
+      "RUB",
+      "RWF",
+      "SAR",
+      "SBD",
+      "SCR",
+      "SDG",
+      "SEK",
+      "SGD",
+      "SHP",
+      "SLL",
+      "SOS",
+      "SRD",
+      "SSP",
+      "STN[13]",
+      "SVC",
+      "SYP",
+      "SZL",
+      "THB",
+      "TJS",
+      "TMT",
+      "TND",
+      "TOP",
+      "TRY",
+      "TTD",
+      "TWD",
+      "TZS",
+      "UAH",
+      "UGX",
+      "USD",
+      "USN",
+      "UYI",
+      "UYU",
+      "UYW",
+      "UZS",
+      "VES",
+      "VND",
+      "VUV",
+      "WST",
+      "XAF",
+      "XAG",
+      "XAU",
+      "XBA",
+      "XBB",
+      "XBC",
+      "XBD",
+      "XCD",
+      "XDR",
+      "XOF",
+      "XPD",
+      "XPF",
+      "XPT",
+      "XSU",
+      "XTS",
+      "XUA",
+      "XXX",
+      "YER",
+      "ZAR",
+      "ZMW",
+      "ZWL"
+    ]
+  },
+  "availabilityStarts": {
+    "type": "string",
+    "format": "date-time",
+    "description": "Property. Model:'https://schema.org/availabilityStarts'. The beginning of the availability of the product or service included in the offer."
+  },
+  "availabilityEnds": {
+    "type": "string",
+    "format": "date-time",
+    "description": "Property. Model:'https://schema.org/availabilityEnds'. The end of the availability of the product or service included in the offer."
   }
 }
