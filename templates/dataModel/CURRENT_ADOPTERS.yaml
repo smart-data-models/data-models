@@ -1,0 +1,18 @@
+description: This is a compilation list of the current adopters of the data model [Data model] of the Subject [Subject].  All fields are non mandatory. More info at https://smart-data-models.github.io/data-models/templates/dataModel/CURRENT_ADOPTERS.yaml
+currentAdopters:
+-
+ adopter: (project/organization/client)
+ description: (description of the use)
+ mail: (contact mail)
+ organization: (organization integratihng the data model)
+ project: (name of the project)
+ comments: (other info)
+ startDate: (date '2020-01-02'). remove all template texts but yours.
+-
+ adopter: The foundation
+ description: It is used for the psicohistory management
+ mail: isaac@asimov.com
+ organization: Terminus
+ project: Foundation research automation
+ comments: These data are fake just for example purposes.
+ startDate: 11988-01-01
