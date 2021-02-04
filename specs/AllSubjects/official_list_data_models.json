@@ -813,6 +813,20 @@
       "domains": [
         "SmartDestination"
       ]
+    },
+    {
+      "repoName": "dataModel.SocialMedia",
+      "repoLink": "https://github.com/smart-data-models/dataModel.SocialMedia.git",
+      "dataModels": [
+        "SMAnalysis",
+        "SMCollection",
+        "SMPost",
+        "SMRefLocation",
+        "SMUser "
+      ],
+      "domains": [
+        "CrossSector"
+      ]
     }
   ]
 }
