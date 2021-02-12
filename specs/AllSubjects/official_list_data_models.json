@@ -95,7 +95,8 @@
         "AgriPest",
         "AgriProductType",
         "AgriSoil",
-        "Animal"
+        "Animal",
+        "Pen"
       ],
       "domains": [
         "SmartAgrifood"
@@ -341,7 +342,8 @@
       "dataModels": [
         "BoatAuthorized",
         "SeaportFacilities",
-        "BoatPlacesAvailable"
+        "BoatPlacesAvailable",
+        "BoatPlacesPricing: "
       ],
       "domains": [
         "SmartCities"
@@ -808,7 +810,9 @@
       "repoName": "dataModel.TourismDestinations",
       "repoLink": "https://github.com/smart-data-models/dataModel.TourismDestinations.git",
       "dataModels": [
-        "Event"
+        "Event",
+        "TouristDestination",
+        "TouristTrip"
       ],
       "domains": [
         "SmartDestination"
