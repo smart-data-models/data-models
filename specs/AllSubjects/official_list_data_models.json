@@ -343,7 +343,7 @@
         "BoatAuthorized",
         "SeaportFacilities",
         "BoatPlacesAvailable",
-        "BoatPlacesPricing: "
+        "BoatPlacesPricing"
       ],
       "domains": [
         "SmartCities"
