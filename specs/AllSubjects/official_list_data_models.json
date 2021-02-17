@@ -797,10 +797,10 @@
       ]
     },
     {
-      "repoName": "dataModel.Multimedia",
+      "repoName": "dataModel.çia",
       "repoLink": "https://github.com/smart-data-models/dataModel.Multimedia.git",
       "dataModels": [
-        "MediaEvent"
+        ""
       ],
       "domains": [
         "CrossSector"
