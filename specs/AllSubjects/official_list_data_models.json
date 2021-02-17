@@ -1,5 +1,5 @@
 {
-  "udpatedDate": "2021-01-10T03:16:22.12345",
+  "udpatedDate": "2021-02-17T01:26:22.12345",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -800,7 +800,6 @@
       "repoName": "dataModel.Multimedia",
       "repoLink": "https://github.com/smart-data-models/dataModel.Multimedia.git",
       "dataModels": [
-        ""
       ],
       "domains": [
         "CrossSector"
