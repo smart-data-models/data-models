@@ -825,7 +825,7 @@
         "SMCollection",
         "SMPost",
         "SMRefLocation",
-        "SMUser "
+        "SMUser"
       ],
       "domains": [
         "CrossSector"
