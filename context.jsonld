@@ -256,9 +256,11 @@
 "basilica": "https://uri.fiware.org/ns/data-models#basilica", 
 "batteries": "https://uri.fiware.org/ns/data-models#batteries", 
 "batteryLevel": "https://smart-data-models.github.io/data-models/terms.jsonld#/definitions/batteryLevel", 
-"bbox": {"@container": "@list", 
-"coordinates": {"@id": "https://purl.org/geojson/vocab#coordinates", 
-"@container": "@list"}, "@id": "https://purl.org/geojson/vocab#bbox"}, "beachType": "https://smart-data-models.github.io/data-models/terms.jsonld#/definitions/beachType", 
+"bbox": {
+      "@container": "@list",
+      "@id": "geojson:bbox"
+    },
+"beachType": "https://smart-data-models.github.io/data-models/terms.jsonld#/definitions/beachType", 
 "belongsTo": {"@id": "https://uri.fiware.org/ns/data-models#belongsTo", 
 "@type": "@id"}, "bicycle": "https://uri.fiware.org/ns/data-models#bicycle", 
 "bikeParking": "https://uri.fiware.org/ns/data-models#bikeParking", 
@@ -393,7 +395,10 @@
 "controllingMethod": "https://smart-data-models.github.io/data-models/terms.jsonld#/definitions/controllingMethod", 
 "convent": "https://uri.fiware.org/ns/data-models#convent", 
 "conventionCentre": "https://uri.fiware.org/ns/data-models#conventionCentre", 
-"coordinates": "https://uri.etsi.org/ngsi-ld/coordinates", 
+"coordinates": {
+      "@container": "@list",
+      "@id": "geojson:coordinates"
+    }, 
 "copyMachineOrService": "https://uri.fiware.org/ns/data-models#copyMachineOrService", 
 "cosPhi": "https://smart-data-models.github.io/data-models/terms.jsonld#/definitions/cosPhi", 
 "coverageRadius": "https://smart-data-models.github.io/data-models/terms.jsonld#/definitions/coverageRadius", 
