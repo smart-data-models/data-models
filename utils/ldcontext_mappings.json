@@ -42,14 +42,13 @@
   },
   "bbox": {
     "@container": "@list",
-    "coordinates": {
-      "@id": "https://purl.org/geojson/vocab#coordinates",
-      "@container": "@list"
-    },
-    "@id": "https://purl.org/geojson/vocab#bbox"
+    "@id": "geojson:bbox"
   },
   "city": "addressLocality",
-  "coordinates": "https://uri.etsi.org/ngsi-ld/coordinates",
+  "coordinates": {
+    "@container": "@list",
+    "@id": "geojson:coordinates"
+  },
   "country": "addressCountry",
   "createdAt": {
     "@id": "https://uri.etsi.org/ngsi-ld/createdAt",
