@@ -108,10 +108,13 @@
       "dataModels": [
         "Curve",
         "Junction",
+        "Network",
         "Pattern",
         "Pipe",
         "Pump",
         "Reservoir",
+        "SimulationResults",
+        "SimulationScenario",
         "Tank",
         "Valve"
       ],
