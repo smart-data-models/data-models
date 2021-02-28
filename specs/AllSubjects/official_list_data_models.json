@@ -839,10 +839,6 @@
       "repoName": "dataModel.WasteWater",
       "repoLink": "https://github.com/smart-data-models/dataModel.WasteWater.git",
       "dataModels": [
-        "Blower",
-        "OffGasStack",
-        "WasteWaterJunction",
-        "WasteWaterTank"
       ],
       "domains": [
         "SmartWater"
