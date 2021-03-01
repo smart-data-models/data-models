@@ -1,5 +1,5 @@
 {
-  "udpatedDate": "2021-02-26T12:13:22.12345",
+  "udpatedDate": "2021-03-01T11:48:22.12345",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -843,6 +843,16 @@
       "domains": [
         "SmartWater"
       ]
+    },
+        {
+      "repoName": "dataModel.OPCUA",
+      "repoLink": "https://github.com/smart-data-models/dataModel.OPCUA.git",
+      "dataModels": [
+      ],
+      "domains": [
+        "SmartRobotics"
+      ]
     }
+
   ]
 }
