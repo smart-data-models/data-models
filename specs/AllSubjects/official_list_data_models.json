@@ -844,7 +844,7 @@
         "SmartWater"
       ]
     },
-        {
+    {
       "repoName": "dataModel.OPCUA",
       "repoLink": "https://github.com/smart-data-models/dataModel.OPCUA.git",
       "dataModels": [
@@ -852,7 +852,15 @@
       "domains": [
         "SmartRobotics"
       ]
+    },
+    {
+      "repoName": "dataModel.RawWaterManagement",
+      "repoLink": "https://github.com/smart-data-models/dataModel.RawWaterManagement.git",
+      "dataModels": [
+      ],
+      "domains": [
+        "SmartWater"
+      ]
     }
-
   ]
 }
