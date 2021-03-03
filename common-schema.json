@@ -25,6 +25,11 @@
       "format": "idn-email",
       "description": "Property. Email address of owner."
     },
+    "dateObserved": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Property. Date of the observed entity defined by the user."
+    },
     "DateYearLess": {
       "type": "string",
       "pattern": "^--((0[13578]|1[02])-31|(0[1,3-9]|1[0-2])-30|(0\\d|1[0-2])-([0-2]\\d))$"
