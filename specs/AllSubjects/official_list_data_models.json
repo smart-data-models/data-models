@@ -848,7 +848,7 @@
     {
       "repoName": "dataModel.OPCUA",
       "repoLink": "https://github.com/smart-data-models/dataModel.OPCUA.git",
-      "dataModels": [
+      "dataModels": [ 
         "MotionDeviceSystem"
       ],
       "domains": [
