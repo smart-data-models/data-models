@@ -1,5 +1,5 @@
 {
-  "udpatedDate": "2021-03-03T14:28:22.12345",
+  "udpatedDate": "2021-03-08T10:01:22.12345",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -849,6 +849,7 @@
       "repoName": "dataModel.OPCUA",
       "repoLink": "https://github.com/smart-data-models/dataModel.OPCUA.git",
       "dataModels": [
+        "MotionDeviceSystem"
       ],
       "domains": [
         "SmartRobotics"
