@@ -266,7 +266,8 @@
         "WaterObserved",
         "PhreaticObserved",
         "RainFallRadarObservation",
-        "IndoorEnvironmentObserved"
+        "IndoorEnvironmentObserved",
+        "FloodMonitoring"
       ],
       "domains": [
         "SmartEnvironment"
