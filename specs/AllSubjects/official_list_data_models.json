@@ -316,7 +316,9 @@
       "repoLink": "https://github.com/smart-data-models/dataModel.GreenEnergy.git",
       "dataModels": [
         "GreenEnergyGenerator",
-        "GreenEnergyMeasurement"
+        "GreenEnergyMeasurement",
+        "PhotoVoltaicDevice",
+        "PhotoVoltaicMeasurement"
       ],
       "domains": [
         "SmartEnergy"
