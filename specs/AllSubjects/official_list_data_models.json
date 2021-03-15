@@ -317,8 +317,8 @@
       "dataModels": [
         "GreenEnergyGenerator",
         "GreenEnergyMeasurement",
-        "PhotoVoltaicDevice",
-        "PhotoVoltaicMeasurement"
+        "PhotovoltaicDevice",
+        "PhotovoltaicMeasurement"
       ],
       "domains": [
         "SmartEnergy"
