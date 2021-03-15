@@ -1,5 +1,5 @@
 {
-  "udpatedDate": "2021-03-03T14:28:22.12345",
+  "udpatedDate": "2021-03-15T15:21:22.12345",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -266,7 +266,8 @@
         "WaterObserved",
         "PhreaticObserved",
         "RainFallRadarObservation",
-        "IndoorEnvironmentObserved"
+        "IndoorEnvironmentObserved",
+        "FloodMonitoring"
       ],
       "domains": [
         "SmartEnvironment"
@@ -315,7 +316,9 @@
       "repoLink": "https://github.com/smart-data-models/dataModel.GreenEnergy.git",
       "dataModels": [
         "GreenEnergyGenerator",
-        "GreenEnergyMeasurement"
+        "GreenEnergyMeasurement",
+        "PhotovoltaicDevice",
+        "PhotovoltaicMeasurement"
       ],
       "domains": [
         "SmartEnergy"
@@ -848,7 +851,8 @@
     {
       "repoName": "dataModel.OPCUA",
       "repoLink": "https://github.com/smart-data-models/dataModel.OPCUA.git",
-      "dataModels": [
+      "dataModels": [ 
+        "MotionDeviceSystem"
       ],
       "domains": [
         "SmartRobotics"
