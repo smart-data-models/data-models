@@ -862,8 +862,8 @@
       ]
     },
     {
-      "repoName": "dataModel.RawWaterManagement",
-      "repoLink": "https://github.com/smart-data-models/dataModel.RawWaterManagement.git",
+      "repoName": "dataModel.OpenChannelManagement",
+      "repoLink": "https://github.com/smart-data-models/dataModel.OpenChannelManagement.git",
       "dataModels": [
       ],
       "domains": [
