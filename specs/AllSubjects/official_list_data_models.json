@@ -104,8 +104,8 @@
       ]
     },
     {
-      "repoName": "dataModel.WaterNetworkManagement",
-      "repoLink": "https://github.com/smart-data-models/dataModel.WaterNetworkManagement.git",
+      "repoName": "dataModel.WaterDistributionManagementEPANET",
+      "repoLink": "https://github.com/smart-data-models/dataModel.WaterDistributionManagementEPANET.git",
       "dataModels": [
         "Curve",
         "Junction",
