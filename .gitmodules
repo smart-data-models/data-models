@@ -7,9 +7,6 @@
 [submodule "specs/SmartAeronautics"]
 	path = specs/SmartAeronautics
 	url = https://github.com/smart-data-models/SmartAeronautics.git
-[submodule "specs/SmartEnergy"]
-	path = specs/SmartEnergy
-	url = https://github.com/smart-data-models/SmartEnergy.git
 [submodule "specs/SmartEnvironment"]
 	path = specs/SmartEnvironment
 	url = https://github.com/smart-data-models/SmartEnvironment.git
