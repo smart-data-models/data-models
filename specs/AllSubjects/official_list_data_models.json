@@ -875,11 +875,11 @@
       "repoName": "dataModel.QueueManagement",
       "repoLink": "https://github.com/smart-data-models/dataModel.QueueManagement.git",
       "dataModels": [
-        "QueueMonitor",
+        "QueueMonitor"
       ],
       "domains": [
         "CrossSector"
       ]
-    },
+    }
   ]
 }
