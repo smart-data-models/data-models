@@ -1,5 +1,5 @@
 {
-  "udpatedDate": "2021-03-22T10:01:22.12345",
+  "udpatedDate": "2021-03-22T10:14:22.12345",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -870,6 +870,16 @@
       "domains": [
         "SmartWater"
       ]
-    }
+    },
+    {
+      "repoName": "dataModel.QueueManagement",
+      "repoLink": "https://github.com/smart-data-models/dataModel.QueueManagement.git",
+      "dataModels": [
+        "QueueMonitor",
+      ],
+      "domains": [
+        "CrossSector"
+      ]
+    },
   ]
 }
