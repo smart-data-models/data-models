@@ -25,6 +25,10 @@
       "format": "idn-email",
       "description": "Property. Email address of owner."
     },
+    "userAlias":{
+      "type": "string",
+      "description": "Property. An anonymous alias of a user."
+    },
     "dateObserved": {
       "type": "string",
       "format": "date-time",

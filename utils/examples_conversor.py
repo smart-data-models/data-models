@@ -81,314 +81,181 @@ def keyvalues2normalized(keyvaluesPayload):
 
 keyvaluesPayload = """
 {
-  "id": "a88c6069-86c4-4c09-8621-fc5c58f216e0",
-  "type": "zone",
-  "additionalInfo": [
-    {
-      "name": "Farm2FeedTray",
-      "value": "4"
-    },
-    {
-      "name": "Farm2ValveId",
-      "value": ""
-    },
-    {
-      "name": "Farm2DepartmentId",
-      "value": "11"
-    }
+  "id": "urn:ngsi-ld:PrivacyObject:1044_parking",
+  "type": "PrivacyObject",
+  "refDevice": "Device:1044_parking",
+  "name": "1004_parking",
+  "location": {
+    "type": "Point",
+    "coordinates": [
+      46.18311,
+      6.14132
+    ]
+  },
+  "isIndoor": false,
+  "floor": 0,
+  "description": "Electromagnetic and ultrasonic sensor",
+  "description_fr": "Capteur électromagnétique et à ultrasons",
+  "user": "urn:ngsi-ld:User:abcdef",
+  "purpose": "Detecting the presence of a vehicle on a parking slot.",
+  "purpose_fr": "Détecter la présence d'un véhicule sur une place de parc.",
+  "category": [
+    "sensor"
   ],
-  "arrivalTimestamp": "2020-04-14T22:00:00.000Z",
-  "avgGrowth": 1.0,
-  "avgWeight": 45.5,
-  "buildingId": "f6ce5251-e959-4269-9040-8056c6a093d9",
-  "co2": 20,
-  "companyId": "1401c9e0-c441-4bd1-b8d3-fb1194479aa7",
-  "empty": false,
-  "farmId": "7438345c-fdff-45c9-a02f-1d764cbc03a7",
-  "feedConsumption": 8.3,
-  "humidity": 0.7,
-  "lastUpdate": 1589841011000,
-  "luminosity": 3,
-  "name": "",
-  "numAnimals": 22,
-  "outputFeed": 8.2,
-  "parentZoneId": "f0ddd929-5a18-479b-9ad6-5947cc2cd05b",
-  "sex": "",
-  "startWeight": 26,
-  "temperature": 25,
-  "waterConsumption": 23,
-  "weightStDev": 2.3
+  "recipientList": [
+    "urn:ngsi-ld:User:CommunalAdministration",
+    "urn:ngsi-ld:User:Motorists"
+  ],
+  "owner": [
+    "ngsi-ld:city:CityofCarouge"
+  ],
+  "isPersonalData": false,
+  "retentionPeriod": "< 1 month",
+  "legitimateInterest": "Facilitate and understand parking habits",
+  "crossborderTransfer": "None",
+  "image": "http://www.example.com/device1.jpg"
 }
 """
 
 
 normalizedPayload = """
     {
-      "id": "urn:ngsi-ld:PhotovoltaicDevice:PhotovoltaicDevice:MNCA-PV-T2-R-012",
-      "type": "PhotovoltaicDevice",
-      "name": {
-        "type": "Property",
-        "value": "DEVICE-PV-T2-R-012"
-      },
-      "alternateName": {
-        "type": "Property",
-        "value": "AirPort – global Observation"
-      },
-      "description": {
-        "type": "Property",
-        "value": "Photo-voltaic Device description"
-      },
-      "location": {
-        "type": "GeoProperty",
-        "value": {
-          "type": "Point",
-          "coordinates": [
-            43.664810,
-            7.196545
-          ]
-        }
-      },
-      "address": {
-        "type": "Property",
-        "value": {
-          "addressCountry": "FR",
-          "addressLocality": "Nice",
-          "streetAddress": "Airport - Terminal 2 - Roof 2 - Local  12"
-        }
-      },
-      "areaServed": {
-        "type": "Property",
-        "value": "Nice Aeroport"
-      },
-      "refDevice": {
-        "type": "Relationship",
-        "value": "urn:ngsi-ld:Device:PV-T2-R-012"
-      },
-      "dateLastReported": {
-        "type": "Property",
-        "value": {
-          "type": "DateTime",
-          "value": "2020-05-17T09:47:00Z"
-        }
-      },
-      "brandname": {
-        "type": "Property",
-        "value": "Canadian Solar"
-      },
-      "modelName": {
-        "type": "Property",
-        "value": "CS6P-270P"
-      },
-      "manufacturerName": {
-        "type": "Property",
-        "value": "Canadian Solar EMEA GmbH,"
-      },
-      "serialNumber": {
-        "type": "Property",
-        "value": [
-          "CSPV270P-SN1804L6J34Z8742H",
-          "CSPV270P-SN1804L6J34Z8743H",
-          "CSPV270P-SN1804L6J34Z8744H",
-          "CSPV270P-SN1804L6J34Z8745H",
-          "CSPV270P-SN1804L6J34Z8746H"
-        ]
-      },
-      "application": {
-        "type": "Property",
-        "value": "electric"
-      },
-      "cellType": {
-        "type": "Property",
-        "value": "polycrystalline"
-      },
-      "installationMode": {
-        "type": "Property",
-        "value": "roofing"
-      },
-      "installationCondition": {
-        "type": "Property",
-        "value": [
-          "extremeHeat",
-          "extremeCold",
-          "extremeClimate",
-          "desert"
-        ]
-      },
-      "possibilityOfUsed": {
-        "type": "Property",
-        "value": "stationary"
-      },
-      "integrationMode": {
-        "type": "Property",
-        "value": "IAB"
-      },
-      "documentation": {
-        "type": "Property",
-        "value": "https://www.myDevicePV.Cn"
-      },
-      "owner": {
-        "type": "Property",
-        "value": [
-          "Airport-Division Maintenance"
-        ]
-      },
-      "cellDimension": {
-        "type": "Property",
-        "value": {
-          "length": 16.0,
-          "width": 9.0,
-          "thickness": 2.3
-        }
-      },
-      "moduleNbCells": {
-        "type": "Property",
-        "value": 60
-      },
-      "moduleDimension": {
-        "type": "Property",
-        "value": {
-          "length": 1600,
-          "width": 975,
-          "thickness": 3.75
-        }
-      },
-      "panelNbModules": {
-        "type": "Property",
-        "value": 1
-      },
-      "panelDimension": {
-        "type": "Property",
-        "value": {
-          "length": 1638,
-          "width": 982,
-          "thickness": 40
-        }
-      },
-      "panelWeight": {
-        "type": "Property",
-        "value": 18
-      },
-      "arealWeight": {
-        "type": "Property",
-        "value": 32
-      },
-      "maxPressureLoad": {
-        "type": "Property",
-        "value": {
-          "hail": 2500,
-          "snow": 5400,
-          "wind": 2400
-        }
-      },
-      "NominalPower": {
-        "type": "Property",
-        "value": 270
-      },
-      "MaximumSystemVoltage": {
-        "type": "Property",
-        "value": 1000
-      },
-      "applicationClass": {
-        "type": "Property",
-        "value": "A"
-      },
-      "fireClass": {
-        "type": "Property",
-        "value": "C"
-      },
-      "pTCClass": {
-        "type": "Property",
-        "value": 92.1
-      },
-      "nTCClass": {
-        "type": "Property",
-        "value": 88.3
-      },
-      "protectionIP": {
-        "type": "Property",
-        "value": "IP67"
-      },
-      "moduleSTC": {
-        "type": "Property",
-        "value": {
-          "Pmax": 270,
-          "Umpp": 30.8,
-          "Impp": 8.75,
-          "Uoc": 37.9,
-          "Isc": 9.32
-        }
-      },
-      "moduleNOCT": {
-        "type": "Property",
-        "value": {
-          "Pmax": 196,
-          "Umpp": 28.1,
-          "Impp": 6.97,
-          "Uoc": 34.8,
-          "Isc": 7.55
-        }
-      },
-      "moduleYieldRate": {
-        "type": "Property",
-        "value": 16.79
-      },
-      "panelOperatingTemperature": {
-        "type": "Property",
-        "value": {
-          "min": -40,
-          "max": 85
-        }
-      },
-      "cellOperatingTemperature": {
-        "type": "Property",
-        "value": {
-          "min": 45,
-          "max": 2
-        }
-      },
-      "temperatureCoefficient": {
-        "type": "Property",
-        "value": {
-          "Pmax": -0.41,
-          "Uoc": -0.31,
-          "Isc": 0.053
-        }
-      },
-      "performanceLowIrradiance": {
-        "type": "Property",
-        "value": 96.5
-      },
-      "panelLifetime": {
-        "type": "Property",
-        "value": 30
-      },
-      "panelYieldCurve": {
-        "type": "Property",
-        "value": [
-          "95.0",
-          "92.5",
-          "90.0",
-          "87.5",
-          "85.0",
-          "80.0"
-        ]
-      },
-      "panelYieldRate": {
-        "type": "Property",
-        "value": 0.5
-      },
-      "panelTiltReference": {
-        "type": "Property",
-        "value": {
-          "min": 28,
-          "max": 37
-        }
-      },
-      "@context": [
-        "https://schema.lab.fiware.org/ld/context",
-        "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
+  "id": "urn:ngsi-ld:QueueMonitor:id:SIHJ:22618237",
+  "type": "QueueMonitor",
+  "dateCreated": {
+    "type": "Property",
+    "value": {
+      "@type": "DateTime",
+      "@value": "2021-03-22T11:10:04Z"
+    }
+  },
+  "dateModified": {
+    "type": "Property",
+    "value": {
+      "@type": "DateTime",
+      "@value": "2021-03-22T11:10:05Z"
+    }
+  },
+  "source": {
+    "type": "Property",
+    "value": ""
+  },
+  "name": {
+    "type": "Property",
+    "value": "Queue system of the tourist attraction of Leon Cathedral"
+  },
+  "alternateName": {
+    "type": "Property",
+    "value": "Cathedral queue"
+  },
+  "description": {
+    "type": "Property",
+    "value": "Queue system of the tourist attraction of Leon Cathedral for allowing a limited visitors inside the building"
+  },
+  "dataProvider": {
+    "type": "Property",
+    "value": ""
+  },
+  "owner": {
+    "type": "Property",
+    "value": [
+      "urn:ngsi-ld:QueueMonitor:items:TLDV:47467690",
+      "urn:ngsi-ld:QueueMonitor:items:JTAO:46330396"
+    ]
+  },
+  "seeAlso": {
+    "type": "Property",
+    "value": [
+      "urn:ngsi-ld:QueueMonitor:items:SHMV:05050086",
+      "urn:ngsi-ld:QueueMonitor:items:QQJP:06476874"
+    ]
+  },
+  "location": {
+    "type": "Property",
+    "value": {
+      "type": "Point",
+      "coordinates": [
+        42.605556,
+        -5.57
       ]
     }
+  },
+  "address": {
+    "type": "Property",
+    "value": {
+      "streetAddress": "Plaza de la Catedrla s/n",
+      "addressLocality": "León",
+      "addressRegion": "Castilla y León",
+      "addressCountry": "Spain",
+      "postalCode": "24001",
+      "postOfficeBoxNumber": "",
+      "areaServed": "City Center."
+    }
+  },
+  "areaServed": {
+    "type": "Property",
+    "value": "City Center"
+  },
+  "localId": {
+    "type": "Property",
+    "value": "system-1"
+  },
+  "officeName": {
+    "type": "Property",
+    "value": "Tourist Office"
+  },
+  "serviceName": {
+    "type": "Property",
+    "value": "Visit reservations."
+  },
+  "serviceId": {
+    "type": "Property",
+    "value": "Cathedral-reservations-visit-1"
+  },
+  "serviceStatus": {
+    "type": "Property",
+    "value": "Open"
+  },
+  "serviceStatusNote": {
+    "type": "Property",
+    "value": ""
+  },
+  "scheduleTime": {
+    "type": "Property",
+    "value": "2021-02-21T12:47:04Z"
+  },
+  "queueLine": {
+    "type": "Property",
+    "value": "Groups line."
+  },
+  "linePriority": {
+    "type": "Property",
+    "value": 1
+  },
+  "lastTicketIssued": {
+    "type": "Property",
+    "value": 33
+  },
+  "lastTicketIssuedLabel": {
+    "type": "Property",
+    "value": "C-33"
+  },
+  "ticketServed": {
+    "type": "Property",
+    "value": 45
+  },
+  "ticketServedLabel": {
+    "type": "Property",
+    "value": "C-45"
+  },
+  "ticketsToServe": {
+    "type": "Property",
+    "value": 12
+  },
+  "@context": [
+    "https://smart-data-models.github.io/data-models/context.jsonld"
+  ]
+}
     """
 
 # normalized2keyvalues(normalizedPayload)
