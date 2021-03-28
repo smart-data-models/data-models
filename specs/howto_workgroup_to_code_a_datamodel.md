@@ -7,8 +7,8 @@ This methodology will help you to achieve it.
 ### Step 0 Gather documentation
 - Set a group leader.  
 - Gather documentation of actual use cases between group members or beyond.
-- Smart Data Models initiative es focused on actual use of data.
-- Therefore is required that the data models to be created are based on actual experience of use.
+- Smart Data Models initiative is focused on actual use of data.
+- Therefore it is required that the data models to be created are based on actual experience of use.
    
 ### Step 1. Compile elements.
 - Create a share repository (shared folder, drive, etc) for compile all the documentation.
@@ -27,24 +27,21 @@ This methodology will help you to achieve it.
 - Try to reach a minimum shared elements to be approved by a majority
 
 ### Step 4. Create the technical documentation of a data model 
-- Documents included in a full documented data model
-    - Spec.md: Description of properties/fields [template](https://github.com/smart-data-models/data-models/blob/master/templates/dataModel/doc/spec.md-template.md)
-    - README.me : Description of the data model [template](https://github.com/smart-data-models/data-models/blob/master/templates/dataModel/README.md-template.md)
     - Payload Examples: json [template](https://github.com/smart-data-models/data-models/blob/master/templates/dataModel/example1.json) and json-ld [template](https://github.com/smart-data-models/data-models/blob/master/templates/dataModel/example1.jsonld)
     - json schema: 
 - Voluntary documents 
-    - Contributors.md: Who want to be attribute as author [template](https://github.com/smart-data-models/data-models/blob/master/templates/Subject/CONTRIBUTORS.md)
-    - Current Adopters.md: Examples of use of the data model [template](https://github.com/smart-data-models/data-models/blob/master/templates/dataModel/CURRENT-ADOPTERS.md)  
+    - CONTRIBUTORS.yaml: Who want to be attribute as author [template](https://github.com/smart-data-models/data-models/blob/master/templates/Subject/CONTRIBUTORS.md)
+    - Adopters.yaml: Examples of use of the data model [template](https://github.com/smart-data-models/data-models/blob/master/templates/dataModel/CURRENT-ADOPTERS.md)  
 
 ### Step 5. Submit your data model
 - There are several methods. 
-    - simplest. Create a Pull request on the right repository of in [pending](https://github.com/smart-data-models/data-models/tree/master/specs/pending) if you do not which one.
-    - this [form](http://data-models.fiware.org/index.php/submit-a-data-model/) could help you as well. 
+    - simplest. Create a Pull request on the right repository of in [incubated](https://github.com/smart-data-models/incubated/tree/master) if you do not which one.
+    - this [form](http://smartdatamodels.org/index.php/submit-a-data-model/) could help you as well. 
 
 ### Step 6. Review
 - Once submitted some review will be done to check if data model meet coding [guidelines](guidelines.md)
 - Maybe some of its elements could be extracted for general use in other domains.
-- some information to create the right [context](https://github.com/smart-data-models/data-models/blob/master/context.jsonld) could be requested as well. 
+- Some information to create the right [context](https://github.com/smart-data-models/data-models/blob/master/context.jsonld) could be requested as well. 
 
 ### Step 7. Disseminate
 - A model only is useful for you if someone else use it. Let them know it exists.
