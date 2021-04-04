@@ -1,5 +1,5 @@
 {
-  "udpatedDate": "2021-03-25T12:07:22.12345",
+  "udpatedDate": "2021-04-04T17:34:22.12345",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -244,6 +244,7 @@
       "repoLink": "https://github.com/smart-data-models/dataModel.Energy.git",
       "dataModels": [
         "ACMeasurement",
+        "InverterDevice",
         "ThreePhaseAcMeasurement"
       ],
       "domains": [
