@@ -854,7 +854,7 @@
         "Blower",
         "OffGasStack",
         "WasteWaterJunction",
-        "WasteWaterTank",
+        "WasteWaterTank"
       ],
       "domains": [
         "SmartWater"
