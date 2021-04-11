@@ -1,4 +1,4 @@
-{"updatingDate": "2021-04-10T08:52:01.592064", "officialListRequiredProperties": [
+{"updatingDate": "2021-04-11T08:52:02.283023", "officialListRequiredProperties": [
 {"repoName": "dataModel.User", "repoLink": "https://github.com/smart-data-models/dataModel.User.git", "dataModel": "Activity", "repoSchema": "https://raw.githubusercontent.com/smart-data-models/dataModel.User/master/Activity/schema.json", "requiredProperties": ["activityType", "refAgent", "type", "id"]}, 
 {"repoName": "dataModel.User", "repoLink": "https://github.com/smart-data-models/dataModel.User.git", "dataModel": "UserContext", "repoSchema": "https://raw.githubusercontent.com/smart-data-models/dataModel.User/master/UserContext/schema.json", "requiredProperties": ["id", "type"]}, 
 {"repoName": "dataModel.PointOfInteraction", "repoLink": "https://github.com/smart-data-models/dataModel.PointOfInteraction.git", "dataModel": "SmartPointOfInteraction", "repoSchema": "https://raw.githubusercontent.com/smart-data-models/dataModel.PointOfInteraction/master/SmartPointOfInteraction/schema.json", "requiredProperties": ["id", "type", "category", "applicationUrl", "availability"]}, 
