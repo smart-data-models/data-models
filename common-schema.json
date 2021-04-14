@@ -29,6 +29,10 @@
       "type": "string",
       "description": "Property. An anonymous alias of a user."
     },
+    "tag": {
+      "type": "string",
+      "description": "Property. Model:'https://schema.org/Text'. An optional text string used to qualify an item"
+    },
     "dateObserved": {
       "type": "string",
       "format": "date-time",
