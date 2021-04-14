@@ -1,5 +1,5 @@
 {
-  "udpatedDate": "2021-03-22T18:24:22.12345",
+  "udpatedDate": "2021-04-08T01:30:22.12345",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -243,6 +243,8 @@
       "repoName": "dataModel.Energy",
       "repoLink": "https://github.com/smart-data-models/dataModel.Energy.git",
       "dataModels": [
+        "ACMeasurement",
+        "InverterDevice",
         "ThreePhaseAcMeasurement"
       ],
       "domains": [
@@ -343,7 +345,8 @@
       "dataModels": [
         "Battery",
         "BatteryStatus",
-        "StorageBatteryDevice"
+        "StorageBatteryDevice",
+        "StorageBatteryMeasurement"
       ],
       "domains": [
         "CrossSector"
@@ -848,6 +851,10 @@
       "repoName": "dataModel.WasteWater",
       "repoLink": "https://github.com/smart-data-models/dataModel.WasteWater.git",
       "dataModels": [
+        "Blower",
+        "OffGasStack",
+        "WasteWaterJunction",
+        "WasteWaterTank"
       ],
       "domains": [
         "SmartWater"

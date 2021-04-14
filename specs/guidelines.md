@@ -2,8 +2,8 @@
 
 
 Before creating a new data model, explore the existing ones to be sure there is
-already a data model that covers your use case. The search box in the
-ReadTheDocs page can help you to search for specification connected to your
+already a data model that covers your use case. The [database](https://smartdatamodels.org/index.php/ddbb-of-properties-descriptions/) 
+can help you on that to search for specification connected to your
 needs. Recall to use synonyms in your search. E.g. what you might call Public
 Transport already exists under UrbanMobility.
 
@@ -45,6 +45,8 @@ Transport already exists under UrbanMobility.
 
 -   State clearly what attributes are mandatory and what are optional. Remember
     that `null` value should be avoided as it is prohibited in NGSI-LD.
+    Mandatory should be reserved for a minimum amount of attributes. 
+    Ideally just id and type.
 
 ## Units
 
@@ -52,16 +54,16 @@ Transport already exists under UrbanMobility.
     by the International System of Units.
 
 -   If a quantity is expressed in a different unit than the default one, use the
-    [unitCode](http://schema.org/unitCode) metadata attribute in NGSI v2.
+    [unitCode](http://schema.org/unitCode) metadata attribute in NGSI.
 
--   In NGSI-LD the Property `unitCode` is already defined and available to be
+-   In NGSI-LD the property of Property `unitCode` is already defined and available to be
     used.
 
 ## Relative values
 
 -   Use values between `0` and `1` for relative quantities, which represent
     attribute values such as `relativeHumidity`, `precipitationProbability`,
-    etc.
+    etc. This was the case include `minimum`: 0 and `maximum`: 1
 
 ## Modelling location
 
@@ -88,16 +90,11 @@ Transport already exists under UrbanMobility.
         and NGSI-LD URNs already convey the type of the target entity, for
         instance `urn:ngsi-ld:gtfs:Stop:S123`.
 
-As the current trend is to align with NGSI-LD as much as possible, 2. option can
+As the current trend is to align with NGSI-LD as much as possible, 2. Option can
 be considered as the recommended one and 1. option is to some extent
 "deprecated".
 
 ## Date Attributes
-
--   In NGSI v2 the Attribute type must be `DateTime`.
-
--   In NGSI-LD, please check the date and time encoding at the
-    [NGSI-LD FAQ](https://github.com/FIWARE/data-models/blob/master/specs/ngsi-ld_howto.md#airquality-in-ngsi-ld-format).
 
 -   Use the `date` prefix for naming entity attributes representing dates (or
     complete timestamps). Ex. `dateLastEmptying`.

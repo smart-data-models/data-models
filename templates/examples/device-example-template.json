@@ -1,18 +1,2 @@
-{
-  "id":  "__T_bothify(\"device:????:####\")",
-  "type": "Device",
-  "category": ["sensor"],
-  "controlledProperty": "__T_random_choices(elements=(\"temperature\",\"humidity\",\"light\",\"motion\",\"fillingLevel\",\"occupancy\",\"power\",\"pressure\",\"smoke\",\"energy\",\"airPollution\",\"noiseLevel\",\"weatherConditions\",\"precipitation\",\"windSpeed\",\"windDirection\",\"atmosphericPressure\",\"solarRadiation\",\"depth\",\"pH\",\"conductivity\",\"conductance\",\"tss\",\"tds\",\"turbidity\",\"salinity\",\"orp\",\"cdom\",\"waterPollution\",\"location\",\"speed\",\"heading\",\"weight\",\"waterConsumption\",\"gasComsumption\",\"electricityConsumption\",\"eatingActivity\",\"milking\",\"movementActivity\",\"soilMoisture\"), length=1)",
-  "controlledAsset": ["__T_bothify(\"Asset:???##\")"],
-  "ipAddress": ["__T_ipv4()"],
-  "mcc": "__T_bothify(\"%##\")",
-  "mnc": "__T_bothify(\"##\")",
-  "batteryLevel": "__R_round(random.random(),2)",
-  "serialNumber": "__T_bothify(\"%###?\")",
-  "refDeviceModel": "__T_bothify(\"deviceModel:????:####\")",
-  "rssi": "__R_round(random.random(),2)",
-  "value": "__T_bothify(\"%#\")",
-  "deviceState": "__T_random_choices(elements=(\"ok\",\"off\",\"updating\",\"shutting-down\"), length=1)",
-  "dateFirstUsed":  "__D_iso8601()",
-  "owner": ["__T_url()"]
-}
+{"message": "This example has been automated through this [link](https://smartdatamodels.org/index.php/generate-a-ngsi-ld-payload-based-on-a-smart-data-model/)"}
+
