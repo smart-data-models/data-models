@@ -1,5 +1,5 @@
 {
-  "udpatedDate": "2021-04-08T01:30:22.12345",
+  "udpatedDate": "2021-04-19T15:36:22.12345",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -887,6 +887,17 @@
       ],
       "domains": [
         "CrossSector"
+      ]
+    },
+    {
+      "repoName": "dataModel.Forestry",
+      "repoLink": "https://github.com/smart-data-models/dataModel.Forestry.git",
+      "dataModels": [
+        "ForestStatus"
+      ],
+      "domains": [
+        "SmartAgrifood",
+        "SmartEnvironment"
       ]
     }
   ]
