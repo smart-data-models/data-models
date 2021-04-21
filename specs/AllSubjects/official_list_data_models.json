@@ -895,7 +895,7 @@
       "repoName": "dataModel.Forestry",
       "repoLink": "https://github.com/smart-data-models/dataModel.Forestry.git",
       "dataModels": [
-        "ForestStatus"
+        "FireForestStatus"
       ],
       "domains": [
         "SmartAgrifood",
