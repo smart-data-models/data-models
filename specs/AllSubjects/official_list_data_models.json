@@ -1,5 +1,5 @@
 {
-  "udpatedDate": "2021-04-21T16:29:22.12345",
+  "udpatedDate": "2021-04-21T16:37:22.12345",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -209,7 +209,8 @@
       "dataModels": [
         "Device",
         "DeviceModel",
-        "PrivacyObject"
+        "PrivacyObject",
+        "SmartMeteringObservation"
       ],
       "domains": [
         "Smart-Sensoring"
