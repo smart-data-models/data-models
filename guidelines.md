@@ -2,9 +2,9 @@
 
 This is a set of guidelines for defining new data models.
 
-Before creating a new data model, [explore the existing ones](http://smartdatamodels.org/index.php/list-of-data-models/) to be sure there is
+Before creating a new data model, [explore the existing ones](https://smartdatamodels.org/index.php/ddbb-of-properties-descriptions/)  or the [quick finder](https://smartdatamodels.org/index.php/list-of-data-models-3/) to be sure there is
 already a data model that covers your use case. Recall to use synonyms in your search. E.g. what you might call Public
-Transport already exists under UrbanMobility. Check [this resource](https://docs.google.com/spreadsheets/d/1vp9rU63R2YXleEg6w2tn1tWx5sb4heY0APK-tHV9e5M/edit#gid=1357587034) to find it out.
+Transport already exists under UrbanMobility. 
 
 If you are looking for guidelines on adoption of existing data models, please
 refer to [How to use Smart Data Models in your projects](https://github.com/smart-data-models/data-models/blob/master/specs/howto.md)
@@ -66,7 +66,7 @@ section.
     - createdAt
     - modifiedAt
     
-    those attributes **must NOT be included into the definition of the data model** (spec.md and \*schema.*)
+    those attributes **must NOT be included into the definition of the data model** (schema.json)
     but they can appear in the payloads of the examples included.
 
 ## Numbers 
@@ -85,7 +85,7 @@ section.
     used.
 -   The list of UN/CEFACT Common Code (3 characters) can be download from this [page](https://www.unece.org/cefact/codesfortrade/codes_index.html). The list is available directly from [here](https://www.unece.org/fileadmin/DAM/cefact/recommendations/rec20/rec20.zip). 
 
-## Relative values
+## Relative values / Percentages
 
 -   Use values between `0` and `1` for relative quantities, which represent
     attribute values such as `relativeHumidity`, `precipitationProbability`,
