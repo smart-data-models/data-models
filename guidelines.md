@@ -7,7 +7,7 @@ already a data model that covers your use case. Recall to use synonyms in your s
 Transport already exists under UrbanMobility. Check [this resource](https://docs.google.com/spreadsheets/d/1vp9rU63R2YXleEg6w2tn1tWx5sb4heY0APK-tHV9e5M/edit#gid=1357587034) to find it out.
 
 If you are looking for guidelines on adoption of existing data models, please
-refer to [How to use FIWARE Harmonised Data Models in your projects](https://github.com/smart-data-models/data-models/blob/master/specs/howto.md)
+refer to [How to use Smart Data Models in your projects](https://github.com/smart-data-models/data-models/blob/master/specs/howto.md)
 section.
 
 ## Syntax
@@ -210,7 +210,7 @@ In case of doubt check the existing data models. The full list can be got in the
 
 ## Versioning
 
-FIWARE and TMForum Data Models Project aim to maintain backwards compatibility, however some
+FIWARE Foundation, TMForum and IUDX Data Models Project aim to maintain backwards compatibility, however some
 incompatibilities will inevitably occur over time. Data providers may choose to
 tag Entities with an additional `schemaVersion` Attribute so that Data Consumers
 can behave accordingly. This aligns with the
@@ -224,66 +224,52 @@ Contributions should come in the form of pull requests.
 [Create a branch](https://help.github.com/articles/creating-and-deleting-branches-within-your-repository/)
 containing your changes, and proceed with a
 [Pull Request](https://help.github.com/articles/creating-a-pull-request-from-a-fork/).
-[Submit a form](http://smartdatamodels.org/index.php/submit-a-data-model/)
+[Submit a form](http://smartdatamodels.org/index.php/submit-a-data-model/). Not recommended (larger delay)
 
 Pull Request should be easy to review, so if the model, or the changes you are
 proposing are wide, please create different pull requests.
 
 New data models should be added under a folder structured as follows:
 
-
     -   `NewModel/`
         -   `doc/`
-            -   `spec.md`: A data model description based on the
-                [data model template](https://github.com/FIWARE/data-models/blob/master/datamodel_template.md),
+            -   `spec.md`: A data model description generated automatically based on the schema.json
                 e.g.
-                [spec.md of WeatherObserved](./Weather/WeatherObserved/doc/spec.md).
-        -   `README.md`: A summary file (as an extract from the spec file), e.g.
-            [README.md of WeatherObserved](https://github.com/FIWARE/data-models/tree/master/specs/Weather/WeatherObserved)
-        -   `schema.json`: The JSON Schema definition, e.g.
+                [spec.md of WeatherObserved](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/doc/spec.md).
+            -  `spec_XX.md`: A data model description in language XX translated automatically from the original schema.json
+            -  `model.yaml`: A file with the technical description of the different attributes of the data model. Generated automatically
+            -  `notes.yaml`: An optional file with customization contents for the specification. Optional
+            -  `LICENSE.md`: file with the legal permission of use of th data model. It always grant free user, free modification and free share of modifications.
+            -  `swagger.yaml`: A file with the specification in open API format for interactive visualization. Generated automatically
+            -  `ADOPTERS.yaml`: A file containing use cases of the data models. Optional
+        -   `README.md`: Relevant links to access the contents of the data model. (specifications in different languages, links to the examples or to some other sevices based on the data model.)  e.g.
+            [README.md of WeatherObserved](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/README.md)
+        -   `schema.json`: The JSON Schema definition, which includes the descriptons of attributes, e.g.
             [schema.json of WeatherObserved](./Weather/WeatherObserved/schema.json)
             
       - `examples/`
-        -   `example.json`: One or more JSON example file, e.g.
-            [example.json of WeatherObserved](./Weather/WeatherObserved/example.json)
-        -   `example-normalized.json`: One or more JSON example file in NGSI v2
+        -   `example.json`: One JSON key-values for NGSI v2 example file, e.g.
+            [example.json of WeatherObserved](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/examples/example.json)
+        -   `example.jsonld`: One JSON key-values for NGSI-LD example file, e.g.
+            [example.json of WeatherObserved](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/examples/example.jsonld)
+        -   `example-normalized.json`: One JSON example file in NGSI v2
             normalized format, e.g.
-            [example-normalized.json of WeatherObserved](./Weather/WeatherObserved/example-normalized.json)
-        -   `example-normalized-ld.jsonld`: One or more JSON example file in
+            [example-normalized.json of WeatherObserved](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/examples/example-normalized.json)
+        -   `example-normalized-ld.jsonld`: One JSON example file in
             **NGSI-LD** normalized format, e.g.
-            [example-normalized-ld.jsonld of WeatherObserved](./Weather/WeatherObserved/example-normalized-ld.jsonld)
+            [example-normalized-ld.jsonld of WeatherObserved](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/examples/example-normalized.jsonld)
+            
+      - `resources/`. folder with additional contents for customization a data model in case notes.yaml is not enough. i.e. images. Optional
 
-The name of the folder should match the Subject Type used in the JSON Schema
-(e.g. `Subject`). For data models including more entities, a hierarchical
-folder should be used. The father folder can include common JSON schemas shared
-among the entities. e.g.:
+New Subjects containing data  models should be added under a folder structured as follows:
 
     -   `Subject/`
-        -   `doc/`
-        -   `README.md`
-        -   `subhect-schema.json`: the common schema for the different
-            entities.
-        -   `NewModelEntityOne/`
-            -   `doc/`
-                -   `spec.md`
-            -   `README.md`
-            -   `schema.json`
-            -   `examples`
-                -   `example.json` (keyvalues on NGSI v2)
-                -   `example.jsonld`  (keyvalues on NGSI LD)
-                -   `example-normalized.json` (normalized on NGSI v2)
-                -   `example-normalized.jsonld`  (normalized on NGSI LD)
-        -   `NewModelEntityTwo/`
-
-            -   `doc/`
-                -   `spec.md`
-            -   `README.md`
-            -   `schema.json`
-            -   `examples`
-                -   `example.json` (keyvalues on NGSI v2)
-                -   `example.jsonld`  (keyvalues on NGSI LD)
-                -   `example-normalized.json` (normalized on NGSI v2)
-                -   `example-normalized.jsonld`  (normalized on NGSI LD)
+        -   `README.md`. Contains links and descriptions to the different data models contained in the subject. Generated automatically
+        -   `CONTRIBUTORS.yaml`. Contains data of the authors to the different data models contained in the subject. Optional 
+        -   `notes.yaml`. Contents for the customization of the Subject README.md. Optional 
+        -   `Subject-schema.json`. Schema containing objects used across differente data models. Referenced from there. Optional 
+        -   `DataModel1`. Folder containing all the assets for a data model 
+        -   `DataModel_incubated`. Folder with a link to where this new data model is being developing. Soon to be available. Optional
 
 ## Definitions' section
 The section definitions will be included into the subject-schema.json name of the subject.
