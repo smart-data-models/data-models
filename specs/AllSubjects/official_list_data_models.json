@@ -1,5 +1,5 @@
 {
-  "udpatedDate": "2021-04-23T15:07:22.12345",
+  "udpatedDate": "2021-04-29T19:57:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -867,7 +867,7 @@
     {
       "repoName": "dataModel.OPCUA",
       "repoLink": "https://github.com/smart-data-models/dataModel.OPCUA.git",
-      "dataModels": [ 
+      "dataModels": [
         "MotionDeviceSystem"
       ],
       "domains": [
@@ -901,6 +901,24 @@
       ],
       "domains": [
         "SmartAgrifood"
+      ]
+    },
+    {
+      "repoName": "dataModel.COVID19",
+      "repoLink": "https://github.com/smart-data-models/dataModel.COVID19.git",
+      "dataModels": [
+      ],
+      "domains": [
+        "SmartHealth"
+      ]
+    },
+    {
+      "repoName": "dataModel.DistributedLedgerTech",
+      "repoLink": "https://github.com/smart-data-models/dataModel.DistributedLedgerTech.git",
+      "dataModels": [
+      ],
+      "domains": [
+        "CrossSector"
       ]
     }
   ]
