@@ -1,5 +1,5 @@
 {
-  "udpatedDate": "2021-04-29T19:57:00.31416",
+  "udpatedDate": "2021-04-30T14:57:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -141,6 +141,7 @@
       "repoName": "dataModel.Weather",
       "repoLink": "https://github.com/smart-data-models/dataModel.Weather.git",
       "dataModels": [
+        "SeaConditions",
         "WeatherAlert",
         "WeatherForecast",
         "WeatherObserved"
