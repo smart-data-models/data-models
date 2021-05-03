@@ -25,7 +25,7 @@
       "format": "idn-email",
       "description": "Property. Email address of owner."
     },
-    "userAlias":{
+    "userAlias": {
       "type": "string",
       "description": "Property. An anonymous alias of a user."
     },
@@ -90,12 +90,10 @@
             {
               "type": "array",
               "minItems": 1,
-              "items": [
-                {
-                  "type": "string",
-                  "format": "uri"
-                }
-              ]
+              "items": {
+                "type": "string",
+                "format": "uri"
+              }
             },
             {
               "type": "string",
