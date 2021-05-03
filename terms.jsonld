@@ -702,7 +702,7 @@
 "co": "Carbon Monoxide detected", 
 "coLevel": "Qualitative Carbon Monoxide presence", 
 "ni": "Nickel detected", 
-False: "Nitrogen monoxide detected", 
+"no": "Nitrogen monoxide detected", 
 "no2": "Nitrogen dioxide detected", 
 "nox": "Other Nitrogen oxides detected", 
 "o3": "Ozone detected", 
