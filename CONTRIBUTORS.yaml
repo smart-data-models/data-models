@@ -1,0 +1,9 @@
+description: This is a compilation list of all CONTRIBUTORS across different objects alphabetically ordered. All fields are non mandatory
+contributors:
+-
+ name:
+ surname:
+ mail:
+ organiation:
+ project:
+ comments:
