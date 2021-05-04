@@ -133,11 +133,11 @@
             },
             "postalCode": {
               "type": "string",
-              "description": "Property. The postal code. For example, Spain. Model:'https://schema.org/https://schema.org/postalCode'"
+              "description": "Property. The postal code. For example, 24004. Model:'https://schema.org/https://schema.org/postalCode'"
             },
             "postOfficeBoxNumber": {
               "type": "string",
-              "description": "Property. The post office box number for PO box addresses. For example, Spain. Model:'https://schema.org/postOfficeBoxNumber'"
+              "description": "Property. The post office box number for PO box addresses. For example, 03578. Model:'https://schema.org/postOfficeBoxNumber'"
             },
             "areaServed": {
               "type": "string",
