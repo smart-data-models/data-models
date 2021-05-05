@@ -921,6 +921,18 @@
       "domains": [
         "CrossSector"
       ]
+    },
+    {
+      "repoName": "dataModel.MachineLearning",
+      "repoLink": "https://github.com/smart-data-models/dataModel.DistributedLedgerTech.git",
+      "dataModels": [
+        "MLModel",
+        "MLProcessing",
+        "SubscriptionQuery"
+      ],
+      "domains": [
+        "CrossSector"
+      ]
     }
   ]
 }
