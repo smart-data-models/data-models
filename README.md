@@ -142,11 +142,15 @@ data models, this will empower innovators and companies to develop solutions
 that adhere to this common definition and ultimately help enable
 interoperability of services.
 
+## Full list of Data Models
+
 A full list of the data models in json format can be found in the file
 [official_list_data_models.json](https://github.com/smart-data-models/data-models/blob/master/specs/AllSubjects/official_list_data_models.json).
 A full list only for the repositories containing  data models can be found in the file [official_list_repositories.json](https://github.com/smart-data-models/data-models/blob/master/specs/AllSubjects/official_list_repositories.json)
 
-There are new data models in progress for the following areas:
+## Application Domains
+
+There are new data models in progress for the following application domains (sectors):
 
 -   [Cross Sector](https://github.com/smart-data-models/CrossSector)
 -   [Smart Agrifood](https://github.com/smart-data-models/SmartAgrifood)
@@ -161,7 +165,7 @@ There are new data models in progress for the following areas:
 -   [Smart Destinations](https://github.com/smart-data-models/SmartDestination) (pending)
 
 A frontend [web page](http://smartdatamodels.org/) provides global updates on the Smart data models.  
-Additionally there is a repository for drafting data models named [incuabated](https://github.com/smart-data-models/incubated/tree/master) where anybody
+Additionally there is a repository for drafting data models named [incubated](https://github.com/smart-data-models/incubated/tree/master) where anybody
 (under request) can draft data models that later can submit by PR or any other method. This repo is uncontrolled but open to collaboration.
 
 [general contact](http://smartdata-models.org/index.php/submit-an-issue-2/)
