@@ -118,7 +118,7 @@ information **This README.md is generated automatically**
 
     -   `example-normalized.jsonld`: A JSON example file in **NGSI-LD** normalized format
                Example: [example-normalized-ld.jsonld of WeatherObserved](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/example-normalized.jsonld)
-  -    `CURRENT ADOPTERS.md`. [Templated document](https://github.com/smart-data-models/data-models/blob/master/templates/CURRENT-ADOPTERS.md) with references a actual adoption of the data model.
+  -    `ADOPTERS.yaml`. [Templated document](https://github.com/smart-data-models/data-models/blob/master/templates/dataModel/ADOPTERS.yaml) with references a actual adoption of the data model.
                
 Other files automatically generated                   
   -    `examplexxx.csv`: Automatically generated examples of the data model exported to csv format and located in the `/examples` directory
@@ -135,7 +135,7 @@ and to ensure that individual citizen experience can be optimized across
 different services.
 
 To achieve this, TM Forum and FIWARE launched this initiative, later IUDX has joined it which seeks to 
-harmonize data models across Smart applications.
+harmonize data models across Smart applications. Other organizations are pending to join.
 
 By agreeing across different communities, the common definition of smart
 data models, this will empower innovators and companies to develop solutions
@@ -146,7 +146,7 @@ interoperability of services.
 
 A full list of the data models in json format can be found in the file
 [official_list_data_models.json](https://github.com/smart-data-models/data-models/blob/master/specs/AllSubjects/official_list_data_models.json).
-A full list only for the repositories containing  data models can be found in the file [official_list_repositories.json](https://github.com/smart-data-models/data-models/blob/master/specs/AllSubjects/official_list_repositories.json)
+Further details on the avaialble subjects, properties and their descriptions can be found at the (search tool)[https://smartdatamodels.org/index.php/ddbb-of-properties-descriptions/] 
 
 ## Application Domains
 
@@ -159,10 +159,11 @@ There are new data models in progress for the following application domains (sec
 -   [Smart Environment](https://github.com/smart-data-models/SmartEnvironment)
 -   [Smart Sensoring](https://github.com/smart-data-models/Smart-Sensoring)
 -   [Smart Water](https://github.com/smart-data-models/SmartWater)
-
+-   [Smart Destination](https://github.com/smart-data-models/SmartDestination) 
+-   [Smart Aeronautics](https://github.com/smart-data-models/SmartAeronautics) 
 -   [Smart Robotics](https://github.com/smart-data-models/SmartRobotics) (Just opened)
 -   [Smart Manufacturing](https://github.com/smart-data-models/SmartManufacturing) (Just opened)
--   [Smart Destinations](https://github.com/smart-data-models/SmartDestination) (pending)
+
 
 A frontend [web page](http://smartdatamodels.org/) provides global updates on the Smart data models.  
 Additionally there is a repository for drafting data models named [incubated](https://github.com/smart-data-models/incubated/tree/master) where anybody
