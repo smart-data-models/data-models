@@ -933,6 +933,17 @@
       "domains": [
         "CrossSector"
       ]
+    },
+    {
+      "repoName": "dataModel.WifiNetwork",
+      "repoLink": "https://github.com/smart-data-models/dataModel.WifiNetwork.git",
+      "dataModels": [
+        "AccessPoint",
+        "WifiPointOfInterest"
+      ],
+      "domains": [
+        "SmartCities"
+      ]
     }
   ]
 }
