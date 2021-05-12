@@ -1,5 +1,5 @@
 {
-  "udpatedDate": "2021-04-30T14:57:00.31416",
+  "udpatedDate": "2021-05-12T18:44:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -949,6 +949,11 @@
       "repoName": "dataModel.RoboticIndustrialActivities",
       "repoLink": "https://github.com/smart-data-models/RoboticIndustrialActivities.git",
       "dataModels": [
+        "Pallet",
+        "Piece",
+        "RobotArm",
+        "RoboticCell",
+        "VacuumPump"
       ],
       "domains": [
         "SmartRobotics"
