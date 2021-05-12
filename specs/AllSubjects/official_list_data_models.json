@@ -944,6 +944,15 @@
       "domains": [
         "SmartCities"
       ]
+    },
+    {
+      "repoName": "dataModel.RoboticIndustrialActivities",
+      "repoLink": "https://github.com/smart-data-models/RoboticIndustrialActivities.git",
+      "dataModels": [
+      ],
+      "domains": [
+        "SmartRobotics"
+      ]
     }
   ]
 }
