@@ -138,10 +138,6 @@
             "postOfficeBoxNumber": {
               "type": "string",
               "description": "Property. The post office box number for PO box addresses. For example, 03578. Model:'https://schema.org/postOfficeBoxNumber'"
-            },
-            "areaServed": {
-              "type": "string",
-              "description": "Property. The geographic area where a service or offered item is provided. Model:'https://schema.org/areaServed'"
             }
           }
         },
@@ -268,7 +264,7 @@
             },
             "telephone": {
               "type": "string",
-              "description": "Property. Model:'https://schema.org/Text'. Given name. The telephone number."
+              "description": "Property. Model:'https://schema.org/Text'. The telephone number."
             },
             "email": {
               "$ref": "#/definitions/email"
