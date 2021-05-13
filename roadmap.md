@@ -8,10 +8,10 @@ The Roadmap of the Smart Data Models Initiative is the following:
 
 * Automation of the testing tools to check consistency within the data models
   * Changing the data models to include all the comments in the json schema
-  
+ 
  
 * Adopt additional Data Models from: 
-- [SynchroniCity Data Models Project](https://gitlab.com/synchronicity-iot/synchronicity-data-models). done for those willing to move.
+- [SynchroniCity Data Models Project](https://gitlab.com/synchronicity-iot/synchronicity-data-models). done.
 - [Fiware4Water](https://www.fiware4water.eu/) belonging to the ICT4water cluster in Europe. In progress
 
 * Launch other domains
