@@ -2,6 +2,8 @@
 
 The Roadmap of the Smart Data Models Initiative is the following: 
 
+* There is an option in smartdatamodels.org for listing those [initiatives pending](https://smartdatamodels.org/index.php/smart-data-models-wish-list/)
+
 * To launch its community not only in the github repository but also in a dedicated website. Done
 
 * Finish the integration of the testing tools for the decentralised approach of repositories. Done. Now second phase.
