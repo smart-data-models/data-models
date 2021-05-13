@@ -110,11 +110,11 @@ information **This README.md is generated automatically**
    -  `/examples`. This directory contains the examples for the different versions of NGSI standard and different formats. 
                Example: [schema.json of WeatherObserved](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/schema.json)
     -   `example.json`: a JSON example file key values of NGSI v2
-               Example: [example.json of WeatherObserved](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/example.json)
+               Example: [example.json of WeatherObserved](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/examples/example.json)
     -   `example-normalized.json`: An example file in NGSI v2 normalized format
-               Example: [example-normalized.json of WeatherObserved](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/example-normalized.json)
+               Example: [example-normalized.json of WeatherObserved](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/examples/example-normalized.json)
     -   `example.jsonld`: a JSON example file key values of NGSI LD
-               Example: [example.json of WeatherObserved](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/example.jsonld)
+               Example: [example.json of WeatherObserved](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/examples/example.jsonld)
 
     -   `example-normalized.jsonld`: A JSON example file in **NGSI-LD** normalized format
                Example: [example-normalized-ld.jsonld of WeatherObserved](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/example-normalized.jsonld)
@@ -146,7 +146,7 @@ interoperability of services.
 
 A full list of the data models in json format can be found in the file
 [official_list_data_models.json](https://github.com/smart-data-models/data-models/blob/master/specs/AllSubjects/official_list_data_models.json).
-Further details on the avaialble subjects, properties and their descriptions can be found at the (search tool)[https://smartdatamodels.org/index.php/ddbb-of-properties-descriptions/] 
+Further details on the avaialble subjects, properties and their descriptions can be found at the [search tool](https://smartdatamodels.org/index.php/ddbb-of-properties-descriptions/)
 
 ## Application Domains
 
@@ -170,4 +170,4 @@ Additionally there is a repository for drafting data models named [incubated](ht
 (under request) can draft data models that later can submit by PR or any other method. This repo is uncontrolled but open to collaboration.
 
 [general contact](http://smartdata-models.org/index.php/submit-an-issue-2/)
-[mail contact](mailto:alberto.abella@fiware.org)
+[mail contact](mailto:info@smartdatamodels.org)
