@@ -10,7 +10,7 @@ subject Repository where the data model is located**
 [![Build badge](https://img.shields.io/travis/smart-data-models/data-models.svg "Travis build status")](https://travis-ci.org/smart-data-models/data-models/)
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 -->
-**[22-12-2020] All specifications created automatically. Translations into French, German and Spanish available. [Last news](https://smartdatamodels.org/)
+[Last news](https://smartdatamodels.org/)
 
 :dart: [Roadmap](roadmap.md)
 
@@ -87,16 +87,16 @@ the schema denotes the version.
 
 The way to handle new Data Models is administrated by the different subjects and domains:
 
-- Steering board (currently FIWARE foundation, IUDX and TMForum) will check for the consistency and updating of the different data models in this group of repositories
+- Steering board (currently, FIWARE foundation, IUDX and TMForum) will check for the consistency and updating of the different data models in this group of repositories. This sterring board will grow in coming dates.
 
 
 ## How to contribute
 
 Contributions should come in the form of **pull requests** made against the corresponding Vertical Data Model repository.
-An [introductory presentation](http://data-models.fiware.org/index.php/2020/05/15/contribution-manual/) about it.
+An [introductory presentation](http://bit.ly/contribution_manual) about it.
 
 As an alternative it is also possible to request a [new data model](http://smartdatamodels.org/index.php/submit-an-issue-2/) 
-choose option **new data model** in the dropdown list. 
+choose option **new data model** in the dropdown list.
 
 A Data Model will contain the following artefacts in this structure:
 
@@ -106,7 +106,7 @@ information **This README.md is generated automatically**
   -   `schema.json`: The JSON Schema definition. It includes in the description of every property the type of property, the model, the valid values and some other elements according to the [contribution manual](https://bit.ly/contribution_manual)
   -    `notes.yaml`: Optional. File for customizing the specification of the data model.
   -    `LICENSE.md`. [Templated document](https://github.com/smart-data-models/data-models/blob/master/templates/LICENCE.md) with the text of the license default CC-BY 4.0
-   -  `/doc`. This directory contains the specifications of the data model. They are generated automatically out of the json schema. 
+   -  `/doc`. This directory contains the specifications of the data model in the different languages. They are generated automatically out of the json schema. 
    -  `/examples`. This directory contains the examples for the different versions of NGSI standard and different formats. 
                Example: [schema.json of WeatherObserved](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/schema.json)
     -   `example.json`: a JSON example file key values of NGSI v2
@@ -115,7 +115,6 @@ information **This README.md is generated automatically**
                Example: [example-normalized.json of WeatherObserved](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/examples/example-normalized.json)
     -   `example.jsonld`: a JSON example file key values of NGSI LD
                Example: [example.json of WeatherObserved](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/examples/example.jsonld)
-
     -   `example-normalized.jsonld`: A JSON example file in **NGSI-LD** normalized format
                Example: [example-normalized-ld.jsonld of WeatherObserved](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/example-normalized.jsonld)
   -    `ADOPTERS.yaml`. [Templated document](https://github.com/smart-data-models/data-models/blob/master/templates/dataModel/ADOPTERS.yaml) with references a actual adoption of the data model.
@@ -126,7 +125,6 @@ Other files automatically generated
   -    `swagger.yaml`: Automatically generated opbject to be visualized in [swagger editor](https://swagger.lab.fiware.org/?url=https://raw.githubusercontent.com/smart-data-models/dataModel.WaterNetworkManagement/master/Valve/swagger.yaml). Located in the root directory.
 
 To facilitate contributions and their validation, we developed:
-- [payload validator tool](https://smartdatamodels.org/index.php/check-a-schema-validates-a-payload/) for validating if keyvalues examples are valid for the json schema
 - [json schema validator](https://smartdatamodels.org/index.php/data-models-contribution-api/) for validating that the documented properties are complete and compliant with the [contribution manual](https://bit.ly/contribution_manual)
 
 To achieve a better performance, we need to break down silo’s of data, 
@@ -161,13 +159,14 @@ There are new data models in progress for the following application domains (sec
 -   [Smart Water](https://github.com/smart-data-models/SmartWater)
 -   [Smart Destination](https://github.com/smart-data-models/SmartDestination) 
 -   [Smart Aeronautics](https://github.com/smart-data-models/SmartAeronautics) 
--   [Smart Robotics](https://github.com/smart-data-models/SmartRobotics) (Just opened)
+-   [Smart Robotics](https://github.com/smart-data-models/SmartRobotics)
 -   [Smart Manufacturing](https://github.com/smart-data-models/SmartManufacturing) (Just opened)
+-   [Smart Health](https://github.com/smart-data-models/SmartHealth) (Just opened)
 
 
 A frontend [web page](http://smartdatamodels.org/) provides global updates on the Smart data models.  
 Additionally there is a repository for drafting data models named [incubated](https://github.com/smart-data-models/incubated/tree/master) where anybody
-(under request) can draft data models that later can submit by PR or any other method. This repo is uncontrolled but open to collaboration.
+(under request) can draft data models that later can submit by PR or any other method. This repo isopen to collaboration.
 
 [general contact](http://smartdata-models.org/index.php/submit-an-issue-2/)
 [mail contact](mailto:info@smartdatamodels.org)
