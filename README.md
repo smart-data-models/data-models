@@ -10,7 +10,7 @@ subject Repository where the data model is located**
 [![Build badge](https://img.shields.io/travis/smart-data-models/data-models.svg "Travis build status")](https://travis-ci.org/smart-data-models/data-models/)
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 -->
-**[22-12-2020] All specifications created automatically. Translations into French and Spanish available. [Last news](https://smartdatamodels.org/)
+**[22-12-2020] All specifications created automatically. Translations into French, German and Spanish available. [Last news](https://smartdatamodels.org/)
 
 :dart: [Roadmap](roadmap.md)
 
