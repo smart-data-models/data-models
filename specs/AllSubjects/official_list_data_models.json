@@ -917,6 +917,7 @@
       "repoName": "dataModel.DistributedLedgerTech",
       "repoLink": "https://github.com/smart-data-models/dataModel.DistributedLedgerTech.git",
       "dataModels": [
+        "DLTtxReceipt"
       ],
       "domains": [
         "CrossSector"
