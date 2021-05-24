@@ -81,39 +81,63 @@ def keyvalues2normalized(keyvaluesPayload):
 
 keyvaluesPayload = """
 {
-  "id": "urn:ngsi-ld:PrivacyObject:1044_parking",
-  "type": "PrivacyObject",
-  "refDevice": "Device:1044_parking",
-  "name": "1004_parking",
+  "id": "Vulnerability.01",
+  "type": "Vulnerability",
+  "analyzedAt": "2020-12-24T12:00:00Z",
+  "analysisType": "Flood Vulnerability Maps",
   "location": {
-    "type": "Point",
+    "type": "Polygon",
     "coordinates": [
-      46.18311,
-      6.14132
+      [
+        [
+          23.6627,
+          41.88768
+        ],
+        [
+          25.85598,
+          43.38622
+        ],
+        [
+          23.4899,
+          43.78691
+        ],
+        [
+          22.35609,
+          42.28869
+        ],
+        [
+          23.6627,
+          41.88769
+        ]
+      ]
     ]
   },
-  "isIndoor": false,
-  "floor": 0,
-  "description": "Electromagnetic and ultrasonic sensor",
-  "description_fr": "Capteur électromagnétique et à ultrasons",
-  "user": "urn:ngsi-ld:User:abcdef",
-  "purpose": "Detecting the presence of a vehicle on a parking slot.",
-  "purpose_fr": "Détecter la présence d'un véhicule sur une place de parc.",
-  "category": [
-    "sensor"
+  "vulnerabilityValues": [
+    1,
+    2,
+    3
   ],
-  "recipientList": [
-    "urn:ngsi-ld:User:CommunalAdministration",
-    "urn:ngsi-ld:User:Motorists"
+  "contentInformation": [
+    {
+      "id": 0,
+      "value": "Low",
+      "color": "(170, 255, 0)"
+    },
+    {
+      "id": 1,
+      "value": "Medium",
+      "color": "(255, 255, 0)"
+    },
+    {
+      "id": 2,
+      "value": "High",
+      "color": "(255, 170, 0)"
+    }
   ],
-  "owner": [
-    "ngsi-ld:city:CityofCarouge"
-  ],
-  "isPersonalData": false,
-  "retentionPeriod": "< 1 month",
-  "legitimateInterest": "Facilitate and understand parking habits",
-  "crossborderTransfer": "None",
-  "image": "http://www.example.com/device1.jpg"
+  "createsLayers": [
+    "EOGeoDataLayer.01",
+    "EOGeoDataLayer.02"
+  ]
 }
 """
 
