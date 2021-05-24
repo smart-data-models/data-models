@@ -209,7 +209,7 @@
       "repoName": "dataModel.Device",
       "repoLink": "https://github.com/smart-data-models/dataModel.Device.git",
       "dataModels": [
-        "Camera",,
+        "Camera",
         "Device",
         "DeviceModel",
         "PrivacyObject",
