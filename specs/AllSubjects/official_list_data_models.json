@@ -909,6 +909,7 @@
       "repoName": "dataModel.COVID19",
       "repoLink": "https://github.com/smart-data-models/dataModel.COVID19.git",
       "dataModels": [
+        "VaccinationCertificate"
       ],
       "domains": [
         "SmartHealth"
