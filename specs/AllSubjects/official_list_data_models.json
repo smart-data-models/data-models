@@ -960,6 +960,15 @@
       "domains": [
         "SmartRobotics"
       ]
+    },
+    {
+      "repoName": "dataModel.RiskManagement",
+      "repoLink": "https://github.com/smart-data-models/dataModel.RiskManagement.git",
+      "dataModels": [
+      ],
+      "domains": [
+        "CrossSector"
+      ]
     }
   ]
 }
