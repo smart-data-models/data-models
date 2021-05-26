@@ -7,14 +7,11 @@ not exhaustive and does not aim to cover the specifics of each model, rather it
 provides general usage tips valid for most of the existing models and for
 expected models in the future.
 
-Data Models have been defined in relation to the reference data context
-model ([NGSI v2](http://fiware.github.io/specifications/ngsiv2/stable/)). While
+Data Models have been defined to be compatible with ([NGSI v2](http://fiware.github.io/specifications/ngsiv2/stable/)) and [NGSI-LD](https://www.etsi.org/deliver/etsi_gs/CIM/001_099/009/01.04.01_60/gs_CIM009v010401p.pdf). While
 this does not imply that they cannot be used outside of the NGSI context model,
 it does however indicate that some of [design principles](guidelines.md) have
 been driven by that. This also implicitly means that Data Models will follow the
-evolution of FIWARE platform,
-[NGSI-LD](https://www.etsi.org/deliver/etsi_gs/CIM/001_099/004/01.01.01_60/gs_CIM004v010101p.pdf)
-mappings will be added to all existing Data Models in the medium term.
+evolution of [NGSI-LD](https://www.etsi.org/deliver/etsi_gs/CIM/001_099/004/01.01.01_60/gs_CIM004v010101p.pdf) standard. 
 
 ## General principles
 
@@ -48,11 +45,7 @@ The general principle guiding your adoption should be: keep it simple.
     propose it to become officially part of the Data Model. You can open an
     issue or a pull request for that.
 -   **Data Models, in most of the cases, are NGSI v2 and NGSI LD codification of existing
-    data models.** You can find the references in each Data Model specification,
-    but for the sake of maintainability, on purpose we don't report the full
-    specification. This means that to gather further details, you need to access
-    the original source. For example, for the location, we use GeoJSON. You can
-    find the exact semantics of GeoJSON schema in the related standard.
+    data models.** You can find the references in each Data Model specification. 
 -   Be aware that **[JSON Schemas](http://json-schema.org/) provided cover only
     the so called _key-value_ representation of NGSI v2 context data**.
 -   Be aware that at the time being **none of the official FIWARE Core Enablers
@@ -64,9 +57,9 @@ The general principle guiding your adoption should be: keep it simple.
 
 Each Data Model is programmatically defined using a
 [JSON Schema](http://json-schema.org/), as previously mentioned, the JSON schema
-covers only the so called _key-value_ representation of NGSI v2 context data.
+covers only the so called _key-value_ representation of NGSI context data.
 Thus the JSON Schema does not cover the _normalised_ representation of context
-data.
+data. WSe expect to cover it in a coming future.
 
 In the [NGSI v2](http://fiware.github.io/specifications/ngsiv2/stable/)
 normalised format each attribute (`key`) of the Data Model is represented by a
@@ -257,25 +250,20 @@ example from the `AirQualityObserved` Data Model:
 }
 ```
 
-For each Data Model we provide a set of examples (in some cases also using the
-Normalised representation of NGSI v2), such examples have been validated against
+For each Data Model we provide a set of examples. Such examples have been validated against
 the respective JSON Schema and against a
 [Orion Context Broker](https://fiware-orion.readthedocs.io/en/master/) instance
 (to ensure that also the content encoding is compliant with the reference
-implementation).
+implementation) for the key values format.
 
 As a consequence of the NGSI v2 specifications, all Data Models must include the
 following attributes:
 
 -   `id` : a unique identified of the entity modelled.
 -   `type` : The entity type, i.e. the type of Data Model, e.g. `Alert`.
--   `dateModified` : Last update timestamp of the entity.
--   `dateCreated` : The entity's creation timestamp.
 
-`dateCreated` and `dateModified` are special entity attributes provided
-off-the-shelf by NGSI v2 implementations.
 
-Most of the FIWARE Data Models adopt the
+Most of the Smart Data Models adopt the
 [GSMA common definitions](https://fiware.github.io/data-models/common-schema.json),
 and so also include standard GSMA terminology such as:
 
@@ -295,8 +283,8 @@ and so also include standard GSMA terminology such as:
 
 See for example the [`Building` Data Model](Building/Building/doc/spec.md).
 
-Similarly most of the FIWARE Data Models adopt the
-[Location common definitions](https://fiware.github.io/data-models/common-schema.json),
+Similarly most of the Smart Data Models adopt the
+[Location common definitions](https://smart-data-models.github.io/data-models/common-schema.json),
 and thus include the following attributes:
 
 -   `address`: the civic address of the entity as per
@@ -332,27 +320,6 @@ available [here](https://tools.ietf.org/html/rfc7946#appendix-A).
     "metadata": {
         "unitCode": {
             "value": "FOT"
-        }
-    }
-}
-```
-
-### How to attach specific time of update to a single attribute
-
-Often, different attributes of the same entity are updated at different points
-in time as the result of data aggregation across measurements from different
-sensors. Note that the `dateModified` value only reflects only the point in time
-the NGSI v2 implementation received an entity update, it does not correspond to
-the moment in time at which an attribute changed. In order to be able to define
-when a specific attribute changed you should you should use the `timestamp`
-metadata annotation. E.g.:
-
-```json
-"speed": {
-    "value": 11,
-    "metadata": {
-        "timestamp": {
-            "value": "2016-03-15T11:00:00.000"
         }
     }
 }

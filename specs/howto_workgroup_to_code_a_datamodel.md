@@ -11,7 +11,7 @@ This methodology will help you to achieve it.
 - Therefore it is required that the data models to be created are based on actual experience of use.
    
 ### Step 1. Compile elements.
-- Create a share repository (shared folder, drive, etc) for compile all the documentation.
+- Use the [incbuated repository](https://github.com/smart-data-models/incubated/tree/master) or if not convenient, create a shared repository (shared folder, drive, etc) for compile all the documentation.
 - Share it with group members 
 - What can you compile there? 
     - Documentation examples
@@ -21,7 +21,7 @@ This methodology will help you to achieve it.
 ### Step 2. Meet to reach a Generalization proposal
 - Hold the amount of meetings to reach a basic level of shared utility data model
 - The [guidelines](guidelines.md) provides not only technical recommendations but also valuable functional recommendations
-- Review other existing [data models](http://data-models.fiware.org/index.php/list-of-data-models/) that could affect yours  
+- Review other existing [data models](https://smartdatamodels.org/index.php/ddbb-of-properties-descriptions/) that could affect yours  
 
 ### Step 3. Internal validation
 - Try to reach a minimum shared elements to be approved by a majority
@@ -34,10 +34,8 @@ This methodology will help you to achieve it.
     - Adopters.yaml: Examples of use of the data model [template](https://github.com/smart-data-models/data-models/blob/master/templates/dataModel/CURRENT-ADOPTERS.md)  
 
 ### Step 5. Submit your data model
-- There are several methods. 
-    - simplest. Create a Pull request on the right repository of in [incubated](https://github.com/smart-data-models/incubated/tree/master) if you do not which one.
-    - this [form](http://smartdatamodels.org/index.php/submit-a-data-model/) could help you as well. 
-
+    - Create a Pull request on the right repository of in [incubated](https://github.com/smart-data-models/incubated/tree/master) if you do not which one.
+   
 ### Step 6. Review
 - Once submitted some review will be done to check if data model meet coding [guidelines](guidelines.md)
 - Maybe some of its elements could be extracted for general use in other domains.

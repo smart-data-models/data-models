@@ -7,7 +7,7 @@
   },
   "refDevice": {
     "type": "Relationship",
-    "value": ["Device:eQL-EDF3GL-2006201705"]
+    "value": "Device:eQL-EDF3GL-2006201705"
   },
   "name": {
     "value": "HKAPK0200"
@@ -16,69 +16,26 @@
     "value": "measurement corresponding to the ventilation machine rooms"
   },
   "totalActiveEnergyImport": {
-    "metadata": {
-      "timestamp": {
-        "type": "DateTime",
-        "value": "2019-01-24T22:00:00.173Z"
-      }
-    },
+    "type": "Number",
     "value": 150781.96448
   },
   "totalReactiveEnergyImport": {
-    "metadata": {
-      "timestamp": {
-        "type": "DateTime",
-        "value": "2019-01-24T22:00:00.173Z"
-      }
-    },
+    "type": "Number",
     "value": 20490.3392
   },
   "totalActiveEnergyExport": {
-    "metadata": {
-      "timestamp": {
-        "type": "DateTime",
-        "value": "2019-01-24T22:00:00.173Z"
-      }
-    },
+    "type": "Number",
     "value": 1059.80176
   },
   "totalReactiveEnergyExport": {
-    "metadata": {
-      "timestamp": {
-        "type": "DateTime",
-        "value": "2019-01-24T22:00:00.173Z"
-      }
-    },
+    "type": "Number",
     "value": 93275.02176
   },
   "totalActivePower": {
-    "metadata": {
-      "timestamp": {
-        "type": "DateTime",
-        "value": "2019-01-24T22:00:00.173Z"
-      },
-      "measurementType": {
-        "value": "average"
-      },
-      "measurementInterval": {
-        "value": 1
-      }
-    },
+    "type": "Number",
     "value": 31700.269531
   },
   "activePower": {
-    "metadata": {
-      "timestamp": {
-        "type": "DateTime",
-        "value": "2019-01-24T22:00:00.173Z"
-      },
-      "measurementType": {
-        "value": "average"
-      },
-      "measurementInterval": {
-        "value": 1
-      }
-    },
     "type": "StructuredValue",
     "value": {
       "L1": 11996.416016,
@@ -87,33 +44,10 @@
     }
   },
   "totalReactivePower": {
-    "metadata": {
-      "timestamp": {
-        "type": "DateTime",
-        "value": "2019-01-24T22:00:00.173Z"
-      },
-      "measurementType": {
-        "value": "average"
-      },
-      "measurementInterval": {
-        "value": 1
-      }
-    },
+    "type": "Number",
     "value": -7830.332031
   },
   "reactivePower": {
-    "metadata": {
-      "timestamp": {
-        "type": "DateTime",
-        "value": "2019-01-24T22:00:00.173Z"
-      },
-      "measurementType": {
-        "value": "average"
-      },
-      "measurementInterval": {
-        "value": 1
-      }
-    },
     "type": "StructuredValue",
     "value": {
       "L1": -2612.606934,
@@ -122,33 +56,10 @@
     }
   },
   "totalApparentPower": {
-    "metadata": {
-      "timestamp": {
-        "type": "DateTime",
-        "value": "2019-01-24T22:00:00.173Z"
-      },
-      "measurementType": {
-        "value": "average"
-      },
-      "measurementInterval": {
-        "value": 1
-      }
-    },
+    "type": "Number",
     "value": 36019.089844
   },
   "apparentPower": {
-    "metadata": {
-      "timestamp": {
-        "type": "DateTime",
-        "value": "2019-01-24T22:00:00.173Z"
-      },
-      "measurementType": {
-        "value": "average"
-      },
-      "measurementInterval": {
-        "value": 1
-      }
-    },
     "type": "StructuredValue",
     "value": {
       "L1": 13201.412109,
@@ -157,21 +68,6 @@
     }
   },
   "powerFactor": {
-    "metadata": {
-      "timestamp": {
-        "type": "DateTime",
-        "value": "2019-01-24T22:00:00.173Z"
-      },
-      "measurementType": {
-        "value": "average"
-      },
-      "measurementInterval": {
-        "value": 1
-      },
-      "onlyPositive": {
-        "value": true
-      }
-    },
     "type": "StructuredValue",
     "value": {
       "L1": 0.908817,
@@ -180,21 +76,6 @@
     }
   },
   "displacementPowerFactor": {
-    "metadata": {
-      "timestamp": {
-        "type": "DateTime",
-        "value": "2019-01-24T22:00:00.173Z"
-      },
-      "measurementType": {
-        "value": "average"
-      },
-      "measurementInterval": {
-        "value": 1
-      },
-      "onlyPositive": {
-        "value": true
-      }
-    },
     "type": "StructuredValue",
     "value": {
       "L1": 0.978013,
@@ -203,33 +84,10 @@
     }
   },
   "frequency": {
-    "metadata": {
-      "timestamp": {
-        "type": "DateTime",
-        "value": "2019-01-24T22:00:00.173Z"
-      },
-      "measurementType": {
-        "value": "average"
-      },
-      "measurementInterval": {
-        "value": 1
-      }
-    },
+    "type": "Number",
     "value": 50.020672
   },
   "current": {
-    "metadata": {
-      "timestamp": {
-        "type": "DateTime",
-        "value": "2019-01-24T22:00:00.173Z"
-      },
-      "measurementType": {
-        "value": "rms"
-      },
-      "measurementInterval": {
-        "value": 1
-      }
-    },
     "type": "StructuredValue",
     "value": {
       "L1": 56.126038,
@@ -239,18 +97,6 @@
     }
   },
   "phaseVoltage": {
-    "metadata": {
-      "timestamp": {
-        "type": "DateTime",
-        "value": "2019-01-24T22:00:00.173Z"
-      },
-      "measurementType": {
-        "value": "rms"
-      },
-      "measurementInterval": {
-        "value": 1
-      }
-    },
     "type": "StructuredValue",
     "value": {
       "L1": 234.961304,
@@ -259,18 +105,6 @@
     }
   },
   "phaseToPhaseVoltage": {
-    "metadata": {
-      "timestamp": {
-        "type": "DateTime",
-        "value": "2019-01-24T22:00:00.173Z"
-      },
-      "measurementType": {
-        "value": "rms"
-      },
-      "measurementInterval": {
-        "value": 1
-      }
-    },
     "type": "StructuredValue",
     "value": {
       "L12": 406.769196,
@@ -279,18 +113,6 @@
     }
   },
   "thdVoltage": {
-    "metadata": {
-      "timestamp": {
-        "type": "DateTime",
-        "value": "2019-01-24T22:00:00.173Z"
-      },
-      "measurementType": {
-        "value": "average"
-      },
-      "measurementInterval": {
-        "value": 1
-      }
-    },
     "type": "StructuredValue",
     "value": {
       "L1": 0.01471114,
@@ -299,18 +121,6 @@
     }
   },
   "thdCurrent": {
-    "metadata": {
-      "timestamp": {
-        "type": "DateTime",
-        "value": "2019-01-24T22:00:00.173Z"
-      },
-      "measurementType": {
-        "value": "average"
-      },
-      "measurementInterval": {
-        "value": 1
-      }
-    },
     "type": "StructuredValue",
     "value": {
       "L1": 0.38497337,

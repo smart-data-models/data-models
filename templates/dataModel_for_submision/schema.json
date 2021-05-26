@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/schema#",
-  "$schemaVersion": "0.0",
+  "$schemaVersion": "0.0.1",
   "$id": "https://smart-data-models.github.io/dataModel.Energy/ThreePhaseAcMeasurement/schema.json",
   "title": "Smart Data Models - Energy / Three Phase AC Measurement",
   "description": "An electrical  measurement from a system that uses three phase alternating current.",
