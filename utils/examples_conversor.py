@@ -20,6 +20,7 @@
 def normalized2keyvalues(normalizedPayload):
     import json
 
+
     normalizedDict = json.loads(normalizedPayload)
     output = {}
     # print(normalizedDict)
@@ -31,7 +32,7 @@ def normalized2keyvalues(normalizedPayload):
         except:
             output[element] = normalizedDict[element]
 
-    print(output)
+    print(json.dumps(output, indent=4, sort_keys=True))
     return output
 
 
@@ -77,6 +78,8 @@ def keyvalues2normalized(keyvaluesPayload):
 
     print(output)
     return output
+
+
 
 
 keyvaluesPayload = """
@@ -143,21 +146,47 @@ keyvaluesPayload = """
 
 
 normalizedPayload = """
-    {
-  "id": "urn:ngsi-ld:QueueMonitor:id:SIHJ:22618237",
-  "type": "QueueMonitor",
+{
+  "id": "urn:ngsi-ld:RegulationStructure:id:IXHN:40075061",
+  "type": "RegulationStructure",
+  "location": {
+    "type": "Property",
+    "value": {
+      "type": "Point",
+      "coordinates": [
+        -72.3447045,
+        44.679442
+      ]
+    }
+  },
+  "address": {
+    "type": "Property",
+    "value": {
+      "streetAddress": "",
+      "addressLocality": "",
+      "addressRegion": "",
+      "addressCountry": "",
+      "postalCode": "",
+      "postOfficeBoxNumber": "",
+      "areaServed": ""
+    }
+  },
+  "areaServed": {
+    "type": "Property",
+    "value": ""
+  },
   "dateCreated": {
     "type": "Property",
     "value": {
       "@type": "DateTime",
-      "@value": "2021-03-22T11:10:04Z"
+      "@value": "1986-07-26T02:43:28Z"
     }
   },
   "dateModified": {
     "type": "Property",
     "value": {
       "@type": "DateTime",
-      "@value": "2021-03-22T11:10:05Z"
+      "@value": "2021-03-21T17:56:26Z"
     }
   },
   "source": {
@@ -166,121 +195,73 @@ normalizedPayload = """
   },
   "name": {
     "type": "Property",
-    "value": "Queue system of the tourist attraction of Leon Cathedral"
+    "value": "RS01"
   },
   "alternateName": {
     "type": "Property",
-    "value": "Cathedral queue"
+    "value": "RS01 Thivae"
   },
   "description": {
     "type": "Property",
-    "value": "Queue system of the tourist attraction of Leon Cathedral for allowing a limited visitors inside the building"
+    "value": "Regulation Structure Thivae"
   },
   "dataProvider": {
     "type": "Property",
-    "value": ""
+    "value": "EYDAP"
   },
   "owner": {
     "type": "Property",
     "value": [
-      "urn:ngsi-ld:QueueMonitor:items:TLDV:47467690",
-      "urn:ngsi-ld:QueueMonitor:items:JTAO:46330396"
+      "urn:ngsi-ld:RegulationStructure:items:ASWJ:21246595",
+      "urn:ngsi-ld:RegulationStructure:items:NHFZ:56673870"
     ]
   },
   "seeAlso": {
     "type": "Property",
     "value": [
-      "urn:ngsi-ld:QueueMonitor:items:SHMV:05050086",
-      "urn:ngsi-ld:QueueMonitor:items:QQJP:06476874"
+      "urn:ngsi-ld:RegulationStructure:items:PLEL:78574823",
+      "urn:ngsi-ld:RegulationStructure:items:IZVF:62633698"
     ]
   },
-  "location": {
-    "type": "Property",
-    "value": {
-      "type": "Point",
-      "coordinates": [
-        42.605556,
-        -5.57
-      ]
-    }
-  },
-  "address": {
-    "type": "Property",
-    "value": {
-      "streetAddress": "Plaza de la Catedrla s/n",
-      "addressLocality": "León",
-      "addressRegion": "Castilla y León",
-      "addressCountry": "Spain",
-      "postalCode": "24001",
-      "postOfficeBoxNumber": "",
-      "areaServed": "City Center."
-    }
-  },
-  "areaServed": {
-    "type": "Property",
-    "value": "City Center"
-  },
-  "localId": {
-    "type": "Property",
-    "value": "system-1"
-  },
-  "officeName": {
-    "type": "Property",
-    "value": "Tourist Office"
-  },
-  "serviceName": {
-    "type": "Property",
-    "value": "Visit reservations."
-  },
-  "serviceId": {
-    "type": "Property",
-    "value": "Cathedral-reservations-visit-1"
-  },
-  "serviceStatus": {
-    "type": "Property",
-    "value": "Open"
-  },
-  "serviceStatusNote": {
+  "tag": {
     "type": "Property",
     "value": ""
   },
-  "scheduleTime": {
+  "numberOfGates": {
     "type": "Property",
-    "value": "2021-02-21T12:47:04Z"
+    "value": 2
   },
-  "queueLine": {
+  "numberOfSpillways": {
     "type": "Property",
-    "value": "Groups line."
+    "value": 2
   },
-  "linePriority": {
+  "teleCommand": {
     "type": "Property",
-    "value": 1
+    "value": [
+      "true"
+    ]
   },
-  "lastTicketIssued": {
-    "type": "Property",
-    "value": 33
+  "hasSluiceGate": {
+    "type": "Relationship",
+    "object": "urn:ngsi-ld:RegulationStructure:hasSluiceGate:JXFD:60487647"
   },
-  "lastTicketIssuedLabel": {
-    "type": "Property",
-    "value": "C-33"
+  "hasSpillway": {
+    "type": "Relationship",
+    "object": "urn:ngsi-ld:RegulationStructure:hasSpillway:CBWI:21948924"
   },
-  "ticketServed": {
+  "position": {
     "type": "Property",
-    "value": 45
-  },
-  "ticketServedLabel": {
-    "type": "Property",
-    "value": "C-45"
-  },
-  "ticketsToServe": {
-    "type": "Property",
-    "value": 12
+    "value": {
+      "distance": 864.6,
+      "refPoint": "urn:ngsi-ld:RegulationStructure:refPoint:JXFD:60487647"
+    }
   },
   "@context": [
-    "https://smart-data-models.github.io/data-models/context.jsonld"
+    "https://smartdatamodels.org/context.jsonld"
   ]
 }
-    """
 
-# normalized2keyvalues(normalizedPayload)
-keyvalues2normalized(keyvaluesPayload)
+"""
+
+normalized2keyvalues(normalizedPayload)
+# keyvalues2normalized(keyvaluesPayload)

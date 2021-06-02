@@ -880,6 +880,8 @@
       "repoName": "dataModel.OpenChannelManagement",
       "repoLink": "https://github.com/smart-data-models/dataModel.OpenChannelManagement.git",
       "dataModels": [
+        "CrossSection",
+        "OpenChannel"
       ],
       "domains": [
         "SmartWater"
