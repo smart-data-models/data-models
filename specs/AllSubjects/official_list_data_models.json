@@ -968,6 +968,16 @@
       "repoName": "dataModel.RiskManagement",
       "repoLink": "https://github.com/smart-data-models/dataModel.RiskManagement.git",
       "dataModels": [
+        "Asset",
+        "CyberAnalysis",
+        "Exposure",
+        "GISData",
+        "Hazard",
+        "Measure",
+        "Mitigation",
+        "NetworkServiceAlert",
+        "Risk",
+        "Vulnerability "
       ],
       "domains": [
         "CrossSector"
