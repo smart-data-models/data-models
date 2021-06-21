@@ -318,7 +318,9 @@
     {
       "repoName": "dataModel.WaterConsumption",
       "repoLink": "https://github.com/smart-data-models/dataModel.WaterConsumption.git",
-      "dataModels": [],
+      "dataModels": [
+        "WaterConsumptionObserved"
+      ],
       "domains": [
         "SmartWater"
       ]
