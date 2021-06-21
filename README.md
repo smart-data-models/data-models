@@ -25,14 +25,14 @@ Data Models play a crucial role because they define the **harmonised
 representation formats and semantics** that will be used by applications both to
 consume and to publish data.
 
-The **FIWARE Foundation** **IUDX** and **TM Forum** and other entities to join, are leading 
+The **FIWARE Foundation** **IUDX**, **TM Forum** adn **OASC** and other entities to join, are leading 
 a joint collaboration program to support the adoption of a reference architecture 
 and compatible common data models that underpin a digital market of interoperable and
 replicable smart solutions in multiple sectors, starting with smart cities.
 
-The Reference Architecture and Data Models use the FIWARE NGSI API and TM Forum
+The Reference Architecture and Data Models use the ETSI NGSI API and TM Forum
 Open APIs for interoperability and scalability of smart solutions. The FIWARE
-Context Broker technology, implementing the FIWARE NGSI APIs (**NGSI v2 and
+Context Broker technology, implementing the ETSI NGSI APIs (**NGSI v2 and
 NGSI-LD**), provides the basis for breaking information silos in organizations
 aiming at becoming smart. Actually, it enables a real-time (or close to real
 time, i.e., right-time) view and foundation for the development of governance
@@ -106,6 +106,7 @@ information **This README.md is generated automatically**
   -   `schema.json`: The JSON Schema definition. It includes in the description of every property the type of property, the model, the valid values and some other elements according to the [contribution manual](https://bit.ly/contribution_manual)
   -    `notes.yaml`: Optional. File for customizing the specification of the data model.
   -    `LICENSE.md`. [Templated document](https://github.com/smart-data-models/data-models/blob/master/templates/LICENCE.md) with the text of the license default CC-BY 4.0
+    -   `schemaDTDL.json`: The export of JSON Schema definition into [langauge DTDL](https://docs.microsoft.com/en-us/azure/digital-twins/concepts-models). 
    -  `/doc`. This directory contains the specifications of the data model in the different languages. They are generated automatically out of the json schema. 
    -  `/examples`. This directory contains the examples for the different versions of NGSI standard and different formats. 
                Example: [schema.json of WeatherObserved](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/schema.json)
@@ -132,7 +133,7 @@ ensuring that artificial intelligence can be applied across aggregated datasets
 and to ensure that individual citizen experience can be optimized across 
 different services.
 
-To achieve this, TM Forum and FIWARE launched this initiative, later IUDX has joined it which seeks to 
+To achieve this, TM Forum and FIWARE launched this initiative, later IUDX adn OASC has joined it which seeks to 
 harmonize data models across Smart applications. Other organizations are pending to join.
 
 By agreeing across different communities, the common definition of smart
@@ -160,8 +161,8 @@ There are new data models in progress for the following application domains (sec
 -   [Smart Destination](https://github.com/smart-data-models/SmartDestination) 
 -   [Smart Aeronautics](https://github.com/smart-data-models/SmartAeronautics) 
 -   [Smart Robotics](https://github.com/smart-data-models/SmartRobotics)
+-   [Smart Health](https://github.com/smart-data-models/SmartHealth)
 -   [Smart Manufacturing](https://github.com/smart-data-models/SmartManufacturing) (Just opened)
--   [Smart Health](https://github.com/smart-data-models/SmartHealth) (Just opened)
 
 
 A frontend [web page](http://smartdatamodels.org/) provides global updates on the Smart data models.  
