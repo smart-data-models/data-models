@@ -992,6 +992,15 @@
       "domains": [
         "CrossSector"
       ]
+    },
+    {
+      "repoName": "dataModel.CallComplaints",
+      "repoLink": "https://github.com/smart-data-models/dataModel.CallComplaints.git",
+      "dataModels": [
+      ],
+      "domains": [
+        "CrossSector"
+      ]
     }
   ]
 }
