@@ -173,6 +173,7 @@
       "dataModels": [
         "BikeHireDockingStation",
         "BikeLane",
+        "CityWork",
         "CrowdFlowObserved",
         "EVChargingStation",
         "RestrictedTrafficArea",
@@ -1003,16 +1004,6 @@
       "domains": [
         "CrossSector"
       ]
-    },
-    {
-      "repoName": "dataModel.CivilEngineeringWork",
-      "repoLink": "https://github.com/smart-data-models/dataModel.CivilEngineeringWork.git",
-      "dataModels": [
-      ],
-      "domains": [
-        "SmartCities"
-      ]
     }
-
   ]
 }
