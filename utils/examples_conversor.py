@@ -145,122 +145,108 @@ keyvaluesPayload = """
 """
 
 
-normalizedPayload = """
-{
-  "id": "urn:ngsi-ld:RegulationStructure:id:IXHN:40075061",
-  "type": "RegulationStructure",
+normalizedPayload = """{
+  "id": "FlowObserved:BFO-NCE-MNCA-SP-001",
+  "type": "itemFlowObserved",
+  "name": {
+    "type": "Text",
+    "value": "BFO-NCE-MNCA-SP-001"
+  },
+  "description": {
+    "type": "Text",
+    "value": "Boat Flow Observed from Nice Harbor."
+  },
   "location": {
-    "type": "Property",
+    "type": "geo:json",
     "value": {
       "type": "Point",
       "coordinates": [
-        -72.3447045,
-        44.679442
+        7.196545,
+        43.664809
       ]
     }
   },
   "address": {
-    "type": "Property",
+    "type": "PostalAddress",
     "value": {
-      "streetAddress": "",
-      "addressLocality": "",
-      "addressRegion": "",
-      "addressCountry": "",
-      "postalCode": "",
-      "postOfficeBoxNumber": "",
-      "areaServed": ""
+      "streetAddress": "Port Lympia",
+      "addressLocality": "Nice",
+      "addressCountry": "FR"
     }
   },
   "areaServed": {
-    "type": "Property",
-    "value": ""
+    "type": "Text",
+    "value": "Nice Harbor"
   },
-  "dateCreated": {
-    "type": "Property",
-    "value": {
-      "@type": "DateTime",
-      "@value": "1986-07-26T02:43:28Z"
-    }
+  "dateObserved": {
+    "type": "DateTime",
+    "value": "2020-03-20T16:30:00Z"
   },
-  "dateModified": {
-    "type": "Property",
-    "value": {
-      "@type": "DateTime",
-      "@value": "2021-03-21T17:56:26Z"
-    }
+  "dateObservedFrom": {
+    "type": "DateTime",
+    "value": "2020-03-20T16:30:00Z"
   },
-  "source": {
-    "type": "Property",
-    "value": ""
+  "dateObservedTo": {
+    "type": "DateTime",
+    "value": "2020-03-20T22:30:00Z"
   },
-  "name": {
-    "type": "Property",
-    "value": "RS01"
-  },
-  "alternateName": {
-    "type": "Property",
-    "value": "RS01 Thivae"
-  },
-  "description": {
-    "type": "Property",
-    "value": "Regulation Structure Thivae"
-  },
-  "dataProvider": {
-    "type": "Property",
-    "value": "EYDAP"
-  },
-  "owner": {
-    "type": "Property",
-    "value": [
-      "urn:ngsi-ld:RegulationStructure:items:ASWJ:21246595",
-      "urn:ngsi-ld:RegulationStructure:items:NHFZ:56673870"
-    ]
-  },
-  "seeAlso": {
-    "type": "Property",
-    "value": [
-      "urn:ngsi-ld:RegulationStructure:items:PLEL:78574823",
-      "urn:ngsi-ld:RegulationStructure:items:IZVF:62633698"
-    ]
-  },
-  "tag": {
-    "type": "Property",
-    "value": ""
-  },
-  "numberOfGates": {
-    "type": "Property",
-    "value": 2
-  },
-  "numberOfSpillways": {
-    "type": "Property",
-    "value": 2
-  },
-  "teleCommand": {
-    "type": "Property",
-    "value": [
-      "true"
-    ]
-  },
-  "hasSluiceGate": {
+  "refDevice": {
     "type": "Relationship",
-    "object": "urn:ngsi-ld:RegulationStructure:hasSluiceGate:JXFD:60487647"
+    "value": "Device:BFO-NCE-MNCA-SP-001-Dev-02"
   },
-  "hasSpillway": {
-    "type": "Relationship",
-    "object": "urn:ngsi-ld:RegulationStructure:hasSpillway:CBWI:21948924"
+  "entityType": {
+    "type": "Text",
+    "value": "yacht"
   },
-  "position": {
-    "type": "Property",
-    "value": {
-      "distance": 864.6,
-      "refPoint": "urn:ngsi-ld:RegulationStructure:refPoint:JXFD:60487647"
-    }
+  "laneId": {
+    "type": "Integer",
+    "value": 1
   },
-  "@context": [
-    "https://smartdatamodels.org/context.jsonld"
-  ]
+  "laneDirection": {
+    "type": "Text",
+    "value": "outbound"
+  },
+  "reverseLane": {
+    "type": "Boolean",
+    "value": false
+  },
+  "intensity": {
+    "type": "Number",
+    "value": 12
+  },
+  "occupancy": {
+    "type": "Number",
+    "value": 0.1562
+  },
+  "congested": {
+    "type": "Boolean",
+    "value": false
+  },
+  "averageSpeed": {
+    "type": "Number",
+    "value": 2.7
+  },
+  "averageLength": {
+    "type": "Number",
+    "value": 7.44
+  },
+  "averageHeadwayTime": {
+    "type": "Number",
+    "value": 156
+  },
+  "averageGapDistance": {
+    "type": "Number",
+    "value": 35.28
+  },
+  "minSpeed": {
+    "type": "Number",
+    "value": 2.6
+  },
+  "maxSpeed": {
+    "type": "Number",
+    "value": 3.8
+  }
 }
-
 """
 
 normalized2keyvalues(normalizedPayload)
