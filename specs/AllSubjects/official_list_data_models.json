@@ -176,6 +176,7 @@
         "CityWork",
         "CrowdFlowObserved",
         "EVChargingStation",
+        "ItemFlowObserved",
         "RestrictedTrafficArea",
         "RestrictionException",
         "Road",
