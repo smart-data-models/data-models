@@ -251,6 +251,7 @@
       "dataModels": [
         "ACMeasurement",
         "InverterDevice",
+        "TechnicalCabinetDevice",
         "ThreePhaseAcMeasurement"
       ],
       "domains": [
