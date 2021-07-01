@@ -992,7 +992,9 @@
       "repoName": "dataModel.DCAT-AP",
       "repoLink": "https://github.com/smart-data-models/dataModel.DCAT-AP.git",
       "dataModels": [
-        "CatalogueDCAT-AP"
+        "AgentDCAT-AP",
+        "CatalogueDCAT-AP",
+        "Dataset"
       ],
       "domains": [
         "CrossSector"
