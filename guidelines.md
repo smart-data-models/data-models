@@ -210,7 +210,7 @@ In case of doubt check the existing data models. The full list can be got in the
 
 ## Versioning
 
-FIWARE Foundation, TMForum and IUDX Data Models Project aim to maintain backwards compatibility, however some
+FIWARE Foundation, TMForum, OASC and IUDX Smart Data Models Project aim to maintain backwards compatibility, however some
 incompatibilities will inevitably occur over time. Data providers may choose to
 tag Entities with an additional `schemaVersion` Attribute so that Data Consumers
 can behave accordingly. This aligns with the
