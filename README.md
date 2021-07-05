@@ -25,7 +25,7 @@ Data Models play a crucial role because they define the **harmonised
 representation formats and semantics** that will be used by applications both to
 consume and to publish data.
 
-The **FIWARE Foundation** **IUDX**, **TM Forum** adn **OASC** and other entities to join, are leading 
+The **FIWARE Foundation** **IUDX**, **TM Forum** and **OASC** and other entities to join, are leading 
 a joint collaboration program to support the adoption of a reference architecture 
 and compatible common data models that underpin a digital market of interoperable and
 replicable smart solutions in multiple sectors, starting with smart cities.
@@ -87,7 +87,7 @@ the schema denotes the version.
 
 The way to handle new Data Models is administrated by the different subjects and domains:
 
-- Steering board (currently, FIWARE foundation, IUDX and TMForum) will check for the consistency and updating of the different data models in this group of repositories. This sterring board will grow in coming dates.
+- Steering board (currently, FIWARE foundation, IUDX, OASC and TMForum) will check for the consistency and updating of the different data models in this group of repositories. This sterring board will grow in coming dates.
 
 
 ## How to contribute
