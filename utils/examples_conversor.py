@@ -146,107 +146,184 @@ keyvaluesPayload = """
 
 
 normalizedPayload = """{
-  "id": "FlowObserved:BFO-NCE-MNCA-SP-001",
-  "type": "itemFlowObserved",
+  "id": "urn:ngsi-ld:DistributionDCAT-AP:id:NUZE:76215118",
+  "dateCreated": {
+    "type": "DateTime",
+    "value": "1993-08-16T05:35:56Z"
+  },
+  "dateModified": {
+    "type": "DateTime",
+    "value": "1970-07-14T10:48:19Z"
+  },
+  "source": {
+    "type": "Text",
+    "value": ""
+  },
   "name": {
     "type": "Text",
-    "value": "BFO-NCE-MNCA-SP-001"
+    "value": "csv portals distribution"
+  },
+  "alternateName": {
+    "type": "Text",
+    "value": "csv"
   },
   "description": {
     "type": "Text",
-    "value": "Boat Flow Observed from Nice Harbor."
+    "value": "Distribution of open data portals in csv"
+  },
+  "dataProvider": {
+    "type": "Text",
+    "value": "Meloda.org"
+  },
+  "owner": {
+    "type": "Text",
+    "value": [
+      "urn:ngsi-ld:DistributionDCAT-AP:items:HZAC:24935175",
+      "urn:ngsi-ld:DistributionDCAT-AP:items:AQGQ:50019342"
+    ]
+  },
+  "seeAlso": {
+    "type": "array",
+    "value": [
+      "urn:ngsi-ld:DistributionDCAT-AP:items:TYQY:03354957",
+      "urn:ngsi-ld:DistributionDCAT-AP:items:VZQW:12690544"
+    ]
   },
   "location": {
     "type": "geo:json",
     "value": {
       "type": "Point",
       "coordinates": [
-        7.196545,
-        43.664809
+        -67.057831,
+        67.968509
       ]
     }
   },
   "address": {
     "type": "PostalAddress",
     "value": {
-      "streetAddress": "Port Lympia",
-      "addressLocality": "Nice",
-      "addressCountry": "FR"
+      "streetAddress": "Luxembourg platz 2",
+      "addressLocality": "Luxembourg",
+      "addressRegion": "Luxembourg",
+      "addressCountry": "Luxembourg",
+      "postalCode": "24004",
+      "postOfficeBoxNumber": ""
     }
   },
   "areaServed": {
     "type": "Text",
-    "value": "Nice Harbor"
+    "value": "European Union."
   },
-  "dateObserved": {
-    "type": "DateTime",
-    "value": "2020-03-20T16:30:00Z"
+  "accessUrl": {
+    "type": "array",
+    "value": [
+      ""
+    ]
   },
-  "dateObservedFrom": {
-    "type": "DateTime",
-    "value": "2020-03-20T16:30:00Z"
-  },
-  "dateObservedTo": {
-    "type": "DateTime",
-    "value": "2020-03-20T22:30:00Z"
-  },
-  "refDevice": {
-    "type": "Relationship",
-    "value": "Device:BFO-NCE-MNCA-SP-001-Dev-02"
-  },
-  "entityType": {
+  "availability": {
     "type": "Text",
-    "value": "yacht"
+    "value": "yes"
   },
-  "laneId": {
-    "type": "Integer",
-    "value": 1
-  },
-  "laneDirection": {
+  "format": {
     "type": "Text",
-    "value": "outbound"
+    "value": " text/csv"
   },
-  "reverseLane": {
-    "type": "Boolean",
-    "value": false
+  "license": {
+    "type": "Text",
+    "value": "CC-BY"
   },
-  "intensity": {
-    "type": "Number",
-    "value": 12
+  "accessService": {
+    "type": "array",
+    "value": [
+      ""
+    ]
   },
-  "occupancy": {
-    "type": "Number",
-    "value": 0.1562
+  "byteSize": {
+    "type": "array",
+    "value": 43503
   },
-  "congested": {
-    "type": "Boolean",
-    "value": false
+  "checksum": {
+    "type": "Text",
+    "value": "H3FR."
   },
-  "averageSpeed": {
-    "type": "Number",
-    "value": 2.7
+  "compressionFormat": {
+    "type": "Text",
+    "value": ""
   },
-  "averageLength": {
-    "type": "Number",
-    "value": 7.44
+  "documentation": {
+    "type": "array",
+    "value": [
+    ]
   },
-  "averageHeadwayTime": {
-    "type": "Number",
-    "value": 156
+  "downloadURL": {
+    "type": "array",
+    "value": [
+      "urn:ngsi-ld:DistributionDCAT-AP:items:HVWX:12201868",
+      "urn:ngsi-ld:DistributionDCAT-AP:items:ICPI:96947751"
+    ]
   },
-  "averageGapDistance": {
-    "type": "Number",
-    "value": 35.28
+  "hasPolicy": {
+    "type": "Text",
+    "value": "Open data policy."
   },
-  "minSpeed": {
-    "type": "Number",
-    "value": 2.6
+  "language": {
+    "type": "array",
+    "value": [
+      "EN",
+      "ES"
+    ]
   },
-  "maxSpeed": {
-    "type": "Number",
-    "value": 3.8
+  "linkedSchemas": {
+    "type": "array",
+    "value": [
+    ]
+  },
+  "mediaType": {
+    "type": "Text",
+    "value": ""
+  },
+  "packagingFormat": {
+    "type": "Text",
+    "value": "zip"
+  },
+  "releaseDate": {
+    "type": "DateTime",
+    "value": "1997-05-06T05:04:10Z"
+  },
+  "rights": {
+    "type": "Text",
+    "value": "copyleft"
+  },
+  "spatialResolution": {
+    "type": "array",
+    "value": [
+      0.5,
+      0.5
+    ]
+  },
+  "status": {
+    "type": "Text",
+    "value": "Withdrawn"
+  },
+  "temporalResolution": {
+    "type": "array",
+    "value": [
+      2,
+      10
+    ]
+  },
+  "title": {
+    "type": "array",
+    "value": [
+      "Dataset base"
+    ]
+  },
+  "modifiedDate": {
+    "type": "DateTime",
+    "value": "1986-03-28T19:56:43Z"
   }
 }
+
 """
 
 normalized2keyvalues(normalizedPayload)

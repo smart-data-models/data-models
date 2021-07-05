@@ -994,7 +994,8 @@
       "dataModels": [
         "AgentDCAT-AP",
         "CatalogueDCAT-AP",
-        "Dataset"
+        "Dataset",
+        "DistributionDCAT-AP"
       ],
       "domains": [
         "CrossSector"
