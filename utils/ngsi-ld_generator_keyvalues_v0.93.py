@@ -96,7 +96,7 @@ def payload_geoproperty(type):
 
 def fake_number(*args):
     #Generate fake number
-    Faker.seed(0)
+    Faker.seed()
     # expect a tuple with (left_digits, min, max)
     # if there is a maximum a minimum should be included
     # otherwise it throws an error
