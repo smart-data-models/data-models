@@ -84,62 +84,63 @@ def keyvalues2normalized(keyvaluesPayload):
 
 keyvaluesPayload = """
 {
-  "id": "Vulnerability.01",
-  "type": "Vulnerability",
-  "analyzedAt": "2020-12-24T12:00:00Z",
-  "analysisType": "Flood Vulnerability Maps",
-  "location": {
-    "type": "Polygon",
-    "coordinates": [
-      [
-        [
-          23.6627,
-          41.88768
-        ],
-        [
-          25.85598,
-          43.38622
-        ],
-        [
-          23.4899,
-          43.78691
-        ],
-        [
-          22.35609,
-          42.28869
-        ],
-        [
-          23.6627,
-          41.88769
-        ]
-      ]
-    ]
-  },
-  "vulnerabilityValues": [
-    1,
-    2,
-    3
-  ],
-  "contentInformation": [
+  "id": "uri:ngsi-ld:datapackage:001",
+  "type": "DataPackageFrictionlessData",
+  "name": "cpi",
+  "title": "Annual Consumer Price Index (CPI)",
+  "description": "Annual Consumer Price Index (CPI) for most countries in the world. Reference year is 2005.",
+  "profile": "tabular-data-package",
+  "licenses": [
     {
-      "id": 0,
-      "value": "Low",
-      "color": "(170, 255, 0)"
-    },
-    {
-      "id": 1,
-      "value": "Medium",
-      "color": "(255, 255, 0)"
-    },
-    {
-      "id": 2,
-      "value": "High",
-      "color": "(255, 170, 0)"
+      "name": "CC-BY-4.0",
+      "title": "Creative Commons Attribution 4.0",
+      "path": "https://creativecommons.org/licenses/by/4.0/"
     }
   ],
-  "createsLayers": [
-    "EOGeoDataLayer.01",
-    "EOGeoDataLayer.02"
+  "keywords": [
+    "CPI",
+    "World",
+    "Consumer Price Index",
+    "Annual Data",
+    "The World Bank"
+  ],
+  "version": "2.0.0",
+  "sources": [
+    {
+      "title": "The World Bank",
+      "path": "http://data.worldbank.org/indicator/FP.CPI.TOTL"
+    }
+  ],
+  "resources": [
+    {
+      "path": "data/cpi.csv",
+      "name": "cpi",
+      "profile": "tabular-data-resource",
+      "schema": {
+        "fields": [
+          {
+            "name": "Country Name",
+            "type": "string"
+          },
+          {
+            "name": "Country Code",
+            "type": "string"
+          },
+          {
+            "name": "Year",
+            "type": "year"
+          },
+          {
+            "name": "CPI",
+            "description": "CPI (where 2005=100)",
+            "type": "number"
+          }
+        ]
+      }
+    }
+  ],
+  "@context": [
+    "https://smartdatamodels.org/context.jsonld"
   ]
 }
 """
@@ -326,5 +327,5 @@ normalizedPayload = """{
 
 """
 
-normalized2keyvalues(normalizedPayload)
-# keyvalues2normalized(keyvaluesPayload)
+# normalized2keyvalues(normalizedPayload)
+keyvalues2normalized(keyvaluesPayload)

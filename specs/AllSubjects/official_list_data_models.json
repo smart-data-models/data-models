@@ -1009,6 +1009,16 @@
       "domains": [
         "CrossSector"
       ]
+    },
+    {
+      "repoName": "dataModel.FrictionlessData",
+      "repoLink": "https://github.com/smart-data-models/dataModel.FrictionlessData.git",
+      "dataModels": [
+        "DataPackageFrictionlessData"
+      ],
+      "domains": [
+        "CrossSector"
+      ]
     }
   ]
 }
