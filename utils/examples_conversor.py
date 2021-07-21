@@ -84,63 +84,15 @@ def keyvalues2normalized(keyvaluesPayload):
 
 keyvaluesPayload = """
 {
-  "id": "uri:ngsi-ld:datapackage:001",
-  "type": "DataPackageFrictionlessData",
-  "name": "cpi",
-  "title": "Annual Consumer Price Index (CPI)",
-  "description": "Annual Consumer Price Index (CPI) for most countries in the world. Reference year is 2005.",
-  "profile": "tabular-data-package",
-  "licenses": [
-    {
-      "name": "CC-BY-4.0",
-      "title": "Creative Commons Attribution 4.0",
-      "path": "https://creativecommons.org/licenses/by/4.0/"
-    }
-  ],
-  "keywords": [
-    "CPI",
-    "World",
-    "Consumer Price Index",
-    "Annual Data",
-    "The World Bank"
-  ],
-  "version": "2.0.0",
-  "sources": [
-    {
-      "title": "The World Bank",
-      "path": "http://data.worldbank.org/indicator/FP.CPI.TOTL"
-    }
-  ],
-  "resources": [
-    {
-      "path": "data/cpi.csv",
-      "name": "cpi",
-      "profile": "tabular-data-resource",
-      "schema": {
-        "fields": [
-          {
-            "name": "Country Name",
-            "type": "string"
-          },
-          {
-            "name": "Country Code",
-            "type": "string"
-          },
-          {
-            "name": "Year",
-            "type": "year"
-          },
-          {
-            "name": "CPI",
-            "description": "CPI (where 2005=100)",
-            "type": "number"
-          }
-        ]
-      }
-    }
-  ],
-  "@context": [
-    "https://smartdatamodels.org/context.jsonld"
+  "id": "urn:ngsi-ld:User:01",
+  "type": "CallUser",
+  "aliasName": "85c42919-2f6b-4c61-a40e-1cbf7f5fc337",
+  "name": "John",
+  "surname": "Doe",
+  "contactPhone": "+306912345678",
+  "makesComplaints": [
+    "urn:ngsi-ld:Complaint:01",
+    "urn:ngsi-ld:Complaint:02"
   ]
 }
 """

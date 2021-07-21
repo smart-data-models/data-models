@@ -71,7 +71,7 @@ def payload_uri(propertyName, dataModel):
 
 
 def payload_relationship(propertyName, dataModel):
-    return {"type": "object", "value": fake_uri(propertyName, dataModel)}
+    return {"type": "Relationship", "value": fake_uri(propertyName, dataModel)}
 
 
 def fake_geoproperty(type):
@@ -145,7 +145,7 @@ def fake_integer(*args):
 def payload_number(*args):
     return {"type": "Property", "value": fake_number(*args)}
 
-def payload_interger(*args):
+def payload_integer(*args):
     return {"type": "Property", "value": fake_integer(*args)}
 
 
@@ -255,6 +255,14 @@ def payload_array(type, numItems, options):
         return pendingToImplement
 
 
+def fake_email():
+    return fake.ascii_safe_email()
+
+
+def payload_email():
+    return {"type": "Property", "value": fake_email()}
+
+
 def parse_property(fullPayload, dataModel, level):
     # parse a property of the data model
     prop = [p for p in fullPayload.keys()][0]
@@ -315,6 +323,8 @@ def parse_property(fullPayload, dataModel, level):
                 return payload_date()
             elif payload["format"] == "uri":
                 return payload_uri(prop, dataModel)
+            elif payload["format"] == "idn-email":
+                return payload_email()
         elif payload["type"] == "string" and "enum" in keys:
             return payload_enum(payload["enum"], 1)
         elif payload["type"] == "string":
