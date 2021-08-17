@@ -84,200 +84,682 @@ def keyvalues2normalized(keyvaluesPayload):
 
 keyvaluesPayload = """
 {
-  "id": "urn:ngsi-ld:User:01",
-  "type": "CallUser",
-  "aliasName": "85c42919-2f6b-4c61-a40e-1cbf7f5fc337",
-  "name": "John",
-  "surname": "Doe",
-  "contactPhone": "+306912345678",
-  "makesComplaints": [
-    "urn:ngsi-ld:Complaint:01",
-    "urn:ngsi-ld:Complaint:02"
-  ]
-}
-"""
-
-
-normalizedPayload = """{
-  "id": "urn:ngsi-ld:DistributionDCAT-AP:id:NUZE:76215118",
+  "id": "urn:ngsi-ld:AirQualityMonitoring:id:ARET:00795717",
+  "type": "AirQualityMonitoring",
   "dateCreated": {
-    "type": "DateTime",
-    "value": "1993-08-16T05:35:56Z"
+    "type": "Property",
+    "value": {
+      "@type": "DateTime",
+      "@value": "2017-12-31T03:39:27Z"
+    }
   },
   "dateModified": {
-    "type": "DateTime",
-    "value": "1970-07-14T10:48:19Z"
+    "type": "Property",
+    "value": {
+      "@type": "DateTime",
+      "@value": "2021-12-22T04:21:57Z"
+    }
   },
   "source": {
-    "type": "Text",
-    "value": ""
+    "type": "Property",
+    "value": "Bangalore Smart city"
   },
   "name": {
-    "type": "Text",
-    "value": "csv portals distribution"
+    "type": "Property",
+    "value": ""
   },
   "alternateName": {
-    "type": "Text",
-    "value": "csv"
+    "type": "Property",
+    "value": "EnvAQM sampling"
   },
   "description": {
-    "type": "Text",
-    "value": "Distribution of open data portals in csv"
+    "type": "Property",
+    "value": "Air quality monitoring"
   },
   "dataProvider": {
-    "type": "Text",
-    "value": "Meloda.org"
+    "type": "Property",
+    "value": ""
   },
   "owner": {
-    "type": "Text",
+    "type": "Property",
     "value": [
-      "urn:ngsi-ld:DistributionDCAT-AP:items:HZAC:24935175",
-      "urn:ngsi-ld:DistributionDCAT-AP:items:AQGQ:50019342"
+      "urn:ngsi-ld:AirQualityMonitoring:items:WCBR:34036943",
+      "urn:ngsi-ld:AirQualityMonitoring:items:PLLV:16542546"
     ]
   },
   "seeAlso": {
-    "type": "array",
+    "type": "Property",
     "value": [
-      "urn:ngsi-ld:DistributionDCAT-AP:items:TYQY:03354957",
-      "urn:ngsi-ld:DistributionDCAT-AP:items:VZQW:12690544"
+      "urn:ngsi-ld:AirQualityMonitoring:items:FCTF:59597941",
+      "urn:ngsi-ld:AirQualityMonitoring:items:JAYJ:76906163"
     ]
   },
   "location": {
-    "type": "geo:json",
+    "type": "Property",
     "value": {
       "type": "Point",
       "coordinates": [
-        -67.057831,
-        67.968509
+        12.979,
+        77.591
       ]
     }
   },
   "address": {
-    "type": "PostalAddress",
+    "type": "Property",
     "value": {
-      "streetAddress": "Luxembourg platz 2",
-      "addressLocality": "Luxembourg",
-      "addressRegion": "Luxembourg",
-      "addressCountry": "Luxembourg",
-      "postalCode": "24004",
+      "streetAddress": "Avenue Road",
+      "addressLocality": "Bangalore",
+      "addressRegion": "Karnataka",
+      "addressCountry": "India",
+      "postalCode": "110001",
       "postOfficeBoxNumber": ""
     }
   },
   "areaServed": {
-    "type": "Text",
-    "value": "European Union."
+    "type": "Property",
+    "value": "Bangalore"
   },
-  "accessUrl": {
-    "type": "array",
-    "value": [
-      ""
-    ]
+  "deviceInfo": {
+    "type": "Property",
+    "value": {
+      "deviceList": "12",
+      "deviceBatteryStatus": "Connected",
+      "deviceName": "Climo",
+      "deviceID": "12345",
+      "RFID": "AB463478",
+      "measurand": "",
+      "deviceSimNumber": "12345678",
+      "deviceModel": {
+        "brandName": "Climo",
+        "manufacturerName": "Bosch",
+        "modelName": "sensor",
+        "modelURL": "www.boschclimo.com",
+        "areaServed": "Agartala"
+      },
+      "refDevice": "urn:ngsi-ld:device:12"
+    }
   },
-  "availability": {
-    "type": "Text",
-    "value": "yes"
+  "observationDateTime": {
+    "type": "Property",
+    "value": {
+      "@type": "DateTime",
+      "@value": "2020-09-16T11:00:00+05:30"
+    }
   },
-  "format": {
-    "type": "Text",
-    "value": " text/csv"
+  "deviceStatus": {
+    "type": "Property",
+    "value": "ACTIVE"
   },
-  "license": {
-    "type": "Text",
-    "value": "CC-BY"
+  "atmosphericPressure": {
+    "type": "Property",
+    "value": 633.2
   },
-  "accessService": {
-    "type": "array",
-    "value": [
-      ""
-    ]
+  "airQualityIndex": {
+    "type": "Property",
+    "value": 90
   },
-  "byteSize": {
-    "type": "array",
-    "value": 43503
+  "airQualityLevel": {
+    "type": "Property",
+    "value": "SATISFACTORY"
   },
-  "checksum": {
-    "type": "Text",
-    "value": "H3FR."
+  "aqiMajorPollutant": {
+    "type": "Property",
+    "value": "No2"
   },
-  "compressionFormat": {
-    "type": "Text",
+  "airTemperatureTSA": {
+    "type": "Property",
+    "value": {
+      "avgOverTime": 23.1,
+      "minOverTime": 12.7,
+      "maxOverTime": 32.8,
+      "instValue": 30.8
+    }
+  },
+  "ambientNoiseTSA": {
+    "type": "Property",
+    "value": {
+      "avgOverTime": 57.9,
+      "minOverTime": 50.5,
+      "maxOverTime": 59.2,
+      "instValue": 57.6
+    }
+  },
+  "arsenicTSA": {
+    "type": "Property",
+    "value": {
+      "avgOverTime": 0.4,
+      "minOverTime": 0.29,
+      "maxOverTime": 0.44,
+      "instValue": 0.35
+    }
+  },
+  "atmosphericPressureTSA": {
+    "type": "Property",
+    "value": {
+      "avgOverTime": 968.3,
+      "minOverTime": 961.9,
+      "maxOverTime": 982.7,
+      "instValue": 982.9
+    }
+  },
+  "bapTSA": {
+    "type": "Property",
+    "value": {
+      "avgOverTime": 492.1,
+      "minOverTime": 398.7,
+      "maxOverTime": 573.7,
+      "instValue": 439.1
+    }
+  },
+  "benzeneTSA": {
+    "type": "Property",
+    "value": {
+      "avgOverTime": 266.7,
+      "minOverTime": 210.1,
+      "maxOverTime": 576.9,
+      "instValue": 321.7
+    }
+  },
+  "coTSA": {
+    "type": "Property",
+    "value": {
+      "avgOverTime": 3.51,
+      "minOverTime": 3.4,
+      "maxOverTime": 8.9,
+      "instValue": 4.0
+    }
+  },
+  "co2TSA": {
+    "type": "Property",
+    "value": {
+      "avgOverTime": 318.51,
+      "minOverTime": 302.6,
+      "maxOverTime": 390.2,
+      "instValue": 320.4
+    }
+  },
+  "nh3TSA": {
+    "type": "Property",
+    "value": {
+      "avgOverTime": 865.1,
+      "minOverTime": 834.7,
+      "maxOverTime": 990.8,
+      "instValue": 900.2
+    }
+  },
+  "nickelTSA": {
+    "type": "Property",
+    "value": {
+      "avgOverTime": 434.0,
+      "minOverTime": 132.2,
+      "maxOverTime": 559.6,
+      "instValue": 527.2
+    }
+  },
+  "noTSA": {
+    "type": "Property",
+    "value": {
+      "avgOverTime": 3.65,
+      "minOverTime": 2.7,
+      "maxOverTime": 4.8,
+      "instValue": 3.6
+    }
+  },
+  "no2TSA": {
+    "type": "Property",
+    "value": {
+      "avgOverTime": 409.7,
+      "minOverTime": 242.4,
+      "maxOverTime": 611.5,
+      "instValue": 511.0
+    }
+  },
+  "o2TSA": {
+    "type": "Property",
+    "value": {
+      "avgOverTime": 18.1,
+      "minOverTime": 18.0,
+      "maxOverTime": 18.2,
+      "instValue": 18.0
+    }
+  },
+  "o3TSA": {
+    "type": "Property",
+    "value": {
+      "avgOverTime": 218.8,
+      "minOverTime": 167.7,
+      "maxOverTime": 236.4,
+      "instValue": 173.1
+    }
+  },
+  "pm10TSA": {
+    "type": "Property",
+    "value": {
+      "avgOverTime": 847.3,
+      "minOverTime": 54.3,
+      "maxOverTime": 568.1,
+      "instValue": 439.1
+    }
+  },
+  "pm25TSA": {
+    "type": "Property",
+    "value": {
+      "avgOverTime": 28.3,
+      "minOverTime": 10.1,
+      "maxOverTime": 56.8,
+      "instValue": 56.6
+    }
+  },
+  "relativeHumidityTSA": {
+    "type": "Property",
+    "value": {
+      "avgOverTime": 326.3,
+      "minOverTime": 211.6,
+      "maxOverTime": 599.3,
+      "instValue": 401.2
+    }
+  },
+  "so2TSA": {
+    "type": "Property",
+    "value": {
+      "avgOverTime": 3.65,
+      "minOverTime": 2.9,
+      "maxOverTime": 3.72,
+      "instValue": 3.5
+    }
+  },
+  "pbTSA": {
+    "type": "Property",
+    "value": {
+      "avgOverTime": 473.0,
+      "minOverTime": 287.5,
+      "maxOverTime": 542.1,
+      "instValue": 391.0
+    }
+  },
+  "uvTSA": {
+    "type": "Property",
+    "value": {
+      "avgOverTime": 6.0,
+      "minOverTime": 5.7,
+      "maxOverTime": 8.3,
+      "instValue": 8.2
+    }
+  },
+  "illuminance": {
+    "type": "Property",
+    "value": 3319.41
+  },
+  "solarRadiation": {
+    "type": "Property",
+    "value": 3.65
+  },
+  "precipitation": {
+    "type": "Property",
+    "value": 846.0
+  },
+  "versionInfo": {
+    "type": "Property",
+    "value": {
+      "startDateTime": {
+        "@type": "DateTime",
+        "@value": "2020-09-16T11:00:00+05:30"
+      },
+      "endDateTime": {
+        "@type": "DateTime",
+        "@value": "2020-09-16T11:00:00+05:30"
+      },
+      "versionName": "Version 1",
+      "comments": "Version 1"
+    }
+  },
+  "@context": [
+    "https://smartdatamodels.org/context.jsonld"
+  ]
+}
+
+
+
+"""
+
+
+normalizedPayload = """
+{
+  "id": "urn:ngsi-ld:AirQualityMonitoring:id:ARET:00795717",
+  "type": "AirQualityMonitoring",
+  "dateCreated": {
+    "type": "Property",
+    "value": {
+      "@type": "DateTime",
+      "@value": "2017-12-31T03:39:27Z"
+    }
+  },
+  "dateModified": {
+    "type": "Property",
+    "value": {
+      "@type": "DateTime",
+      "@value": "2021-12-22T04:21:57Z"
+    }
+  },
+  "source": {
+    "type": "Property",
+    "value": "Bangalore Smart city"
+  },
+  "name": {
+    "type": "Property",
     "value": ""
   },
-  "documentation": {
-    "type": "array",
-    "value": [
-    ]
+  "alternateName": {
+    "type": "Property",
+    "value": "EnvAQM sampling"
   },
-  "downloadURL": {
-    "type": "array",
-    "value": [
-      "urn:ngsi-ld:DistributionDCAT-AP:items:HVWX:12201868",
-      "urn:ngsi-ld:DistributionDCAT-AP:items:ICPI:96947751"
-    ]
+  "description": {
+    "type": "Property",
+    "value": "Air quality monitoring"
   },
-  "hasPolicy": {
-    "type": "Text",
-    "value": "Open data policy."
-  },
-  "language": {
-    "type": "array",
-    "value": [
-      "EN",
-      "ES"
-    ]
-  },
-  "linkedSchemas": {
-    "type": "array",
-    "value": [
-    ]
-  },
-  "mediaType": {
-    "type": "Text",
+  "dataProvider": {
+    "type": "Property",
     "value": ""
   },
-  "packagingFormat": {
-    "type": "Text",
-    "value": "zip"
-  },
-  "releaseDate": {
-    "type": "DateTime",
-    "value": "1997-05-06T05:04:10Z"
-  },
-  "rights": {
-    "type": "Text",
-    "value": "copyleft"
-  },
-  "spatialResolution": {
-    "type": "array",
+  "owner": {
+    "type": "Property",
     "value": [
-      0.5,
-      0.5
+      "urn:ngsi-ld:AirQualityMonitoring:items:WCBR:34036943",
+      "urn:ngsi-ld:AirQualityMonitoring:items:PLLV:16542546"
     ]
   },
-  "status": {
-    "type": "Text",
-    "value": "Withdrawn"
-  },
-  "temporalResolution": {
-    "type": "array",
+  "seeAlso": {
+    "type": "Property",
     "value": [
-      2,
-      10
+      "urn:ngsi-ld:AirQualityMonitoring:items:FCTF:59597941",
+      "urn:ngsi-ld:AirQualityMonitoring:items:JAYJ:76906163"
     ]
   },
-  "title": {
-    "type": "array",
-    "value": [
-      "Dataset base"
-    ]
+  "location": {
+    "type": "Property",
+    "value": {
+      "type": "Point",
+      "coordinates": [
+        12.979,
+        77.591
+      ]
+    }
   },
-  "modifiedDate": {
-    "type": "DateTime",
-    "value": "1986-03-28T19:56:43Z"
-  }
+  "address": {
+    "type": "Property",
+    "value": {
+      "streetAddress": "Avenue Road",
+      "addressLocality": "Bangalore",
+      "addressRegion": "Karnataka",
+      "addressCountry": "India",
+      "postalCode": "110001",
+      "postOfficeBoxNumber": ""
+    }
+  },
+  "areaServed": {
+    "type": "Property",
+    "value": "Bangalore"
+  },
+  "deviceInfo": {
+    "type": "Property",
+    "value": {
+      "deviceList": "12",
+      "deviceBatteryStatus": "Connected",
+      "deviceName": "Climo",
+      "deviceID": "12345",
+      "RFID": "AB463478",
+      "measurand": "",
+      "deviceSimNumber": "12345678",
+      "deviceModel": {
+        "brandName": "Climo",
+        "manufacturerName": "Bosch",
+        "modelName": "sensor",
+        "modelURL": "www.boschclimo.com",
+        "areaServed": "Agartala"
+      },
+      "refDevice": "urn:ngsi-ld:device:12"
+    }
+  },
+  "observationDateTime": {
+    "type": "Property",
+    "value": {
+      "@type": "DateTime",
+      "@value": "2020-09-16T11:00:00+05:30"
+    }
+  },
+  "deviceStatus": {
+    "type": "Property",
+    "value": "ACTIVE"
+  },
+  "atmosphericPressure": {
+    "type": "Property",
+    "value": 633.2
+  },
+  "airQualityIndex": {
+    "type": "Property",
+    "value": 90
+  },
+  "airQualityLevel": {
+    "type": "Property",
+    "value": "SATISFACTORY"
+  },
+  "aqiMajorPollutant": {
+    "type": "Property",
+    "value": "No2"
+  },
+  "airTemperatureTSA": {
+    "type": "Property",
+    "value": {
+      "avgOverTime": 23.1,
+      "minOverTime": 12.7,
+      "maxOverTime": 32.8,
+      "instValue": 30.8
+    }
+  },
+  "ambientNoiseTSA": {
+    "type": "Property",
+    "value": {
+      "avgOverTime": 57.9,
+      "minOverTime": 50.5,
+      "maxOverTime": 59.2,
+      "instValue": 57.6
+    }
+  },
+  "arsenicTSA": {
+    "type": "Property",
+    "value": {
+      "avgOverTime": 0.4,
+      "minOverTime": 0.29,
+      "maxOverTime": 0.44,
+      "instValue": 0.35
+    }
+  },
+  "atmosphericPressureTSA": {
+    "type": "Property",
+    "value": {
+      "avgOverTime": 968.3,
+      "minOverTime": 961.9,
+      "maxOverTime": 982.7,
+      "instValue": 982.9
+    }
+  },
+  "bapTSA": {
+    "type": "Property",
+    "value": {
+      "avgOverTime": 492.1,
+      "minOverTime": 398.7,
+      "maxOverTime": 573.7,
+      "instValue": 439.1
+    }
+  },
+  "benzeneTSA": {
+    "type": "Property",
+    "value": {
+      "avgOverTime": 266.7,
+      "minOverTime": 210.1,
+      "maxOverTime": 576.9,
+      "instValue": 321.7
+    }
+  },
+  "coTSA": {
+    "type": "Property",
+    "value": {
+      "avgOverTime": 3.51,
+      "minOverTime": 3.4,
+      "maxOverTime": 8.9,
+      "instValue": 4.0
+    }
+  },
+  "co2TSA": {
+    "type": "Property",
+    "value": {
+      "avgOverTime": 318.51,
+      "minOverTime": 302.6,
+      "maxOverTime": 390.2,
+      "instValue": 320.4
+    }
+  },
+  "nh3TSA": {
+    "type": "Property",
+    "value": {
+      "avgOverTime": 865.1,
+      "minOverTime": 834.7,
+      "maxOverTime": 990.8,
+      "instValue": 900.2
+    }
+  },
+  "nickelTSA": {
+    "type": "Property",
+    "value": {
+      "avgOverTime": 434.0,
+      "minOverTime": 132.2,
+      "maxOverTime": 559.6,
+      "instValue": 527.2
+    }
+  },
+  "noTSA": {
+    "type": "Property",
+    "value": {
+      "avgOverTime": 3.65,
+      "minOverTime": 2.7,
+      "maxOverTime": 4.8,
+      "instValue": 3.6
+    }
+  },
+  "no2TSA": {
+    "type": "Property",
+    "value": {
+      "avgOverTime": 409.7,
+      "minOverTime": 242.4,
+      "maxOverTime": 611.5,
+      "instValue": 511.0
+    }
+  },
+  "o2TSA": {
+    "type": "Property",
+    "value": {
+      "avgOverTime": 18.1,
+      "minOverTime": 18.0,
+      "maxOverTime": 18.2,
+      "instValue": 18.0
+    }
+  },
+  "o3TSA": {
+    "type": "Property",
+    "value": {
+      "avgOverTime": 218.8,
+      "minOverTime": 167.7,
+      "maxOverTime": 236.4,
+      "instValue": 173.1
+    }
+  },
+  "pm10TSA": {
+    "type": "Property",
+    "value": {
+      "avgOverTime": 847.3,
+      "minOverTime": 54.3,
+      "maxOverTime": 568.1,
+      "instValue": 439.1
+    }
+  },
+  "pm25TSA": {
+    "type": "Property",
+    "value": {
+      "avgOverTime": 28.3,
+      "minOverTime": 10.1,
+      "maxOverTime": 56.8,
+      "instValue": 56.6
+    }
+  },
+  "relativeHumidityTSA": {
+    "type": "Property",
+    "value": {
+      "avgOverTime": 326.3,
+      "minOverTime": 211.6,
+      "maxOverTime": 599.3,
+      "instValue": 401.2
+    }
+  },
+  "so2TSA": {
+    "type": "Property",
+    "value": {
+      "avgOverTime": 3.65,
+      "minOverTime": 2.9,
+      "maxOverTime": 3.72,
+      "instValue": 3.5
+    }
+  },
+  "pbTSA": {
+    "type": "Property",
+    "value": {
+      "avgOverTime": 473.0,
+      "minOverTime": 287.5,
+      "maxOverTime": 542.1,
+      "instValue": 391.0
+    }
+  },
+  "uvTSA": {
+    "type": "Property",
+    "value": {
+      "avgOverTime": 6.0,
+      "minOverTime": 5.7,
+      "maxOverTime": 8.3,
+      "instValue": 8.2
+    }
+  },
+  "illuminance": {
+    "type": "Property",
+    "value": 3319.41
+  },
+  "solarRadiation": {
+    "type": "Property",
+    "value": 3.65
+  },
+  "precipitation": {
+    "type": "Property",
+    "value": 846.0
+  },
+  "versionInfo": {
+    "type": "Property",
+    "value": {
+      "startDateTime": {
+        "@type": "DateTime",
+        "@value": "2020-09-16T11:00:00+05:30"
+      },
+      "endDateTime": {
+        "@type": "DateTime",
+        "@value": "2020-09-16T11:00:00+05:30"
+      },
+      "versionName": "Version 1",
+      "comments": "Version 1"
+    }
+  },
+  "@context": [
+    "https://smartdatamodels.org/context.jsonld"
+  ]
 }
 
 """
 
-# normalized2keyvalues(normalizedPayload)
-keyvalues2normalized(keyvaluesPayload)
+normalized2keyvalues(normalizedPayload)
+# keyvalues2normalized(keyvaluesPayload)
