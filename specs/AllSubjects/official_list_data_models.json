@@ -177,6 +177,7 @@
         "CityWork",
         "CrowdFlowObserved",
         "EVChargingStation",
+        "FareCollectionSystem",
         "ItemFlowObserved",
         "RestrictedTrafficArea",
         "RestrictionException",
