@@ -1,5 +1,5 @@
 {
-  "udpatedDate": "2021-05-12T18:44:00.31416",
+  "udpatedDate": "2021-08-23T16:44:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -1018,8 +1018,8 @@
       "repoLink": "https://github.com/smart-data-models/dataModel.FrictionlessData.git",
       "dataModels": [
         "DataPackageFrictionlessData",
-        "TableSchemaFrictionlessData",
-        "DataResourceFrictionlessData"
+        "DataResourceFrictionlessData",
+        "TableSchemaFrictionlessData"
       ],
       "domains": [
         "CrossSector"
