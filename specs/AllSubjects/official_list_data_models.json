@@ -998,6 +998,7 @@
         "AgentDCAT-AP",
         "CatalogueDCAT-AP",
         "CatalogueRecordDCAT-AP",
+        "DataServiceDCAT-AP",
         "Dataset",
         "DistributionDCAT-AP"
       ],

@@ -137,15 +137,15 @@ keyvaluesPayload = """
 
 normalizedPayload = """
 {
-  "id": "urn:ngsi-ld:CSVDialect:id:OAPS:03889914",
-  "type": "Missing entity name",
+  "id": "urn:ngsi-ld:DataServiceDCAT-AP:id:JBDJ:56257192",
+  "type": "DataServiceDCAT-AP",
   "dateCreated": {
     "type": "DateTime",
-    "value": "1986-03-01T17:11:28Z"
+    "value": "2020-10-28T04:19:29Z"
   },
   "dateModified": {
     "type": "DateTime",
-    "value": "2017-04-29T03:29:41Z"
+    "value": "2021-10-06T16:31:26Z"
   },
   "source": {
     "type": "Text",
@@ -161,75 +161,96 @@ normalizedPayload = """
   },
   "description": {
     "type": "Text",
-    "value": ""
+    "value": "Data service for the solar system open data portal."
   },
   "dataProvider": {
     "type": "Text",
-    "value": ""
+    "value": "European open data portal"
   },
   "owner": {
     "type": "array",
     "value": [
-      "urn:ngsi-ld:CSVDialect:items:YPBX:70706198",
-      "urn:ngsi-ld:CSVDialect:items:MABG:25535507"
+      "urn:ngsi-ld:DataServiceDCAT-AP:items:HGSY:92686457",
+      "urn:ngsi-ld:DataServiceDCAT-AP:items:JCJR:29622597"
     ]
   },
   "seeAlso": {
     "type": "array",
     "value": [
-      "urn:ngsi-ld:CSVDialect:items:YNLD:15120048",
-      "urn:ngsi-ld:CSVDialect:items:EFIZ:80683325"
+      "urn:ngsi-ld:DataServiceDCAT-AP:items:JDKD:53476147",
+      "urn:ngsi-ld:DataServiceDCAT-AP:items:XVJQ:09725114"
     ]
   },
-  "csvddfVersion": {
-    "type": "number",
-    "value": 1.2
+  "location": {
+    "type": "geo:json",
+    "value": {
+      "type": "Point",
+      "coordinates": [
+        72.564509,
+        11.125289
+      ]
+    }
   },
-  "delimiter": {
+  "address": {
+    "type": "PostalAddress",
+    "value": {
+      "streetAddress": "2, rue Mercier",
+      "addressLocality": "Luxembourg",
+      "addressRegion": "Luxembourg",
+      "addressCountry": "Luxembourg",
+      "postalCode": "2985",
+      "postOfficeBoxNumber": ""
+    }
+  },
+  "areaServed": {
     "type": "Text",
-    "value": ";"
+    "value": "European union and beyond"
   },
-  "doubleQuote": {
-    "type": "boolean",
-    "value": true
+  "endPointURL": {
+    "type": "array",
+    "value": [
+      "urn:ngsi-ld:DataServiceDCAT-AP:items:AFGI:79071729",
+      "urn:ngsi-ld:DataServiceDCAT-AP:items:JAZP:97999812"
+    ]
   },
-  "lineTerminator": {
+  "title": {
+    "type": "array",
+    "value": [
+      "Data service of the european open data portal",
+      "Data service del portal europeo de datos abiertos"
+    ]
+  },
+  "endPointDescription": {
+    "type": "array",
+    "value": [
+      "SPARQL end point without authentication",
+      "API compliant with CKAN specification"
+    ]
+  },
+  "servesDataset": {
+    "type": "array",
+    "value": [
+      "EU geographic map",
+      "EU physical map"
+    ]
+  },
+  "accessRights": {
     "type": "Text",
-    "value": "\\r\\n"
+    "value": "No restrictions to access the data but APi requests limit, 5000 requests per hour"
   },
-  "nullSequence": {
+  "dataServiceDescription": {
+    "type": "array",
+    "value": [
+      "Digital resources for accessing to the end points of the EU open data portal for solar system.",
+      "Recursos digitales para el acceso a los puntos de interacción del portal europeo de datos abiertos del sistema solar."
+    ]
+  },
+  "license": {
     "type": "Text",
-    "value": "\\N"
-  },
-  "quoteChar": {
-    "type": "Text",
-    "value": "'"
-  },
-  "escapeChar": {
-    "type": "Text",
-    "value": "\\\\"
-  },
-  "skipInitialSpace": {
-    "type": "boolean",
-    "value": false
-  },
-  "header": {
-    "type": "boolean",
-    "value": false
-  },
-  "commentChar": {
-    "type": "Text",
-    "value": "#"
-  },
-  "caseSensitiveHeader": {
-    "type": "boolean",
-    "value": true
+    "value": "EUPL."
   }
 }
-
-
-
 """
 
-# normalized2keyvalues(normalizedPayload)
-keyvalues2normalized(keyvaluesPayload)
+normalized2keyvalues(normalizedPayload)
+# keyvalues2normalized(keyvaluesPayload)
