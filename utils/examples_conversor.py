@@ -84,23 +84,52 @@ def keyvalues2normalized(keyvaluesPayload):
 
 keyvaluesPayload = """
 {
-  "id": "urn:ngsi-ld:TableSchemaFrictionlessData:XVFE:0034",
-  "type": "TableSchemaFrictionlessData",
-  "fields": [
-    {
-      "name": "first_name",
-      "type": "string",
-      "constraints": {
-        "required": true
-      }
-    },
-    {
-      "name": "age",
-      "type": "integer"
-    }
+  "id": "urn:ngsi-ld:CatalogueRecordDCAT-AP:id:KFTL:88140679",
+  "dateCreated": "2020-11-02T21:25:54Z",
+  "dateModified": "2021-07-02T18:37:55Z",
+  "source": "",
+  "name": "",
+  "alternateName": "",
+  "description": "Catalogue record of the solar system open data portal",
+  "dataProvider": "european open data portal",
+  "owner": [
+    "urn:ngsi-ld:CatalogueRecordDCAT-AP:items:ISXP:07320625",
+    "urn:ngsi-ld:CatalogueRecordDCAT-AP:items:BQMW:23610768"
   ],
-  "primaryKey": [
-    "name"
+  "seeAlso": [
+    "urn:ngsi-ld:CatalogueRecordDCAT-AP:items:FVCU:03753474",
+    "urn:ngsi-ld:CatalogueRecordDCAT-AP:items:AIEC:73224831"
+  ],
+  "location": {
+    "type": "Point",
+    "coordinates": [
+      36.633152,
+      -85.183315
+    ]
+  },
+  "address": {
+    "streetAddress": "2, rue Mercier",
+    "addressLocality": "Luxembourg",
+    "addressRegion": "Luxembourg",
+    "addressCountry": "Luxembourg",
+    "postalCode": "2985",
+    "postOfficeBoxNumber": ""
+  },
+  "areaServed": "European Union and beyond",
+  "type": "CatalogueRecordDCAT-AP",
+  "primaryTopic": "Public administration",
+  "modificationDate": "2021-07-02T18:37:55Z",
+  "applicationProfile": "DCAT Application profile for data portals in Europe",
+  "changeType": "First version",
+  "listingDate": "2021-07-02T18:37:55Z",
+  "language": [
+    "EN",
+    "ES"
+  ],
+  "sourceMetadata": "",
+  "title": [
+    "Example of catalogue record",
+    "Ejemplo de registro de catálogo"
   ]
 }
 """
@@ -108,15 +137,15 @@ keyvaluesPayload = """
 
 normalizedPayload = """
 {
-  "id": "urn:ngsi-ld:FareCollectionSystem:id:RJSB:34513580",
-  "type": "FareCollectionSystem",
+  "id": "urn:ngsi-ld:CSVDialect:id:OAPS:03889914",
+  "type": "Missing entity name",
   "dateCreated": {
     "type": "DateTime",
-    "value": "2020-11-02T06:16:42Z"
+    "value": "1986-03-01T17:11:28Z"
   },
   "dateModified": {
     "type": "DateTime",
-    "value": "2020-12-27T15:13:17Z"
+    "value": "2017-04-29T03:29:41Z"
   },
   "source": {
     "type": "Text",
@@ -124,7 +153,7 @@ normalizedPayload = """
   },
   "name": {
     "type": "Text",
-    "value": "Fare collection system Nize"
+    "value": ""
   },
   "alternateName": {
     "type": "Text",
@@ -132,7 +161,7 @@ normalizedPayload = """
   },
   "description": {
     "type": "Text",
-    "value": "Fare collection system Nize for regional routes"
+    "value": ""
   },
   "dataProvider": {
     "type": "Text",
@@ -141,187 +170,64 @@ normalizedPayload = """
   "owner": {
     "type": "array",
     "value": [
-      "urn:ngsi-ld:FareCollectionSystem:items:XMXR:79897582",
-      "urn:ngsi-ld:FareCollectionSystem:items:SKAX:98192518"
+      "urn:ngsi-ld:CSVDialect:items:YPBX:70706198",
+      "urn:ngsi-ld:CSVDialect:items:MABG:25535507"
     ]
   },
   "seeAlso": {
     "type": "array",
     "value": [
-      "urn:ngsi-ld:FareCollectionSystem:items:VSVS:72352464",
-      "urn:ngsi-ld:FareCollectionSystem:items:VMFR:36424993"
+      "urn:ngsi-ld:CSVDialect:items:YNLD:15120048",
+      "urn:ngsi-ld:CSVDialect:items:EFIZ:80683325"
     ]
   },
-  "location": {
-    "type": "geo:json",
-    "value": {
-      "type": "Point",
-      "coordinates": [
-        43.7034,
-        7.2663
-      ]
-    }
-  },
-  "address": {
-    "type": "PostalAddress",
-    "value": {
-      "streetAddress": "Av. Nicolas II",
-      "addressLocality": "Nice",
-      "addressRegion": "Provenza-Alpes-Costa Azul",
-      "addressCountry": "France",
-      "postalCode": "06000",
-      "postOfficeBoxNumber": ""
-    }
-  },
-  "areaServed": {
-    "type": "Text",
-    "value": "Nice"
-  },
-  "destinationStopName": {
-    "type": "Text",
-    "value": "Hour risk somebody deal system discussion other plan. Stage the film occur."
-  },
-  "occupancyLevel": {
-    "type": "Text",
-    "value": "Green"
-  },
-  "travelDistance": {
+  "csvddfVersion": {
     "type": "number",
-    "value": 7.5
+    "value": 1.2
   },
-  "passengerCount": {
-    "type": "number",
-    "value": 6
-  },
-  "transactionType": {
+  "delimiter": {
     "type": "Text",
-    "value": "Issue"
+    "value": ";"
   },
-  "ticketTypeCode": {
+  "doubleQuote": {
+    "type": "boolean",
+    "value": true
+  },
+  "lineTerminator": {
     "type": "Text",
-    "value": "Normal"
+    "value": "\\r\\n"
   },
-  "originStopName": {
+  "nullSequence": {
     "type": "Text",
-    "value": "Vauban"
+    "value": "\\N"
   },
-  "entryAreaCode": {
+  "quoteChar": {
     "type": "Text",
-    "value": "city-bus-service"
+    "value": "'"
   },
-  "cardId": {
+  "escapeChar": {
     "type": "Text",
-    "value": "987201910"
+    "value": "\\\\"
   },
-  "transactionTypeId": {
+  "skipInitialSpace": {
+    "type": "boolean",
+    "value": false
+  },
+  "header": {
+    "type": "boolean",
+    "value": false
+  },
+  "commentChar": {
     "type": "Text",
-    "value": "2401"
+    "value": "#"
   },
-  "stage": {
-    "type": "number",
-    "value": 4
-  },
-  "equipmentId": {
-    "type": "Text",
-    "value": "S23"
-  },
-  "direction_id": {
-    "type": "number",
-    "value": 1
-  },
-  "equipmentSequenceNumber": {
-    "type": "number",
-    "value": 2
-  },
-  "shiftOfOperation": {
-    "type": "Text",
-    "value": "2"
-  },
-  "route_id": {
-    "type": "Text",
-    "value": "4"
-  },
-  "trip_id": {
-    "type": "Text",
-    "value": "4A"
-  },
-  "originStopCategory": {
-    "type": "Text",
-    "value": "Bus stop"
-  },
-  "vehicle_label": {
-    "type": "Text",
-    "value": "5821JZS"
-  },
-  "fareForChild": {
-    "type": "number",
-    "value": 3.6
-  },
-  "transactionDateTime": {
-    "type": "DateTime",
-    "value":  "2021-08-20T15:45:22Z"
-    
-  },
-  "destinationStopId": {
-    "type": "Text",
-    "value": "Nice-Airport"
-  },
-  "originDestinationCode": {
-    "type": "Text",
-    "value": "23"
-  },
-  "currentTripCount": {
-    "type": "number",
-    "value": 12
-  },
-  "equipmentTypeCode": {
-    "type": "Text",
-    "value": "42"
-  },
-  "destinationStopCategory": {
-    "type": "Text",
-    "value": "Airport"
-  },
-  "transactionVehicleNum": {
-    "type": "number",
-    "value": 23
-  },
-  "fareForAdult": {
-    "type": "number",
-    "value": 4.5
-  },
-  "observationDateTime": {
-    "type": "DateTime",
-    "value": "1988-12-24T07:06:19Z"
-  },
-  "equipmentCompanyCode": {
-    "type": "Text",
-    "value": "103"
-  },
-  "transactionTypeDescription": {
-    "type": "Text",
-    "value": "Regular Fare."
-  },
-  "exitAreaCode": {
-    "type": "Text",
-    "value": "city-bus-service"
-  },
-  "equipmentType": {
-    "type": "Text",
-    "value": "Entry sensor"
-  },
-  "equipmentStopId": {
-    "type": "Text",
-    "value": "BRTS-Sen-23"
-  },
-  "originStopId": {
-    "type": "Text",
-    "value": "9"
-  },
-  "@context": [
-    "https://smartdatamodels.org/context.jsonld"
-  ]
+  "caseSensitiveHeader": {
+    "type": "boolean",
+    "value": true
+  }
 }
+
+
 
 """
 
