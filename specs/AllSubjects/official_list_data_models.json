@@ -1010,6 +1010,10 @@
       "repoName": "dataModel.CallComplaints",
       "repoLink": "https://github.com/smart-data-models/dataModel.CallComplaints.git",
       "dataModels": [
+        "CallUser",
+        "Complaint",
+        "ComplaintsCollection",
+        "ComplaintsOrganization"
       ],
       "domains": [
         "CrossSector"
@@ -1028,7 +1032,7 @@
         "CrossSector"
       ]
     },
-     {
+    {
       "repoName": "dataModel.Machine",
       "repoLink": "https://github.com/smart-data-models/dataModel.Machine.git",
       "dataModels": [
