@@ -137,118 +137,156 @@ keyvaluesPayload = """
 
 normalizedPayload = """
 {
-  "id": "urn:ngsi-ld:DataServiceDCAT-AP:id:JBDJ:56257192",
-  "type": "DataServiceDCAT-AP",
-  "dateCreated": {
-    "type": "DateTime",
-    "value": "2020-10-28T04:19:29Z"
-  },
-  "dateModified": {
-    "type": "DateTime",
-    "value": "2021-10-06T16:31:26Z"
-  },
-  "source": {
-    "type": "Text",
-    "value": ""
-  },
-  "name": {
-    "type": "Text",
-    "value": ""
-  },
-  "alternateName": {
-    "type": "Text",
-    "value": ""
-  },
-  "description": {
-    "type": "Text",
-    "value": "Data service for the solar system open data portal."
-  },
-  "dataProvider": {
-    "type": "Text",
-    "value": "European open data portal"
-  },
-  "owner": {
-    "type": "array",
-    "value": [
-      "urn:ngsi-ld:DataServiceDCAT-AP:items:HGSY:92686457",
-      "urn:ngsi-ld:DataServiceDCAT-AP:items:JCJR:29622597"
-    ]
-  },
-  "seeAlso": {
-    "type": "array",
-    "value": [
-      "urn:ngsi-ld:DataServiceDCAT-AP:items:JDKD:53476147",
-      "urn:ngsi-ld:DataServiceDCAT-AP:items:XVJQ:09725114"
-    ]
-  },
-  "location": {
-    "type": "geo:json",
-    "value": {
-      "type": "Point",
-      "coordinates": [
-        72.564509,
-        11.125289
-      ]
+    "@context": [
+        "https://forge.etsi.org/gitlab/NGSI-LD/NGSI-LD/raw/master/coreContext/ngsi-ld-core-context.json",
+        "https://raw.githubusercontent.com/GSMADeveloper/NGSI-LD-Entities/master/examples/Machine-context.jsonld"
+    ],
+    "id": "urn:ngsi-ld:Machine:9166c528-9c98-4579-a5d3-8068aea5d6c0",
+    "type": "Machine",
+    "createdAt": "2017-01-01T01:20:00Z",
+    "modifiedAt": "2017-05-04T12:30:00Z",
+    "source": "https://source.example.com",
+    "dataProvider": "https://provider.example.com",
+    "entityVersion": 2.0,
+    "machineModel": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:MachineModel:00b42701-43e1-482d-aa7a-e2956cfd69c3"
+    },
+    "serialNumber": {
+        "type": "Property",
+        "value": "X9923456789F"
+    },
+    "assetIdentifier": {
+        "type": "Property",
+        "value": "ID12345"
+    },
+    "supplierName": {
+        "type": "Property",
+        "value": "ACME NorthEast Inc."
+    },
+    "countryOfManufacture": {
+        "type": "Property",
+        "value": "UK"
+    },
+    "factory": {
+        "type": "Property",
+        "value": "N9"
+    },
+    "firstUsedAt": {
+        "type": "Property",
+        "value": "2017-05-04T10:18:16Z"
+    },
+    "installedAt": {
+        "type": "Property",
+        "value": "2017-05-04T10:18:16Z"
+    },
+    "manufacturedAt": {
+        "type": "Property",
+        "value": "2017-05-04T10:18:16Z"
+    },
+    "description": {
+        "type": "Property",
+        "value": "Industrial machine to create plastic bottles"
+    },
+    "owner": {
+        "type": "Relationship",
+        "object": [
+            "urn:ngsi-ld:Person:a498182c-47c0-11e8-be4e-2c4d549a1ab2",
+            "urn:ngsi-ld:Organization:abb20712-47c0-11e8-8742-2c4d549a1ab2"
+        ]
+    },
+    "hardwareVersion": {
+        "type": "Property",
+        "value": "2.1"
+    },
+    "firmwareVersion": {
+        "type": "Property",
+        "value": "A.10"
+    },
+    "softwareVersion": {
+        "type": "Property",
+        "value": "8.5.C"
+    },
+    "osVersion": {
+        "type": "Property",
+        "value": "10A"
+    },
+    "supportedProtocols": {
+        "type": "Property",
+        "value": [
+            "HTTP",
+            "HTTPS",
+            "FTP"
+        ],
+        "observedAt": "2017-05-04T12:30:00Z"
+    },
+    "building": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:Building:8683b757-649c-49e0-ac89-ad392c9a0d0c"
+    },
+    "location": {
+        "type": "GeoProperty",
+        "value": {
+            "type": "Point",
+            "coordinates": [
+                -104.99404,
+                39.75621
+            ]
+        }
+    },
+    "subscriptionServices": {
+        "type": "Relationship",
+        "object": [
+            "urn:ngsi-ld:SubscriptionService:0d95b03c-47c1-11e8-99fd-2c4d549a1ab2",
+            "urn:ngsi-ld:SubscriptionService:1527d0fa-47c1-11e8-8fb1-2c4d549a1ab2"
+        ]
+    },
+    "online": {
+        "type": "Property",
+        "value": true,
+        "observedAt": "2017-05-04T12:30:00Z"
+    },
+    "status": {
+        "type": "Property",
+        "value": "SC1001",
+        "observedAt": "2017-05-04T12:30:00Z"
+    },
+    "batteryLevel": {
+        "type": "Property",
+        "value": 0.7,
+        "observedAt": "2017-05-04T12:30:00Z"
+    },
+    "installationNotes": {
+        "type": "Property",
+        "value": {
+            "value": "Installed according to manufacturer instructions.",
+            "docUri": "http://example.com/sample/machine-instructions.pdf"
+        }
+    },
+    "voltage": {
+        "type": "Property",
+        "value": 220,
+        "unitCode": "VLT",
+        "observedAt": "2016-08-08T10:18:16Z"
+    },
+    "current": {
+        "type": "Property",
+        "value": 20,
+        "unitCode": "AMP",
+        "observedAt": "2016-08-08T10:18:16Z"
+    },
+    "power": {
+        "type": "Property",
+        "value": 4.4,
+        "unitCode": "KWT",
+        "observedAt": "2016-08-08T10:18:16Z"
+    },
+    "rotationalSpeed": {
+        "type": "Property",
+        "value": 10,
+        "unitCode": "RPM",
+        "observedAt": "2016-08-08T10:18:16Z"
     }
-  },
-  "address": {
-    "type": "PostalAddress",
-    "value": {
-      "streetAddress": "2, rue Mercier",
-      "addressLocality": "Luxembourg",
-      "addressRegion": "Luxembourg",
-      "addressCountry": "Luxembourg",
-      "postalCode": "2985",
-      "postOfficeBoxNumber": ""
-    }
-  },
-  "areaServed": {
-    "type": "Text",
-    "value": "European union and beyond"
-  },
-  "endPointURL": {
-    "type": "array",
-    "value": [
-      "urn:ngsi-ld:DataServiceDCAT-AP:items:AFGI:79071729",
-      "urn:ngsi-ld:DataServiceDCAT-AP:items:JAZP:97999812"
-    ]
-  },
-  "title": {
-    "type": "array",
-    "value": [
-      "Data service of the european open data portal",
-      "Data service del portal europeo de datos abiertos"
-    ]
-  },
-  "endPointDescription": {
-    "type": "array",
-    "value": [
-      "SPARQL end point without authentication",
-      "API compliant with CKAN specification"
-    ]
-  },
-  "servesDataset": {
-    "type": "array",
-    "value": [
-      "EU geographic map",
-      "EU physical map"
-    ]
-  },
-  "accessRights": {
-    "type": "Text",
-    "value": "No restrictions to access the data but APi requests limit, 5000 requests per hour"
-  },
-  "dataServiceDescription": {
-    "type": "array",
-    "value": [
-      "Digital resources for accessing to the end points of the EU open data portal for solar system.",
-      "Recursos digitales para el acceso a los puntos de interacción del portal europeo de datos abiertos del sistema solar."
-    ]
-  },
-  "license": {
-    "type": "Text",
-    "value": "EUPL."
-  }
 }
 """
 

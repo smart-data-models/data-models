@@ -442,20 +442,24 @@
           "description": "Property. Model:'https://schema.org/ContactPoint'. The details to contact with the item.",
           "properties": {
             "contactType": {
-              "type": "string"
+              "type": "string",
+              "description": "Property. Contact type of this item."
             },
             "email": {
               "$ref": "#/definitions/email"
             },
             "telephone": {
-              "type": "string"
+              "type": "string",
+              "description": "Property. Telephone of this contact."
             },
             "name": {
-              "type": "string"
+              "type": "string",
+              "description": "Property. The name of this item."
             },
             "url": {
               "type": "string",
-              "format": "uri"
+              "format": "uri",
+              "description": "Property. URL which provides a description or further information about this item."
             }
           }
         }

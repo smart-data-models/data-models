@@ -1027,6 +1027,16 @@
       "domains": [
         "CrossSector"
       ]
+    },
+     {
+      "repoName": "dataModel.Machine",
+      "repoLink": "https://github.com/smart-data-models/dataModel.Machine.git",
+      "dataModels": [
+        ""
+      ],
+      "domains": [
+        "SmartManufacturing"
+      ]
     }
   ]
 }
