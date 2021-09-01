@@ -1,5 +1,5 @@
 {
-  "udpatedDate": "2021-08-23T16:44:00.31416",
+  "udpatedDate": "2021-09-01T16:06:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -240,6 +240,7 @@
       "repoName": "dataModel.IssueTracking",
       "repoLink": "https://github.com/smart-data-models/dataModel.IssueTracking.git",
       "dataModels": [
+        "IssueReporting",
         "Open311_ServiceRequest",
         "Open311_ServiceType"
       ],
@@ -1040,6 +1041,16 @@
       ],
       "domains": [
         "SmartManufacturing"
+      ]
+    },
+    {
+      "repoName": "dataModel.GBFS",
+      "repoLink": "https://github.com/smart-data-models/dataModel.GBFS.git",
+      "dataModels": [
+        ""
+      ],
+      "domains": [
+        "SmartCities"
       ]
     }
   ]
