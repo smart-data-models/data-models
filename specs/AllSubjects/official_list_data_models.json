@@ -1,5 +1,5 @@
 {
-  "udpatedDate": "2021-09-01T16:06:00.31416",
+  "udpatedDate": "2021-09-03T14:24:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -216,6 +216,7 @@
         "Camera",
         "Device",
         "DeviceModel",
+        "Measurement",
         "PrivacyObject",
         "SmartMeteringObservation"
       ],
