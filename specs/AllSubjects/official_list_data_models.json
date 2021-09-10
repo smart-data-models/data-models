@@ -216,7 +216,7 @@
         "Camera",
         "Device",
         "DeviceModel",
-        "Measurement",
+        "DeviceMeasurement",
         "PrivacyObject",
         "SmartMeteringObservation"
       ],
