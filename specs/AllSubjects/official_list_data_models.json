@@ -215,8 +215,8 @@
       "dataModels": [
         "Camera",
         "Device",
-        "DeviceModel",
         "DeviceMeasurement",
+        "DeviceModel",
         "PrivacyObject",
         "SmartMeteringObservation"
       ],
