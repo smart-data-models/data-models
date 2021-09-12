@@ -496,7 +496,7 @@
       }
     },
     "TMForum-Commons": {
-      "description": "Property. All properties to allow interoperability with TMForum APIs",
+      "description": "Property. All properties to allow interoperability with TMForum Open-APIs",
       "properties": {
         "Addressable": {
           "type": "object",
@@ -510,6 +510,25 @@
             "id": {
               "type": "string",
               "description": "unique identifier"
+            }
+          }
+        },
+        "Extensible": {
+          "type": "object",
+          "description": "Base Extensible schema for use in TMForum Open-APIs",
+          "properties": {
+            "@schemaLocation": {
+              "type": "string",
+              "format": "uri",
+              "description": "A URI to a JSON-Schema file that defines additional attributes and relationships"
+            },
+            "@baseType": {
+              "type": "string",
+              "description": "When sub-classing, this defines the super-class"
+            },
+            "@type": {
+              "type": "string",
+              "description": "When sub-classing, this defines the sub-class Extensible name"
             }
           }
         }
