@@ -494,6 +494,26 @@
           }
         }
       }
+    },
+    "TMForum-Commons": {
+      "description": "Property. All properties to allow interoperability with TMForum APIs",
+      "properties": {
+        "Addressable": {
+          "type": "object",
+          "description": "Base schema for addressable entities",
+          "properties": {
+            "href": {
+              "type": "string",
+              "format": "uri",
+              "description": "Hyperlink reference"
+            },
+            "id": {
+              "type": "string",
+              "description": "unique identifier"
+            }
+          }
+        }
+      }
     }
   }
 }
