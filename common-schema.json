@@ -495,7 +495,7 @@
         }
       }
     },
-    "TMForum-Commons": {
+    "Extensible-Commons": {
       "description": "Property. All properties to allow interoperability with TMForum Open-APIs",
       "properties": {
         "Addressable": {
@@ -530,6 +530,12 @@
               "type": "string",
               "description": "When sub-classing, this defines the sub-class Extensible name"
             }
+          },
+          "dependencies": {
+            "@schemaLocation": [
+              "@baseType",
+              "@type"
+            ]
           }
         }
       }
