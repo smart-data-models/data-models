@@ -1,0 +1,52 @@
+{
+  "@context": {
+    "@baseType": "",
+    "@schemaLocation": "",
+    "@vocab": "https://uri.etsi.org/ngsi-ld/default-context/",
+    "Addressable": "",
+    "Date": "https://uri.etsi.org/ngsi-ld/Date",
+    "DateTime": "https://uri.etsi.org/ngsi-ld/DateTime",
+    "additionalName": "",
+    "address": "https://schema.org/address",
+    "alternateName": "https://schema.org/alternateName",
+    "annotations": "https://smart-data-models.github.io/data-models/terms.jsonld#/definitions/annotations",
+    "color": "https://smart-data-models.github.io/data-models/terms.jsonld#/definitions/color",
+    "contactPoint": "https://smart-data-models.github.io/data-models/terms.jsonld#/definitions/contactPoint",
+    "dataProvider": "https://smart-data-models.github.io/data-models/terms.jsonld#/definitions/dataProvider",
+    "dateCreated": "https://smart-data-models.github.io/data-models/terms.jsonld#/definitions/dateCreated",
+    "dateModified": "https://smart-data-models.github.io/data-models/terms.jsonld#/definitions/dateModified",
+    "dateObserved": "https://smart-data-models.github.io/data-models/terms.jsonld#/definitions/dateObserved",
+    "dateObservedFrom": "https://smart-data-models.github.io/data-models/terms.jsonld#/definitions/dateObservedFrom",
+    "dateObservedTo": "https://smart-data-models.github.io/data-models/terms.jsonld#/definitions/dateObservedTo",
+    "description": "https://uri.etsi.org/ngsi-ld/description",
+    "email": "https://smart-data-models.github.io/data-models/terms.jsonld#/definitions/email",
+    "familyName": "",
+    "givenName": "",
+    "href": "",
+    "image": "https://schema.org/image",
+    "location": "http://uri.etsi.org/ngsi-ld/location",
+    "name": "https://uri.etsi.org/ngsi-ld/name",
+    "openingHours": "https://schema.org/openingHours",
+    "openingHoursSpecification": "https://smart-data-models.github.io/data-models/terms.jsonld#/definitions/openingHoursSpecification",
+    "owner": "https://smart-data-models.github.io/data-models/terms.jsonld#/definitions/owner",
+    "seeAlso": "https://uri.fiware.org/ns/data-models#seeAlso",
+    "source": "https://smart-data-models.github.io/data-models/terms.jsonld#/definitions/source",
+    "tag": "https://smart-data-models.github.io/data-models/terms.jsonld#/definitions/tag",
+    "telephone": "https://smart-data-models.github.io/data-models/terms.jsonld#/definitions/telephone",
+    "uri": "https://uri.etsi.org/ngsi-ld/uri",
+    "url": "https://smart-data-models.github.io/data-models/terms.jsonld#/definitions/url"
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
