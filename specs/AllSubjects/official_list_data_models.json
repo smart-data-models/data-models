@@ -1049,7 +1049,8 @@
       "repoName": "dataModel.GBFS",
       "repoLink": "https://github.com/smart-data-models/dataModel.GBFS.git",
       "dataModels": [
-        "free_bike_status"
+        "free_bike_status",
+        "gbfs"
       ],
       "domains": [
         "SmartCities"
