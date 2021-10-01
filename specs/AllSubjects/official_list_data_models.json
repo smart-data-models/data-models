@@ -1050,7 +1050,18 @@
       "repoLink": "https://github.com/smart-data-models/dataModel.GBFS.git",
       "dataModels": [
         "free_bike_status",
-        "gbfs"
+        "gbfs",
+        "gbfs_versions",
+        "geofencing_zones",
+        "station_information",
+        "station_status",
+        "system_alerts",
+        "system_calendar",
+        "system_hours",
+        "system_information",
+        "system_pricing_plans",
+        "system_regions",
+        "vehicle_types"
       ],
       "domains": [
         "SmartCities"
