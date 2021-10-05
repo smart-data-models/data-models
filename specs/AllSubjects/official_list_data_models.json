@@ -1,5 +1,5 @@
 {
-  "udpatedDate": "2021-10-01T19:34:00.31416",
+  "udpatedDate": "2021-10-05T19:14:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -891,7 +891,10 @@
       "repoLink": "https://github.com/smart-data-models/dataModel.OpenChannelManagement.git",
       "dataModels": [
         "CrossSection",
-        "OpenChannel"
+        "OpenChannel",
+        "OpenChannelFlowRegulation",
+        "RegulationStructureSimulation",
+        "SpillWay"
       ],
       "domains": [
         "SmartWater"
