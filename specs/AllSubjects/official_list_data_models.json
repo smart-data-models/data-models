@@ -894,7 +894,7 @@
         "OpenChannel",
         "OpenChannelFlowRegulation",
         "RegulationStructureSimulation",
-        "SpillWay"
+        "Spillway"
       ],
       "domains": [
         "SmartWater"
