@@ -892,8 +892,13 @@
       "dataModels": [
         "CrossSection",
         "OpenChannel",
+        "OpenChannelCurve",
         "OpenChannelFlowRegulation",
+        "OpenChannelJunction",
+        "OpenChannelSystem",
+        "RegulationStructure",
         "RegulationStructureSimulation",
+        "SluiceGate",
         "Spillway"
       ],
       "domains": [
