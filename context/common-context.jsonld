@@ -1,0 +1,26 @@
+{
+    "@context": {
+        "Addressable": "https://smartdatamodels.org/Addressable",
+        "EntityIdentifierType": "https://smartdatamodels.org/EntityIdentifierType",
+        "Extensible": "https://smartdatamodels.org/Extensible",
+        "address": "https://smartdatamodels.org/address",
+        "alternateName": "https://smartdatamodels.org/alternateName",
+        "annotations": "https://smartdatamodels.org/annotations",
+        "areaServed": "https://smartdatamodels.org/areaServed",
+        "color": "https://smartdatamodels.org/color",
+        "contactPoint": "https://smartdatamodels.org/contactPoint",
+        "dataProvider": "https://smartdatamodels.org/dataProvider",
+        "dateCreated": "https://smartdatamodels.org/dateCreated",
+        "dateModified": "https://smartdatamodels.org/dateModified",
+        "description": "http://purl.org/dc/terms/description",
+        "id": "@id",
+        "image": "https://smartdatamodels.org/image",
+        "location": "ngsi-ld:location",
+        "name": "https://smartdatamodels.org/name",
+        "openingHoursSpecification": "https://smartdatamodels.org/openingHoursSpecification",
+        "owner": "https://smartdatamodels.org/owner",
+        "person": "https://smartdatamodels.org/person",
+        "seeAlso": "https://smartdatamodels.org/seeAlso",
+        "source": "https://smartdatamodels.org/source"
+    }
+}
