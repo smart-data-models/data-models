@@ -436,6 +436,7 @@
     },
     "Contact-Commons": {
       "description": "Property. All contact elements in data models unless explicitly stated according to schema.org",
+      "type": "object",
       "properties": {
         "contactPoint": {
           "type": "object",
@@ -467,6 +468,7 @@
     },
     "Person-Commons": {
       "description": "Property. All properties to identify a person according to schema.org",
+      "type": "object",
       "properties": {
         "person": {
           "type": "object",
@@ -497,6 +499,7 @@
     },
     "Extensible-Commons": {
       "description": "Property. All properties to allow interoperability with TMForum Open-APIs",
+      "type": "object",
       "properties": {
         "Addressable": {
           "type": "object",
