@@ -33,7 +33,7 @@
       "type": "string",
       "description": "Property. Model:'https://schema.org/Text'. An optional text string used to qualify an item"
     },
-    "timeStamp": {
+    "timeInstant": {
       "type": "string",
       "format": "date-time",
       "description": "Property. Model:'https://schema.org/Datetime'. Timestamp of the payload . There can be production environments where the attribute type is equal to the `ISO8601` string. If so, it must be considered as a synonym of `DateTime`. This attribute is kept for backwards compatibility with old FIWARE reference implementations."
