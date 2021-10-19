@@ -12,7 +12,10 @@
         "dataProvider": "https://smartdatamodels.org/dataProvider",
         "dateCreated": "https://smartdatamodels.org/dateCreated",
         "dateModified": "https://smartdatamodels.org/dateModified",
+        "dateObserved": "https://smartdatamodels.org/dateObserved",
+        "dateYearLess": "https://smartdatamodels.org/dateYearLess",
         "description": "http://purl.org/dc/terms/description",
+        "email": "https://smartdatamodels.org/email",
         "id": "@id",
         "image": "https://smartdatamodels.org/image",
         "location": "ngsi-ld:location",
@@ -21,6 +24,9 @@
         "owner": "https://smartdatamodels.org/owner",
         "person": "https://smartdatamodels.org/person",
         "seeAlso": "https://smartdatamodels.org/seeAlso",
-        "source": "https://smartdatamodels.org/source"
+        "source": "https://smartdatamodels.org/source",
+        "tag": "https://smartdatamodels.org/tag",
+        "timeInstant": "https://smartdatamodels.org/timeInstant",
+        "userAlias": "https://smartdatamodels.org/userAlias"
     }
 }
