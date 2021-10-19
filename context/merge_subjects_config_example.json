@@ -1,0 +1,6 @@
+{
+  "dataModel.Battery": "https://raw.githubusercontent.com/smart-data-models/dataModel.Battery/master/context.jsonld",
+  "dataModel.Building": "https://raw.githubusercontent.com/smart-data-models/dataModel.Building/master/context.jsonld",
+  "dataModel.Device": "https://raw.githubusercontent.com/smart-data-models/dataModel.Device/master/context.jsonld",
+  "dataModel.Weather": "https://raw.githubusercontent.com/smart-data-models/dataModel.Weather/master/context.jsonld"
+}
