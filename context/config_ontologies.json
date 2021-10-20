@@ -1,0 +1,4 @@
+{
+  "etsi": "https://raw.githubusercontent.com/smart-data-models/data-models/master/context/ontologies_files/ngsi-ld-core-context.jsonld#1.4",
+  "schema.org": "https://raw.githubusercontent.com/smart-data-models/data-models/master/context/ontologies_files/schema.org.json#1.0"
+}
