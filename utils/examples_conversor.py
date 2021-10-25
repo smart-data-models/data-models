@@ -84,53 +84,16 @@ def keyvalues2normalized(keyvaluesPayload):
 
 keyvaluesPayload = """
 {
-  "id": "urn:ngsi-ld:CatalogueRecordDCAT-AP:id:KFTL:88140679",
-  "dateCreated": "2020-11-02T21:25:54Z",
-  "dateModified": "2021-07-02T18:37:55Z",
-  "source": "",
-  "name": "",
-  "alternateName": "",
-  "description": "Catalogue record of the solar system open data portal",
-  "dataProvider": "european open data portal",
-  "owner": [
-    "urn:ngsi-ld:CatalogueRecordDCAT-AP:items:ISXP:07320625",
-    "urn:ngsi-ld:CatalogueRecordDCAT-AP:items:BQMW:23610768"
-  ],
-  "seeAlso": [
-    "urn:ngsi-ld:CatalogueRecordDCAT-AP:items:FVCU:03753474",
-    "urn:ngsi-ld:CatalogueRecordDCAT-AP:items:AIEC:73224831"
-  ],
-  "location": {
-    "type": "Point",
-    "coordinates": [
-      36.633152,
-      -85.183315
-    ]
-  },
-  "address": {
-    "streetAddress": "2, rue Mercier",
-    "addressLocality": "Luxembourg",
-    "addressRegion": "Luxembourg",
-    "addressCountry": "Luxembourg",
-    "postalCode": "2985",
-    "postOfficeBoxNumber": ""
-  },
-  "areaServed": "European Union and beyond",
-  "type": "CatalogueRecordDCAT-AP",
-  "primaryTopic": "Public administration",
-  "modificationDate": "2021-07-02T18:37:55Z",
-  "applicationProfile": "DCAT Application profile for data portals in Europe",
-  "changeType": "First version",
-  "listingDate": "2021-07-02T18:37:55Z",
-  "language": [
-    "EN",
-    "ES"
-  ],
-  "sourceMetadata": "",
-  "title": [
-    "Example of catalogue record",
-    "Ejemplo de registro de catálogo"
-  ]
+  	"id":"https://smart-data-models.github.io/dataModel.Transportation/TrafficViolations/schema.json",
+    "type": "TrafficViolation",
+	"amountCollected": 10500,
+    "mediaURL": "https://www.google.com/",
+	"equipmentID": "4",
+	"equipmentType": "Camera",
+	"titleCode": "11",
+	"reportID": "182",
+	"observationDateTime": "2021-03-11T15:51:02+05:30",
+    "paymentStatus":"Paid"
 }
 """
 
@@ -290,5 +253,5 @@ normalizedPayload = """
 }
 """
 
-normalized2keyvalues(normalizedPayload)
-# keyvalues2normalized(keyvaluesPayload)
+# normalized2keyvalues(normalizedPayload)
+keyvalues2normalized(keyvaluesPayload)
