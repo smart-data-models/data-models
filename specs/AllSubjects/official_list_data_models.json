@@ -186,6 +186,7 @@
         "RoadSegment",
         "SpecialRestriction",
         "TrafficFlowObserved",
+        "TrafficViolation",
         "TransportStation",
         "Vehicle",
         "VehicleModel"
