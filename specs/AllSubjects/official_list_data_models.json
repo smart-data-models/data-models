@@ -871,6 +871,7 @@
         "Blower",
         "OffGasStack",
         "WasteWaterJunction",
+        "WasteWaterSimulationResults",
         "WasteWaterTank"
       ],
       "domains": [
