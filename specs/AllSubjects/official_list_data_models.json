@@ -1049,7 +1049,7 @@
       "repoName": "dataModel.Machine",
       "repoLink": "https://github.com/smart-data-models/dataModel.Machine.git",
       "dataModels": [
-        ""
+        "Machine"
       ],
       "domains": [
         "SmartManufacturing"
