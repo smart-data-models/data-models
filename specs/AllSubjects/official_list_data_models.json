@@ -1,5 +1,5 @@
 {
-  "udpatedDate": "2021-10-05T19:14:00.31416",
+  "udpatedDate": "2021-10-29T18:22:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -1046,10 +1046,10 @@
       ]
     },
     {
-      "repoName": "dataModel.Machine",
-      "repoLink": "https://github.com/smart-data-models/dataModel.Machine.git",
+      "repoName": "dataModel.ManufacturingMachine",
+      "repoLink": "https://github.com/smart-data-models/dataModel.ManufacturingMachine.git",
       "dataModels": [
-        "Machine"
+        "ManufacturingMachine"
       ],
       "domains": [
         "SmartManufacturing"
