@@ -30,6 +30,7 @@
     "dataModel.PointOfInteraction": "https://raw.githubusercontent.com/smart-data-models/dataModel.PointOfInteraction/master/context.jsonld",
     "dataModel.PointOfInterest": "https://raw.githubusercontent.com/smart-data-models/dataModel.PointOfInterest/master/context.jsonld",
     "dataModel.Ports": "https://raw.githubusercontent.com/smart-data-models/dataModel.Ports/master/context.jsonld",
+    "dataModel.PublicAccountability": "https://raw.githubusercontent.com/smart-data-models/dataModel.PublicAccountability/master/context.jsonld",
     "dataModel.QueueManagement": "https://raw.githubusercontent.com/smart-data-models/dataModel.QueueManagement/master/context.jsonld",
     "dataModel.RiskManagement": "https://raw.githubusercontent.com/smart-data-models/dataModel.RiskManagement/master/context.jsonld",
     "dataModel.RoboticIndustrialActivities": "https://raw.githubusercontent.com/smart-data-models/dataModel.RoboticIndustrialActivities/master/context.jsonld",
