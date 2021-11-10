@@ -1076,6 +1076,16 @@
       "domains": [
         "SmartCities"
       ]
+    },
+    {
+      "repoName": "dataModel.PublicAccountability",
+      "repoLink": "https://github.com/smart-data-models/dataModel.PublicAccountability.git",
+      "dataModels": [
+        "RevenueCollection"
+      ],
+      "domains": [
+        "CrossSector"
+      ]
     }
   ]
 }

@@ -84,16 +84,27 @@ def keyvalues2normalized(keyvaluesPayload):
 
 keyvaluesPayload = """
 {
-  	"id":"https://smart-data-models.github.io/dataModel.Transportation/TrafficViolations/schema.json",
-    "type": "TrafficViolation",
-	"amountCollected": 10500,
-    "mediaURL": "https://www.google.com/",
-	"equipmentID": "4",
-	"equipmentType": "Camera",
-	"titleCode": "11",
-	"reportID": "182",
-	"observationDateTime": "2021-03-11T15:51:02+05:30",
-    "paymentStatus":"Paid"
+  "id": "https://smart-data-models.github.io/SmartCities/RevenueCollection/schema.json",
+  "type": "RevenueCollection",
+  "totalCount": 436,
+  "registrationCertificateRecoveryAmount": 10400,
+  "enrollmentCertificateRecoveryAmount": 8400,
+  "year": "2020",
+  "dateObserved": "2021-11-10T01:16:01Z",
+  "month": "02",
+  "revenueCollectionType": "Property Tax",
+  "vehicleTypeCode": "2",
+  "amountCollected": 20400,
+  "vehicleType": "motorcycle",
+  "municipalityInfo": {
+    "district": "Bangalore Urban",
+    "ulbName": "BMC",
+    "cityID": "23",
+    "stateName": "Karnataka",
+    "cityName": "Bangalore",
+    "zoneID": "2",
+    "wardNum": 4
+  }
 }
 """
 
