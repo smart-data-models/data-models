@@ -1,0 +1,25 @@
+{
+  "1.0": {
+    "source": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/source",
+    "dataProvider": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/dataprovider",
+    "entityVersion": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/entityversion",
+    "vehicle": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/vehicle",
+    "eventType": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/eventtype",
+    "location": "http://uri.etsi.org/ngsi-ld/location",
+    "processingType": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/processingtype",
+    "resolvedAt": {
+      "@type": "DateTime",
+      "@id": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/resolvedat"
+    },
+    "dtCode": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/dtcode",
+    "faultLog": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/faultlog",
+    "dateIdentified": {
+      "@type": "DateTime",
+      "@id": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/dateidentified"
+    },
+    "dateProcessed": {
+      "@type": "DateTime",
+      "@id": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/dateprocessed"
+    }
+  }
+}
