@@ -1,5 +1,6 @@
 {
   "1.0": {
+    "airQualityObserved": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/airqualityobserved",
     "dataProvider": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/dataprovider",
     "dateIdentified": {
       "@type": "DateTime",
@@ -14,12 +15,15 @@
     "eventType": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/eventtype",
     "faultLog": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/faultlog",
     "location": "http://uri.etsi.org/ngsi-ld/location",
+    "pointOfOInterest": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/pointofInterest",
     "processingType": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/processingtype",
     "resolvedAt": {
       "@type": "DateTime",
       "@id": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/resolvedat"
     },
     "vehicle": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/vehicle",
-    "source": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/source"
+    "source": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/source",
+    "waterQualityObserved": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/waterqualityobserved",
+    "weatherObserved": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/weatherobserved"
   }
 }
