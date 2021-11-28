@@ -16,7 +16,12 @@
     "cdom": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/cdom",
     "conductance": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/conductance",
     "conductivity": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/conductivity",
+    "commandSequence": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/commandsequence",
     "dataProvider": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/dataprovider",
+    "dateFinished": {
+      "@type": "DateTime",
+      "@id": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/datefinished"
+    },
     "dateIdentified": {
       "@type": "DateTime",
       "@id": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/dateidentified"
@@ -29,39 +34,80 @@
       "@type": "DateTime",
       "@id": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/dateprocessed"
     },
+    "dateStarted": {
+      "@type": "DateTime",
+      "@id": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/datestarted"
+    },
     "depth": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/depth",
     "device": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/devices",
     "documentation": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/documentation",
-    "dtCode": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/dtcode",
-    "entityVersion": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/entityversion",
-    "eventType": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/eventtype",
-    "faultLog": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/faultlog",
-    "location": "http://uri.etsi.org/ngsi-ld/location",
-    "machineModelChildren": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/machinemodelchildren",
-    "machineModelParent": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/machinemodelparent",
-    "manufacturerName": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/manufacturername",
-    "manufacturingMachineType": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/manufacturingMachineType",
-    "orp": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/orp",
-    "pH": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/ph",
-    "pointOfOInterest": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/pointofInterest",
-    "pressure": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/pressure",
-    "processDescription": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/processdescription",
-    "processingType": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/processingtype",
-    "resolvedAt": {
+    "endedAt": {
       "@type": "DateTime",
-      "@id": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/resolvedat"
+      "@id": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/endedat"
     },
-    "root": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/root",
-    "salinity": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/salinity",
-    "source": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/source",
-    "standardOperations": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/standardoperations",
-    "temperature": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/temperature",
-    "tss": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/tss",
-    "tds": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/tds",
-    "turbidity": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/turbidity",
-    "vehicle": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/vehicle",
-    "version": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/version",
-    "waterQualityObserved": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/waterqualityobserved",
-    "weatherObserved": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/weatherobserved"
-  }
+    "endDate": {
+      "@type": "DateTime",
+      "@id": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/enddate"
+    },
+    "dtCode": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/dtcode",
+    "@type": "DateTime",
+    "@id": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/endedat"
+  },
+  "eventType": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/eventtype",
+  "faultLog": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/faultlog",
+  "location": "http://uri.etsi.org/ngsi-ld/location",
+  "machine": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/machine",
+  "machineModelChildren": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/machinemodelchildren",
+  "machineModelParent": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/machinemodelparent",
+  "manufacturerName": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/manufacturername",
+  "manufacturingMachineType": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/manufacturingMachineType",
+  "operationOutput": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/operationoutput",
+  "operationType": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/operationtype",
+  "operator": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/operator",
+  "orp": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/orp",
+  "pH": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/ph",
+  "plannedStartAt": {
+    "@type": "DateTime",
+    "@id": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/plannedstartat"
+  },
+  "plannedEndAt": {
+    "@type": "DateTime",
+    "@id": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/plannedendat"
+  },
+  "pointOfOInterest": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/pointofInterest",
+  "pressure": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/pressure",
+  "processDescription": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/processdescription",
+  "processingType": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/processingtype",
+  "resolvedAt": {
+    "@type": "DateTime",
+    "@id": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/resolvedat"
+  },
+  "result": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/result",
+  "root": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/root",
+  "salinity": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/salinity",
+  "source": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/source",
+  "standardOperations": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/standardoperations",
+  "startDate": {
+    "@type": "DateTime",
+    "@id": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/startdate"
+  },
+  "startedAt": {
+    "@type": "DateTime",
+    "@id": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/startedat"
+  },
+  "status": "http://uri.etsi.org/ngsi-ld/status",
+  "temperature": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/temperature",
+  "tss": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/tss",
+  "tds": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/tds",
+  "turbidity": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/turbidity",
+  "vehicle": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/vehicle",
+  "version": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/version",
+  "waterQualityObserved": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/waterqualityobserved",
+  "weatherObserved": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/weatherobserved"
 }
+
+
+
+
+
+
