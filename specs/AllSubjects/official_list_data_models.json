@@ -1052,7 +1052,8 @@
       "repoLink": "https://github.com/smart-data-models/dataModel.ManufacturingMachine.git",
       "dataModels": [
         "ManufacturingMachine",
-        "ManufacturingMachineModel"
+        "ManufacturingMachineModel",
+        "ManufacturingMachineOperation"
       ],
       "domains": [
         "SmartManufacturing"
