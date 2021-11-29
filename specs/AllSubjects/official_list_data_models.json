@@ -1092,7 +1092,7 @@
       ]
     },
     {
-      "repoName": " dataModel.UnmannedAerialVehicle",
+      "repoName": "dataModel.UnmannedAerialVehicle",
       "repoLink": "https://github.com/smart-data-models/dataModel.UnmannedAerialVehicle.git",
       "dataModels": [
         "UnmannedAerialVehicle"
