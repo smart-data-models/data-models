@@ -178,6 +178,7 @@
         "CrowdFlowObserved",
         "EVChargingStation",
         "FareCollectionSystem",
+        "FleetVehicle",
         "ItemFlowObserved",
         "RestrictedTrafficArea",
         "RestrictionException",
