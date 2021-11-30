@@ -179,6 +179,7 @@
         "EVChargingStation",
         "FareCollectionSystem",
         "FleetVehicle",
+        "FleetVehicleOperation",
         "ItemFlowObserved",
         "RestrictedTrafficArea",
         "RestrictionException",
