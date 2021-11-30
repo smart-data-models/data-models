@@ -1,5 +1,5 @@
 {
-  "udpatedDate": "2021-11-29T01:10:00.31416",
+  "udpatedDate": "2021-11-30T16:29:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -180,6 +180,7 @@
         "FareCollectionSystem",
         "FleetVehicle",
         "FleetVehicleOperation",
+        "FleetVehicleStatus",
         "ItemFlowObserved",
         "RestrictedTrafficArea",
         "RestrictionException",
