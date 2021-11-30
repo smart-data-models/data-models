@@ -1,5 +1,5 @@
 {
-  "udpatedDate": "2021-11-11T20:22:00.31416",
+  "udpatedDate": "2021-11-29T01:10:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -270,6 +270,7 @@
       "dataModels": [
         "Building",
         "BuildingOperation",
+        "BuildingType",
         "VibrationsObserved"
       ],
       "domains": [
