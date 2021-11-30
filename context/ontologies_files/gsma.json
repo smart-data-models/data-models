@@ -55,8 +55,19 @@
     "@type": "DateTime",
     "@id": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/endedat"
   },
+  "eventEnd": {
+    "@type": "DateTime",
+    "@id": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/eventend"
+  },
+  "eventStart": {
+    "@type": "DateTime",
+    "@id": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/eventstart"
+  },
   "eventType": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/eventtype",
   "faultLog": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/faultlog",
+  "fleetVehicle": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/fleetvehicle",
+  "fleetVehicleStatus": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/fleetvehiclestatus",
+  "initiatingLocation": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/initiatinglocation",
   "location": "http://uri.etsi.org/ngsi-ld/location",
   "machine": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/machine",
   "machineModelChildren": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/machinemodelchildren",
@@ -84,6 +95,7 @@
     "@type": "DateTime",
     "@id": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/resolvedat"
   },
+  "responseTime": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/responsetime",
   "result": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/result",
   "root": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/root",
   "salinity": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/salinity",
@@ -99,6 +111,7 @@
   },
   "status": "http://uri.etsi.org/ngsi-ld/status",
   "temperature": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/temperature",
+  "transportTime": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/transporttime",
   "tss": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/tss",
   "tds": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/tds",
   "turbidity": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/turbidity",
