@@ -13,6 +13,8 @@
     "PE": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/pe",
     "airQualityObserved": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/airqualityobserved",
     "brandName": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/brandname",
+    "buildingTypeChildren": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/buildingtypechildren",
+    "buildingTypeParent": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/buildingtypeparent",
     "cdom": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/cdom",
     "conductance": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/conductance",
     "conductivity": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/conductivity",
