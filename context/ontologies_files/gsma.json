@@ -61,6 +61,7 @@
       "@type": "DateTime",
       "@id": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/eventEnd"
     },
+    "eventResult": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/eventResult",
     "eventStart": {
       "@type": "DateTime",
       "@id": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/eventStart"
@@ -157,4 +158,3 @@
     "workStatus": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/workStatus"
   }
 }
-
