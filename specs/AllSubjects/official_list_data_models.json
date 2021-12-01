@@ -1,5 +1,5 @@
 {
-  "udpatedDate": "2021-12-01T18:29:00.31416",
+  "udpatedDate": "2021-12-01T19:32:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -1100,7 +1100,8 @@
       "repoLink": "https://github.com/smart-data-models/dataModel.UnmannedAerialVehicle.git",
       "dataModels": [
         "UnmannedAerialVehicle",
-        "UnmannedAerialVehicleADSB"
+        "UnmannedAerialVehicleADSB",
+        "UnmannedAerialVehicleModel"
       ],
       "domains": [
         "SmartAeronautics"
