@@ -1113,7 +1113,7 @@
       "repoName": "dataModel.OCF",
       "repoLink": "https://github.com/smart-data-models/dataModel.OCF.git",
       "dataModels": [
-        "Autofocus"
+        "AutoFocus"
       ],
       "domains": [
         "Smart-Sensoring"
