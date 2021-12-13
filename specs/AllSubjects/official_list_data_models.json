@@ -1,5 +1,5 @@
 {
-  "udpatedDate": "2021-12-11T16:40:00.31416",
+  "udpatedDate": "2021-12-13T15:32:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -237,6 +237,7 @@
         "Streetlight",
         "StreetlightControlCabinet",
         "StreetlightGroup",
+        "StreetlightFeeder",
         "StreetlightModel"
       ],
       "domains": [
