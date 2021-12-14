@@ -50,15 +50,16 @@ section.
 
 ## Attribute definition
 
--   Enumerate the allowed values for each attribute. Generally speaking it is a
+- Enumerate the allowed values for each attribute. Generally speaking it is a
     good idea to leave it open for applications to extend the list, provided the
     new value is not semantically covered by any of the existing ones.
 
--   State clearly what attributes are mandatory and what are optional. Remember
-    that `null` value should be avoided as it is prohibited in NGSI-LD. The minimum required 
-    attributes will make the data models more flexible for other to use them. 
-    
--   Internal attributes. In NGSIv2 there are two special attributes created by the system:
+- State clearly what attributes are mandatory and what are optional. Remember
+    that `null` value should be avoided as it is prohibited in NGSI-LD. The minimum required  attributes will make the data models more flexible for other to use them.
+
+- Whenever you create a list of enumerated values, use camelCase coding and strictly avoid spaces within the values (only allowed when mapping existing enumerated values)
+
+- Internal attributes. In NGSIv2 there are two special attributes created by the system:
     - dateCreated 
     - dateModified
     
