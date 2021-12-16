@@ -879,6 +879,7 @@
         "Blower",
         "OffGasStack",
         "WasteWaterJunction",
+        "WasteWaterPlant",
         "WasteWaterSimulationResult",
         "WasteWaterTank"
       ],
