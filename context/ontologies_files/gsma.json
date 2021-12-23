@@ -113,6 +113,8 @@
     "minUnladenWeight": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/minUnladenWeight",
     "minWeight": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/minWeight",
     "model": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/model",
+    "name": "https://schema.org/name",
+     "operationalInstance": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/operationalinstance",
     "operationMode": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/operationMode",
     "operationOutput": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/operationOutput",
     "operationType": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/operationType",
@@ -120,6 +122,7 @@
     "originatedByUnmannedAutonomousVehicle": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/originatedByUnmannedAutonomousVehicle",
     "originator": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/originator",
     "orp": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/orp",
+    "owner": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/owner",
     "pH": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/ph",
     "plannedStartAt": {
       "@type": "DateTime",
@@ -147,6 +150,7 @@
     "root": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/root",
     "rotors": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/rotors",
     "salinity": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/salinity",
+    "softwareApplication": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/softwareapplication",
     "source": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/source",
     "speed": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/speed",
     "standardOperations": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/standardOperations",
@@ -174,8 +178,3 @@
     "workStatus": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/workStatus"
   }
 }
-
-
-
-
-
