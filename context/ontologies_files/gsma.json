@@ -80,6 +80,7 @@
     },
     "eventType": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/eventType",
     "faultLog": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/faultLog",
+    "flightMessage": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/flightMessage",
     "flightStatus": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/flightStatus",
     "fleetVehicle": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/fleetVehicle",
     "fleetVehicleOperation": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/fleetVehicleOperation",
@@ -119,6 +120,7 @@
     "operationOutput": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/operationOutput",
     "operationType": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/operationType",
     "operator": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/operator",
+
     "originatedByUnmannedAutonomousVehicle": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/originatedByUnmannedAutonomousVehicle",
     "originator": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/originator",
     "orp": "https://www.gsma.com/iot/iot-big-data/ngsi-ld/orp",

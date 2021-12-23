@@ -1106,7 +1106,8 @@
         "UnmannedAerialVehicleADSB",
         "UnmannedAerialVehicleEvent",
         "UnmannedAerialVehicleModel",
-        "UnmannedAerialVehicleTMS"
+        "UnmannedAerialVehicleTMS",
+        "UnmannedAerialVehicleTMSFlightMessage"
       ],
       "domains": [
         "SmartAeronautics"
