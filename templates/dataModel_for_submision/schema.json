@@ -4,6 +4,9 @@
   "$id": "https://smart-data-models.github.io/dataModel.Energy/ThreePhaseAcMeasurement/schema.json",
   "title": "Smart Data Models - Energy / Three Phase AC Measurement",
   "description": "An electrical  measurement from a system that uses three phase alternating current.",
+  "modelTags": "",
+  "derivedFrom": "",
+  "license": "https://smart-data-models.github.io/dataModel.Energy/ThreePhaseAcMeasurement/LICENSE.md",
   "type": "object",
   "allOf": [
     {
@@ -16,7 +19,9 @@
       "properties": {
         "type": {
           "type": "string",
-          "enum": ["ThreePhaseAcMeasurement"],
+          "enum": [
+            "ThreePhaseAcMeasurement"
+          ],
           "description": "Property. It must be equal to `ThreePhaseAcMeasurement`."
         },
         "refDevice": {
@@ -399,5 +404,8 @@
       }
     }
   ],
-  "required": ["id", "type"]
+  "required": [
+    "id",
+    "type"
+  ]
 }
