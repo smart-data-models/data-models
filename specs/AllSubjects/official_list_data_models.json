@@ -1,5 +1,5 @@
 {
-  "udpatedDate": "2022-01-03T01:39:00.31416",
+  "udpatedDate": "2022-01-10T13:53:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -1115,7 +1115,7 @@
         "SmartAeronautics"
       ]
     },
-        {
+    {
       "repoName": "dataModel.OCF",
       "repoLink": "https://github.com/smart-data-models/dataModel.OCF.git",
       "dataModels": [
@@ -1123,6 +1123,17 @@
       ],
       "domains": [
         "Smart-Sensoring"
+      ]
+    },
+    {
+      "repoName": "dataModel.DigitalInnovationHub",
+      "repoLink": "https://github.com/smart-data-models/dataModel.DigitalInnovationHub.git",
+      "dataModels": [
+        "DigitalInnovationHub",
+        "DigitalInnovationHubService"
+      ],
+      "domains": [
+        "CrossSector"
       ]
     }
   ]
