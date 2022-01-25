@@ -39,7 +39,22 @@ def normalized2keyvalues(normalizedPayload):
 def keyvalues2normalized(keyvaluesPayload):
     import json
 
-    keyvaluesDict = json.loads(keyvaluesPayload)
+    def valid_date(datestring):
+        import re
+        date = datestring.split("T")[0]
+        print(date)
+        try:
+            validDate = re.match('^[0-9]{2,4}[-/][0-9]{2}[-/][0-9]{2,4}$', date)
+            print(validDate)
+        except ValueError:
+            return False
+
+        if validDate is not None:
+            return True
+        else:
+            return False
+
+    keyvaluesDict = keyvaluesPayload
     output = {}
     # print(normalizedDict)
     for element in keyvaluesDict:
@@ -54,7 +69,10 @@ def keyvalues2normalized(keyvaluesPayload):
             item["type"] = "object"
             item["value"] = keyvaluesDict[element]
         elif isinstance(keyvaluesDict[element], str):
-            # it is an string
+            if valid_date(keyvaluesDict[element]):
+                # it is a date
+                item["format"] = "date-time"
+            # it is a string
             item["type"] = "string"
             item["value"] = keyvaluesDict[element]
         elif keyvaluesDict[element] == True:
@@ -78,6 +96,7 @@ def keyvalues2normalized(keyvaluesPayload):
 
     print(output)
     return output
+
 
 
 
