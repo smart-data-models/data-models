@@ -262,6 +262,7 @@
       "dataModels": [
         "ACMeasurement",
         "InverterDevice",
+        "SolarEnergy",
         "TechnicalCabinetDevice",
         "ThreePhaseAcMeasurement"
       ],
@@ -373,7 +374,8 @@
         "StorageBatteryMeasurement"
       ],
       "domains": [
-        "CrossSector"
+        "CrossSector",
+        "SmartEnergy"
       ]
     },
     {

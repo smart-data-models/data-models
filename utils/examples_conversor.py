@@ -130,158 +130,165 @@ keyvaluesPayload = """
 
 normalizedPayload = """
 {
-    "@context": [
-        "https://forge.etsi.org/gitlab/NGSI-LD/NGSI-LD/raw/master/coreContext/ngsi-ld-core-context.json",
-        "https://raw.githubusercontent.com/GSMADeveloper/NGSI-LD-Entities/master/examples/Machine-context.jsonld"
-    ],
-    "id": "urn:ngsi-ld:Machine:9166c528-9c98-4579-a5d3-8068aea5d6c0",
-    "type": "Machine",
-    "createdAt": "2017-01-01T01:20:00Z",
-    "modifiedAt": "2017-05-04T12:30:00Z",
-    "source": "https://source.example.com",
-    "dataProvider": "https://provider.example.com",
-    "entityVersion": 2.0,
-    "machineModel": {
-        "type": "Relationship",
-        "object": "urn:ngsi-ld:MachineModel:00b42701-43e1-482d-aa7a-e2956cfd69c3"
-    },
-    "serialNumber": {
-        "type": "Property",
-        "value": "X9923456789F"
-    },
-    "assetIdentifier": {
-        "type": "Property",
-        "value": "ID12345"
-    },
-    "supplierName": {
-        "type": "Property",
-        "value": "ACME NorthEast Inc."
-    },
-    "countryOfManufacture": {
-        "type": "Property",
-        "value": "UK"
-    },
-    "factory": {
-        "type": "Property",
-        "value": "N9"
-    },
-    "firstUsedAt": {
-        "type": "Property",
-        "value": "2017-05-04T10:18:16Z"
-    },
-    "installedAt": {
-        "type": "Property",
-        "value": "2017-05-04T10:18:16Z"
-    },
-    "manufacturedAt": {
-        "type": "Property",
-        "value": "2017-05-04T10:18:16Z"
-    },
-    "description": {
-        "type": "Property",
-        "value": "Industrial machine to create plastic bottles"
-    },
-    "owner": {
-        "type": "Relationship",
-        "object": [
-            "urn:ngsi-ld:Person:a498182c-47c0-11e8-be4e-2c4d549a1ab2",
-            "urn:ngsi-ld:Organization:abb20712-47c0-11e8-8742-2c4d549a1ab2"
-        ]
-    },
-    "hardwareVersion": {
-        "type": "Property",
-        "value": "2.1"
-    },
-    "firmwareVersion": {
-        "type": "Property",
-        "value": "A.10"
-    },
-    "softwareVersion": {
-        "type": "Property",
-        "value": "8.5.C"
-    },
-    "osVersion": {
-        "type": "Property",
-        "value": "10A"
-    },
-    "supportedProtocols": {
-        "type": "Property",
-        "value": [
-            "HTTP",
-            "HTTPS",
-            "FTP"
-        ],
-        "observedAt": "2017-05-04T12:30:00Z"
-    },
-    "building": {
-        "type": "Relationship",
-        "object": "urn:ngsi-ld:Building:8683b757-649c-49e0-ac89-ad392c9a0d0c"
-    },
-    "location": {
-        "type": "GeoProperty",
-        "value": {
-            "type": "Point",
-            "coordinates": [
-                -104.99404,
-                39.75621
-            ]
-        }
-    },
-    "subscriptionServices": {
-        "type": "Relationship",
-        "object": [
-            "urn:ngsi-ld:SubscriptionService:0d95b03c-47c1-11e8-99fd-2c4d549a1ab2",
-            "urn:ngsi-ld:SubscriptionService:1527d0fa-47c1-11e8-8fb1-2c4d549a1ab2"
-        ]
-    },
-    "online": {
-        "type": "Property",
-        "value": true,
-        "observedAt": "2017-05-04T12:30:00Z"
-    },
-    "status": {
-        "type": "Property",
-        "value": "SC1001",
-        "observedAt": "2017-05-04T12:30:00Z"
-    },
-    "batteryLevel": {
-        "type": "Property",
-        "value": 0.7,
-        "observedAt": "2017-05-04T12:30:00Z"
-    },
-    "installationNotes": {
-        "type": "Property",
-        "value": {
-            "value": "Installed according to manufacturer instructions.",
-            "docUri": "http://example.com/sample/machine-instructions.pdf"
-        }
-    },
-    "voltage": {
-        "type": "Property",
-        "value": 220,
-        "unitCode": "VLT",
-        "observedAt": "2016-08-08T10:18:16Z"
-    },
-    "current": {
-        "type": "Property",
-        "value": 20,
-        "unitCode": "AMP",
-        "observedAt": "2016-08-08T10:18:16Z"
-    },
-    "power": {
-        "type": "Property",
-        "value": 4.4,
-        "unitCode": "KWT",
-        "observedAt": "2016-08-08T10:18:16Z"
-    },
-    "rotationalSpeed": {
-        "type": "Property",
-        "value": 10,
-        "unitCode": "RPM",
-        "observedAt": "2016-08-08T10:18:16Z"
+  "location": {
+    "type": "geo:json",
+    "value": {
+      "type": "Point",
+      "coordinates": [
+        -35.589575,
+        -78.339812
+      ]
     }
+  },
+  "address": {
+    "type": "StructuredValue",
+    "value": {
+      "streetAddress": "Jai Singh Marg, Hanuman Road Area, Connaught Place",
+      "addressLocality": "New Delhi",
+      "addressRegion": "Delhi",
+      "addressCountry": "India",
+      "postalCode": "110001",
+      "postOfficeBoxNumber": ""
+    }
+  },
+  "areaServed": {
+    "type": "Text",
+    "value": ""
+  },
+  "id": "urn:ngsi-ld:SolarEnergy:id:BHDU:88967916",
+  "dateCreated": {
+    "type": "DateTime",
+    "value": "2022-01-10T01:49:09Z"
+  },
+  "dateModified": {
+    "type": "DateTime",
+    "value": "2022-01-10T01:50:52Z"
+  },
+  "source": {
+    "type": "Text",
+    "value": ""
+  },
+  "name": {
+    "type": "Text",
+    "value": "Solar Energy measured at resource 1"
+  },
+  "alternateName": {
+    "type": "Text",
+    "value": "Solar energy source 1"
+  },
+  "description": {
+    "type": "Text",
+    "value": "Solar energy source 1"
+  },
+  "dataProvider": {
+    "type": "Text",
+    "value": ""
+  },
+  "owner": {
+    "type": "array",
+    "value": [
+      "urn:ngsi-ld:SolarEnergy:items:DACI:25767721",
+      "urn:ngsi-ld:SolarEnergy:items:YVQJ:55840840"
+    ]
+  },
+  "seeAlso": {
+    "type": "array",
+    "value": [
+      "urn:ngsi-ld:SolarEnergy:items:XREG:08856151"
+    ]
+  },
+  "type": "SolarEnergy",
+  "totalActivePower": {
+    "type": "Number",
+    "value": 873.9
+  },
+  "phaseCurrent": {
+    "type": "StructuredValue",
+    "value": {
+      "L1": 111.5,
+      "L2": 109.3,
+      "L3": 111.0
+    }
+  },
+  "reactivePower": {
+    "type": "StructuredValue",
+    "value": {
+      "L1": 108.1,
+      "L2": 107.0,
+      "L3": 106.5
+    }
+  },
+  "voltage": {
+    "type": "Number",
+    "value": 122.0
+  },
+  "powerFactor": {
+    "type": "StructuredValue",
+    "value": {
+      "L1": 0.7,
+      "L2": 0.7,
+      "L3": 0.5
+    }
+  },
+  "current": {
+    "type": "StructuredValue",
+    "value": {
+      "L1": 1.2,
+      "L2": 1.2,
+      "L3": 1.3,
+      "N": 0.7
+    }
+  },
+  "totalReactivePower": {
+    "type": "Number",
+    "value": 110.8
+  },
+  "phaseVoltage": {
+    "type": "StructuredValue",
+    "value": {
+      "L1": 120.5,
+      "L2": 116.4,
+      "L3": 119.8
+    }
+  },
+  "activePower": {
+    "type": "StructuredValue",
+    "value": {
+      "L1": 17.3,
+      "L2": 19.5,
+      "L3": 20.4
+    }
+  },
+  "dataDescriptor": {
+    "type": "Relationship",
+    "value": "urn:ngsi-ld:SolarEnergy:dataDescriptor:TTTK:11491249"
+  },
+  "energyGenerated": {
+    "type": "Number",
+    "value": 766.1
+  },
+  "maxSolarPowerMeasure": {
+    "type": "Number",
+    "value": 989.8
+  },
+  "frequency": {
+    "type": "Number",
+    "value": 50
+  },
+  "totalEnergyGenerated": {
+    "type": "Number",
+    "value": 527.6
+  },
+  "observationDateTime": {
+    "type": "DateTime",
+    "value": "2022-01-20T20:02:52Z"
+  },
+  "@context": [
+    "https://smart-data-models.github.io/dataModel.Energy/context.jsonld"
+  ]
 }
+
 """
 
-# normalized2keyvalues(normalizedPayload)
-keyvalues2normalized(keyvaluesPayload)
+normalized2keyvalues(normalizedPayload)
+# keyvalues2normalized(keyvaluesPayload)
