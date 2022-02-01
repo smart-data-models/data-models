@@ -1210,7 +1210,7 @@
       "repoName": "dataModel.STAT-DCAT-AP",
       "repoLink": "https://github.com/smart-data-models/dataModel.STAT-DCAT-AP.git",
       "dataModels": [
-        "Dataset"
+        "DatasetSTAT-DCAT-AP"
 
       ],
       "domains": [
