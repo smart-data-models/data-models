@@ -1,5 +1,5 @@
 {
-  "udpatedDate": "2022-01-10T13:53:00.31416",
+  "udpatedDate": "2022-02-01T20:59:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -1201,6 +1201,17 @@
       "dataModels": [
         "DigitalInnovationHub",
         "DigitalInnovationHubService"
+      ],
+      "domains": [
+        "CrossSector"
+      ]
+    },
+     {
+      "repoName": "dataModel.STAT-DCAT-AP",
+      "repoLink": "https://github.com/smart-data-models/dataModel.STAT-DCAT-AP.git",
+      "dataModels": [
+        "Dataset"
+
       ],
       "domains": [
         "CrossSector"

@@ -130,164 +130,61 @@ keyvaluesPayload = """
 
 normalizedPayload = """
 {
-  "location": {
-    "type": "geo:json",
-    "value": {
-      "type": "Point",
-      "coordinates": [
-        -35.589575,
-        -78.339812
-      ]
-    }
+  "@context": {
+    "isc": "http://id.cef-interstat.eu/sc/",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "qb": "http://purl.org/linked-data/cube#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "sdmp": "https://...",
+    "sdmx-attribute": "http://purl.org/linked-data/sdmx/2009/attribute#",
+    "sdmx-concept": "http://purl.org/linked-data/sdmx/2009/concept#",
+    "sdmx-measure": "http://purl.org/linked-data/sdmx/2009/measure#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
   },
-  "address": {
-    "type": "StructuredValue",
-    "value": {
-      "streetAddress": "Jai Singh Marg, Hanuman Road Area, Connaught Place",
-      "addressLocality": "New Delhi",
-      "addressRegion": "Delhi",
-      "addressCountry": "India",
-      "postalCode": "110001",
-      "postOfficeBoxNumber": ""
-    }
-  },
-  "areaServed": {
-    "type": "Text",
-    "value": ""
-  },
-  "id": "urn:ngsi-ld:SolarEnergy:id:BHDU:88967916",
-  "dateCreated": {
-    "type": "DateTime",
-    "value": "2022-01-10T01:49:09Z"
-  },
-  "dateModified": {
-    "type": "DateTime",
-    "value": "2022-01-10T01:50:52Z"
-  },
-  "source": {
-    "type": "Text",
-    "value": ""
-  },
-  "name": {
-    "type": "Text",
-    "value": "Solar Energy measured at resource 1"
-  },
-  "alternateName": {
-    "type": "Text",
-    "value": "Solar energy source 1"
-  },
-  "description": {
-    "type": "Text",
-    "value": "Solar energy source 1"
-  },
-  "dataProvider": {
-    "type": "Text",
-    "value": ""
-  },
-  "owner": {
-    "type": "array",
+  "id": "urn:ngsi-ld:Dataset:dsd1",
+  "language": {
+    "type": "Property",
     "value": [
-      "urn:ngsi-ld:SolarEnergy:items:DACI:25767721",
-      "urn:ngsi-ld:SolarEnergy:items:YVQJ:55840840"
+      "en",
+      "fr"
     ]
   },
-  "seeAlso": {
-    "type": "array",
+  "rdfs:label": {
+    "type": "Property",
+    "value": {
+      "en": "Population by sex, age and local administrative unit",
+      "fr": "Population par sexe, âge et unité administrative locale"
+    }
+  },
+  "stat:attribute": {
+    "type": "Property",
     "value": [
-      "urn:ngsi-ld:SolarEnergy:items:XREG:08856151"
+      "sdmx-attribute:unitMeasure",
+      "isc:att-nuts3"
     ]
   },
-  "type": "SolarEnergy",
-  "totalActivePower": {
-    "type": "Number",
-    "value": 873.9
+  "stat:dimension": {
+    "type": "Property",
+    "value": [
+      "isc:dim-age",
+      "isc:dim-sex",
+      "isc:dim-lau"
+    ]
   },
-  "phaseCurrent": {
-    "type": "StructuredValue",
-    "value": {
-      "L1": 111.5,
-      "L2": 109.3,
-      "L3": 111.0
-    }
+  "stat:unitMeasure": {
+    "type": "Property",
+    "value": [
+      "sdmx-measure:obsValue"
+    ]
   },
-  "reactivePower": {
-    "type": "StructuredValue",
-    "value": {
-      "L1": 108.1,
-      "L2": 107.0,
-      "L3": 106.5
-    }
+  "title": {
+    "type": "Property",
+    "value": "dsd1"
   },
-  "voltage": {
-    "type": "Number",
-    "value": 122.0
-  },
-  "powerFactor": {
-    "type": "StructuredValue",
-    "value": {
-      "L1": 0.7,
-      "L2": 0.7,
-      "L3": 0.5
-    }
-  },
-  "current": {
-    "type": "StructuredValue",
-    "value": {
-      "L1": 1.2,
-      "L2": 1.2,
-      "L3": 1.3,
-      "N": 0.7
-    }
-  },
-  "totalReactivePower": {
-    "type": "Number",
-    "value": 110.8
-  },
-  "phaseVoltage": {
-    "type": "StructuredValue",
-    "value": {
-      "L1": 120.5,
-      "L2": 116.4,
-      "L3": 119.8
-    }
-  },
-  "activePower": {
-    "type": "StructuredValue",
-    "value": {
-      "L1": 17.3,
-      "L2": 19.5,
-      "L3": 20.4
-    }
-  },
-  "dataDescriptor": {
-    "type": "Relationship",
-    "value": "urn:ngsi-ld:SolarEnergy:dataDescriptor:TTTK:11491249"
-  },
-  "energyGenerated": {
-    "type": "Number",
-    "value": 766.1
-  },
-  "maxSolarPowerMeasure": {
-    "type": "Number",
-    "value": 989.8
-  },
-  "frequency": {
-    "type": "Number",
-    "value": 50
-  },
-  "totalEnergyGenerated": {
-    "type": "Number",
-    "value": 527.6
-  },
-  "observationDateTime": {
-    "type": "DateTime",
-    "value": "2022-01-20T20:02:52Z"
-  },
-  "@context": [
-    "https://smart-data-models.github.io/dataModel.Energy/context.jsonld"
-  ]
+  "type": "Dataset"
 }
-
 """
 
 normalized2keyvalues(normalizedPayload)
