@@ -1,5 +1,5 @@
 {
-  "udpatedDate": "2022-02-01T20:59:00.31416",
+  "udpatedDate": "2022-03-01T16:42:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -75,7 +75,11 @@
       "repoLink": "https://github.com/smart-data-models/dataModel.Aquaculture.git",
       "dataModels": [
         "BreedingOperation",
-        "FishContainment"
+        "Feed",
+        "Feeder",
+        "FishContainment",
+        "Specie",
+        "Sump"
       ],
       "domains": [
         "SmartAgrifood"

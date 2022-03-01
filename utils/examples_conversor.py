@@ -130,60 +130,81 @@ keyvaluesPayload = """
 
 normalizedPayload = """
 {
-  "@context": {
-    "isc": "http://id.cef-interstat.eu/sc/",
-    "owl": "http://www.w3.org/2002/07/owl#",
-    "qb": "http://purl.org/linked-data/cube#",
-    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
-    "sdmp": "https://...",
-    "sdmx-attribute": "http://purl.org/linked-data/sdmx/2009/attribute#",
-    "sdmx-concept": "http://purl.org/linked-data/sdmx/2009/concept#",
-    "sdmx-measure": "http://purl.org/linked-data/sdmx/2009/measure#",
-    "skos": "http://www.w3.org/2004/02/skos/core#",
-    "xsd": "http://www.w3.org/2001/XMLSchema#"
-  },
-  "id": "urn:ngsi-ld:Dataset:dsd1",
-  "language": {
+  "id": "urn:ngsi-ld:Sump:1",
+  "type": "Sump",
+  "totalGasPressure": {
     "type": "Property",
-    "value": [
-      "en",
-      "fr"
-    ]
-  },
-  "rdfs:label": {
-    "type": "Property",
-    "value": {
-      "en": "Population by sex, age and local administrative unit",
-      "fr": "Population par sexe, âge et unité administrative locale"
+    "value": 1,
+    "unitCode": "Pa",
+    "observedAt": "2020-06-26T21:32:52Z",
+    "observedBy": {
+      "type": "Relationship",
+      "object": "urn:ngsi-ld:Device:02"
     }
   },
-  "stat:attribute": {
+  "redoxPotential": {
+    "type": "Property",
+    "value": 80,
+    "unitCode": "2Z",
+    "observedAt": "2020-06-26T21:32:52Z",
+    "observedBy": {
+      "type": "Relationship",
+      "object": "urn:ngsi-ld:Device:02"
+    }
+  },
+  "co2": {
+    "type": "Property",
+    "value": 7,
+    "unitCode": "59",
+    "observedAt": "2020-06-26T21:32:52Z",
+    "observedBy": {
+      "type": "Relationship",
+      "object": "urn:ngsi-ld:Device:02"
+    }
+  },
+  "pH": {
+    "type": "Property",
+    "value": 7,
+    "unitCode": "Q30",
+    "observedAt": "2020-06-26T21:32:52Z",
+    "observedBy": {
+      "type": "Relationship",
+      "object": "urn:ngsi-ld:Device:02"
+    }
+  },
+  "waterConsumption": {
+    "type": "Property",
+    "value": 10,
+    "unitCode": "LTR",
+    "observedAt": "2020-06-26T21:32:52Z",
+    "observedBy": {
+      "type": "Relationship",
+      "object": "urn:ngsi-ld:Device:02"
+    }
+  },
+  "refFishContainement": [
+    {
+      "type": "Relationship",
+      "object": "urn:ngsi-ld:FishContainment:01",
+      "datasetId": "urn:ngsi-ld:Dataset:FishContainment:01"
+    },
+    {
+      "type": "Relationship",
+      "object": "urn:ngsi-ld:FishContainment:02",
+      "datasetId": "urn:ngsi-ld:Dataset:FishContainment:02"
+    }
+  ],
+  "processes": {
     "type": "Property",
     "value": [
-      "sdmx-attribute:unitMeasure",
-      "isc:att-nuts3"
+      "O3 cone",
+      "02 cone",
+      "UV filter"
     ]
   },
-  "stat:dimension": {
-    "type": "Property",
-    "value": [
-      "isc:dim-age",
-      "isc:dim-sex",
-      "isc:dim-lau"
-    ]
-  },
-  "stat:unitMeasure": {
-    "type": "Property",
-    "value": [
-      "sdmx-measure:obsValue"
-    ]
-  },
-  "title": {
-    "type": "Property",
-    "value": "dsd1"
-  },
-  "type": "Dataset"
+  "@context": [
+    "https://raw.githubusercontent.com/smart-data-models/data-models/master/context.jsonld"
+  ]
 }
 """
 
