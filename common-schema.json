@@ -466,6 +466,10 @@
               "type": "string",
               "format": "uri",
               "description": "Property. URL which provides a description or further information about this item."
+            },
+            "areaServed": {
+              "type": "string",
+              "description": "Property. The geographic area where a service or offered item is provided. Supersedes serviceArea."
             }
           }
         }
