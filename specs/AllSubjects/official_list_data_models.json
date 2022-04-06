@@ -1,5 +1,5 @@
 {
-  "udpatedDate": "2022-03-01T16:42:00.31416",
+  "udpatedDate": "2022-04-06T20:37:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -1277,6 +1277,17 @@
       "repoLink": "https://github.com/smart-data-models/dataModel.STAT-DCAT-AP.git",
       "dataModels": [
         "DatasetSTAT-DCAT-AP"
+      ],
+      "domains": [
+        "CrossSector"
+      ]
+    },
+    {
+      "repoName": "dataModel.IT",
+      "repoLink": "https://github.com/smart-data-models/dataModel.IT.git",
+      "dataModels": [
+        "CloudRegion",
+        "ITTests"
       ],
       "domains": [
         "CrossSector"
