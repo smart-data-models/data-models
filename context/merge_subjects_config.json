@@ -19,6 +19,7 @@
     "dataModel.FrictionlessData": "https://raw.githubusercontent.com/smart-data-models/dataModel.FrictionlessData/master/context.jsonld",
     "dataModel.GBFS": "https://raw.githubusercontent.com/smart-data-models/dataModel.GBFS/master/context.jsonld",
     "dataModel.GreenEnergy": "https://raw.githubusercontent.com/smart-data-models/dataModel.GreenEnergy/master/context.jsonld",
+    "dataModel.IT": "https://raw.githubusercontent.com/smart-data-models/dataModel.IT/master/context.jsonld",
     "dataModel.IssueTracking": "https://raw.githubusercontent.com/smart-data-models/dataModel.IssueTracking/master/context.jsonld",
     "dataModel.KeyPerformanceIndicator": "https://raw.githubusercontent.com/smart-data-models/dataModel.KeyPerformanceIndicator/master/context.jsonld",
     "dataModel.MachineLearning": "https://raw.githubusercontent.com/smart-data-models/dataModel.MachineLearning/master/context.jsonld",
