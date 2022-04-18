@@ -1,5 +1,5 @@
 {
-  "udpatedDate": "2022-04-06T20:37:00.31416",
+  "udpatedDate": "2022-04-18T12:15:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -363,7 +363,13 @@
     {
       "repoName": "dataModel.AutonomousMobileRobot",
       "repoLink": "https://github.com/smart-data-models/dataModel.AutonomousMobileRobot.git",
-      "dataModels": [],
+      "dataModels": [
+        "CommandMessage",
+        "CommandReturnMessage",
+        "StateMessage",
+        "StopCommandMessage",
+        "StopCommandReturnMessage"
+      ],
       "domains": [
         "SmartRobotics"
       ]
