@@ -101,31 +101,23 @@ def keyvalues2normalized(keyvaluesPayload):
 
 
 
-keyvaluesPayload = """
-{
-  "id": "https://smart-data-models.github.io/SmartCities/RevenueCollection/schema.json",
-  "type": "RevenueCollection",
-  "totalCount": 436,
-  "registrationCertificateRecoveryAmount": 10400,
-  "enrollmentCertificateRecoveryAmount": 8400,
-  "year": "2020",
-  "dateObserved": "2021-11-10T01:16:01Z",
-  "month": "02",
-  "revenueCollectionType": "Property Tax",
-  "vehicleTypeCode": "2",
-  "amountCollected": 20400,
-  "vehicleType": "motorcycle",
-  "municipalityInfo": {
-    "district": "Bangalore Urban",
-    "ulbName": "BMC",
-    "cityID": "23",
-    "stateName": "Karnataka",
-    "cityName": "Bangalore",
-    "zoneID": "2",
-    "wardNum": 4
-  }
+keyvaluesPayload = {
+  "id": "urn:ngsi-ld:AnimalDisease:ca3f1295-500c-4aa3-b745-d143097d5c01",
+  "type": "AnimalDisease",
+  "disease": "Lameness",
+  "diagnosticTest": "Visual inspection",
+  "date": "2022-01-01T01:20:00Z",
+  "animals": [
+    "urn:ngsi-ld:Animal:ca3f1295-500c-4aa3-b745-d143097d5c01",
+    "urn:ngsi-ld:Animal:bb3f1295-500c-4aa3-b745-d143097d4321"
+  ],
+  "veterinarianTreatment": "urn:ngsi-ld:VeterinarianTreatment:ca3f1295-500c-4aa3-b745-d143097d5c65",
+  "veterinarian": "urn:ngsi-ld:Veterinarian:ca3f1295-500c-4aa3-b745-d143097d5d11",
+  "@context": [
+    "https://smart-data-models.github.io/dataModel.Agrifood/context.jsonld"
+  ]
 }
-"""
+
 
 
 normalizedPayload = """
@@ -208,5 +200,5 @@ normalizedPayload = """
 }
 """
 
-normalized2keyvalues(normalizedPayload)
-# keyvalues2normalized(keyvaluesPayload)
+# normalized2keyvalues(normalizedPayload)
+keyvalues2normalized(keyvaluesPayload)
