@@ -94,6 +94,11 @@ def keyvalues2normalized(keyvaluesPayload):
             print("--- other type ---")
         output[element] = item
 
+    if "id" in output:
+        output["id"] = output["id"]["value"]
+    if "type" in output:
+        output["type"] = output["type"]["value"]
+
     print(output)
     return output
 
@@ -102,20 +107,18 @@ def keyvalues2normalized(keyvaluesPayload):
 
 
 keyvaluesPayload = {
-  "id": "urn:ngsi-ld:AnimalDisease:ca3f1295-500c-4aa3-b745-d143097d5c01",
-  "type": "AnimalDisease",
-  "disease": "Lameness",
-  "diagnosticTest": "Visual inspection",
-  "date": "2022-01-01T01:20:00Z",
-  "animals": [
-    "urn:ngsi-ld:Animal:ca3f1295-500c-4aa3-b745-d143097d5c01",
-    "urn:ngsi-ld:Animal:bb3f1295-500c-4aa3-b745-d143097d4321"
-  ],
-  "veterinarianTreatment": "urn:ngsi-ld:VeterinarianTreatment:ca3f1295-500c-4aa3-b745-d143097d5c65",
-  "veterinarian": "urn:ngsi-ld:Veterinarian:ca3f1295-500c-4aa3-b745-d143097d5d11",
-  "@context": [
-    "https://smart-data-models.github.io/dataModel.Agrifood/context.jsonld"
-  ]
+    "id": "urn:ngsi-ld:VeterinarianTreatment:ca3f1295-500c-4aa3-b745-d143097d5c01",
+    "type": "VeterinarianTreatment",
+    "appliedProduct":"Pisadug",
+    "date":"2022-01-01T01:20:00Z",
+    "quantity":1,
+    "phaseOutPeriod": 4,
+    "deliveryNote":"Primera entrega 2022",
+    "animals": [
+        "urn:ngsi-ld:Animal:ca3f1295-500c-4aa3-b745-d143097d5c01",
+        "urn:ngsi-ld:Animal:bb3f1295-500c-4aa3-b745-d143097d4321"
+    ],
+    "veterinarian":"urn:ngsi-ld:Veterinarian:ca3f1295-500c-4aa3-b745-d143097d5d11"
 }
 
 

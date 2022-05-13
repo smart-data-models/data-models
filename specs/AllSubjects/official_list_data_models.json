@@ -1,5 +1,5 @@
 {
-  "udpatedDate": "2022-05-05T21:16:00.31416",
+  "udpatedDate": "2022-05-12T16:10:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -100,8 +100,14 @@
         "AgriProductType",
         "AgriSoil",
         "Animal",
+        "AnimalDisease",
+        "AnimalMovement",
+        "Carcass",
         "Compartment",
-        "Pen"
+        "FeedRegistry",
+        "MeatProduct",
+        "Pen",
+        "VeterinarianTreatment"
       ],
       "domains": [
         "SmartAgrifood"
