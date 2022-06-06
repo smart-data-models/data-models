@@ -107,19 +107,27 @@ def keyvalues2normalized(keyvaluesPayload):
 
 
 keyvaluesPayload = {
-    "id": "urn:ngsi-ld:VeterinarianTreatment:ca3f1295-500c-4aa3-b745-d143097d5c01",
-    "type": "VeterinarianTreatment",
-    "appliedProduct":"Pisadug",
-    "date":"2022-01-01T01:20:00Z",
-    "quantity":1,
-    "phaseOutPeriod": 4,
-    "deliveryNote":"Primera entrega 2022",
-    "animals": [
-        "urn:ngsi-ld:Animal:ca3f1295-500c-4aa3-b745-d143097d5c01",
-        "urn:ngsi-ld:Animal:bb3f1295-500c-4aa3-b745-d143097d4321"
-    ],
-    "veterinarian":"urn:ngsi-ld:Veterinarian:ca3f1295-500c-4aa3-b745-d143097d5d11"
+  "id": "urn:ngsi-ld:CPSV-AP:Rule:7e331270-c97d-4ee9-ab29-693f9dc75a3c",
+  "type": "Rule",
+  "identifier": "Rule7e331270c97d4ee9ab29693f9dc75a3c",
+  "name": "DEFAULT NAME",
+  "description": "The mayor of the municipality or his/her authorised representative checks whether the signature to be legalised corresponds to that of the person whose identity is being established. A signature on a white sheet of paper can never be legalised.",
+  "language": [
+    "http://publications.europa.eu/resource/authority/language/ENG"
+  ],
+  "implements": [
+    "urn:ngsi-ld:CPSV-AP:LegalResource:7e331270-8b9e-46d5-8371-81c8ad0cced5",
+    "urn:ngsi-ld:CPSV-AP:LegalResource:7e331271-5a3e-2d9a-8371-81c8ad0cced5"
+  ],
+  "@context": [
+    "https://smart-data-models.github.com/CPSV-AP.Rule/context.jsonld"
+  ]
 }
+
+
+
+
+
 
 
 
