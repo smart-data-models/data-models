@@ -402,32 +402,78 @@
             "properties": {
               "opens": {
                 "type": "string",
-                "format": "time"
+                "format": "time",
+                "pattern": "^(2[0-3]|[01][0-9]):?([0-5][0-9]):?([0-5][0-9])(\\.[0-9]*)?(Z|[+-](?:2[0-3]|[01][0-9])(?::?(?:[0-5][0-9]))?)$"
               },
               "closes": {
                 "type": "string",
-                "format": "time"
+                "format": "time",
+                "pattern": "^(2[0-3]|[01][0-9]):?([0-5][0-9]):?([0-5][0-9])(\\.[0-9]*)?(Z|[+-](?:2[0-3]|[01][0-9])(?::?(?:[0-5][0-9]))?)$"
               },
               "dayOfWeek": {
                 "type": "string",
-                "enum": [
-                  "Monday",
-                  "Tuesday",
-                  "Wednesday",
-                  "Thursday",
-                  "Friday",
-                  "Saturday",
-                  "Sunday",
-                  "PublicHolidays"
+                "description": "Property. Model:'http://schema.org/dayOfWeek'. The day of the week for which these opening hours are valid. URLs from GoodRelations (http://purl.org/goodrelations/v1) are used (for Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday plus a special entry for PublicHolidays).",
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "description": "Property. Array of days of the week.",
+                    "enum": [
+                      "Monday",
+                      "Tuesday",
+                      "Wednesday",
+                      "Thursday",
+                      "Friday",
+                      "Saturday",
+                      "Sunday",
+                      "PublicHolidays"
+                    ]
+                  },
+                  {
+                    "type": "string",
+                    "description": "Property. Array of days of the week.",
+                    "enum": [
+                      "https://schema.org/Monday",
+                      "https://schema.org/Tuesday",
+                      "https://schema.org/Wednesday",
+                      "https://schema.org/Thursday",
+                      "https://schema.org/Friday",
+                      "https://schema.org/Saturday",
+                      "https://schema.org/Sunday",
+                      "https://schema.org/PublicHolidays"
+                    ]
+                  }
                 ]
               },
               "validFrom": {
-                "type": "string",
-                "format": "date-time"
+                "description": "Property. The date when the item becomes valid. A date value in the form CCYY-MM-DD or a combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm] in ISO 8601 date format.",
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "format": "date",
+                    "description": "Property. Model:'http://schema.org/Date."
+                  },
+                  {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Property. Model:'http://schema.org/DateTime."
+                  }
+                ]
               },
               "validThrough": {
                 "type": "string",
-                "format": "date-time"
+                "description": "Property. The date after when the item is not valid. For example the end of an offer, salary period, or a period of opening hours. A date value in the form CCYY-MM-DD or a combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm] in ISO 8601 date format.",
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "format": "date",
+                    "description": "Property. Model:'http://schema.org/Date."
+                  },
+                  {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Property. Model:'http://schema.org/DateTime."
+                  }
+                ]
               }
             }
           },
@@ -470,6 +516,69 @@
             "areaServed": {
               "type": "string",
               "description": "Property. The geographic area where a service or offered item is provided. Supersedes serviceArea."
+            },
+            "availableLanguage": {
+              "description": "Property. Model:'http://schema.org/availableLanguage'. A language someone may use with or at the item, service or place. Please use one of the language codes from the IETF BCP 47 standard. It is implemented the Text option but it could be also Language",
+              "anyOf": [
+                {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            "contactOption": {
+              "description": "Property. Model:'http://schema.org/contactOption'. An option available on this contact point (e.g. a toll-free number or support for hearing-impaired callers).",
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              ]
+            },
+            "faxNumber": {
+              "type": "string",
+              "description": "Property. Model:'http://schema.org/Text'. The fax number."
+            },
+            "productSupported": {
+              "type": "string",
+              "description": "Property. Model:'http://schema.org/Text'. The product or service this support contact point is related to (such as product support for a particular product line). This can be a specific product or product line (e.g. \"iPhone\") or a general category of products or services (e.g. \"smartphones\")."
+            },
+            "availabilityRestriction": {
+              "description": "Relationship. Model:'http://schema.org/hoursAvailable'. This property links a contact point to information about when the contact point is not available. The details are provided using the Opening Hours Specification class.",
+              "anyOf": [
+                {
+                  "type": "array",
+                  "description": "Property. Array of identifiers format of any NGSI entity.",
+                  "items": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 256,
+                    "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$"
+                  }
+                },
+                {
+                  "type": "array",
+                  "description": "Property. Array of identifiers format of any NGSI entity.",
+                  "items": {
+                    "type": "string",
+                    "format": "uri"
+                  }
+                }
+              ]
             }
           }
         }
