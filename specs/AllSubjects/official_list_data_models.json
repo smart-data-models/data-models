@@ -1,5 +1,5 @@
 {
-  "udpatedDate": "2022-06-21T19:34:00.31416",
+  "udpatedDate": "2022-06-29T09:07:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -52,7 +52,8 @@
         "GtfsTransferRule",
         "GtfsTrip",
         "PublicTransportRoute",
-        "PublicTransportStop"
+        "PublicTransportStop",
+        "TransitManagement"
       ],
       "domains": [
         "SmartCities"

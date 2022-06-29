@@ -107,26 +107,60 @@ def keyvalues2normalized(keyvaluesPayload):
 
 
 keyvaluesPayload = {
-  "id": "urn:ngsi-ld:CPSV-AP:Rule:7e331270-c97d-4ee9-ab29-693f9dc75a3c",
-  "type": "Rule",
-  "identifier": "Rule7e331270c97d4ee9ab29693f9dc75a3c",
-  "name": "DEFAULT NAME",
-  "description": "The mayor of the municipality or his/her authorised representative checks whether the signature to be legalised corresponds to that of the person whose identity is being established. A signature on a white sheet of paper can never be legalised.",
-  "language": [
-    "http://publications.europa.eu/resource/authority/language/ENG"
-  ],
-  "implements": [
-    "urn:ngsi-ld:CPSV-AP:LegalResource:7e331270-8b9e-46d5-8371-81c8ad0cced5",
-    "urn:ngsi-ld:CPSV-AP:LegalResource:7e331271-5a3e-2d9a-8371-81c8ad0cced5"
-  ],
-  "@context": [
-    "https://smart-data-models.github.com/CPSV-AP.Rule/context.jsonld"
-  ]
+	"id": "https://smart-data-models.github.io/IUDX/TransitManagement/schema.json",
+	"type": "TransitManagement",
+	"vehicleType":"hopper",
+	"trip_delay":11968,
+	"agency_lang":"en",
+	"depot_name":"BHESTAN DEPOT",
+	"travelTime":"22:11:14",
+	"direction_id":0,
+	"schedule_relationship":"SCHEDULED",
+	"vehicle_id":"52TC12",
+	"agency_fare_url":"http://charteredbike.in/surat/?page_id=1021",
+	"actual_trip_end_time":"2021-10-28T08:24:22+05:30",
+	"last_tracked_time":"08:13:22",
+	"standing_capacity":20,
+	"last_stop_arrival_time":"13:30:12",
+	"agency_id":"agency001",
+	"current_status":"INCOMING_AT",
+	"route_type":"1",
+	"speed":28,
+	"route_id":"17AD",
+	"seating_capacity":70,
+	"vehicle_label":"A03",
+	"timestamp":"2021-10-28T08:13:22+05:30",
+	"arrival_time":"22:00:28",
+	"route_long_name":"Baiyappanahalli to Mysuru Road",
+	"agency_timezone":"Asia/Kolkata",
+	"stop_code":"F12",
+	"agency_name":"Chartered Bike Surat",
+	"route_desc":"Phase1-Phase2",
+	"license_plate":"GJ05BX1583",
+	"stop_id":"1016",
+	"uncertainity":0,
+	"route_color":"00FFFF",
+	"travelDistance":9.00174,
+	"actual_trip_start_time":"2021-10-28T07:46:51+05:30",
+	"bearing":90,
+	"stop_sequence":24,
+	"start_date":"2022-03-01",
+	"current_stop_sequence":1001,
+	"start_time":"11:15:35",
+	"trip_id":"23952340",
+	"route_text_color":"FFD700",
+	"ac_available":"yes",
+	"tripDirection":"DN",
+	"agency_url": "http://charteredbike.in/surat/",
+	"routeStopSequence":["10","1001","1002","1003","1004","1005"],
+	"trip_direction":"DN",
+	"departure_time":"22:00:33",
+	"last_stop_id":"4032",
+	"route_short_name":"Purple Line",
+	"stop_name":"DEVASHISH NAGAR MORA BHAGAL",
+	"depot_id":"1",
+	"observationDateTime":"2021-10-28T08:13:22+05:30"
 }
-
-
-
-
 
 
 
