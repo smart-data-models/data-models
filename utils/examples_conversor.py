@@ -167,83 +167,132 @@ keyvaluesPayload = {
 
 normalizedPayload = """
 {
-  "id": "urn:ngsi-ld:Sump:1",
-  "type": "Sump",
-  "totalGasPressure": {
+  "id": "urn:ngsi-ld:AirQualityForecast:France-AirQualityForecast-12345_2022-07-01T18:00:00_2022-07-01T00:00:00",
+  "type": "AirQualityForecast",
+  "address": {
     "type": "Property",
-    "value": 1,
-    "unitCode": "Pa",
-    "observedAt": "2020-06-26T21:32:52Z",
-    "observedBy": {
-      "type": "Relationship",
-      "object": "urn:ngsi-ld:Device:02"
+    "value": {
+      "addressCountry": "France",
+      "postalCode": "06200",
+      "addressLocality": "Nice",
+      "type": "PostalAddress"
     }
   },
-  "redoxPotential": {
-    "type": "Property",
-    "value": 80,
-    "unitCode": "2Z",
-    "observedAt": "2020-06-26T21:32:52Z",
-    "observedBy": {
-      "type": "Relationship",
-      "object": "urn:ngsi-ld:Device:02"
+  "location": {
+    "type": "GeoProperty",
+    "value": {
+      "type": "Point",
+      "coordinates": [
+        7.2032497427380235,
+        43.68056738083439
+      ]
     }
+  },
+  "dataProvider": {
+    "type": "Property",
+    "value": "IMREDD_UCA_Nice"
+  },
+  "dateIssued": {
+    "type": "Property",
+    "value": {
+      "@type": "DateTime",
+      "@value": "2022-07-01T10:40:01.00Z"
+    }
+  },
+  "dateRetrieved": {
+    "type": "Property",
+    "value": {
+      "@type": "DateTime",
+      "@value": "2022-07-01T12:57:24.00Z"
+    }
+  },
+  "validFrom": {
+    "type": "Property",
+    "value": {
+      "@type": "DateTime",
+      "@value": "2022-07-01T17:00:00.00Z"
+    }
+  },
+  "validTo": {
+    "type": "Property",
+    "value": {
+      "@type": "DateTime",
+      "@value": "2022-07-01T18:00:00.00Z"
+    }
+  },
+  "validity": {
+    "type": "Property",
+    "value": "2022-07-01T17:00:00+01:00/2022-07-01T18:00:00+01:00"
+  },
+  "airQualityIndex": {
+    "type": "Property",
+    "value": 3
+  },
+  "airQualityLevel": {
+    "type": "Property",
+    "value": "moderate"
   },
   "co2": {
     "type": "Property",
-    "value": 7,
-    "unitCode": "59",
-    "observedAt": "2020-06-26T21:32:52Z",
-    "observedBy": {
-      "type": "Relationship",
-      "object": "urn:ngsi-ld:Device:02"
-    }
+    "value": 45,
+    "unitCode": "GQ"
   },
-  "pH": {
+  "no2": {
     "type": "Property",
-    "value": 7,
-    "unitCode": "Q30",
-    "observedAt": "2020-06-26T21:32:52Z",
-    "observedBy": {
-      "type": "Relationship",
-      "object": "urn:ngsi-ld:Device:02"
-    }
+    "value": 69,
+    "unitCode": "GQ"
   },
-  "waterConsumption": {
+  "o3": {
     "type": "Property",
-    "value": 10,
-    "unitCode": "LTR",
-    "observedAt": "2020-06-26T21:32:52Z",
-    "observedBy": {
-      "type": "Relationship",
-      "object": "urn:ngsi-ld:Device:02"
-    }
+    "value": 100,
+    "unitCode": "GQ"
   },
-  "refFishContainement": [
-    {
-      "type": "Relationship",
-      "object": "urn:ngsi-ld:FishContainment:01",
-      "datasetId": "urn:ngsi-ld:Dataset:FishContainment:01"
-    },
-    {
-      "type": "Relationship",
-      "object": "urn:ngsi-ld:FishContainment:02",
-      "datasetId": "urn:ngsi-ld:Dataset:FishContainment:02"
-    }
-  ],
-  "processes": {
+  "nox": {
     "type": "Property",
-    "value": [
-      "O3 cone",
-      "02 cone",
-      "UV filter"
-    ]
+    "value": 139,
+    "unitCode": "GQ"
+  },
+  "so2": {
+    "type": "Property",
+    "value": 11,
+    "unitCode": "GQ"
+  },
+  "pm10": {
+    "type": "Property",
+    "value": 19,
+    "unitCode": "GQ"
+  },
+  "pm25": {
+    "type": "Property",
+    "value": 21,
+    "unitCode": "GQ"
+  },
+  "temperature": {
+    "type": "Property",
+    "value": 12.2
+  },
+  "relativeHumidity": {
+    "type": "Property",
+    "value": 0.54
+  },
+  "windSpeed": {
+    "type": "Property",
+    "value": 0.64
+  },
+  "precipitation": {
+    "type": "Property",
+    "value": 0
+  },
+  "typeOfLocation": {
+    "type": "Property",
+    "value": "outdoor"
   },
   "@context": [
-    "https://raw.githubusercontent.com/smart-data-models/data-models/master/context.jsonld"
+    "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld",
+    "https://raw.githubusercontent.com/smart-data-models/dataModel.Environment/master/context.jsonld"
   ]
 }
 """
 
-# normalized2keyvalues(normalizedPayload)
-keyvalues2normalized(keyvaluesPayload)
+normalized2keyvalues(normalizedPayload)
+# keyvalues2normalized(keyvaluesPayload)
