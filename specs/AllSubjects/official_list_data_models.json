@@ -1,5 +1,5 @@
 {
-  "udpatedDate": "2022-07-05T16:06:00.31416",
+  "udpatedDate": "2022-07-07T15:20:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -1321,6 +1321,16 @@
         "PublicOrganization",
         "PublicService",
         "Rule"
+      ],
+      "domains": [
+        "CrossSector"
+      ]
+    },
+        {
+      "repoName": "dataModel.Organization",
+      "repoLink": "https://github.com/smart-data-models/dataModel.Organization.git",
+      "dataModels": [
+        "Organization"
       ],
       "domains": [
         "CrossSector"
