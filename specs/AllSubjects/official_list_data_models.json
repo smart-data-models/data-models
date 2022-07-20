@@ -75,9 +75,9 @@
       "repoName": "dataModel.Aquaculture",
       "repoLink": "https://github.com/smart-data-models/dataModel.Aquaculture.git",
       "dataModels": [
-        "BreedingOperation",
         "Feed",
         "Feeder",
+        "FeedingOperation",
         "FishPopulation"
       ],
       "domains": [
