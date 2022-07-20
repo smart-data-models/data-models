@@ -1,5 +1,5 @@
 {
-  "udpatedDate": "2022-07-07T15:20:00.31416",
+  "udpatedDate": "2022-07-20T11:39:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -78,9 +78,7 @@
         "BreedingOperation",
         "Feed",
         "Feeder",
-        "FishContainment",
-        "Specie",
-        "Sump"
+        "FishPopulation"
       ],
       "domains": [
         "SmartAgrifood"
