@@ -118,7 +118,6 @@
       "dataModels": [
         "Curve",
         "Junction",
-        "Network",
         "Pattern",
         "Pipe",
         "Pump",
@@ -126,7 +125,8 @@
         "SimulationResult",
         "SimulationScenario",
         "Tank",
-        "Valve"
+        "Valve",
+        "WaterNetwork"
       ],
       "domains": [
         "SmartWater"
