@@ -1,5 +1,5 @@
 {
-  "udpatedDate": "2022-07-21T18:39:00.31416",
+  "udpatedDate": "2022-07-21T18:43:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -27,7 +27,7 @@
       "repoName": "dataModel.KeyPerformanceIndicator",
       "repoLink": "https://github.com/smart-data-models/dataModel.KeyPerformanceIndicator.git",
       "dataModels": [
-        "keyPerformanceIndicator"
+        "KeyPerformanceIndicator"
       ],
       "domains": [
         "CrossSector"
