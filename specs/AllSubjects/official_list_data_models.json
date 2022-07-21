@@ -1,5 +1,5 @@
 {
-  "udpatedDate": "2022-07-21T18:43:00.31416",
+  "udpatedDate": "2022-07-21T21:28:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -306,7 +306,7 @@
         "NoisePollution",
         "WaterObserved",
         "PhreaticObserved",
-        "RainFallRadarObservation",
+        "RainFallRadarObserved",
         "IndoorEnvironmentObserved",
         "FloodMonitoring"
       ],
