@@ -15,7 +15,7 @@
 ################################################################################
 
 # This file creates a drafted json schema according to Smart data models principia
-# grab the data from a google sheet (public) and updates a web page based on Wordpress, used in smartdatamodels.org
+# grab the data from a google sheet (public) and updates a web page based on Wordpress, used in smartdatamodels_test.org
 # some static parameters have to be set prior to execution
 
 

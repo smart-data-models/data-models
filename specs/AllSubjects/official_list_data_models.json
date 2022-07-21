@@ -1,5 +1,5 @@
 {
-  "udpatedDate": "2022-07-20T11:39:00.31416",
+  "udpatedDate": "2022-07-21T18:39:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -258,8 +258,8 @@
       "repoLink": "https://github.com/smart-data-models/dataModel.IssueTracking.git",
       "dataModels": [
         "IssueReporting",
-        "Open311_ServiceRequest",
-        "Open311_ServiceType"
+        "service_requests",
+        "services"
       ],
       "domains": [
         "CrossSector"
