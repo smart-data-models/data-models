@@ -399,6 +399,7 @@
           "type": "array",
           "description": "Property. A structured value providing information about the opening hours of a place or a certain service inside a place. Model:'https://schema.org/openingHoursSpecification'",
           "items": {
+            "type": "object",
             "properties": {
               "opens": {
                 "type": "string",
