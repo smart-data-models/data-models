@@ -1,5 +1,5 @@
 {
-  "udpatedDate": "2022-07-21T21:37:00.31416",
+  "updatedDate": "2022-07-26T18:21:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -431,7 +431,6 @@
         "AccumulatorLimit",
         "AccumulatorLimitSet",
         "AccumulatorReset",
-        "AccumulatorValue",
         "ACDCConverter",
         "ACDCConverterDCTerminal",
         "ACDCTerminal",
@@ -471,7 +470,6 @@
         "ConformLoadSchedule",
         "ConnectivityNode",
         "ConnectivityNodeContainer",
-        "Control",
         "ControlArea",
         "ControlAreaGeneratingUnit",
         "CoordinateSystem",
