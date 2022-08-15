@@ -20,6 +20,7 @@
         "image": "https://smartdatamodels.org/image",
         "location": "ngsi-ld:location",
         "name": "https://smartdatamodels.org/name",
+        "openingHours": "https://smartdatamodels.org/openingHours",
         "openingHoursSpecification": "https://smartdatamodels.org/openingHoursSpecification",
         "owner": "https://smartdatamodels.org/owner",
         "person": "https://smartdatamodels.org/person",
