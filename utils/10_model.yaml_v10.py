@@ -3,7 +3,6 @@ from github import Github
 
 
 def open_jsonref(fileUrl):
-	# function to retrieve either a json file from url or from disk
     import jsonref
     import requests
     if fileUrl[0:4] == "http":
@@ -17,16 +16,13 @@ def open_jsonref(fileUrl):
 
 
 def echo(concept, variable):
-	# function to report a variable to be easily search in a long output
     print("*** " + concept + " ***")
     print(variable)
     print("--- " + concept + " ---")
 
 
 def parse_payload(schemaPayload, level):
-	# function which extracts the elements for the yaml output
     output = {}
-    # parsing the first level of the object
     if "allOf" in schemaPayload:
         echo("allOf level", level)
         for index in range(len(schemaPayload["allOf"])):
@@ -60,13 +56,11 @@ def parse_payload(schemaPayload, level):
                 except:
                     output[prop] = {}
                 for item in list(schemaPayload["properties"][prop]):
-					# parsing property individually
                     echo("parsing at level " + str(level) + " item= ", item)
 
                     if item == "description":
-                        print("Detected property description=" + prop)
+                        print("Detectada la descripcion de la propiedad=" + prop)
                         separatedDescription = str(schemaPayload["properties"][prop]["description"]).split(". ")
-                        # this can be made simpler. to be changed
                         copiedDescription = list.copy(separatedDescription)
                         print(copiedDescription)
                         for descriptionPiece in separatedDescription:
@@ -116,7 +110,6 @@ def parse_payload(schemaPayload, level):
 
 
 def github_push_from_variable(contentVariable, repoName, fileTargetPath, message, globalUser, token):
-	# function to push a variable to a file in github
     from github import Github
     g = Github(token)
     repo = g.get_organization(globalUser).get_repo(repoName)
@@ -133,6 +126,7 @@ def github_push_from_variable(contentVariable, repoName, fileTargetPath, message
 
 
 baseModelFileName = "model.yaml"
+#credentialsFile = "/home/aabella/transparentia/CLIENTES/EU/FIWARE/credentials.json"
 credentialsFile = "/home/fiware/credentials.json"
 credentials = open_jsonref(credentialsFile)
 token = credentials["token"]
@@ -175,9 +169,43 @@ for dataModel in dataModels:
         entityDescription = schemaExpanded["description"]
     except:
         entityDescription = "No description available"
+    try:
+        version = schemaExpanded["$schemaVersion"]
+    except:
+        version = ""
+    try:
+        tags = schemaExpanded["modelTags"]
+    except:
+        tags = ""
+    try:
+        modelSchema = schemaExpanded["$id"]
+    except:
+        modelSchema = ""
+    try:
+        licenseUrl = schemaExpanded["licenseUrl"]
+    except:
+        licenseUrl = "https://github.com/smart-data-models/" + repoName + "/blob/master/" + dataModel + "/LICENSE.md"
+    try:
+        disclaimer = schemaExpanded["disclaimer"]
+    except:
+        disclaimer = "Redistribution and use in source and binary forms, with or without modification, are permitted  provided that the license conditions are met. Copyleft (c) 2021 Contributors to Smart Data Models Program"
+    try:
+        derivedFrom = schemaExpanded["derivedFrom"]
+    except:
+        derivedFrom = ""
+
+
+
     result[dataModel]["type"] = "object"
     result[dataModel]["description"] = entityDescription
     result[dataModel]["required"] = required
+    result[dataModel]["x-version"] = version
+    result[dataModel]["x-model-tags"] = tags
+    result[dataModel]["x-model-schema"] = modelSchema
+    result[dataModel]["x-license-url"] = licenseUrl
+    result[dataModel]["x-disclaimer"] = disclaimer
+    result[dataModel]["x-derived-from"] = derivedFrom
+
 
     echo("result", result)
 
