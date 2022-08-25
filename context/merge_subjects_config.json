@@ -30,6 +30,7 @@
     "dataModel.OPCUA": "https://raw.githubusercontent.com/smart-data-models/dataModel.OPCUA/master/context.jsonld",
     "dataModel.OpenChannelManagement": "https://raw.githubusercontent.com/smart-data-models/dataModel.OpenChannelManagement/master/context.jsonld",
     "dataModel.Organization": "https://raw.githubusercontent.com/smart-data-models/dataModel.Organization/master/context.jsonld",
+    "dataModel.OSLO": "https://raw.githubusercontent.com/smart-data-models/dataModel.OSLO/master/context.jsonld",
     "dataModel.Parking": "https://raw.githubusercontent.com/smart-data-models/dataModel.Parking/master/context.jsonld",
     "dataModel.ParksAndGardens": "https://raw.githubusercontent.com/smart-data-models/dataModel.ParksAndGardens/master/context.jsonld",
     "dataModel.PointOfInteraction": "https://raw.githubusercontent.com/smart-data-models/dataModel.PointOfInteraction/master/context.jsonld",
