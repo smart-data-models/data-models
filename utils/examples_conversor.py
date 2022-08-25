@@ -98,7 +98,8 @@ def keyvalues2normalized(keyvaluesPayload):
         output["id"] = output["id"]["value"]
     if "type" in output:
         output["type"] = output["type"]["value"]
-
+    if "@context" in output:
+        output["@context"] = output["@context"]["value"]
     print(output)
     return output
 
@@ -107,17 +108,55 @@ def keyvalues2normalized(keyvaluesPayload):
 
 
 keyvaluesPayload = {
-	"powerConsumption": 10.0,
-  "chargingUnitId": "PZEV01-DeltaBharatAC001-SCTLGandhiPark001",
-  "transactionId": "84068784",
-  "transactionType": "RFID",
-  "stationName": "SmartCityTvmGandhiParkOne",
-  "amountCollected": 0.08,
-  "taxAmountCollected": 0.0,
-  "endDateTime": "2022-06-28T20:28:41+05:30",
-  "startDateTime": "2022-06-28T20:27:27+05:30",
-  "vehicleType": "e-motorcycle",
-  "observationDateTime": "2022-06-28T20:27:29+05:30"
+  "id": "urn:ngsi-ld:TrafficEnvironmentImpact:id:BGGK:76812356",
+  "dateCreated": "2022-08-17T05:21:50Z",
+  "dateModified": "2022-08-30T08:09:40Z",
+  "dateObservedFrom": "2022-08-30T08:09:40Z",
+  "dateObservedTo": "2022-08-30T08:19:40Z",
+  "source": "",
+  "name": "Environmental impact",
+  "alternateName": "",
+  "description": "",
+  "dataProvider": "City sensors",
+  "owner": [
+    "urn:ngsi-ld:TrafficEnvironmentImpact:items:FAVE:94166126",
+    "urn:ngsi-ld:TrafficEnvironmentImpact:items:EWHQ:53940846"
+  ],
+  "seeAlso": [
+    "urn:ngsi-ld:TrafficEnvironmentImpact:items:JSNF:11004684",
+    "urn:ngsi-ld:TrafficEnvironmentImpact:items:HURK:65683455"
+  ],
+  "location": {
+    "type": "Point",
+    "coordinates": [
+      43.7034,
+      7.2663
+    ]
+  },
+  "address": {
+    "streetAddress": "Rue Frédéric Mistral",
+    "addressLocality": "Valbonne",
+    "addressRegion": "Sophia Antipolis",
+    "addressCountry": "France",
+    "postalCode": "06550",
+    "postOfficeBoxNumber": ""
+  },
+  "areaServed": "",
+  "type": "TrafficEnvironmentImpact",
+  "co2": 582.3,
+  "traffic": [
+    {
+      "vehicleClass": "A",
+      "refTrafficObserved": "urn:ngsi-ld:TrafficObserved:items:FAVE:94166126"
+    },
+    {
+      "vehicleClass": "B",
+      "refTrafficObserved":"urn:ngsi-ld:TrafficObserved:items:BAAE:94166236"
+    }
+  ],
+  "@context": [
+    "https://smartdatamodels.org/dataModel.Environment/context.jsonld"
+  ]
 }
 
 

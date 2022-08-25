@@ -12,6 +12,19 @@ subject = "dataModel.Weather"
 datamodel = "WeatherObserved"
 attribute = "precipitation"
 
+# 11
+echo_separator("print_datamodel(subject, datamodel, separator, meta_attributes) " + str(subject) + " " + str(datamodel))
+separator = ","
+meta_attributes = ["property", "type", "description"]
+output = print_datamodel(subject, datamodel, separator, meta_attributes)
+try:
+    assert "Intensity of the wind" in output
+    print(output)
+except AssertionError:
+    print(output)
+    print("error in listed at data model " + str(datamodel))
+
+
 # 1
 echo_separator("list_all_datamodels")
 output = list_all_datamodels()
@@ -130,3 +143,4 @@ try:
 except AssertionError:
     print(output)
     print("error in schema located at " + str(schemaUrl))
+

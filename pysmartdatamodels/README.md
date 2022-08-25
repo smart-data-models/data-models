@@ -51,6 +51,8 @@ Currently, there are twelve domains.
 
 10.- Validate a json schema of a data model. Function validate_data_model(schemaUrl)
 
+11.- Print a list of data models attributes separated by a separator. Function print_datamodel(subject, datamodel, separator, meta_attributes)
+
 ## Pending features (glad to receive contributions to them)
 
 A.- Function to update the data models to the last version. The official list of data models is here

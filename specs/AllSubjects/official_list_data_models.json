@@ -1,5 +1,5 @@
 {
-  "updatedDate": "2022-07-26T18:21:00.31416",
+  "updatedDate": "2022-08-25T14:57:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -302,13 +302,15 @@
         "AirQualityMonitoring",
         "ElectroMagneticObserved",
         "EnvironmentObserved",
+        "FloodMonitoring",
+        "IndoorEnvironmentObserved",
         "NoiseLevelObserved",
         "NoisePollution",
         "WaterObserved",
         "PhreaticObserved",
         "RainFallRadarObserved",
-        "IndoorEnvironmentObserved",
-        "FloodMonitoring"
+        "TrafficEnvironmentImpact",
+        "TrafficEnvironmentImpactForecast"
       ],
       "domains": [
         "SmartEnvironment"

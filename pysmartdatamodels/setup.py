@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 
 HERE = pathlib.Path(__file__).parent
 
-VERSION = '0.2.0'
+VERSION = '0.2.1'
 PACKAGE_NAME = 'pysmartdatamodels'
 AUTHOR = 'Collaborative, see CONTRIBUTORS.yaml in the original repositories. Coordination alberto.abella@fiware.org'
 AUTHOR_EMAIL = 'info@smartdatamodels.org'

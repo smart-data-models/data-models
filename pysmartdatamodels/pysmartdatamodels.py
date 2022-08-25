@@ -491,7 +491,6 @@ def validate_data_model_schema(schemaUrl):
     incompleteDescription = "Incomplete description"
     withoutDescription = "No description at all"
 
-
     # validate inputs
     existsSchema = exist_page(schemaUrl)
 
@@ -581,7 +580,8 @@ def validate_data_model_schema(schemaUrl):
             except:
                 output[documented][key] = {}
                 output[documented][key]["x-ngsi"] = False
-                output[documented][key]["x-ngsi_text"] = "Missing any of" + str(propertyTypes) + " in the description of the property"
+                output[documented][key]["x-ngsi_text"] = "Missing any of" + str(
+                    propertyTypes) + " in the description of the property"
 
             # checking the pure description
             try:
@@ -619,3 +619,97 @@ def validate_data_model_schema(schemaUrl):
 
     print(json.dumps(output))
     return json.dumps(output)
+
+
+# 11 print data models attributes
+
+def print_datamodel(subject, datamodel, separator, meta_attributes):
+    """print the different elements of the attributes of a data model separated by a given separator.
+                   Parameters:
+                       subject: name of the subject
+                       datamodel: name of the data model
+                       separator: string between the different elements printed
+                       meta_attributes: list of different qualifiers of an attribute
+                            property: the name of the attribute
+                            type: the data type of the attribute (json schema basic types)
+                            dataModel: the data model the attribute belongs to
+                            repoName: the subject the attribute belongs to
+                            description: the definition of the attribute
+                            typeNGSI: the NGSI type, Property, Relationship or Geoproperty
+                            modelTags: the tags assigned to the data model
+                            format: For those attributes having it the format, i.e. date-time
+                            units: For those attributes having it the recommended units, i.e. meters
+                            model: For those attributes having it the reference model, i.e. https://schema.org/Number
+
+                   Returns:
+                       It prints a version of the attributes separated by the separator listing the meta_attributes specified
+                       A variable with the same strings
+                      if any of the input parameters is not found it returns false
+                        False
+                   """
+    import json
+    output = []
+    with open("smartdatamodels.json", "r") as bbdd_attributes_pointer:
+        datamodelsdict = json.load(bbdd_attributes_pointer)
+
+    # available metadata in the list
+    validmetadata = ["property",
+                     "type",
+                     "dataModel",
+                     "repoName",
+                     "description",
+                     "typeNGSI",
+                     "modelTags",
+                     "format",
+                     "units",
+                     "model"]
+    defaultmetadata = ["property", "type", "typeNGSI", "description"]
+    newline = chr(13) + chr(10)
+    with open("smartdatamodels.json", "r") as bbdd_attributes_pointer:
+        datamodelsdict = json.load(bbdd_attributes_pointer)
+    print(datamodelsdict[0])
+    selectedattributes = []
+    for d in datamodelsdict:
+        print(d)
+        if "dataModel" in d and "repoName" in d:
+            if d["dataModel"] == datamodel and d["repoName"] == subject:
+                selectedattributes.append(d)
+
+    if len(selectedattributes) < 1:
+        return False
+    else:
+        if all([d in validmetadata for d in meta_attributes]):
+            listedmetadata = meta_attributes
+        else:
+            listedmetadata = defaultmetadata
+            # first line with the names of the meta data of the attributes
+        output = str(separator.join(listedmetadata)) + newline
+
+        # for every attribute in the data model
+        for item in selectedattributes:
+            print("item:" + str(item))
+            try:
+                # if all metadata are available for the attribute it is done in one shot
+                selectedmeta = [item[d] for d in listedmetadata]
+                print("selectedmeta:" + str(selectedmeta))
+                row = separator.join(selectedmeta)
+                print("row:" + str(row))
+            except:
+                # if all metadata are not available for the attribute it is done with a loop
+                print("error")
+                row = []
+                for d in listedmetadata:
+                    if d in item:
+                        row.append(item[d])
+                    else:
+                        row.append("")
+            rowtoadd = str(row) + newline
+            print("rowtoadd:" + rowtoadd)
+            output += rowtoadd
+    print(output)
+    return output
+
+
+
+
+
