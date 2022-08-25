@@ -1,5 +1,5 @@
 {
-  "updatedDate": "2022-08-25T19:01:00.31416",
+  "updatedDate": "2022-08-25T21:26:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -1325,7 +1325,7 @@
         "CrossSector"
       ]
     },
-        {
+    {
       "repoName": "dataModel.Organization",
       "repoLink": "https://github.com/smart-data-models/dataModel.Organization.git",
       "dataModels": [
@@ -1334,6 +1334,17 @@
       "domains": [
         "CrossSector"
       ]
+    },
+    {
+      "repoName": "dataModel.OSLO",
+      "repoLink": "https://github.com/smart-data-models/dataModel.OSLO.git",
+      "dataModels": [
+        "BicycleParkingStation"
+      ],
+      "domains": [
+        "SmartCities"
+      ]
     }
+
   ]
 }

@@ -12,13 +12,13 @@ def echo_separator(functionname):
 # datamodel = "WeatherObserved"
 attribute = "precipitation"
 subject = "dataModel.Environment"
-datamodel = "NoisePollutionForecast"
+datamodel = "TrafficEnvironmentImpactForecast"
 
 
 # 11
 echo_separator("print_datamodel(subject, datamodel, separator, meta_attributes) " + str(subject) + " " + str(datamodel))
 separator = chr(9)
-meta_attributes = ["property", "type", "typeNGSI", "description", "units"]
+meta_attributes = ["property", "type", "typeNGSI", "description"]
 output = print_datamodel(subject, datamodel, separator, meta_attributes)
 try:
     assert "Intensity of the wind" in output
