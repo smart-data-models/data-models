@@ -108,56 +108,51 @@ def keyvalues2normalized(keyvaluesPayload):
 
 
 keyvaluesPayload = {
-  "id": "urn:ngsi-ld:TrafficEnvironmentImpact:id:BGGK:76812356",
-  "dateCreated": "2022-08-17T05:21:50Z",
-  "dateModified": "2022-08-30T08:09:40Z",
-  "dateObservedFrom": "2022-08-30T08:09:40Z",
-  "dateObservedTo": "2022-08-30T08:19:40Z",
+  "id": "urn:ngsi-ld:NoisePollution:France-NoisePollutionForecast-12345_2022-07-01T18:00:00_2022-07-01T00:00:00",
+  "type": "NoisePollutionForecast",
+  "dateCreated": "2022-07-22T17:37:38Z",
+  "dateModified": "2022-10-22T02:05:56Z",
   "source": "",
-  "name": "Environmental impact",
+  "name": "forecast",
   "alternateName": "",
-  "description": "",
-  "dataProvider": "City sensors",
+  "description": "forecast tomorrow",
+  "dataProvider": "service online Nice",
   "owner": [
-    "urn:ngsi-ld:TrafficEnvironmentImpact:items:FAVE:94166126",
-    "urn:ngsi-ld:TrafficEnvironmentImpact:items:EWHQ:53940846"
+    "urn:ngsi-ld:NoisePollutionForecast:items:IIZN:71750066",
+    "urn:ngsi-ld:NoisePollutionForecast:items:HKJD:09603525"
   ],
   "seeAlso": [
-    "urn:ngsi-ld:TrafficEnvironmentImpact:items:JSNF:11004684",
-    "urn:ngsi-ld:TrafficEnvironmentImpact:items:HURK:65683455"
+    "urn:ngsi-ld:NoisePollutionForecast:items:UYHN:79392420",
+    "urn:ngsi-ld:NoisePollutionForecast:items:VCCQ:21243558"
   ],
   "location": {
     "type": "Point",
     "coordinates": [
-      43.7034,
-      7.2663
+      7.2032497427380235,
+      43.68056738083439
     ]
   },
   "address": {
-    "streetAddress": "Rue Frédéric Mistral",
-    "addressLocality": "Valbonne",
-    "addressRegion": "Sophia Antipolis",
     "addressCountry": "France",
-    "postalCode": "06550",
-    "postOfficeBoxNumber": ""
+    "addressLocality": "Nice",
+    "postalCode": "06200",
+    "type": "PostalAddress"
   },
   "areaServed": "",
-  "type": "TrafficEnvironmentImpact",
-  "co2": 582.3,
-  "traffic": [
-    {
-      "vehicleClass": "A",
-      "refTrafficObserved": "urn:ngsi-ld:TrafficObserved:items:FAVE:94166126"
-    },
-    {
-      "vehicleClass": "B",
-      "refTrafficObserved":"urn:ngsi-ld:TrafficObserved:items:BAAE:94166236"
-    }
-  ],
-  "@context": [
-    "https://smartdatamodels.org/dataModel.Environment/context.jsonld"
-  ]
+  "noiseAnnoyanceIndex": 853.8,
+  "LANight": 932.9,
+  "LAmax2": 30.3,
+  "LAeq2": 675.8,
+  "noiseOrigin": "Daughter large conference never research particularly. Contain understand rather entire. Various involve ever expect person stay.",
+  "LAeq": 969.2,
+  "LAeq_d": 576.2,
+  "LAmax": 184.7,
+  "validFrom": "2022-08-23T05:35:35Z",
+  "validTo": "2022-08-24T05:35:35Z",
+  "validity": "P1D",
+  "dateIssued": "2022-08-23T05:05:35Z"
 }
+
 
 
 

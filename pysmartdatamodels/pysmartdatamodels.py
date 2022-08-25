@@ -653,16 +653,7 @@ def print_datamodel(subject, datamodel, separator, meta_attributes):
         datamodelsdict = json.load(bbdd_attributes_pointer)
 
     # available metadata in the list
-    validmetadata = ["property",
-                     "type",
-                     "dataModel",
-                     "repoName",
-                     "description",
-                     "typeNGSI",
-                     "modelTags",
-                     "format",
-                     "units",
-                     "model"]
+    validmetadata = ["property", "type", "dataModel", "repoName", "description", "typeNGSI", "modelTags", "format", "units", "model"]
     defaultmetadata = ["property", "type", "typeNGSI", "description"]
     newline = chr(13) + chr(10)
     with open("smartdatamodels.json", "r") as bbdd_attributes_pointer:
@@ -674,7 +665,7 @@ def print_datamodel(subject, datamodel, separator, meta_attributes):
         if "dataModel" in d and "repoName" in d:
             if d["dataModel"] == datamodel and d["repoName"] == subject:
                 selectedattributes.append(d)
-
+    # checks that there are any attribute for the data model
     if len(selectedattributes) < 1:
         return False
     else:
@@ -682,12 +673,13 @@ def print_datamodel(subject, datamodel, separator, meta_attributes):
             listedmetadata = meta_attributes
         else:
             listedmetadata = defaultmetadata
-            # first line with the names of the meta data of the attributes
+        # first line with the names of the meta data of the attributes
         output = str(separator.join(listedmetadata)) + newline
 
         # for every attribute in the data model
         for item in selectedattributes:
             print("item:" + str(item))
+
             try:
                 # if all metadata are available for the attribute it is done in one shot
                 selectedmeta = [item[d] for d in listedmetadata]
@@ -697,19 +689,13 @@ def print_datamodel(subject, datamodel, separator, meta_attributes):
             except:
                 # if all metadata are not available for the attribute it is done with a loop
                 print("error")
-                row = []
+                rowitems = []
                 for d in listedmetadata:
                     if d in item:
-                        row.append(item[d])
+                        rowitems.append(item[d])
                     else:
-                        row.append("")
-            rowtoadd = str(row) + newline
-            print("rowtoadd:" + rowtoadd)
-            output += rowtoadd
+                        rowitems.append("")
+                row = separator.join(rowitems)
+            output += row + newline
     print(output)
     return output
-
-
-
-
-
