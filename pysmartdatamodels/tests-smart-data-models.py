@@ -11,8 +11,8 @@ def echo_separator(functionname):
 # subject = "dataModel.Weather"
 # datamodel = "WeatherObserved"
 attribute = "precipitation"
-subject = "dataModel.Environment"
-datamodel = "TrafficEnvironmentImpactForecast"
+subject = "dataModel.OSLO"
+datamodel = "BicycleParkingStation"
 
 
 # 11
