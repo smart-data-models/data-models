@@ -1,5 +1,5 @@
 # Agile standardization principles 
-Version 1.01
+Version 1.02
 
 Agile data standardization is based on a few principles:
 
@@ -31,7 +31,7 @@ The fourth principle is that of generalization. Although data models have to sol
 Models should be self-contained where possible. A model referencing another model which references another model may be ontologically correct, but real world use cases prefer to access their data from a single location if possible
 
 ## 6. Sustainability is key
-The last principle is that of continuity. The agile standardization initiative shall only create models with continuous use and improvement in mind - this is not a "one and done" project-driven effort. Therefore, sustainability mechanism should be in place to allow for the modification of the model as the market changes.
+The last principle is that of continuity. The agile standardization initiative shall only create models with continuous use and improvement in mind - this is not a "one and done" project-driven effort. Therefore, a sustainability mechanism should be in place to allow for the modification of the model as the market changes.
 
 
 Alberto Abella
