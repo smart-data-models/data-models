@@ -1,5 +1,5 @@
 # Agile Standardization Manifesto 
-Version 1.03
+Version 1.04
 
 The Manifesto for Agile Standardization (MAS) describes the 7 principles of Agile Standardization
 
