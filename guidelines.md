@@ -219,7 +219,7 @@ can behave accordingly. This aligns with the
 definition.
 
 ## Mapping external standards
-Smart Data Models follows the [six principles of agile standardization](./agile-standardization-principles.md)
+Smart Data Models follows the [six principles of agile standardization](./MANIFESTO.md)
 Thus, many existing, adopted and open standards are mapped into the SDM (GTFS, GBFS, DCAT-AP, schema.org, etc)
 those cases we include in the schemas defining the data model an attribute 'derivedFrom' linking to the origin and 
 specifying the source in the description. Besides, although the recommendation for the codification of attributes is 
