@@ -76,15 +76,16 @@ section.
 
 ## Units
 
--   Define a default unit for magnitudes. Normally it will be the unit as stated
+- Define a default unit for magnitudes. Normally it will be the unit as stated
     by the International System of Units.
 
--   If a quantity is expressed in a different unit than the default one, use the
+- If a quantity is expressed in a different unit than the default one, use the
     [unitCode](http://schema.org/unitCode) metadata attribute in NGSI v2.
 
--   In NGSI-LD the Property `unitCode` is already defined and available to be
+- In NGSI-LD the Property `unitCode` is already defined and available to be
     used.
--   The list of UN/CEFACT Common Code (3 characters) can be download from this [page](https://www.unece.org/cefact/codesfortrade/codes_index.html). The list is available directly from [here](https://www.unece.org/fileadmin/DAM/cefact/recommendations/rec20/rec20.zip). 
+- The list of UN/CEFACT Common Code (3 characters) can be download from this [page](https://www.unece.org/cefact/codesfortrade/codes_index.html). 
+- The list is available directly from [here](https://www.unece.org/fileadmin/DAM/cefact/recommendations/rec20/rec20.zip). 
 
 ## Relative values / Percentages
 
@@ -206,7 +207,6 @@ In case of doubt check the existing data models. The full list can be got in the
 -   `category`
 -   `features`
 -   `source`
--   `relativeHumidity`
 -   `temperature`
 
 ## Versioning
@@ -218,6 +218,17 @@ can behave accordingly. This aligns with the
 [https://schema.org/schemaVersion](https://schema.org/schemaVersion) Property
 definition.
 
+## Mapping external standards
+Smart Data Models follows the [six principles of agile standardization](./agile-standardization-principles.md)
+Thus, many existing, adopted and open standards are mapped into the SDM (GTFS, GBFS, DCAT-AP, schema.org, etc)
+those cases we include in the schemas defining the data model an attribute 'derivedFrom' linking to the origin and 
+specifying the source in the description. Besides, although the recommendation for the codification of attributes is 
+to use cameCase notation, those cases the original ones are preserved. 
+
+In some specific cases like schema.org we only map those attributes that we have information of being used. 
+Why? Because schema.org have hundreds of attributes, and we only include those actually used. Hw could we document new attributes 
+used and not available. Just rise an issue or make a PR on the repository and a new version will be generated extending the current data model. 
+
 ## How to contribute
 
 Contributions should come in the form of pull requests.
@@ -225,7 +236,6 @@ Contributions should come in the form of pull requests.
 [Create a branch](https://help.github.com/articles/creating-and-deleting-branches-within-your-repository/)
 containing your changes, and proceed with a
 [Pull Request](https://help.github.com/articles/creating-a-pull-request-from-a-fork/).
-[Submit a form](http://smartdatamodels.org/index.php/submit-a-data-model/). Not recommended (larger delay)
 
 Pull Request should be easy to review, so if the model, or the changes you are
 proposing are wide, please create different pull requests.
@@ -233,18 +243,9 @@ proposing are wide, please create different pull requests.
 New data models should be added under a folder structured as follows:
 
     -   `NewModel/`
-        -   `doc/`
-            -   `spec.md`: A data model description generated automatically based on the schema.json
-                e.g.
-                [spec.md of WeatherObserved](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/doc/spec.md).
-            -  `spec_XX.md`: A data model description in language XX translated automatically from the original schema.json
-            -  `model.yaml`: A file with the technical description of the different attributes of the data model. Generated automatically
-            -  `notes.yaml`: An optional file with customization contents for the specification. Optional
-            -  `LICENSE.md`: file with the legal permission of use of th data model. It always grant free user, free modification and free share of modifications.
-            -  `swagger.yaml`: A file with the specification in open API format for interactive visualization. Generated automatically
-            -  `ADOPTERS.yaml`: A file containing use cases of the data models. Optional
-        -   `README.md`: Relevant links to access the contents of the data model. (specifications in different languages, links to the examples or to some other sevices based on the data model.)  e.g.
-            [README.md of WeatherObserved](https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/README.md)
+        - `notes.yaml`: An optional file with customization contents for the specification. Optional
+        -  `LICENSE.md`: file with the legal permission of use of th data model. It always grant free user, free modification and free share of modifications.
+        -  `ADOPTERS.yaml`: A file containing use cases of the data models. Optional
         -   `schema.json`: The JSON Schema definition, which includes the descriptons of attributes, e.g.
             [schema.json of WeatherObserved](./Weather/WeatherObserved/schema.json)
             
