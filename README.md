@@ -1,18 +1,6 @@
 # Smart Data Models
 
-Umbrella Repository for Data Models
-
-**Note: This Repository does not accept Pull Requests concerning Data Models.
-Pull Requests concerning Data Models shall be made against the corresponding
-subject Repository where the data model is located**
-<!--
-[![Status badge](https://img.shields.io/badge/status-draft-red.svg)](RELEASE_NOTES)
-[![Build badge](https://img.shields.io/travis/smart-data-models/data-models.svg "Travis build status")](https://travis-ci.org/smart-data-models/data-models/)
-[![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
--->
-[Last news](https://smartdatamodels.org/)
-
-:dart: [Roadmap](roadmap.md)
+An Umbrella Repository for collecting Data Models based on real world use-cases
 
 The availability of widely adopted (de-facto standard) information models is key
 for creating a global digital single market of interoperable and replicable
@@ -25,7 +13,22 @@ Data Models play a crucial role because they define the **harmonised
 representation formats and semantics** that will be used by applications both to
 consume and to publish data.
 
-The **FIWARE Foundation** **IUDX**, **TM Forum** and **OASC** and other entities to join, are leading 
+<!--
+[![Status badge](https://img.shields.io/badge/status-draft-red.svg)](RELEASE_NOTES)
+[![Build badge](https://img.shields.io/travis/smart-data-models/data-models.svg "Travis build status")](https://travis-ci.org/smart-data-models/data-models/)
+[![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
+-->
+
+| :mega: [Latest news](https://smartdatamodels.org/) | :dart: [Roadmap](roadmap.md) | :closed_book: [Manifesto](MANIFESTO.md) | :inbox_tray: [eMail](mailto:info@smartdatamodels.org) | :wave: [Contact Us](http://smartdata-models.org/index.php/submit-an-issue-2/) |
+| -------------------------------------------------- | ---------------------------- | --------------------------------------- |------------------------------------------------------------ | ----------------------------------------------------------------------------- |
+
+**Note: This Repository does not accept Pull Requests concerning Data Models.
+Pull Requests concerning Data Models shall be made against the corresponding
+subject Repository where the data model is located**
+
+## Who are we?
+
+The **FIWARE Foundation** **IUDX**, **TM Forum** and **OASC** and others, are leading 
 a joint collaboration program to support the adoption of a reference architecture 
 and compatible common data models that underpin a digital market of interoperable and
 replicable smart solutions in multiple sectors, starting with smart cities.
@@ -169,5 +172,3 @@ A frontend [web page](http://smartdatamodels.org/) provides global updates on th
 Additionally there is a repository for drafting data models named [incubated](https://github.com/smart-data-models/incubated/tree/master) where anybody
 (under request) can draft data models that later can submit by PR or any other method. This repo isopen to collaboration.
 
-[general contact](http://smartdata-models.org/index.php/submit-an-issue-2/)
-[mail contact](mailto:info@smartdatamodels.org)
