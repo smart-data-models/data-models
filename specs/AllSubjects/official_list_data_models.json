@@ -1344,7 +1344,16 @@
       "domains": [
         "SmartCities"
       ]
+    },
+{
+      "repoName": "dataModel.MarineTransport",
+      "repoLink": "https://github.com/smart-data-models/dataModel.MarineTransport.git",
+      "dataModels": [
+        "Vessel"
+      ],
+      "domains": [
+        "SmartLogistics"
+      ]
     }
-
   ]
 }
