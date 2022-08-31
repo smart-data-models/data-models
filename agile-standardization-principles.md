@@ -1,7 +1,7 @@
-# Agile standardization principles 
-Version 1.02
+# Agile Standardization Manifesto 
+Version 1.03
 
-Agile data standardization is based on a few principles:
+The Manifesto for Agile Standardization (MAS) describes the 7 principles of Agile Standardization
 
 0. Don't just standardize, be agile and standardize
 1. Do not reinvent the wheel
