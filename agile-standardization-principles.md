@@ -1,19 +1,16 @@
 # Agile standardization principles 
-Version 1.0
+Version 1.01
 
 Agile data standardization is based on a few principles:
 
-0.- Be differentially agile
+0. Don't just standardize, be agile and standardize
+1. Do not reinvent the wheel
+2. Normalize real cases
+3. Be open
+4. Don't be overly specific
+5. Flat not Deep
+6. Sustainability is key
 
-1.- Do not restandardize
-
-2.- Normalize real cases
-
-3.- Be open
-
-4.- Generalize as much as possible
-
-5.- Have a vocation for continuity
 
 ## 0. Don't just standardize, be agile and standardize
 This zeroth principle aims to remedy or at least differ from the classic standardization in terms of agility. Whereas in classical standardization, velocity is measured in months and years, in agile standardization, velocity should be measured in terms of days or weeks. This fundamental principle implies that activities must be as automated as possible and, with the least amount of human intervention possible. As humans, in addition to our valuable contributions, we tend both to introduce errors (which will cause problems in automated processes) and to delay decision processes, something that goes against the principle of agility.
@@ -28,14 +25,13 @@ The second principle states that agile standardization should only be based on r
 The third principle is simple - given that in many cases agile standardization is based on regulations with an open license, it would not be consistent to release the results without an open license, if possible. Any such open license has to allow free reuse, modification and sharing of modifications.
 
 ## 4. Don't be overly specific
-
 The fourth principle is that of generalization. Although data models have to solve real world market problems, it is far too easy to start from a very specific use-case. Agile standardization must reach a consensus in order to make the model cover as many cases as possible, for example by limiting the number of mandatory attributes, without introducing complexities in the generated data models. Remember that what is mandatory for you could be optional for others.
 
-## 5. Sustainability is key
-The last principle is that of continuity. The agile standardization initiative shall only create models with continuous use and improvement in mind - this is not a "one and done" project-driven effort. Therefore, sustainability mechanism should be in place to allow for the modification of the model as the market changes.
-
-## 6. Flat not Deep
+## 5. Flat not Deep
 Models should be self-contained where possible. A model referencing another model which references another model may be ontologically correct, but real world use cases prefer to access their data from a single location if possible
+
+## 6. Sustainability is key
+The last principle is that of continuity. The agile standardization initiative shall only create models with continuous use and improvement in mind - this is not a "one and done" project-driven effort. Therefore, sustainability mechanism should be in place to allow for the modification of the model as the market changes.
 
 
 Alberto Abella
