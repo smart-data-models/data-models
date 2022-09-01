@@ -26,6 +26,34 @@ consume and to publish data.
 Pull Requests concerning Data Models shall be made against the corresponding
 subject Repository where the data model is located**
 
+## Full list of Data Models
+
+A full list of the data models in machine-readable JSON format can be found in the file
+[official_list_data_models.json](https://github.com/smart-data-models/data-models/blob/master/specs/AllSubjects/official_list_data_models.json).
+Further details on the available subjects, properties and their descriptions can be found via the [search tool](https://smartdatamodels.org/index.php/ddbb-of-properties-descriptions/)
+
+## Application Domains
+
+There are new data models in progress for the following application domains (sectors):
+
+-   [Cross Sector](https://github.com/smart-data-models/CrossSector)
+-   [Smart Agrifood](https://github.com/smart-data-models/SmartAgrifood)
+-   [Smart Cities](https://github.com/smart-data-models/SmartCities)
+-   [Smart Energy](https://github.com/smart-data-models/SmartEnergy)
+-   [Smart Environment](https://github.com/smart-data-models/SmartEnvironment)
+-   [Smart Sensoring](https://github.com/smart-data-models/Smart-Sensoring)
+-   [Smart Water](https://github.com/smart-data-models/SmartWater)
+-   [Smart Destination](https://github.com/smart-data-models/SmartDestination) 
+-   [Smart Aeronautics](https://github.com/smart-data-models/SmartAeronautics) 
+-   [Smart Robotics](https://github.com/smart-data-models/SmartRobotics)
+-   [Smart Health](https://github.com/smart-data-models/SmartHealth)
+-   [Smart Manufacturing](https://github.com/smart-data-models/SmartManufacturing) (Just opened)
+
+
+A frontend [web page](http://smartdatamodels.org/) provides global updates on the Smart data models.  
+Additionally there is a repository for drafting data models named [incubated](https://github.com/smart-data-models/incubated/tree/master) where anybody
+(under request) can draft data models that later can submit by PR or any other method. This repo is always open to collaboration.
+
 ## Who are we?
 
 The **FIWARE Foundation** **IUDX**, **TM Forum** and **OASC** and others, are leading 
@@ -143,32 +171,3 @@ By agreeing across different communities, the common definition of smart
 data models, this will empower innovators and companies to develop solutions
 that adhere to this common definition and ultimately help enable
 interoperability of services.
-
-## Full list of Data Models
-
-A full list of the data models in json format can be found in the file
-[official_list_data_models.json](https://github.com/smart-data-models/data-models/blob/master/specs/AllSubjects/official_list_data_models.json).
-Further details on the avaialble subjects, properties and their descriptions can be found at the [search tool](https://smartdatamodels.org/index.php/ddbb-of-properties-descriptions/)
-
-## Application Domains
-
-There are new data models in progress for the following application domains (sectors):
-
--   [Cross Sector](https://github.com/smart-data-models/CrossSector)
--   [Smart Agrifood](https://github.com/smart-data-models/SmartAgrifood)
--   [Smart Cities](https://github.com/smart-data-models/SmartCities)
--   [Smart Energy](https://github.com/smart-data-models/SmartEnergy)
--   [Smart Environment](https://github.com/smart-data-models/SmartEnvironment)
--   [Smart Sensoring](https://github.com/smart-data-models/Smart-Sensoring)
--   [Smart Water](https://github.com/smart-data-models/SmartWater)
--   [Smart Destination](https://github.com/smart-data-models/SmartDestination) 
--   [Smart Aeronautics](https://github.com/smart-data-models/SmartAeronautics) 
--   [Smart Robotics](https://github.com/smart-data-models/SmartRobotics)
--   [Smart Health](https://github.com/smart-data-models/SmartHealth)
--   [Smart Manufacturing](https://github.com/smart-data-models/SmartManufacturing) (Just opened)
-
-
-A frontend [web page](http://smartdatamodels.org/) provides global updates on the Smart data models.  
-Additionally there is a repository for drafting data models named [incubated](https://github.com/smart-data-models/incubated/tree/master) where anybody
-(under request) can draft data models that later can submit by PR or any other method. This repo isopen to collaboration.
-
