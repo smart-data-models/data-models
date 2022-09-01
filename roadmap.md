@@ -2,11 +2,13 @@
 
 The Roadmap of the Smart Data Models Initiative is the following: 
 
-* There is an option in smartdatamodels.org for listing those [initiatives pending](https://smartdatamodels.org/index.php/smart-data-models-wish-list/)
+* Integration of other well documented, adopted and open standards. Suggest [here](https://smartdatamodels.org/index.php/submit-an-issue-2/)
 
-* Keep on mapping regulations and adapting to smart data models format. Suggest [here]()
+* Integration with other tools like data spaces, open data portals, any tool for data sharing. Suggest [here](https://smartdatamodels.org/index.php/submit-an-issue-2/)
 
-* Finish the integration of the testing tools for the decentralised approach of repositories. Done. Now second phase.
+* Creation of the pysmartdatamodels with all the attributes, data models and functions to extra info from them
+
+* There is an option in smartdatamodels.org for listing other [initiatives pending](https://smartdatamodels.org/index.php/smart-data-models-wish-list/)
 
 * Automation of the testing tools to check consistency within the data models
   * Changing the data models to include all the comments in the json schema
@@ -14,26 +16,10 @@ The Roadmap of the Smart Data Models Initiative is the following:
 * Adopt additional Data Models from: 
 - [Fiware4Water](https://www.fiware4water.eu/) belonging to the ICT4water cluster in Europe. In progress
 
-* Generate Schema definitions in JSON JSON-LD. fixed
-
 * Validate NGSI-LD content.
 The validation tool (see [tools repository](https://github.com/smart-data-models/tools)) has to be tweaked to perform NGSI-LD validation of examples
 , once Orion-LD is in a more mature state. In progress.
 
-## Already accomplished
-* To launch its community not only in the github repository but also in a dedicated website. Done
 
-* [SynchroniCity Data Models Project](https://gitlab.com/synchronicity-iot/synchronicity-data-models). done.
-
-* Launch other domains
-- Smart Robotics. done
-- Smart Manufacturing. done
-- Smart Destinations. done
-- Smart Aeronautics. done
-- Smart Health. done
-
-* Add additional Data Models per other methods defined by the FIWARE Foundation and TMForum. done
-
-* Adopt automatic documentation generation to be developed by FIWARE Data Models. done.
 
 
