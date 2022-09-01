@@ -47,7 +47,8 @@ There are new data models in progress for the following application domains (sec
 -   [Smart Aeronautics](https://github.com/smart-data-models/SmartAeronautics) 
 -   [Smart Robotics](https://github.com/smart-data-models/SmartRobotics)
 -   [Smart Health](https://github.com/smart-data-models/SmartHealth)
--   [Smart Manufacturing](https://github.com/smart-data-models/SmartManufacturing) (Just opened)
+-   [Smart Manufacturing](https://github.com/smart-data-models/SmartManufacturing) 
+-   [Smart Logistics](https://github.com/smart-data-models/SmartLogistics) (Just opened)
 
 
 A frontend [web page](http://smartdatamodels.org/) provides global updates on the Smart data models.  
