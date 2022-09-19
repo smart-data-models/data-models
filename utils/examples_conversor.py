@@ -20,7 +20,6 @@
 def normalized2keyvalues(normalizedPayload):
     import json
 
-
     normalizedDict = json.loads(normalizedPayload)
     output = {}
     # print(normalizedDict)
@@ -104,58 +103,100 @@ def keyvalues2normalized(keyvaluesPayload):
     return output
 
 
-
-
-
 keyvaluesPayload = {
-  "id": "urn:ngsi-ld:NoisePollution:France-NoisePollutionForecast-12345_2022-07-01T18:00:00_2022-07-01T00:00:00",
-  "type": "NoisePollutionForecast",
-  "dateCreated": "2022-07-22T17:37:38Z",
-  "dateModified": "2022-10-22T02:05:56Z",
-  "source": "",
-  "name": "forecast",
-  "alternateName": "",
-  "description": "forecast tomorrow",
-  "dataProvider": "service online Nice",
-  "owner": [
-    "urn:ngsi-ld:NoisePollutionForecast:items:IIZN:71750066",
-    "urn:ngsi-ld:NoisePollutionForecast:items:HKJD:09603525"
-  ],
-  "seeAlso": [
-    "urn:ngsi-ld:NoisePollutionForecast:items:UYHN:79392420",
-    "urn:ngsi-ld:NoisePollutionForecast:items:VCCQ:21243558"
-  ],
-  "location": {
-    "type": "Point",
-    "coordinates": [
-      7.2032497427380235,
-      43.68056738083439
+    "id": "urn:ngsi-v2:RAMI40:I4AAS:MRobotVI:AASMRobotVI",
+    "type": "I4AAS",
+    "administration": {
+        "version": "1.0",
+        "revision": "1.0"
+    },
+    "asset": {
+        "keys": [
+            {
+                "type": "Asset",
+                "local": True,
+                "value": "urn:ngsi-v2:RAMI40:I4Asset:MRobotVI:AASMRobotVI",
+                "index": 0,
+                "idType": "IRI"
+            }
+        ]
+    },
+    "category": "CONSTANT",
+    "conceptDictionaries": [],
+    "descriptions": [
+        {
+            "language": "en",
+            "text": "AAS of AASMRobotVI"
+        }
+    ],
+    "hasDataSpecification": [],
+    "idShort": "AASMRobotVI",
+    "identification": {
+        "idType": "IRI",
+        "id": "urn:ngsi-v2:RAMI40:I4AAS:MRobotVI:AASMRobotVI"
+    },
+    "modelType": {
+        "name": "AssetAdministrationShell"
+    },
+    "refI4AssetId": "urn:ngsi-v2:RAMI40:I4Asset:MRobotVI:AASMRobotVI",
+    "submodels": [
+        {
+            "keys": [
+                {
+                    "type": "Submodel",
+                    "local": False,
+                    "value": "urn:ngsi-v2:RAMI40:I4Submodel:OperationalCapability:AASMRobotVI",
+                    "index": 0,
+                    "idType": "IRI"
+                }
+            ]
+        },
+        {
+            "keys": [
+                {
+                    "type": "Submodel",
+                    "local": False,
+                    "value": "urn:ngsi-ld:RAMI40:I4Submodel:AssetConditionMonitoring:AASMRobotVI",
+                    "index": 0,
+                    "idType": "IRI"
+                }
+            ]
+        },
+        {
+            "keys": [
+                {
+                    "type": "Submodel",
+                    "local": False,
+                    "value": "urn:ngsi-ld:RAMI40:I4Submodel:TechnicalData:AASMRobotVI",
+                    "index": 0,
+                    "idType": "IRI"
+                }
+            ]
+        },
+        {
+            "keys": [
+                {
+                    "type": "Submodel",
+                    "local": False,
+                    "value": "urn:ngsi-ld:RAMI40:I4Submodel:Nameplate:AASMRobotVI",
+                    "index": 0,
+                    "idType": "IRI"
+                }
+            ]
+        },
+        {
+            "keys": [
+                {
+                    "type": "Submodel",
+                    "local": False,
+                    "value": "urn:ngsi-ld:RAMI40:I4Submodel:OperationalData:AASMRobotVI",
+                    "index": 0,
+                    "idType": "IRI"
+                }
+            ]
+        }
     ]
-  },
-  "address": {
-    "addressCountry": "France",
-    "addressLocality": "Nice",
-    "postalCode": "06200",
-    "type": "PostalAddress"
-  },
-  "areaServed": "",
-  "noiseAnnoyanceIndex": 853.8,
-  "LANight": 932.9,
-  "LAmax2": 30.3,
-  "LAeq2": 675.8,
-  "noiseOrigin": "Daughter large conference never research particularly. Contain understand rather entire. Various involve ever expect person stay.",
-  "LAeq": 969.2,
-  "LAeq_d": 576.2,
-  "LAmax": 184.7,
-  "validFrom": "2022-08-23T05:35:35Z",
-  "validTo": "2022-08-24T05:35:35Z",
-  "validity": "P1D",
-  "dateIssued": "2022-08-23T05:05:35Z"
 }
-
-
-
-
 
 normalizedPayload = """
 {

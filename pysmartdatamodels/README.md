@@ -14,7 +14,7 @@ If you want to be updated on this package you can join this [mailing list](https
 
 There are several online tools to manage and to create the data models, [generate examples](https://smartdatamodels.org/index.php/generate-a-ngsi-ld-keyvalues-payload-compliant-with-a-data-model/) or to adapt to [existing ontologies](https://smartdatamodels.org/index.php/generate-acontext-based-on-exter### nal-ontologies-iris/). See tools menu option at the [home site](https://smartdatamodels.org).
 
-Currently, there are twelve domains. 
+Currently, there are thirteen domains. 
 ### [Smart Cities](https://github.com/smart-data-models/SmartCities)
 ### [Smart Agrifood](https://smartdatamodels.org/index.php/statistics/)
 ### [Smart Water](https://github.com/smart-data-models/SmartWater)
@@ -27,7 +27,7 @@ Currently, there are twelve domains.
 ### [Smart Destination](https://github.com/smart-data-models/SmartDestination)
 ### [Smart Health](https://github.com/smart-data-models/SmartHealth)
 ### [Smart Manufacturing](https://github.com/smart-data-models/SmartManufacturing)
-
+### [Smart Logistics](https://github.com/smart-data-models/SmartLogistics)
 
 ## Functions available include:
 

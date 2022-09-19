@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 
 HERE = pathlib.Path(__file__).parent
 
-VERSION = '0.2.1'
+VERSION = '0.2.3'
 PACKAGE_NAME = 'pysmartdatamodels'
 AUTHOR = 'Collaborative, see CONTRIBUTORS.yaml in the original repositories. Coordination alberto.abella@fiware.org'
 AUTHOR_EMAIL = 'info@smartdatamodels.org'
@@ -14,7 +14,7 @@ DESCRIPTION = 'Hundreds of free data models to model your digital twins, share d
 LONG_DESCRIPTION = (HERE / "README.md").read_text()
 LONG_DESC_TYPE = "text/markdown"
 
-INSTALL_REQUIRES = ["collections", "datetime", "json", "jsonref", "jsonschema", "pytz", "requests", "sys"]
+INSTALL_REQUIRES = ["collections", "json", "jsonref", "jsonschema", "pytz", "requests", "sys", "validate", "datetime"]
 
 setup(name=PACKAGE_NAME,
       version=VERSION,

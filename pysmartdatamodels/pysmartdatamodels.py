@@ -1,4 +1,5 @@
 # 1
+official_list_file_name = "official_list_data_models.json"
 def list_all_datamodels():
     """List the names of the entities defined in the data models.
        Parameters:
@@ -10,7 +11,7 @@ def list_all_datamodels():
 
     output = []
     # Opens the file with the list of data models
-    with open("list_of_datamodels.json", "r") as list_of_datamodels_pointer:
+    with open(official_list_file_name, "r") as list_of_datamodels_pointer:
         # Loads it in the dictionary
         datamodelsdict = json.load(list_of_datamodels_pointer)["officialList"]
         # Stores it in the output variable
@@ -34,7 +35,7 @@ def list_all_subjects():
     output = []
 
     # Opens the file with the list of data models
-    with open("list_of_datamodels.json", "r") as list_of_datamodels_pointer:
+    with open(official_list_file_name, "r") as list_of_datamodels_pointer:
         datamodelsdict = json.load(list_of_datamodels_pointer)["officialList"]
         for item in datamodelsdict:
             output.append(item["repoName"])
@@ -59,7 +60,7 @@ def datamodels_subject(subject):
     output = []
     done = False
 
-    with open("list_of_datamodels.json", "r") as list_of_datamodels_pointer:
+    with open(official_list_file_name, "r") as list_of_datamodels_pointer:
         datamodelsdict = json.load(list_of_datamodels_pointer)["officialList"]
         for item in datamodelsdict:
             if "repoName" and "dataModels" in item:
@@ -92,7 +93,7 @@ def description_attribute(subject, datamodel, attribute):
     done = False
 
     # Access the full database of attributes and stores is in a dictionary
-    with open("smartdatamodels.json", "r") as bbdd_attributes_pointer:
+    with open(official_list_file_name, "r") as bbdd_attributes_pointer:
         datamodelsdict = json.load(bbdd_attributes_pointer)
 
     # Looks for the attribute in the dictionary
@@ -131,7 +132,7 @@ def datatype_attribute(subject, datamodel, attribute):
     done = False
 
     # Access the full database of attributes and stores is in a dictionary
-    with open("smartdatamodels.json", "r") as bbdd_attributes_pointer:
+    with open(official_list_file_name, "r") as bbdd_attributes_pointer:
         datamodelsdict = json.load(bbdd_attributes_pointer)
 
     # Looks for the attribute in the dictionary
@@ -174,7 +175,7 @@ def model_attribute(subject, datamodel, attribute):
     done = False
 
     # Access the full database of attributes and stores is in a dictionary
-    with open("smartdatamodels.json", "r") as bbdd_attributes_pointer:
+    with open(official_list_file_name, "r") as bbdd_attributes_pointer:
         datamodelsdict = json.load(bbdd_attributes_pointer)
 
     # Looks for the attribute in the dictionary
@@ -217,7 +218,7 @@ def units_attribute(subject, datamodel, attribute):
     done = False
 
     # Access the full database of attributes and stores is in a dictionary
-    with open("smartdatamodels.json", "r") as bbdd_attributes_pointer:
+    with open(official_list_file_name, "r") as bbdd_attributes_pointer:
         datamodelsdict = json.load(bbdd_attributes_pointer)
 
     # Looks for the attribute in the dictionary
@@ -259,7 +260,7 @@ def attributes_datamodel(subject, datamodel):
     done = False
 
     # Access the full database of attributes and stores is in a dictionary
-    with open("smartdatamodels.json", "r") as bbdd_attributes_pointer:
+    with open(official_list_file_name, "r") as bbdd_attributes_pointer:
         datamodelsdict = json.load(bbdd_attributes_pointer)
 
     # Looks for the attribute in the dictionary
@@ -301,7 +302,7 @@ def ngsi_datatype_attribute(subject, datamodel, attribute):
     done = False
 
     # Access the full database of attributes and stores is in a dictionary
-    with open("smartdatamodels.json", "r") as bbdd_attributes_pointer:
+    with open(official_list_file_name, "r") as bbdd_attributes_pointer:
         datamodelsdict = json.load(bbdd_attributes_pointer)
 
     # Looks for the attribute in the dictionary
@@ -649,14 +650,14 @@ def print_datamodel(subject, datamodel, separator, meta_attributes):
                    """
     import json
     output = []
-    with open("smartdatamodels.json", "r") as bbdd_attributes_pointer:
+    with open(official_list_file_name, "r") as bbdd_attributes_pointer:
         datamodelsdict = json.load(bbdd_attributes_pointer)
 
     # available metadata in the list
     validmetadata = ["property", "type", "dataModel", "repoName", "description", "typeNGSI", "modelTags", "format", "units", "model"]
     defaultmetadata = ["property", "type", "typeNGSI", "description"]
     newline = chr(13) + chr(10)
-    with open("smartdatamodels.json", "r") as bbdd_attributes_pointer:
+    with open("official_list_file_name", "r") as bbdd_attributes_pointer:
         datamodelsdict = json.load(bbdd_attributes_pointer)
     print(datamodelsdict[0])
     selectedattributes = []
