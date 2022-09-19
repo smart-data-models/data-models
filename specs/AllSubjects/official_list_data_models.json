@@ -1,5 +1,5 @@
 {
-  "updatedDate": "2022-08-25T21:26:00.31416",
+  "updatedDate": "2022-09-19T21:26:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -1339,7 +1339,8 @@
       "repoName": "dataModel.OSLO",
       "repoLink": "https://github.com/smart-data-models/dataModel.OSLO.git",
       "dataModels": [
-        "BicycleParkingStation"
+        "BicycleParkingStation",
+        "ResourceReport"
       ],
       "domains": [
         "SmartCities"
