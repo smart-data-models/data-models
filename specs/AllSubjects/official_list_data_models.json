@@ -1340,7 +1340,9 @@
       "repoLink": "https://github.com/smart-data-models/dataModel.OSLO.git",
       "dataModels": [
         "BicycleParkingStation",
-        "ResourceReport"
+        "BicycleParkingStationForecast",
+        "ResourceReport",
+        "ResourceReportForecast"
       ],
       "domains": [
         "SmartCities"

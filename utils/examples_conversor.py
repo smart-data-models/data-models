@@ -104,99 +104,49 @@ def keyvalues2normalized(keyvaluesPayload):
 
 
 keyvaluesPayload = {
-    "id": "urn:ngsi-v2:RAMI40:I4AAS:MRobotVI:AASMRobotVI",
-    "type": "I4AAS",
-    "administration": {
-        "version": "1.0",
-        "revision": "1.0"
-    },
-    "asset": {
-        "keys": [
-            {
-                "type": "Asset",
-                "local": True,
-                "value": "urn:ngsi-v2:RAMI40:I4Asset:MRobotVI:AASMRobotVI",
-                "index": 0,
-                "idType": "IRI"
-            }
-        ]
-    },
-    "category": "CONSTANT",
-    "conceptDictionaries": [],
-    "descriptions": [
-        {
-            "language": "en",
-            "text": "AAS of AASMRobotVI"
-        }
-    ],
-    "hasDataSpecification": [],
-    "idShort": "AASMRobotVI",
-    "identification": {
-        "idType": "IRI",
-        "id": "urn:ngsi-v2:RAMI40:I4AAS:MRobotVI:AASMRobotVI"
-    },
-    "modelType": {
-        "name": "AssetAdministrationShell"
-    },
-    "refI4AssetId": "urn:ngsi-v2:RAMI40:I4Asset:MRobotVI:AASMRobotVI",
-    "submodels": [
-        {
-            "keys": [
-                {
-                    "type": "Submodel",
-                    "local": False,
-                    "value": "urn:ngsi-v2:RAMI40:I4Submodel:OperationalCapability:AASMRobotVI",
-                    "index": 0,
-                    "idType": "IRI"
-                }
-            ]
-        },
-        {
-            "keys": [
-                {
-                    "type": "Submodel",
-                    "local": False,
-                    "value": "urn:ngsi-ld:RAMI40:I4Submodel:AssetConditionMonitoring:AASMRobotVI",
-                    "index": 0,
-                    "idType": "IRI"
-                }
-            ]
-        },
-        {
-            "keys": [
-                {
-                    "type": "Submodel",
-                    "local": False,
-                    "value": "urn:ngsi-ld:RAMI40:I4Submodel:TechnicalData:AASMRobotVI",
-                    "index": 0,
-                    "idType": "IRI"
-                }
-            ]
-        },
-        {
-            "keys": [
-                {
-                    "type": "Submodel",
-                    "local": False,
-                    "value": "urn:ngsi-ld:RAMI40:I4Submodel:Nameplate:AASMRobotVI",
-                    "index": 0,
-                    "idType": "IRI"
-                }
-            ]
-        },
-        {
-            "keys": [
-                {
-                    "type": "Submodel",
-                    "local": False,
-                    "value": "urn:ngsi-ld:RAMI40:I4Submodel:OperationalData:AASMRobotVI",
-                    "index": 0,
-                    "idType": "IRI"
-                }
-            ]
-        }
+  "id": "urn:ngsi-ld:dataModel:id:UZHW:27495447",
+  "type": "Person",
+  "dateCreated": "1993-05-07T06:43:37Z",
+  "dateModified": "1978-12-27T04:25:34Z",
+  "source": "Medical parent method become easy gas. South table fill finally rate morning. Evening trip whom serve year.",
+  "name": "Capital seven level force add expert. Institution agree boy since agree allow.",
+  "alternateName": "Treatment our process third offer data enjoy. Economy office government degree newspaper past life professional.",
+  "description": "Peace economy student ball form. Avoid visit protect name. Our role challenge economy claim.",
+  "dataProvider": "Suddenly nearly thank down. Visit safe soldier vote.",
+  "owner": [
+    "urn:ngsi-ld:dataModel:items:WQPT:65442393",
+    "urn:ngsi-ld:dataModel:items:ALHV:33053523"
+  ],
+  "seeAlso": [
+    "urn:ngsi-ld:dataModel:items:LHMU:67329694",
+    "urn:ngsi-ld:dataModel:items:MMZQ:64123812"
+  ],
+  "location": {
+    "type": "Point",
+    "coordinates": [
+      40.2403775,
+      170.070362
     ]
+  },
+  "address": {
+    "streetAddress": "Rock decide budget executive. Number who provide still despite Democrat money. Not gun box Democrat.",
+    "addressLocality": "President feel film report point mother strategy. Public issue close too must safe officer. Focus enough well.",
+    "addressRegion": "Hair hour avoid. World enjoy produce knowledge air population.",
+    "addressCountry": "Hotel network investment sit money moment manager. He put husband play method simple.",
+    "postalCode": "Word born success lose. Most become half relationship.",
+    "postOfficeBoxNumber": "Pay shake night late situation admit. Peace relationship measure phone everything color. Itself us establish."
+  },
+  "areaServed": "Soldier company performance career prepare nearly. Woman how edge mouth.",
+  "additionalName": "Possible outside soldier cultural professor experience wind. Area gun popular spring skin.",
+  "familyName": "Future friend step card current. Than allow despite you their. White machine wrong state adult financial price.",
+  "givenName": "Plant charge somebody feeling. Too man newspaper simply amount.",
+  "telephone": "Team right area this stage any.",
+  "email": "",
+  "@context": [
+    "https://smartdatamodels.org/context.jsonld"
+  ]
 }
+
 
 normalizedPayload = """
 {
