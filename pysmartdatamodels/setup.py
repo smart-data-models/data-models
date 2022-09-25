@@ -14,7 +14,13 @@ DESCRIPTION = 'Hundreds of free data models to model your digital twins, share d
 LONG_DESCRIPTION = (HERE / "README.md").read_text()
 LONG_DESC_TYPE = "text/markdown"
 
-INSTALL_REQUIRES = ["collections", "json", "jsonref", "jsonschema", "pytz", "requests", "sys", "validate", "datetime"]
+INSTALL_REQUIRES = [
+    # "collections", "json" # These are builtins
+    "jsonref", "jsonschema", "pytz", "requests", 
+    # "sys", # another builtin
+    # "validate", # Does not appear to be used
+    # "datetime" # Does not appear to be used
+    ]
 
 setup(name=PACKAGE_NAME,
       version=VERSION,
