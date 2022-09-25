@@ -1,5 +1,13 @@
 # 1
-official_list_file_name = "official_list_data_models.json"
+from pathlib import Path
+import pysmartdatamodels
+
+# lookup install path for - model-assets
+module_path=Path(pysmartdatamodels.__file__).parent.parent
+official_list_file_name = module_path /"model-assets"/ "official_list_data_models.json"
+
+
+
 def list_all_datamodels():
     """List the names of the entities defined in the data models.
        Parameters:
