@@ -3,7 +3,7 @@ from pathlib import Path
 import pysmartdatamodels
 
 # lookup install path for - model-assets
-module_path = Path(pysmartdatamodels.__file__).parent.parent
+module_path = Path(pysmartdatamodels.__file__).parent
 official_list_file_name = (
     module_path / "model-assets" / "official_list_data_models.json"
 )
