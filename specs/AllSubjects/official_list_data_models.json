@@ -1,5 +1,5 @@
 {
-  "updatedDate": "2022-09-19T21:26:00.31416",
+  "updatedDate": "2022-09-27T16:43:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -1356,6 +1356,16 @@
       ],
       "domains": [
         "SmartLogistics"
+      ]
+    },
+    {
+      "repoName": "dataModel.Consumption",
+      "repoLink": "https://github.com/smart-data-models/dataModel.Consumption.git",
+      "dataModels": [
+        "ConsumptionCost", "ConsumptionPoint"
+      ],
+      "domains": [
+        "SmartEnergy"
       ]
     }
   ]
