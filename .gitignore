@@ -1,6 +1,9 @@
 .idea/*
 .DS_Store
 .python_env
+.eggs
+*.egg-info
+**/build
 **/*.pyc
 node_modules
 **/*.log*
