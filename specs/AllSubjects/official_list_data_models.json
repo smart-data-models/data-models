@@ -1,5 +1,5 @@
 {
-  "updatedDate": "2022-09-27T16:43:00.31416",
+  "updatedDate": "2022-09-29T00:59:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -1366,6 +1366,15 @@
       ],
       "domains": [
         "SmartEnergy"
+      ]
+    },
+    {
+      "repoName": "dataModel.Hl7",
+      "repoLink": "https://github.com/smart-data-models/dataModel.Hl7.git",
+      "dataModels": [
+      ],
+      "domains": [
+        "SmartHealth"
       ]
     }
   ]
