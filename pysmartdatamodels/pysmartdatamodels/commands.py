@@ -1,12 +1,21 @@
 # 1
-official_list_file_name = "official_list_data_models.json"
+from pathlib import Path
+import pysmartdatamodels
+
+# lookup install path for - model-assets
+module_path = Path(pysmartdatamodels.__file__).parent
+official_list_file_name = (
+    module_path / "model-assets" / "official_list_data_models.json"
+)
+
+
 def list_all_datamodels():
     """List the names of the entities defined in the data models.
-       Parameters:
+    Parameters:
 
-       Returns:
-          array of strings: data models' names
-       """
+    Returns:
+       array of strings: data models' names
+    """
     import json
 
     output = []
@@ -25,11 +34,11 @@ def list_all_datamodels():
 # 2
 def list_all_subjects():
     """List the names of the subjects (groups of data models). The subject's names define repositories with the name dataModel.subject at the root of the https://smart-data-models.github.com site
-           Parameters:
+    Parameters:
 
-           Returns:
-              array of strings: subjects' names
-           """
+    Returns:
+       array of strings: subjects' names
+    """
     import json
 
     output = []
@@ -44,17 +53,17 @@ def list_all_subjects():
 
 
 # 3
-def datamodels_subject(subject):
+def datamodels_subject(subject: str):
     """List the names of the entities defined in the data models.
-           Parameters:
-               subject: name of the subject
+    Parameters:
+        subject: name of the subject
 
-           Returns:
-              if subject is found
-                array of strings: data models' names belonging to the subject
-              if subject is not found
-                False
-           """
+    Returns:
+       if subject is found
+         array of strings: data models' names belonging to the subject
+       if subject is not found
+         False
+    """
     import json
 
     output = []
@@ -76,17 +85,17 @@ def datamodels_subject(subject):
 # 4
 def description_attribute(subject, datamodel, attribute):
     """List the description of an attribute belonging to a subject and data model.
-           Parameters:
-               subject: name of the subject
-               datamodel: name of the data model
-               attribute: name of the attribute
+    Parameters:
+        subject: name of the subject
+        datamodel: name of the data model
+        attribute: name of the attribute
 
-           Returns:
-               if subject, datamodel and attribute are found
-                string: attribute's description
-              if any of the input parameters is not found
-                False
-           """
+    Returns:
+        if subject, datamodel and attribute are found
+         string: attribute's description
+       if any of the input parameters is not found
+         False
+    """
     import json
 
     output = []
@@ -100,7 +109,11 @@ def description_attribute(subject, datamodel, attribute):
     for item in datamodelsdict:
         # print(item)
         try:
-            if (item["repoName"] == subject) and (item["dataModel"] == datamodel) and (item["property"] == attribute):
+            if (
+                (item["repoName"] == subject)
+                and (item["dataModel"] == datamodel)
+                and (item["property"] == attribute)
+            ):
                 output = item["description"]
                 done = True
         except:
@@ -115,17 +128,17 @@ def description_attribute(subject, datamodel, attribute):
 # 5
 def datatype_attribute(subject, datamodel, attribute):
     """List the data type of an attribute belonging to a subject and data model.
-               Parameters:
-                   subject: name of the subject
-                   datamodel: name of the data model
-                   attribute: name of the attribute
+    Parameters:
+        subject: name of the subject
+        datamodel: name of the data model
+        attribute: name of the attribute
 
-               Returns:
-                   if subject, datamodel and attribute are found
-                    string: attribute's data type
-                  if any of the input parameters is not found
-                    False
-               """
+    Returns:
+        if subject, datamodel and attribute are found
+         string: attribute's data type
+       if any of the input parameters is not found
+         False
+    """
     import json
 
     output = []
@@ -139,7 +152,11 @@ def datatype_attribute(subject, datamodel, attribute):
     for item in datamodelsdict:
         # print(item)
         try:
-            if (item["repoName"] == subject) and (item["dataModel"] == datamodel) and (item["property"] == attribute):
+            if (
+                (item["repoName"] == subject)
+                and (item["dataModel"] == datamodel)
+                and (item["property"] == attribute)
+            ):
                 if "type" in item:
                     output = item["type"]
                     done = True
@@ -158,17 +175,17 @@ def datatype_attribute(subject, datamodel, attribute):
 # 6
 def model_attribute(subject, datamodel, attribute):
     """List the model of an attribute (when available) belonging to a subject and data model.
-               Parameters:
-                   subject: name of the subject
-                   datamodel: name of the data model
-                   attribute: name of the attribute
+    Parameters:
+        subject: name of the subject
+        datamodel: name of the data model
+        attribute: name of the attribute
 
-               Returns:
-                   if subject, datamodel and attribute are found
-                    string: attribute model's URL
-                  if any of the input parameters is not found or there is not a model
-                    False
-               """
+    Returns:
+        if subject, datamodel and attribute are found
+         string: attribute model's URL
+       if any of the input parameters is not found or there is not a model
+         False
+    """
     import json
 
     output = []
@@ -182,7 +199,11 @@ def model_attribute(subject, datamodel, attribute):
     for item in datamodelsdict:
         # print(item)
         try:
-            if (item["repoName"] == subject) and (item["dataModel"] == datamodel) and (item["property"] == attribute):
+            if (
+                (item["repoName"] == subject)
+                and (item["dataModel"] == datamodel)
+                and (item["property"] == attribute)
+            ):
                 if "model" in item:
                     output = item["model"]
                     done = True
@@ -201,17 +222,17 @@ def model_attribute(subject, datamodel, attribute):
 # 7
 def units_attribute(subject, datamodel, attribute):
     """List the recommended units of an attribute belonging to a subject and data model.
-               Parameters:
-                   subject: name of the subject
-                   datamodel: name of the data model
-                   attribute: name of the attribute
+    Parameters:
+        subject: name of the subject
+        datamodel: name of the data model
+        attribute: name of the attribute
 
-               Returns:
-                   if subject, datamodel and attribute are found
-                    string: acronym/text of the recommended units
-                  if any of the input parameters is not found or there are not recommended units
-                    False
-               """
+    Returns:
+        if subject, datamodel and attribute are found
+         string: acronym/text of the recommended units
+       if any of the input parameters is not found or there are not recommended units
+         False
+    """
     import json
 
     output = []
@@ -225,7 +246,11 @@ def units_attribute(subject, datamodel, attribute):
     for item in datamodelsdict:
         # print(item)
         try:
-            if (item["repoName"] == subject) and (item["dataModel"] == datamodel) and (item["property"] == attribute):
+            if (
+                (item["repoName"] == subject)
+                and (item["dataModel"] == datamodel)
+                and (item["property"] == attribute)
+            ):
                 if "units" in item:
                     output = item["units"]
                     done = True
@@ -244,16 +269,16 @@ def units_attribute(subject, datamodel, attribute):
 # 8
 def attributes_datamodel(subject, datamodel):
     """List the attributes of a data model (currently only first level ones) .
-               Parameters:
-                   subject: name of the subject
-                   datamodel: name of the data model
+    Parameters:
+        subject: name of the subject
+        datamodel: name of the data model
 
-               Returns:
-                   if subject and datamodel  are found
-                    array: attribute's names
-                  if any of the input parameters is not found
-                    False
-               """
+    Returns:
+        if subject and datamodel  are found
+         array: attribute's names
+       if any of the input parameters is not found
+         False
+    """
     import json
 
     output = []
@@ -285,17 +310,17 @@ def attributes_datamodel(subject, datamodel):
 # 9
 def ngsi_datatype_attribute(subject, datamodel, attribute):
     """List the NGSI data type of an attribute (Property, Relationship or Geoproperty) belonging to a subject and data model.
-                   Parameters:
-                       subject: name of the subject
-                       datamodel: name of the data model
-                       attribute: name of the attribute
+    Parameters:
+        subject: name of the subject
+        datamodel: name of the data model
+        attribute: name of the attribute
 
-                   Returns:
-                       if subject, datamodel and attribute are found
-                        string: NGSI data type
-                      if any of the input parameters is not found
-                        False
-                   """
+    Returns:
+        if subject, datamodel and attribute are found
+         string: NGSI data type
+       if any of the input parameters is not found
+         False
+    """
     import json
 
     output = []
@@ -309,7 +334,11 @@ def ngsi_datatype_attribute(subject, datamodel, attribute):
     for item in datamodelsdict:
         # print(item)
         try:
-            if (item["repoName"] == subject) and (item["dataModel"] == datamodel) and (item["property"] == attribute):
+            if (
+                (item["repoName"] == subject)
+                and (item["dataModel"] == datamodel)
+                and (item["property"] == attribute)
+            ):
                 if "typeNGSI" in item:
                     output = item["typeNGSI"]
                     done = True
@@ -323,27 +352,27 @@ def ngsi_datatype_attribute(subject, datamodel, attribute):
 
 
 # 10
-def validate_data_model_schema(schemaUrl):
+def validate_data_model_schema(schema_url):
     """Validates a json schema defining a data model.
-                  Parameters:
-                      schemaUrl: url of the schema (public available). (i.e. raw version of a github repo https://raw.githubusercontent.com/smart-data-models/dataModel.Aeronautics/master/AircraftModel/schema.json
+    Parameters:
+        schema_url: url of the schema (public available). (i.e. raw version of a github repo https://raw.githubusercontent.com/smart-data-models/dataModel.Aeronautics/master/AircraftModel/schema.json
 
 
-                  Returns:
-                      object with four elements:
-                      - documentationStatusofProperties: For each first level attribute lists if the attribute is documented and includes the description (when available). Also the NGSI type if is set and which one is described.
-                        Example:
-                          "dateCreated":
-                                {
-                                "x-ngsi": true,
-                                "x-ngsi_text": "ok to Property",
-                                "documented": true,
-                                "text": "This will usually be allocated by the storage platform.. Entity creation timestamp"
-                                },
-                      - schemaDiagnose: It counts the attributes with right descriptions and those which don't.
-                      - alreadyUsedProperties: It identifies attributes that have already been used in other data models and includes their definition
-                      - availableProperties: Identifies those attributes which are not already included in any other data model
-                  """
+    Returns:
+        object with four elements:
+        - documentationStatusofProperties: For each first level attribute lists if the attribute is documented and includes the description (when available). Also the NGSI type if is set and which one is described.
+          Example:
+            "dateCreated":
+                  {
+                  "x-ngsi": true,
+                  "x-ngsi_text": "ok to Property",
+                  "documented": true,
+                  "text": "This will usually be allocated by the storage platform.. Entity creation timestamp"
+                  },
+        - schemaDiagnose: It counts the attributes with right descriptions and those which don't.
+        - alreadyUsedProperties: It identifies attributes that have already been used in other data models and includes their definition
+        - availableProperties: Identifies those attributes which are not already included in any other data model
+    """
 
     import sys
     import datetime
@@ -356,11 +385,14 @@ def validate_data_model_schema(schemaUrl):
     def open_jsonref(fileUrl):
         import jsonref
         import requests
+
         if fileUrl[0:4] == "http":
             # es URL
             try:
                 pointer = requests.get(fileUrl)
-                output = jsonref.loads(pointer.content.decode('utf-8'), load_on_repr=False)
+                output = jsonref.loads(
+                    pointer.content.decode("utf-8"), load_on_repr=False
+                )
                 return output
             except:
                 return ""
@@ -375,6 +407,7 @@ def validate_data_model_schema(schemaUrl):
     def order_dictionary(dictionary):
         # This function return the same dictionary but ordered by its keys
         import collections
+
         if isinstance(dictionary, dict):
             od = collections.OrderedDict(sorted(dictionary.items()))
             return od
@@ -383,6 +416,7 @@ def validate_data_model_schema(schemaUrl):
 
     def exist_page(url):
         import requests
+
         output = []
         try:
             pointer = requests.get(url)
@@ -416,11 +450,15 @@ def validate_data_model_schema(schemaUrl):
                 if "allOf" in prop:
                     # echo("original output", output)
                     # echo("parsed allOf", partialOutput)
-                    output[prop] = parse_payload(schemaPayload["properties"]["allOf"], level + 1)
+                    output[prop] = parse_payload(
+                        schemaPayload["properties"]["allOf"], level + 1
+                    )
                 elif "anyOf" in prop:
                     # echo("original output", output)
                     # echo("parsed anyOf", partialOutput)
-                    output[prop] = parse_payload(schemaPayload["properties"]["anyOf"], level + 1)
+                    output[prop] = parse_payload(
+                        schemaPayload["properties"]["anyOf"], level + 1
+                    )
                 else:
                     # echo("parsing this payload at " + str(level) + " from prop =" + prop, schemaPayload["properties"][prop])
                     try:
@@ -432,7 +470,9 @@ def validate_data_model_schema(schemaUrl):
 
                         if item == "description":
                             # print("Detectada la descripcion de la propiedad=" + prop)
-                            separatedDescription = str(schemaPayload["properties"][prop]["description"]).split(". ")
+                            separatedDescription = str(
+                                schemaPayload["properties"][prop]["description"]
+                            ).split(". ")
                             copiedDescription = list.copy(separatedDescription)
                             # print(copiedDescription)
                             for descriptionPiece in separatedDescription:
@@ -446,30 +486,46 @@ def validate_data_model_schema(schemaUrl):
                                     copiedDescription.remove(descriptionPiece)
                                     # print(copiedDescription)
                                     try:
-                                        output[prop]["x-ngsi"]["model"] = descriptionPiece.replace("'", "").replace(
-                                            "Model:", "")
+                                        output[prop]["x-ngsi"][
+                                            "model"
+                                        ] = descriptionPiece.replace("'", "").replace(
+                                            "Model:", ""
+                                        )
                                     except:
                                         output[prop]["x-ngsi"] = {}
-                                        output[prop]["x-ngsi"]["model"] = descriptionPiece.replace("'", "").replace(
-                                            "Model:", "")
+                                        output[prop]["x-ngsi"][
+                                            "model"
+                                        ] = descriptionPiece.replace("'", "").replace(
+                                            "Model:", ""
+                                        )
 
                                 elif descriptionPiece.find("Units:") > -1:
                                     # print(descriptionPiece)
                                     copiedDescription.remove(descriptionPiece)
                                     # print(copiedDescription)
                                     try:
-                                        output[prop]["x-ngsi"]["units"] = descriptionPiece.replace("'", "").replace(
-                                            "Units:", "")
+                                        output[prop]["x-ngsi"][
+                                            "units"
+                                        ] = descriptionPiece.replace("'", "").replace(
+                                            "Units:", ""
+                                        )
                                     except:
                                         output[prop]["x-ngsi"] = {}
-                                        output[prop]["x-ngsi"]["units"] = descriptionPiece.replace("'", "").replace(
-                                            "Units:", "")
+                                        output[prop]["x-ngsi"][
+                                            "units"
+                                        ] = descriptionPiece.replace("'", "").replace(
+                                            "Units:", ""
+                                        )
                             # print("---")
                             description = ". ".join(copiedDescription)
-                            output[prop]["description"] = description  # the remaining part of the description is used
+                            output[prop][
+                                "description"
+                            ] = description  # the remaining part of the description is used
 
                         elif item == "type":
-                            output[prop]["type"] = schemaPayload["properties"][prop]["type"]
+                            output[prop]["type"] = schemaPayload["properties"][prop][
+                                "type"
+                            ]
                         else:
                             # echo("parsing prop", prop)
                             # echo("payload", schemaPayload["properties"][prop][item])
@@ -493,12 +549,12 @@ def validate_data_model_schema(schemaUrl):
     withoutDescription = "No description at all"
 
     # validate inputs
-    existsSchema = exist_page(schemaUrl)
+    existsSchema = exist_page(schema_url)
 
     # url provided is an existing url
     if not existsSchema[0]:
         output["result"] = False
-        output["cause"] = "Cannot find the schema at " + schemaUrl
+        output["cause"] = "Cannot find the schema at " + schema_url
         output["time"] = str(datetime.datetime.now(tz=tz))
         print(json.dumps(output))
         sys.exit()
@@ -508,22 +564,22 @@ def validate_data_model_schema(schemaUrl):
         schemaDict = json.loads(existsSchema[1])
     except ValueError:
         output["result"] = False
-        output["cause"] = "Schema " + schemaUrl + " is not a valid json"
+        output["cause"] = "Schema " + schema_url + " is not a valid json"
         output["time"] = str(datetime.datetime.now(tz=tz))
-        output["parameters"] = {"schemaUrl: ": schemaUrl}
+        output["parameters"] = {"schema_url: ": schema_url}
         print(json.dumps(output))
         sys.exit()
 
     # test that it is a valid schema against the metaschema
     try:
-        schema = open_jsonref(schemaUrl)
+        schema = open_jsonref(schema_url)
         # echo("len of schema", len(str(schema)))
         # echo("schema", schema)
         if not bool(schema):
             output["result"] = False
             output["cause"] = "json schema returned empty (wrong $ref?)"
             output["time"] = str(datetime.datetime.now(tz=tz))
-            output["parameters"] = {"schemaUrl: ": schemaUrl}
+            output["parameters"] = {"schema_url: ": schema_url}
             print(json.dumps(output))
             sys.exit()
 
@@ -531,7 +587,7 @@ def validate_data_model_schema(schemaUrl):
         output["result"] = False
         output["cause"] = "json schema cannot be fully loaded"
         output["time"] = str(datetime.datetime.now(tz=tz))
-        output["parameters"] = {"schemaUrl": schemaUrl}
+        output["parameters"] = {"schema_url": schema_url}
         print(json.dumps(output))
         sys.exit()
 
@@ -542,7 +598,7 @@ def validate_data_model_schema(schemaUrl):
         output["result"] = False
         output["cause"] = "schema does not validate as a json schema"
         output["time"] = str(datetime.datetime.now(tz=tz))
-        output["parameters"] = {"schemaUrl": schemaUrl}
+        output["parameters"] = {"schema_url": schema_url}
         output["errorSchema"] = str(err)
         print(json.dumps(output))
         sys.exit()
@@ -557,7 +613,7 @@ def validate_data_model_schema(schemaUrl):
         output["result"] = False
         output["cause"] = "schema cannot be loaded (possibly invalid $ref)"
         output["time"] = str(datetime.datetime.now(tz=tz))
-        output["parameters"] = {"schemaUrl": schemaUrl}
+        output["parameters"] = {"schema_url": schema_url}
         print(json.dumps(output))
         sys.exit()
     # echo("yamlDict", yamlDict)
@@ -573,16 +629,24 @@ def validate_data_model_schema(schemaUrl):
                     # print(propertyTypes)
                     output[documented][key] = {}
                     output[documented][key]["x-ngsi"] = True
-                    output[documented][key]["x-ngsi_text"] = "ok to " + str(propertyType)
+                    output[documented][key]["x-ngsi_text"] = "ok to " + str(
+                        propertyType
+                    )
                 else:
                     output[documented][key]["x-ngsi"] = False
-                    output[documented][key]["x-ngsi_text"] = "Missing any of" + str(
-                        propertyTypes) + " in the description of the property"
+                    output[documented][key]["x-ngsi_text"] = (
+                        "Missing any of"
+                        + str(propertyTypes)
+                        + " in the description of the property"
+                    )
             except:
                 output[documented][key] = {}
                 output[documented][key]["x-ngsi"] = False
-                output[documented][key]["x-ngsi_text"] = "Missing any of" + str(
-                    propertyTypes) + " in the description of the property"
+                output[documented][key]["x-ngsi_text"] = (
+                    "Missing any of"
+                    + str(propertyTypes)
+                    + " in the description of the property"
+                )
 
             # checking the pure description
             try:
@@ -611,50 +675,71 @@ def validate_data_model_schema(schemaUrl):
         elif output[documented][key]["text"] == withoutDescription:
             notDescribedProperties += 1
 
-    output["schemaDiagnose"] = "This schema has " + str(allProperties) + " properties. " + str(
-        notDescribedProperties) + " properties are not described at all and " + str(
-        faultyDescriptionProperties) + " have descriptions that must be completed. " + str(
-        allProperties - faultyDescriptionProperties - notDescribedProperties) + " are described but you can review them anyway. "
+    output["schemaDiagnose"] = (
+        "This schema has "
+        + str(allProperties)
+        + " properties. "
+        + str(notDescribedProperties)
+        + " properties are not described at all and "
+        + str(faultyDescriptionProperties)
+        + " have descriptions that must be completed. "
+        + str(allProperties - faultyDescriptionProperties - notDescribedProperties)
+        + " are described but you can review them anyway. "
+    )
 
     # now it checks if these properties already exist in the database
 
-    print(json.dumps(output))
-    return json.dumps(output)
+    # print(json.dumps(output))
+    # return json.dumps(output)
+    return output
 
 
 # 11 print data models attributes
 
+
 def print_datamodel(subject, datamodel, separator, meta_attributes):
     """print the different elements of the attributes of a data model separated by a given separator.
-                   Parameters:
-                       subject: name of the subject
-                       datamodel: name of the data model
-                       separator: string between the different elements printed
-                       meta_attributes: list of different qualifiers of an attribute
-                            property: the name of the attribute
-                            type: the data type of the attribute (json schema basic types)
-                            dataModel: the data model the attribute belongs to
-                            repoName: the subject the attribute belongs to
-                            description: the definition of the attribute
-                            typeNGSI: the NGSI type, Property, Relationship or Geoproperty
-                            modelTags: the tags assigned to the data model
-                            format: For those attributes having it the format, i.e. date-time
-                            units: For those attributes having it the recommended units, i.e. meters
-                            model: For those attributes having it the reference model, i.e. https://schema.org/Number
+    Parameters:
+        subject: name of the subject
+        datamodel: name of the data model
+        separator: string between the different elements printed
+        meta_attributes: list of different qualifiers of an attribute
+             property: the name of the attribute
+             type: the data type of the attribute (json schema basic types)
+             dataModel: the data model the attribute belongs to
+             repoName: the subject the attribute belongs to
+             description: the definition of the attribute
+             typeNGSI: the NGSI type, Property, Relationship or Geoproperty
+             modelTags: the tags assigned to the data model
+             format: For those attributes having it the format, i.e. date-time
+             units: For those attributes having it the recommended units, i.e. meters
+             model: For those attributes having it the reference model, i.e. https://schema.org/Number
 
-                   Returns:
-                       It prints a version of the attributes separated by the separator listing the meta_attributes specified
-                       A variable with the same strings
-                      if any of the input parameters is not found it returns false
-                        False
-                   """
+    Returns:
+        It prints a version of the attributes separated by the separator listing the meta_attributes specified
+        A variable with the same strings
+       if any of the input parameters is not found it returns false
+         False
+    """
     import json
+
     output = []
     with open(official_list_file_name, "r") as bbdd_attributes_pointer:
         datamodelsdict = json.load(bbdd_attributes_pointer)
 
     # available metadata in the list
-    validmetadata = ["property", "type", "dataModel", "repoName", "description", "typeNGSI", "modelTags", "format", "units", "model"]
+    validmetadata = [
+        "property",
+        "type",
+        "dataModel",
+        "repoName",
+        "description",
+        "typeNGSI",
+        "modelTags",
+        "format",
+        "units",
+        "model",
+    ]
     defaultmetadata = ["property", "type", "typeNGSI", "description"]
     newline = chr(13) + chr(10)
     with open("official_list_file_name", "r") as bbdd_attributes_pointer:
