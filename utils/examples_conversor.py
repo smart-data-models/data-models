@@ -104,49 +104,220 @@ def keyvalues2normalized(keyvaluesPayload):
 
 
 keyvaluesPayload = {
-  "id": "urn:ngsi-ld:dataModel:id:UZHW:27495447",
-  "type": "Person",
-  "dateCreated": "1993-05-07T06:43:37Z",
-  "dateModified": "1978-12-27T04:25:34Z",
-  "source": "Medical parent method become easy gas. South table fill finally rate morning. Evening trip whom serve year.",
-  "name": "Capital seven level force add expert. Institution agree boy since agree allow.",
-  "alternateName": "Treatment our process third offer data enjoy. Economy office government degree newspaper past life professional.",
-  "description": "Peace economy student ball form. Avoid visit protect name. Our role challenge economy claim.",
-  "dataProvider": "Suddenly nearly thank down. Visit safe soldier vote.",
-  "owner": [
-    "urn:ngsi-ld:dataModel:items:WQPT:65442393",
-    "urn:ngsi-ld:dataModel:items:ALHV:33053523"
-  ],
-  "seeAlso": [
-    "urn:ngsi-ld:dataModel:items:LHMU:67329694",
-    "urn:ngsi-ld:dataModel:items:MMZQ:64123812"
-  ],
-  "location": {
-    "type": "Point",
-    "coordinates": [
-      40.2403775,
-      170.070362
+    "resourceType": "Patient",
+    "identifier": [
+        {
+            "period": {
+                "start": "2001-05-06"
+            },
+            "assigner": {
+                "display": "Acme\u202fHealthcare"
+            },
+            "use": "usual",
+            "system": "urn:oid:1.2.36.146.595.217.0.1",
+            "value": "12345"
+        }
+    ],
+    "managingOrganization": {
+        "reference": "Organization/1"
+    },
+    "_active": {
+        "extension": [
+            {
+                "url": "http://example.org/fhir/StructureDefinition/recordStatus",
+                "valueCode": "archived"
+            }
+        ]
+    },
+    "name": [
+        {
+            "given": [
+                "Peter",
+                "James"
+            ],
+            "use": "official",
+            "family": "Chalmers"
+        },
+        {
+            "given": [
+                "Jim"
+            ],
+            "use": "usual"
+        }
+    ],
+    "extension": [
+        {
+            "url": "http://example.org/fhir/StructureDefinition/patientAvatar",
+            "valueReference": {
+                "reference": "#pic1",
+                "display": "Duck image"
+            }
+        },
+        {
+            "url": "http://example.org/fhir/StructureDefinition/complexExtensionExample",
+            "extension": [
+                {
+                    "url": "nestedA",
+                    "valueCoding": {
+                        "system": "http://demo.org/id/4",
+                        "code": "AB45",
+                        "extension": [
+                            {
+                                "url": "http://example.org/fhir/StructureDefinition/extraforcodingWithExt",
+                                "extension": [
+                                    {
+                                        "url": "extra1",
+                                        "valueString": "extra info"
+                                    }
+                                ]
+                            },
+                            {
+                                "url": "http://example.org/fhir/StructureDefinition/extraforcodingWithValue",
+                                "valueInteger": 45
+                            }
+                        ]
+                    }
+                },
+                {
+                    "url": "nestedB",
+                    "id": "q4",
+                    "extension": [
+                        {
+                            "url": "nestedB1",
+                            "valueString": "hello"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "modifierExtension": [
+        {
+            "url": "http://example.org/fhir/StructureDefinition/pi",
+            "valueDecimal": 3.141592653589793
+        },
+        {
+            "url": "http://example.org/fhir/StructureDefinition/max-decimal-precision",
+            "valueDecimal": 1.00065022141624642
+        }
+    ],
+    "gender": "male",
+    "birthDate": "1974-12",
+    "deceasedBoolean": True,
+    "address": [
+        {
+            "use": "home",
+            "line": [
+                "534 Erewhon St"
+            ],
+            "city": "PleasantVille",
+            "state": "Vic",
+            "postalCode": "3999"
+        }
+    ],
+    "maritalStatus": {
+        "extension": [
+            {
+                "url": "http://example.org/fhir/StructureDefinition/nullFlavor",
+                "valueCode": "ASKU"
+            }
+        ]
+    },
+    "multipleBirthInteger": 3,
+    "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n      <table>\n        <tbody>\n          <tr>\n            <td>Name<\/td>\n            <td>Peter James <b>Chalmers<\/b> (&quot;Jim&quot;)<\/td>\n          <\/tr>\n          <tr>\n            <td>Address<\/td>\n            <td>534 Erewhon, Pleasantville, Vic, 3999<\/td>\n          <\/tr>\n          <tr>\n            <td>Contacts<\/td>\n            <td>Home: unknown. Work: (03) 5555 6473<\/td>\n          <\/tr>\n          <tr>\n            <td>Id<\/td>\n            <td>MRN: 12345 (Acme Healthcare)<\/td>\n          <\/tr>\n        <\/tbody>\n      <\/table>\n    <\/div>"
+    },
+    "contained": [
+        {
+            "resourceType": "Binary",
+            "id": "pic1",
+            "contentType": "image/gif",
+            "data": "R0lGODlhEwARAPcAAAAAAAAA/+9aAO+1AP/WAP/eAP/eCP/eEP/eGP/nAP/nCP/nEP/nIf/nKf/nUv/nWv/vAP/vCP/vEP/vGP/vIf/vKf/vMf/vOf/vWv/vY//va//vjP/3c//3lP/3nP//tf//vf///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////yH5BAEAAAEALAAAAAATABEAAAi+AAMIDDCgYMGBCBMSvMCQ4QCFCQcwDBGCA4cLDyEGECDxAoAQHjxwyKhQAMeGIUOSJJjRpIAGDS5wCDly4AALFlYOgHlBwwOSNydM0AmzwYGjBi8IHWoTgQYORg8QIGDAwAKhESI8HIDgwQaRDI1WXXAhK9MBBzZ8/XDxQoUFZC9IiCBh6wEHGz6IbNuwQoSpWxEgyLCXL8O/gAnylNlW6AUEBRIL7Og3KwQIiCXb9HsZQoIEUzUjNEiaNMKAAAA7"
+        },
+        {
+            "resourceType": "Organization",
+            "id": "org3141",
+            "text": {
+                "status": "generated",
+                "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n      <p>Good Health Clinic<\/p>\n    <\/div>"
+            },
+            "identifier": [
+                {
+                    "system": "urn:ietf:rfc:3986",
+                    "value": "2.16.840.1.113883.19.5"
+                }
+            ],
+            "name": "Good Health Clinic"
+        }
+    ],
+    "contact": [
+        {
+            "name": {
+                "family": "du Marché",
+                "_family": {
+                    "extension": [
+                        {
+                            "url": "http://example.org/fhir/StructureDefinition/qualifier",
+                            "valueString": "VV"
+                        },
+                        {
+                            "url": "http://hl7.org/fhir/StructureDefinitioniso-21090#nullFlavor",
+                            "valueCode": "ASKU"
+                        }
+                    ]
+                },
+                "_given": [
+                    {
+                        "id": "a3",
+                        "extension": [
+                            {
+                                "url": "http://hl7.org/fhir/StructureDefinition/qualifier",
+                                "valueCode": "MID"
+                            }
+                        ]
+                    }
+                ],
+                "given": [
+                    "Bénédicte",
+                    "Denise",
+                    "Marie"
+                ]
+            },
+            "relationship": [
+                {
+                    "coding": [
+                        {
+                            "system": "http://example.org/fhir/CodeSystem/patient-contact-relationship",
+                            "code": "partner"
+                        }
+                    ]
+                }
+            ],
+            "telecom": [
+                {
+                    "system": "phone",
+                    "value": "+33 (237) 998327"
+                }
+            ]
+        }
+    ],
+    "generalPractitioner": [
+        {
+            "reference": "#org3141"
+        }
+    ],
+    "telecom": [
+        {
+            "use": "home"
+        },
+        {
+            "system": "phone",
+            "value": "(03) 5555 6473",
+            "use": "work"
+        }
     ]
-  },
-  "address": {
-    "streetAddress": "Rock decide budget executive. Number who provide still despite Democrat money. Not gun box Democrat.",
-    "addressLocality": "President feel film report point mother strategy. Public issue close too must safe officer. Focus enough well.",
-    "addressRegion": "Hair hour avoid. World enjoy produce knowledge air population.",
-    "addressCountry": "Hotel network investment sit money moment manager. He put husband play method simple.",
-    "postalCode": "Word born success lose. Most become half relationship.",
-    "postOfficeBoxNumber": "Pay shake night late situation admit. Peace relationship measure phone everything color. Itself us establish."
-  },
-  "areaServed": "Soldier company performance career prepare nearly. Woman how edge mouth.",
-  "additionalName": "Possible outside soldier cultural professor experience wind. Area gun popular spring skin.",
-  "familyName": "Future friend step card current. Than allow despite you their. White machine wrong state adult financial price.",
-  "givenName": "Plant charge somebody feeling. Too man newspaper simply amount.",
-  "telephone": "Team right area this stage any.",
-  "email": "",
-  "@context": [
-    "https://smartdatamodels.org/context.jsonld"
-  ]
 }
-
 
 normalizedPayload = """
 {

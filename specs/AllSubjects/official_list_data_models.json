@@ -1372,6 +1372,7 @@
       "repoName": "dataModel.Hl7",
       "repoLink": "https://github.com/smart-data-models/dataModel.Hl7.git",
       "dataModels": [
+        "Patient"
       ],
       "domains": [
         "SmartHealth"
