@@ -1348,7 +1348,7 @@
         "SmartCities"
       ]
     },
-{
+    {
       "repoName": "dataModel.MarineTransport",
       "repoLink": "https://github.com/smart-data-models/dataModel.MarineTransport.git",
       "dataModels": [
@@ -1362,7 +1362,8 @@
       "repoName": "dataModel.Consumption",
       "repoLink": "https://github.com/smart-data-models/dataModel.Consumption.git",
       "dataModels": [
-        "ConsumptionCost", "ConsumptionPoint"
+        "ConsumptionCost",
+        "ConsumptionPoint"
       ],
       "domains": [
         "SmartEnergy"
@@ -1372,6 +1373,7 @@
       "repoName": "dataModel.Hl7",
       "repoLink": "https://github.com/smart-data-models/dataModel.Hl7.git",
       "dataModels": [
+        "Account",
         "Patient"
       ],
       "domains": [

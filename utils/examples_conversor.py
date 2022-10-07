@@ -15,7 +15,7 @@
 ################################################################################
 
 # This program takes either a keyvalues payload and converts it into a normalized version and the other way round
-
+import json
 
 def normalized2keyvalues(normalizedPayload):
     import json
@@ -100,223 +100,71 @@ def keyvalues2normalized(keyvaluesPayload):
     if "@context" in output:
         output["@context"] = output["@context"]["value"]
     print(output)
+    with open("output.json", "w") as outputfile:
+        rawoutput = json.dumps(output, indent=4)
+        outputfile.write(rawoutput)
     return output
 
 
 keyvaluesPayload = {
-    "resourceType": "Patient",
-    "identifier": [
-        {
-            "period": {
-                "start": "2001-05-06"
-            },
-            "assigner": {
-                "display": "Acme\u202fHealthcare"
-            },
-            "use": "usual",
-            "system": "urn:oid:1.2.36.146.595.217.0.1",
-            "value": "12345"
-        }
+  "resourceType": "Account",
+  "id": "example",
+  "text": {
+    "status": "generated",
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003eHACC Funded Billing for Peter James Chalmers\u003c/div\u003e"
+  },
+  "identifier": [
+    {
+      "system": "urn:oid:0.1.2.3.4.5.6.7",
+      "value": "654321"
+    }
+  ],
+  "status": "active",
+  "type": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+        "code": "PBILLACCT",
+        "display": "patient billing account"
+      }
     ],
-    "managingOrganization": {
-        "reference": "Organization/1"
-    },
-    "_active": {
-        "extension": [
-            {
-                "url": "http://example.org/fhir/StructureDefinition/recordStatus",
-                "valueCode": "archived"
-            }
-        ]
-    },
-    "name": [
-        {
-            "given": [
-                "Peter",
-                "James"
-            ],
-            "use": "official",
-            "family": "Chalmers"
-        },
-        {
-            "given": [
-                "Jim"
-            ],
-            "use": "usual"
-        }
-    ],
-    "extension": [
-        {
-            "url": "http://example.org/fhir/StructureDefinition/patientAvatar",
-            "valueReference": {
-                "reference": "#pic1",
-                "display": "Duck image"
-            }
-        },
-        {
-            "url": "http://example.org/fhir/StructureDefinition/complexExtensionExample",
-            "extension": [
-                {
-                    "url": "nestedA",
-                    "valueCoding": {
-                        "system": "http://demo.org/id/4",
-                        "code": "AB45",
-                        "extension": [
-                            {
-                                "url": "http://example.org/fhir/StructureDefinition/extraforcodingWithExt",
-                                "extension": [
-                                    {
-                                        "url": "extra1",
-                                        "valueString": "extra info"
-                                    }
-                                ]
-                            },
-                            {
-                                "url": "http://example.org/fhir/StructureDefinition/extraforcodingWithValue",
-                                "valueInteger": 45
-                            }
-                        ]
-                    }
-                },
-                {
-                    "url": "nestedB",
-                    "id": "q4",
-                    "extension": [
-                        {
-                            "url": "nestedB1",
-                            "valueString": "hello"
-                        }
-                    ]
-                }
-            ]
-        }
-    ],
-    "modifierExtension": [
-        {
-            "url": "http://example.org/fhir/StructureDefinition/pi",
-            "valueDecimal": 3.141592653589793
-        },
-        {
-            "url": "http://example.org/fhir/StructureDefinition/max-decimal-precision",
-            "valueDecimal": 1.00065022141624642
-        }
-    ],
-    "gender": "male",
-    "birthDate": "1974-12",
-    "deceasedBoolean": True,
-    "address": [
-        {
-            "use": "home",
-            "line": [
-                "534 Erewhon St"
-            ],
-            "city": "PleasantVille",
-            "state": "Vic",
-            "postalCode": "3999"
-        }
-    ],
-    "maritalStatus": {
-        "extension": [
-            {
-                "url": "http://example.org/fhir/StructureDefinition/nullFlavor",
-                "valueCode": "ASKU"
-            }
-        ]
-    },
-    "multipleBirthInteger": 3,
-    "text": {
-        "status": "generated",
-        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n      <table>\n        <tbody>\n          <tr>\n            <td>Name<\/td>\n            <td>Peter James <b>Chalmers<\/b> (&quot;Jim&quot;)<\/td>\n          <\/tr>\n          <tr>\n            <td>Address<\/td>\n            <td>534 Erewhon, Pleasantville, Vic, 3999<\/td>\n          <\/tr>\n          <tr>\n            <td>Contacts<\/td>\n            <td>Home: unknown. Work: (03) 5555 6473<\/td>\n          <\/tr>\n          <tr>\n            <td>Id<\/td>\n            <td>MRN: 12345 (Acme Healthcare)<\/td>\n          <\/tr>\n        <\/tbody>\n      <\/table>\n    <\/div>"
-    },
-    "contained": [
-        {
-            "resourceType": "Binary",
-            "id": "pic1",
-            "contentType": "image/gif",
-            "data": "R0lGODlhEwARAPcAAAAAAAAA/+9aAO+1AP/WAP/eAP/eCP/eEP/eGP/nAP/nCP/nEP/nIf/nKf/nUv/nWv/vAP/vCP/vEP/vGP/vIf/vKf/vMf/vOf/vWv/vY//va//vjP/3c//3lP/3nP//tf//vf///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////yH5BAEAAAEALAAAAAATABEAAAi+AAMIDDCgYMGBCBMSvMCQ4QCFCQcwDBGCA4cLDyEGECDxAoAQHjxwyKhQAMeGIUOSJJjRpIAGDS5wCDly4AALFlYOgHlBwwOSNydM0AmzwYGjBi8IHWoTgQYORg8QIGDAwAKhESI8HIDgwQaRDI1WXXAhK9MBBzZ8/XDxQoUFZC9IiCBh6wEHGz6IbNuwQoSpWxEgyLCXL8O/gAnylNlW6AUEBRIL7Og3KwQIiCXb9HsZQoIEUzUjNEiaNMKAAAA7"
-        },
-        {
-            "resourceType": "Organization",
-            "id": "org3141",
-            "text": {
-                "status": "generated",
-                "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n      <p>Good Health Clinic<\/p>\n    <\/div>"
-            },
-            "identifier": [
-                {
-                    "system": "urn:ietf:rfc:3986",
-                    "value": "2.16.840.1.113883.19.5"
-                }
-            ],
-            "name": "Good Health Clinic"
-        }
-    ],
-    "contact": [
-        {
-            "name": {
-                "family": "du Marché",
-                "_family": {
-                    "extension": [
-                        {
-                            "url": "http://example.org/fhir/StructureDefinition/qualifier",
-                            "valueString": "VV"
-                        },
-                        {
-                            "url": "http://hl7.org/fhir/StructureDefinitioniso-21090#nullFlavor",
-                            "valueCode": "ASKU"
-                        }
-                    ]
-                },
-                "_given": [
-                    {
-                        "id": "a3",
-                        "extension": [
-                            {
-                                "url": "http://hl7.org/fhir/StructureDefinition/qualifier",
-                                "valueCode": "MID"
-                            }
-                        ]
-                    }
-                ],
-                "given": [
-                    "Bénédicte",
-                    "Denise",
-                    "Marie"
-                ]
-            },
-            "relationship": [
-                {
-                    "coding": [
-                        {
-                            "system": "http://example.org/fhir/CodeSystem/patient-contact-relationship",
-                            "code": "partner"
-                        }
-                    ]
-                }
-            ],
-            "telecom": [
-                {
-                    "system": "phone",
-                    "value": "+33 (237) 998327"
-                }
-            ]
-        }
-    ],
-    "generalPractitioner": [
-        {
-            "reference": "#org3141"
-        }
-    ],
-    "telecom": [
-        {
-            "use": "home"
-        },
-        {
-            "system": "phone",
-            "value": "(03) 5555 6473",
-            "use": "work"
-        }
+    "text": "patient"
+  },
+  "name": "HACC Funded Billing for Peter James Chalmers",
+  "subject": [
+    {
+      "reference": "Patient/example",
+      "display": "Peter James Chalmers"
+    }
+  ],
+  "servicePeriod": {
+    "start": "2016-01-01",
+    "end": "2016-06-30"
+  },
+  "coverage": [
+    {
+      "coverage": {
+        "reference": "Coverage/7546D"
+      },
+      "priority": 1
+    }
+  ],
+  "owner": {
+    "reference": "Organization/hl7"
+  },
+  "description": "Hospital charges",
+  "meta": {
+    "tag": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+        "code": "HTEST",
+        "display": "test health data"
+      }
     ]
+  },
+  "@context": [
+    "https://raw.githubusercontent.com/smart-data-models/dataModel.Hl7/master/context.jsonld"
+  ]
 }
 
 normalizedPayload = """
