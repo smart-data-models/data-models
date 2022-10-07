@@ -25,15 +25,15 @@
 [submodule "specs/SmartEnvironment"]
 	path = specs/SmartEnvironment
 	url = https://github.com/smart-data-models/SmartEnvironment.git
+[submodule "specs/SmartHealth"]
+	path = specs/SmartHealth
+	url = https://github.com/smart-data-models/SmartHealth.git
+[submodule "specs/SmartLogistics"]
+	path = specs/SmartLogistics
+	url = https://github.com/smart-data-models/SmartLogistics.git
 [submodule "specs/SmartManufacturing"]
 	path = specs/SmartManufacturing
 	url = https://github.com/smart-data-models/SmartManufacturing.git
 [submodule "specs/SmartWater"]
 	path = specs/SmartWater
 	url = https://github.com/smart-data-models/SmartWater.git
-[submodule "specs/SmartLogistics"]
-	path = specs/SmartLogistics
-	url = https://github.com/smart-data-models/SmartLogistics
-[submodule "specs/SmartHealth"]
-	path = specs/SmartHealth
-	url = https://github.com/smart-data-models/SmartHealth.git
