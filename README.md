@@ -172,3 +172,13 @@ By agreeing across different communities, the common definition of smart
 data models, this will empower innovators and companies to develop solutions
 that adhere to this common definition and ultimately help enable
 interoperability of services.
+
+## @context
+
+A @context is necessary when using this data models under a linked data paradigm.
+
+Every subject (repository for a group of data models) has a file in the root named _context.jsonld_ with the reference context.
+It is true that there is another _context.jsonld_ in the directory of this README.md file. It is obsolete and it is there only for historical reasons.
+In case that you need to merge several @context from different subjects you can use this service in the [front page](https://smartdatamodels.org):
+
+Home -> Tools -> [Subjects' @context merger (last option)](https://smartdatamodels.org/index.php/generate-a-local-context-based-on-smart-data-models-iris/)
