@@ -1,5 +1,5 @@
 {
-  "updatedDate": "2022-11-07T15:35:00.31416",
+  "updatedDate": "2022-11-07T17:15:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -170,7 +170,8 @@
       "dataModels": [
         "WasteContainer",
         "WasteContainerIsle",
-        "WasteContainerModel"
+        "WasteContainerModel",
+        "WasteObserved"
       ],
       "domains": [
         "SmartEnvironment",
