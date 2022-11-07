@@ -1,5 +1,5 @@
 {
-  "updatedDate": "2022-10-31T10:11:00.31416",
+  "updatedDate": "2022-11-07T15:35:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -181,6 +181,7 @@
       "repoName": "dataModel.Transportation",
       "repoLink": "https://github.com/smart-data-models/dataModel.Transportation.git",
       "dataModels": [
+        "AnonymousCommuterId",
         "BikeHireDockingStation",
         "BikeLane",
         "CityWork",

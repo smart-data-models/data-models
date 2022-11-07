@@ -151,215 +151,79 @@ keyvaluesPayload = {
 
 normalizedPayload = """
 {
-	"id": "APDSObservation:Arvoo:<Arvoo.SGID>",
-	"type": "APDSObservation",
-	"observedMethod": {
-		"type": "Text",
-		"value": "anpr",
-		"metadata": {}
-	},
-	"observedCredentialType": {
-		"type": "Text",
-		"value": "license plate",
-		"metadata": {}
-	},
-	"observedCredentialId": {
-		"type": "Text",
-		"value": "1ENC003",
-		"metadata": {}
-	},
-	"observedCredentialCountry": {
-		"type": "Text",
-		"value": "BE",
-		"metadata": {}
-	},
-	"observedCredentialConfidence": {
-		"type": "Number",
-		"value": 851,
+	"id": "WasteObserved:<uuid of Observer>",
+	"type": "WasteObserved",
+	"location": {
+		"type": "geo:json",
+		"value": {
+			"type": "Point",
+			"coordinates": [
+				4.421732917,
+				51.21301073
+			]
+		},
 		"metadata": {
-			"confidenceMethod": {
-				"type": "Text",
-				"value": "Arvoo"
+			"timestamp": {
+				"type": "DateTime",
+				"value": "2022-10-19T14:57:39.000Z"
 			}
 		}
 	},
-	"observedCredentialCharacterConfidence": {
-		"type": "array",
-		"value": [
-			"944",
-			"851",
-			"876",
-			"950",
-			"932",
-			"936",
-			"901"
-		],
+	"address": {
+		"type": "PostalAddress",
+		"value": {
+			"postalCode": "2018",
+			"streetAddress": "Lange Kievitstraat n°70",
+			"addressCountry": "BE"
+		},
 		"metadata": {
-			"confidenceMethod": {
-				"type": "Text",
-				"value": "Arvoo"
+			"timestamp": {
+				"type": "DateTime",
+				"value": "2022-10-19T14:57:39.000Z"
 			}
 		}
 	},
-	"observer": {
-		"type": "Text",
-		"value": "Arvoo",
-		"metadata": {}
-	},
-	"observerDescription": {
-		"type": "Text",
-		"value": "Scangenius Auto-26",
-		"metadata": {}
-	},
-	"creator": {
-		"type": "Text",
-		"value": "25399",
-		"metadata": {}
-	},
-	"observerCameras": {
-		"type": "Array",
-		"value": [
-			"LF,LB"
-		],
-		"metadata": {}
-	},
-	"observationDateTime?": {
+	"dateObserved": {
 		"type": "DateTime",
-		"value": "2020-09-11T10:45:00.00Z",
+		"value": "2022-10-19T14:57:39.000Z",
 		"metadata": {}
 	},
-	"observerLocation": {
-		"type": "geo:json",
-		"value": {
-			"type": "Point",
-			"coordinates": [
-				4.412077,
-				51.216632
-			]
-		},
-		"metadata": {
-			"timestamp": {
-				"type": "DateTime",
-				"value": "2020-09-11T10:45:00.00Z"
-			}
-		}
-	},
-	"observerLocationPDOP": {
+	"weight": {
 		"type": "Number",
-		"value": 0.2959945752,
+		"value": 6.85,
 		"metadata": {
 			"UnitCode": {
-				"type": "Text",
-				"value": "MTR"
+				"type": "string",
+				"value": "KGM"
 			}
 		}
 	},
-	"observerHeading": {
+	"grossWeight": {
 		"type": "Number",
-		"value": 175,
-		"metadata": {}
-	},
-	"observerSpeed": {
-		"type": "Number",
-		"value": 26,
+		"value": 8.85,
 		"metadata": {
 			"UnitCode": {
-				"type": "Text",
-				"value": "KMH"
+				"type": "string",
+				"value": "KGM"
 			}
 		}
 	},
-	"observedLocation": {
-		"type": "geo:json",
-		"value": {
-			"type": "Point",
-			"coordinates": [
-				4.00412077,
-				51.00216632
-			]
-		},
-		"metadata": {
-			"timestamp": {
-				"type": "DateTime",
-				"value": "2020-09-11T10:45:00.00Z"
-			}
-		}
-	},
-	"observedLocationPDOP": {
+	"TareWeight": {
 		"type": "Number",
-		"value": 0.2959945752,
+		"value": 2.0,
 		"metadata": {
 			"UnitCode": {
-				"type": "Text",
-				"value": "MTR"
+				"type": "string",
+				"value": "KGM"
 			}
 		}
 	},
-	"observedHeading": {
-		"type": "Number",
-		"value": 175,
-		"metadata": {}
-	},
-	"observedSpeed": {
-		"type": "Number",
-		"value": -1,
-		"metadata": {}
-	},
-	"images": {
-		"type": "array",
-		"value": [
-			[
-				{
-					"URL": "mock:http://10.1.0.11:7400/getimage?sgid=8775639&amp;camid=lf&amp;imgreqtype=anpr"
-				},
-				{
-					"camId": "LF"
-				},
-				{
-					"imageContent": "ANPR"
-				}
-			],
-			[
-				{
-					"URL": "mock:mock:http://10.1.0.11:7400/getimage?sgid=8775639&amp;camid=lf&amp;imgreqtype=overview"
-				},
-				{
-					"camId": "LF"
-				},
-				{
-					"imageContent": "Overview"
-				}
-			],
-			[
-				{
-					"URL": "mock:http://10.1.0.11:7400/getimage?sgid=8775639&amp;camid=lf&amp;imgreqtype=plate"
-				},
-				{
-					"camId": "LF"
-				},
-				{
-					"imageContent": "Plate"
-				}
-			],
-			[
-				{
-					"URL": "mock:http://10.1.0.11:7400/getimage?sgid=8775639&amp;camid=plf&amp;distance=-5.22"
-				},
-				{
-					"camId": "LF***NIET PLF"
-				},
-				{
-					"imageContent": "Panorama"
-				},
-				{
-					"distance": -5.22
-				}
-			]
-		],
-		"metadata": {}
+	"refServiceOrderId": {
+		"type": "Relationship",
+		"value": "WorkOrder1234"
 	}
 }
 """
 
-# normalized2keyvalues(normalizedPayload)
-keyvalues2normalized(keyvaluesPayload)
+normalized2keyvalues(normalizedPayload)
+# keyvalues2normalized(keyvaluesPayload)
