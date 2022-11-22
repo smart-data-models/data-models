@@ -151,77 +151,353 @@ keyvaluesPayload = {
 
 normalizedPayload = """
 {
-	"id": "WasteObserved:<uuid of Observer>",
-	"type": "WasteObserved",
-	"location": {
-		"type": "geo:json",
-		"value": {
-			"type": "Point",
-			"coordinates": [
-				4.421732917,
-				51.21301073
-			]
-		},
-		"metadata": {
-			"timestamp": {
-				"type": "DateTime",
-				"value": "2022-10-19T14:57:39.000Z"
-			}
-		}
-	},
-	"address": {
-		"type": "PostalAddress",
-		"value": {
-			"postalCode": "2018",
-			"streetAddress": "Lange Kievitstraat n°70",
-			"addressCountry": "BE"
-		},
-		"metadata": {
-			"timestamp": {
-				"type": "DateTime",
-				"value": "2022-10-19T14:57:39.000Z"
-			}
-		}
-	},
-	"dateObserved": {
-		"type": "DateTime",
-		"value": "2022-10-19T14:57:39.000Z",
-		"metadata": {}
-	},
-	"weight": {
-		"type": "Number",
-		"value": 6.85,
-		"metadata": {
-			"UnitCode": {
-				"type": "string",
-				"value": "KGM"
-			}
-		}
-	},
-	"grossWeight": {
-		"type": "Number",
-		"value": 8.85,
-		"metadata": {
-			"UnitCode": {
-				"type": "string",
-				"value": "KGM"
-			}
-		}
-	},
-	"TareWeight": {
-		"type": "Number",
-		"value": 2.0,
-		"metadata": {
-			"UnitCode": {
-				"type": "string",
-				"value": "KGM"
-			}
-		}
-	},
-	"refServiceOrderId": {
-		"type": "Relationship",
-		"value": "WorkOrder1234"
-	}
+  "id": "urn:ngsi-ld:FishContainment:1",
+  "type": "FishContainment",
+  "category": {
+    "type": "Property",
+    "value": "Tank"
+  },
+  "location": {
+    "type": "GeoProperty",
+    "value": {
+      "type": "Point",
+      "coordinates": [
+        0,
+        0
+      ]
+    }
+  },
+  "refSump": {
+    "type": "Relationship",
+    "object": "urn:ngsi-ld:Sump:1"
+  },
+  "refFarm": {
+    "type": "Relationship",
+    "object": "urn:ngsi-ld:Farm:1"
+  },
+  "depth": {
+    "type": "Property",
+    "value": 10,
+    "unitCode": "MTR"
+  },
+  "videoStream": {
+    "type": "Property",
+    "value": "stream URL",
+    "observedBy": {
+      "type": "Relationship",
+      "object": "urn:ngsi-ld:Device:camera:01"
+    },
+    "depth": {
+      "type": "Property",
+      "value": 10,
+      "unitCode": "MTR"
+    }
+  },
+  "temperature": [
+    {
+      "type": "Property",
+      "value": 15.2,
+      "unitCode": "CEL",
+      "observedAt": "2020-06-26T21:32:52Z",
+      "depth": {
+        "type": "Property",
+        "value": 10,
+        "unitCode": "MTR"
+      },
+      "observedBy": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:Device:01"
+      },
+      "datasetId": "urn:ngsi-ld:Dataset:temperature:Device:01"
+    },
+    {
+      "type": "Property",
+      "value": 16.1,
+      "unitCode": "CEL",
+      "observedAt": "2020-06-26T21:32:52Z",
+      "depth": {
+        "type": "Property",
+        "value": 5,
+        "unitCode": "MTR"
+      },
+      "observedBy": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:Device:Device:02"
+      },
+      "datasetId": "urn:ngsi-ld:Dataset:temperature:Device:02"
+    }
+  ],
+  "dissolvedOxygen": [
+    {
+      "type": "Property",
+      "value": 80,
+      "unitCode": "P1",
+      "observedAt": "2020-06-26T21:32:52Z",
+      "depth": {
+        "type": "Property",
+        "value": 10,
+        "unitCode": "MTR"
+      },
+      "observedBy": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:Device:01"
+      },
+      "datasetId": "urn:ngsi-ld:Dataset:dissolvedOxygen:P1:Device:01"
+    },
+    {
+      "type": "Property",
+      "value": 5.4,
+      "unitCode": "M1",
+      "observedAt": "2020-08-31T11:31:29.000Z",
+      "depth": {
+        "type": "Property",
+        "value": 10,
+        "unitCode": "MTR"
+      },
+      "observedBy": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:Device:01"
+      },
+      "datasetId": "urn:ngsi-ld:Dataset:dissolvedOxygen:M1:Device:01"
+    }
+  ],
+  "pH": [
+    {
+      "type": "Property",
+      "value": 7,
+      "unitCode": "Q30",
+      "observedAt": "2020-06-26T21:32:52Z",
+      "depth": {
+        "type": "Property",
+        "value": 10,
+        "unitCode": "MTR"
+      },
+      "observedBy": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:Device:01"
+      },
+      "datasetId": "urn:ngsi-ld:Dataset:pH:Device:01"
+    }
+  ],
+  "redoxPotential": [
+    {
+      "type": "Property",
+      "value": 7,
+      "unitCode": "2Z",
+      "observedAt": "2020-06-26T21:32:52Z",
+      "depth": {
+        "type": "Property",
+        "value": 10,
+        "unitCode": "MTR"
+      },
+      "observedBy": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:Device:01"
+      },
+      "datasetId": "urn:ngsi-ld:Dataset:redoxPotential:Device:01"
+    }
+  ],
+  "turbidity": [
+    {
+      "type": "Property",
+      "value": 7,
+      "unitCode": "NTU",
+      "observedAt": "2020-06-26T21:32:52z",
+      "depth": {
+        "type": "Property",
+        "value": 10,
+        "unitCode": "MTR"
+      },
+      "observedBy": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:Device:01"
+      },
+      "datasetId": "urn:ngsi-ld:Dataset:turbidity:NTU:Device:01"
+    },
+    {
+      "type": "Property",
+      "value": 0,
+      "unitCode": "FNU",
+      "observedAt": "2020-08-31T11:31:29.000Z",
+      "depth": {
+        "type": "Property",
+        "value": 10,
+        "unitCode": "MTR"
+      },
+      "observedBy": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:Device:01"
+      },
+      "datasetId": "urn:ngsi-ld:Dataset:turbidity:FNU:Device:01"
+    }
+  ],
+  "conductivity": [
+    {
+      "type": "Property",
+      "value": 7,
+      "unitCode": "NTU",
+      "observedAt": "2020-06-26T21:32:52+02:00",
+      "depth": {
+        "type": "Property",
+        "value": 10,
+        "unitCode": "MTR"
+      },
+      "observedBy": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:Device:aquabox:01"
+      },
+      "datasetId": "urn:ngsi-ld:Dataset:conductivity:NTU:aquabox01"
+    }
+  ],
+  "salinity": [
+    {
+      "type": "Property",
+      "value": 7,
+      "unitCode": "GL",
+      "observedAt": "2020-06-26T21:32:52Z",
+      "depth": {
+        "type": "Property",
+        "value": 10,
+        "unitCode": "MTR"
+      },
+      "observedBy": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:Device:01"
+      },
+      "datasetId": "urn:ngsi-ld:Dataset:salinity:GL:Device:01"
+    }
+  ],
+  "totalDissolvedSolids": [
+    {
+      "type": "Property",
+      "value": 35404,
+      "unitCode": "G42",
+      "observedAt": "2020-06-26T21:32:52Z",
+      "depth": {
+        "type": "Property",
+        "value": 10,
+        "unitCode": "MTR"
+      },
+      "observedBy": {
+        "type": "Relationship",
+        "object": "urn:ngsi-ld:Device:01"
+      },
+      "datasetId": "urn:ngsi-ld:Dataset:totalDissolvedSolids:G42:Device:01"
+    }
+  ],
+  "marineCurrents": {
+    "type": "Property",
+    "value": "NA",
+    "observedAt": "2021-05-04T08:30:00Z"
+  },
+  "feedingOperation": {
+    "type": "Property",
+    "refFeeder": {
+      "type": "Relationship",
+      "object": "urn:ngsi-ld:Feeder:AUTO"
+    },
+    "observation": {
+      "type": "Property",
+      "value": "NA"
+    },
+    "threats": {
+      "type": "Property",
+      "value": "NA"
+    },
+    "value": 10,
+    "observedAt": "2021-05-04T08:30:00Z",
+    "unitCode": "KGM",
+    "endedAt": {
+      "type": "Property",
+      "value": {
+        "type": "DateTime",
+        "@value": "2021-05-04T18:00:00Z"
+      }
+    },
+    "startedAt": {
+      "type": "Property",
+      "value": {
+        "type": "DateTime",
+        "@value": "2021-05-04T08:30:00Z"
+      }
+    }
+  },
+  "fishDensity": [
+    {
+      "type": "Property",
+      "datasetId": "urn:ngsi-ld:Dataset:mean0To1",
+      "value": -26.0,
+      "observedAt": "2021-10-19T14:22:19Z"
+    },
+    {
+      "type": "Property",
+      "datasetId": "urn:ngsi-ld:Dataset:mean1To2",
+      "value": -24.0,
+      "observedAt": "2021-10-19T14:22:19Z"
+    },
+    {
+      "type": "Property",
+      "datasetId": "urn:ngsi-ld:Dataset:mean2To3",
+      "value": -15.0,
+      "observedAt": "2021-10-19T14:22:19Z"
+    },
+    {
+      "type": "Property",
+      "datasetId": "urn:ngsi-ld:Dataset:mean3To4",
+      "value": -18.0,
+      "observedAt": "2021-10-19T14:22:19Z"
+    },
+    {
+      "type": "Property",
+      "datasetId": "urn:ngsi-ld:Dataset:mean4To5",
+      "value": -27.0,
+      "observedAt": "2021-10-19T14:22:19Z"
+    },
+    {
+      "type": "Property",
+      "datasetId": "urn:ngsi-ld:Dataset:mean5To6",
+      "value": -26.0,
+      "observedAt": "2021-10-19T14:22:19Z"
+    },
+    {
+      "type": "Property",
+      "datasetId": "urn:ngsi-ld:Dataset:mean6To7",
+      "value": -25.0,
+      "observedAt": "2021-10-19T14:22:19Z"
+    },
+    {
+      "type": "Property",
+      "datasetId": "urn:ngsi-ld:Dataset:mean7To8",
+      "value": -25.0,
+      "observedAt": "2021-10-19T14:22:19Z"
+    },
+    {
+      "type": "Property",
+      "datasetId": "urn:ngsi-ld:Dataset:mean8To9",
+      "value": -25.0,
+      "observedAt": "2021-10-19T14:22:19Z"
+    },
+    {
+      "type": "Property",
+      "datasetId": "urn:ngsi-ld:Dataset:mean9o10",
+      "value": -25.0,
+      "observedAt": "2021-10-19T14:22:19Z"
+    }
+  ],
+  "fishSpeed": {
+    "type": "Property",
+    "value": 25.0,
+    "unitCode": "",
+    "observedAt": "2021-10-19T14:22:19Z"
+  },
+  "fishDirection": {
+    "type": "Property",
+    "value": "SW",
+    "observedAt": "2021-10-19T14:22:19Z"
+  },
+  "@context": [
+    "https://raw.githubusercontent.com/smart-data-models/data-models/master/context.jsonld"
+  ]
 }
 """
 
