@@ -26,6 +26,7 @@ section.
 
 -   Check for the existence of the same Attribute on any of the other models and
     reuse it, in [this resource](http://smartdatamodels.org) if pertinent.
+-   When you find a confict it is recommended to extend the name. Example _category_ would be replaced by _deviceCategory_.
 -   It is also available a resource for looking into the descriptions of the different 
     properties. Access to this [resource](https://smartdatamodels.org/index.php/ddbb-of-properties-descriptions/).
 -   Have a look at [schema.org](http://schema.org) trying to find a similar term
