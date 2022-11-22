@@ -30,6 +30,7 @@
 # when True it outputs tow files conflicts.json and context.jsonld
 # conflicts.json stores the conflict in the name of attributes (to be solved manually)
 # context.jsonld has the attribute name and the Smart Data Models local IRI
+# contact alberto.abella@fiware.org
 
 
 import json
