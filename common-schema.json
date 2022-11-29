@@ -365,6 +365,10 @@
             "streetNr": {
               "type": "string",
               "description": "Number identifying a specific property on a public street."
+            },
+            "district": {
+              "type": "string",
+              "description": "A district is a type of administrative division that, in some countries, is managed by the local government."
             }
           }
         },
