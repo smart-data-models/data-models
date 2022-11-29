@@ -361,6 +361,10 @@
             "postOfficeBoxNumber": {
               "type": "string",
               "description": "Property. The post office box number for PO box addresses. For example, 03578. Model:'https://schema.org/postOfficeBoxNumber'"
+            },
+            "streetNr": {
+              "type": "string",
+              "description": "Number identifying a specific property on a public street."
             }
           }
         },
