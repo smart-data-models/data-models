@@ -1,5 +1,5 @@
 {
-  "updatedDate": "2022-11-29T01:46:00.31416",
+  "updatedDate": "2022-11-30T02:24:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -1378,7 +1378,8 @@
       "dataModels": [
         "Account",
         "Medication",
-        "Patient"
+        "Patient",
+        "Practitioner"
       ],
       "domains": [
         "SmartHealth"
