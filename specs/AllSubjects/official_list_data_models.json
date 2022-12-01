@@ -1,5 +1,5 @@
 {
-  "updatedDate": "2022-11-30T02:24:00.31416",
+  "updatedDate": "2022-12-01T11:14:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -343,7 +343,8 @@
       "repoName": "dataModel.WaterQuality",
       "repoLink": "https://github.com/smart-data-models/dataModel.WaterQuality.git",
       "dataModels": [
-        "WaterQualityObserved"
+        "WaterQualityObserved",
+        "WaterQualityPredicted"
       ],
       "domains": [
         "SmartWater",
