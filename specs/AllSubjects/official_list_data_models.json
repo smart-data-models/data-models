@@ -1,5 +1,5 @@
 {
-  "updatedDate": "2022-12-01T11:14:00.31416",
+  "updatedDate": "2022-12-05T11:14:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -1378,6 +1378,8 @@
       "repoLink": "https://github.com/smart-data-models/dataModel.Hl7.git",
       "dataModels": [
         "Account",
+        "Citation",
+        "Immunization",
         "Medication",
         "Patient",
         "Practitioner"
