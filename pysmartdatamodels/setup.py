@@ -29,7 +29,7 @@ DESCRIPTION = 'Hundreds of free data models to model your digital twins, share d
 LONG_DESCRIPTION = (HERE / "README.md").read_text()
 LONG_DESC_TYPE = "text/markdown"
 
-INSTALL_REQUIRES = ["collections", "datetime", "jsonref", "jsonschema", "pytz", "requests", "sys", "validate"]
+INSTALL_REQUIRES = ["python>=3.7", "collections", "datetime", "jsonref", "jsonschema", "pytz", "requests", "sys", "validate"]
 
 if __name__ == '__main__':
     setup(
@@ -44,5 +44,7 @@ if __name__ == '__main__':
         url=URL,
         install_requires=INSTALL_REQUIRES,
         packages=find_packages(),
-        include_package_data=True
+        include_package_data=True,
+        package_data={"pysmartdatamodels": ["https://smartdatamodels.org/extra/smartdatamodels.json", "https://github.com/smart-data-models/data-models/blob/master/specs/AllSubjects/official_list_data_models.json"]}
+
     )

@@ -3,8 +3,8 @@
 Smart Data Models 
 ==================
 
-The [Smart Data Models](https://smartdatamodels.org) is a program lead by [4 organizations](https://smartdatamodels.org/index.php/faqs/) with the collaboration of [more than 70](https://smartdatamodels.org/index.php/statistics/) and open to collaboration. It provides multisector agile standardized free and open-licensed data models based either on actual use cases or on adopted open standards.
-The data models describe the entities and their attributes to be used in digital twins deployments, data spaces and other smart applications. The data models are grouped in subjects. Each subject is available at a unique repository at [https://smart-data-models.github.com](https://smart-data-models.github.com). Contributions to existing data models can be done there. New ones are done in the [incubated repository](https://github.com/smart-data-models/incubated/tree/master) once [filled this form](https://smartdatamodels.org/index.php/new-incubated-data-models/) for getting the permissions. [This manual](https://bit.ly/contribution_manual) helps you with the creation.
+The [Smart Data Models](https://smartdatamodels.org) is a program lead by [4 organizations](https://smartdatamodels.org/index.php/faqs/) with the collaboration of [more than 80](https://smartdatamodels.org/index.php/statistics/) and open to collaboration. It provides multisector agile standardized free and open-licensed data models based either on actual use cases or on adopted open standards.
+The data models describe the entities and their attributes to be used in digital twins deployments, data spaces and other smart applications. The data models are grouped in subjects. Each subject is available at a unique repository at [https://smart-data-models.github.com](https://smart-data-models.github.com). Contributions to existing data models can be done there. New ones are drafted in the [incubated repository](https://github.com/smart-data-models/incubated/) once [filled this form](https://smartdatamodels.org/index.php/new-incubated-data-models/) for getting the permissions. [This manual](https://bit.ly/contribution_manual) helps you with the creation. There is a database of [contributors](https://smartdatamodels.org/index.php/contributors/) available. 
 
 This python package includes all the data models and several functions (listed below) to use them in your developments.
 
@@ -12,22 +12,22 @@ Every data model is open licensed and the list of its attributes and every attri
 
 If you want to be updated on this package you can join this [mailing list](https://smartdatamodels.org/index.php/developers-list/) (Announcements are sent only when something relevant happens). We love to hear from you at info@smartdatamodels.org
 
-There are several online tools to manage and to create the data models, [generate examples](https://smartdatamodels.org/index.php/generate-a-ngsi-ld-keyvalues-payload-compliant-with-a-data-model/) or to adapt to [existing ontologies](https://smartdatamodels.org/index.php/generate-acontext-based-on-exter### nal-ontologies-iris/). See tools menu option at the [home site](https://smartdatamodels.org).
+There are several online tools to manage and to create the data models, [generate examples](https://smartdatamodels.org/index.php/generate-a-ngsi-ld-keyvalues-payload-compliant-with-a-data-model/) or to adapt to [existing ontologies](https://smartdatamodels.org/index.php/generate-acontext-based-on-external-ontologies-iris/). See tools menu option at the [home site](https://smartdatamodels.org).
 
 Currently, there are thirteen domains. 
-### [Smart Cities](https://github.com/smart-data-models/SmartCities)
-### [Smart Agrifood](https://smartdatamodels.org/index.php/statistics/)
-### [Smart Water](https://github.com/smart-data-models/SmartWater)
-### [Smart Energy](https://github.com/smart-data-models/SmartEnergy)
-### [Smart Environment](https://github.com/smart-data-models/SmartEnvironment)
-### [Smart Robotics](https://github.com/smart-data-models/SmartRobotics)
-### [Smart Sensoring](https://github.com/smart-data-models/Smart-Sensoring)
-### [Cross sector](https://github.com/smart-data-models/CrossSector)
-### [Smart Aeronautics](https://github.com/smart-data-models/SmartAeronautics)
-### [Smart Destination](https://github.com/smart-data-models/SmartDestination)
-### [Smart Health](https://github.com/smart-data-models/SmartHealth)
-### [Smart Manufacturing](https://github.com/smart-data-models/SmartManufacturing)
-### [Smart Logistics](https://github.com/smart-data-models/SmartLogistics)
+#### [Smart Cities](https://github.com/smart-data-models/SmartCities)
+#### [Smart Agrifood](https://smartdatamodels.org/index.php/statistics/)
+#### [Smart Water](https://github.com/smart-data-models/SmartWater)
+#### [Smart Energy](https://github.com/smart-data-models/SmartEnergy)
+#### [Smart Environment](https://github.com/smart-data-models/SmartEnvironment)
+#### [Smart Robotics](https://github.com/smart-data-models/SmartRobotics)
+#### [Smart Sensoring](https://github.com/smart-data-models/Smart-Sensoring)
+#### [Cross sector](https://github.com/smart-data-models/CrossSector)
+#### [Smart Aeronautics](https://github.com/smart-data-models/SmartAeronautics)
+#### [Smart Destination](https://github.com/smart-data-models/SmartDestination)
+#### [Smart Health](https://github.com/smart-data-models/SmartHealth)
+#### [Smart Manufacturing](https://github.com/smart-data-models/SmartManufacturing)
+#### [Smart Logistics](https://github.com/smart-data-models/SmartLogistics)
 
 ## Functions available include:
 
@@ -56,7 +56,7 @@ Currently, there are thirteen domains.
 ## Pending features (glad to receive contributions to them)
 
 A.- Function to update the data models to the last version. The official list of data models is here
-[https://raw.githubusercontent.com/smart-data-models/data-models/master/specs/AllSubjects/official_list_data_models.json](https://raw.githubusercontent.com/smart-data-models/data-models/master/specs/AllSubjects/official_list_data_models.json)
+[https://raw.githubusercontent.com/smart-data-models/data-models/master/specs/AllSubjects/official_list_data_models.json](https://raw.githubusercontent.com/smart-data-models/data-models/master/specs/AllSubjects/official_list_data_models.json) but possibly you can update the file 
 
 B.- Function to update the database of attributes. The official database is here [https://smartdatamodels.org/extra/smartdatamodels.json](https://smartdatamodels.org/extra/smartdatamodels.json)
 

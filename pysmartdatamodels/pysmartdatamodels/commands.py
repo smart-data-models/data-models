@@ -785,3 +785,16 @@ def print_datamodel(subject, datamodel, separator, meta_attributes):
             output += row + newline
     print(output)
     return output
+
+def update_data():
+    import os
+    import urllib.request
+
+    data_dir = os.path.join(os.path.dirname(__file__), "model-assets")
+
+    # Download the latest data files from a remote server
+    urllib.request.urlretrieve("https://github.com/smart-data-models/data-models/blob/master/specs/AllSubjects/official_list_data_models.json", os.path.join(data_dir, "official_list_data_models.json"))
+    urllib.request.urlretrieve("https://smartdatamodels.org/extra/smartdatamodels.json", os.path.join(data_dir, "smartdatamodels.json"))
+
+    # Update the data files with the latest information
+    # (This will depend on the specific data files and the format they use)
