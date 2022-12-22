@@ -107,136 +107,32 @@ def keyvalues2normalized(keyvaluesPayload):
 
 
 keyvaluesPayload = {
-  "resourceType": "Immunization",
-  "id": "urn:ngsi-ld:example",
+  "resourceType": "Organization",
+  "type": "Organization",
+  "id": "1",
   "text": {
     "status": "generated",
-    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003e\u003cb\u003eGenerated Narrative\u003c/b\u003e\u003c/p\u003e\u003cdiv style\u003d\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"\u003e\u003cp style\u003d\"margin-bottom: 0px\"\u003eResource \u0026quot;example\u0026quot; \u003c/p\u003e\u003c/div\u003e\u003cp\u003e\u003cb\u003eidentifier\u003c/b\u003e: id: urn:oid:1.3.6.1.4.1.21367.2005.3.7.1234\u003c/p\u003e\u003cp\u003e\u003cb\u003estatus\u003c/b\u003e: completed\u003c/p\u003e\u003cp\u003e\u003cb\u003evaccineCode\u003c/b\u003e: Fluvax (Influenza) \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (unknown#FLUVAX)\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003epatient\u003c/b\u003e: \u003ca href\u003d\"patient-example.html\"\u003ePatient/example\u003c/a\u003e \u0026quot;Peter CHALMERS\u0026quot;\u003c/p\u003e\u003cp\u003e\u003cb\u003eencounter\u003c/b\u003e: \u003ca href\u003d\"encounter-example.html\"\u003eEncounter/example\u003c/a\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003eoccurrence\u003c/b\u003e: 2013-01-10\u003c/p\u003e\u003cp\u003e\u003cb\u003eprimarySource\u003c/b\u003e: true\u003c/p\u003e\u003cp\u003e\u003cb\u003elocation\u003c/b\u003e: \u003ca href\u003d\"location-1.html\"\u003eLocation/1\u003c/a\u003e \u0026quot;South Wing, second floor\u0026quot;\u003c/p\u003e\u003cp\u003e\u003cb\u003emanufacturer\u003c/b\u003e: \u003ca href\u003d\"organization-hl7.html\"\u003eOrganization/hl7\u003c/a\u003e \u0026quot;Health Level Seven International\u0026quot;\u003c/p\u003e\u003cp\u003e\u003cb\u003elotNumber\u003c/b\u003e: AAJN11K\u003c/p\u003e\u003cp\u003e\u003cb\u003eexpirationDate\u003c/b\u003e: 2015-02-15\u003c/p\u003e\u003cp\u003e\u003cb\u003esite\u003c/b\u003e: left arm \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"http://terminology.hl7.org/3.1.0/CodeSystem-v3-ActSite.html\"\u003eActSite\u003c/a\u003e#LA)\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003eroute\u003c/b\u003e: Injection, intramuscular \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"http://terminology.hl7.org/3.1.0/CodeSystem-v3-RouteOfAdministration.html\"\u003eRouteOfAdministration\u003c/a\u003e#IM)\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003edoseQuantity\u003c/b\u003e: 5 mg\u003cspan style\u003d\"background: LightGoldenRodYellow\"\u003e (Details: UCUM code mg \u003d \u0027mg\u0027)\u003c/span\u003e\u003c/p\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003eperformer\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003efunction\u003c/b\u003e: Ordering Provider \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"http://terminology.hl7.org/3.1.0/CodeSystem-v2-0443.html\"\u003eproviderRole\u003c/a\u003e#OP)\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003eactor\u003c/b\u003e: \u003ca href\u003d\"practitioner-example.html\"\u003ePractitioner/example\u003c/a\u003e \u0026quot;Adam CAREFUL\u0026quot;\u003c/p\u003e\u003c/blockquote\u003e\u003cblockquote\u003e\u003cp\u003e\u003cb\u003eperformer\u003c/b\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003efunction\u003c/b\u003e: Administering Provider \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"http://terminology.hl7.org/3.1.0/CodeSystem-v2-0443.html\"\u003eproviderRole\u003c/a\u003e#AP)\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003eactor\u003c/b\u003e: \u003ca href\u003d\"practitioner-example.html\"\u003ePractitioner/example\u003c/a\u003e \u0026quot;Adam CAREFUL\u0026quot;\u003c/p\u003e\u003c/blockquote\u003e\u003cp\u003e\u003cb\u003enote\u003c/b\u003e: Notes on adminstration of vaccine\u003c/p\u003e\u003cp\u003e\u003cb\u003ereasonCode\u003c/b\u003e: Procedure to meet occupational requirement \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"https://browser.ihtsdotools.org/\"\u003eSNOMED CT\u003c/a\u003e#429060002)\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003eisSubpotent\u003c/b\u003e: true\u003c/p\u003e\u003ch3\u003eEducations\u003c/h3\u003e\u003ctable class\u003d\"grid\"\u003e\u003ctr\u003e\u003ctd\u003e-\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDocumentType\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003ePublicationDate\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003ePresentationDate\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e*\u003c/td\u003e\u003ctd\u003e253088698300010311120702\u003c/td\u003e\u003ctd\u003e2012-07-02\u003c/td\u003e\u003ctd\u003e2013-01-10\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003cp\u003e\u003cb\u003eprogramEligibility\u003c/b\u003e: Not Eligible \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"codesystem-immunization-program-eligibility.html\"\u003eImmunization Event Program Eligibility\u003c/a\u003e#ineligible)\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003efundingSource\u003c/b\u003e: Private \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"codesystem-immunization-funding-source.html\"\u003eImmunization Event Funding Source\u003c/a\u003e#private)\u003c/span\u003e\u003c/p\u003e\u003c/div\u003e"
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\n      \n      \u003cp\u003eGastroenterology @ Acme Hospital. ph: +1 555 234 3523, email: \n        \u003ca href\u003d\"mailto:gastro@acme.org\"\u003egastro@acme.org\u003c/a\u003e\n      \u003c/p\u003e\n    \n    \u003c/div\u003e"
   },
   "identifier": [
     {
-      "system": "urn:ietf:rfc:3986",
-      "value": "urn:oid:1.3.6.1.4.1.21367.2005.3.7.1234"
+      "system": "http://www.acme.org.au/units",
+      "value": "Gastro"
     }
   ],
-  "status": "completed",
-  "vaccineCode": {
-    "coding": [
-      {
-        "system": "urn:oid:1.2.36.1.2001.1005.17",
-        "code": "FLUVAX"
-      }
-    ],
-    "text": "Fluvax (Influenza)"
-  },
-  "patient": {
-    "reference": "Patient/example"
-  },
-  "encounter": {
-    "reference": "Encounter/example"
-  },
-  "occurrenceDateTime": "2013-01-10",
-  "primarySource": True,
-  "location": {
-    "reference": "Location/1"
-  },
-  "manufacturer": {
-    "reference": "Organization/hl7"
-  },
-  "lotNumber": "AAJN11K",
-  "expirationDate": "2015-02-15",
-  "site": {
-    "coding": [
-      {
-        "system": "http://terminology.hl7.org/CodeSystem/v3-ActSite",
-        "code": "LA",
-        "display": "left arm"
-      }
-    ]
-  },
-  "route": {
-    "coding": [
-      {
-        "system": "http://terminology.hl7.org/CodeSystem/v3-RouteOfAdministration",
-        "code": "IM",
-        "display": "Injection, intramuscular"
-      }
-    ]
-  },
-  "doseQuantity": {
-    "value": 5,
-    "system": "http://unitsofmeasure.org",
-    "code": "mg"
-  },
-  "performer": [
+  "name": "Gastroenterology",
+  "telecom": [
     {
-      "function": {
-        "coding": [
-          {
-            "system": "http://terminology.hl7.org/CodeSystem/v2-0443",
-            "code": "OP"
-          }
-        ]
-      },
-      "actor": {
-        "reference": "Practitioner/example"
-      }
+      "system": "phone",
+      "value": "+1 555 234 3523",
+      "use": "mobile"
     },
     {
-      "function": {
-        "coding": [
-          {
-            "system": "http://terminology.hl7.org/CodeSystem/v2-0443",
-            "code": "AP"
-          }
-        ]
-      },
-      "actor": {
-        "reference": "Practitioner/example"
-      }
+      "system": "email",
+      "value": "gastro@acme.org",
+      "use": "work"
     }
   ],
-  "note": [
-    {
-      "text": "Notes on adminstration of vaccine"
-    }
-  ],
-  "reasonCode": [
-    {
-      "coding": [
-        {
-          "system": "http://snomed.info/sct",
-          "code": "429060002"
-        }
-      ]
-    }
-  ],
-  "isSubpotent": True,
-  "education": [
-    {
-      "documentType": "253088698300010311120702",
-      "publicationDate": "2012-07-02",
-      "presentationDate": "2013-01-10"
-    }
-  ],
-  "programEligibility": [
-    {
-      "coding": [
-        {
-          "system": "http://terminology.hl7.org/CodeSystem/immunization-program-eligibility",
-          "code": "ineligible"
-        }
-      ]
-    }
-  ],
-  "fundingSource": {
-    "coding": [
-      {
-        "system": "http://terminology.hl7.org/CodeSystem/immunization-funding-source",
-        "code": "private"
-      }
-    ]
-  },
   "meta": {
     "tag": [
       {
