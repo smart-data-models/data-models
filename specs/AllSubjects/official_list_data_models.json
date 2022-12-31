@@ -1,5 +1,5 @@
 {
-  "updatedDate": "2022-12-31T12:44:00.31416",
+  "updatedDate": "2022-12-31T16:09:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -1382,6 +1382,7 @@
         "Claim",
         "Immunization",
         "Medication",
+        "MedicationAdministration",
         "Organization",
         "Patient",
         "Practitioner"

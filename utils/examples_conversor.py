@@ -107,30 +107,137 @@ def keyvalues2normalized(keyvaluesPayload):
 
 
 keyvaluesPayload = {
-  "resourceType": "Organization",
-  "type": "Organization",
-  "id": "1",
+  "id": "uri:ngsi-ld:medadmin0301",
+  "type": "MedicationAdministration",
+  "resourceType": "MedicationAdministration",
   "text": {
     "status": "generated",
-    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\n      \n      \u003cp\u003eGastroenterology @ Acme Hospital. ph: +1 555 234 3523, email: \n        \u003ca href\u003d\"mailto:gastro@acme.org\"\u003egastro@acme.org\u003c/a\u003e\n      \u003c/p\u003e\n    \n    \u003c/div\u003e"
+    "div": "\u003cdiv xmlns\u003d\"http://www.w3.org/1999/xhtml\"\u003e\u003cp\u003e\u003cb\u003eGenerated Narrative\u003c/b\u003e\u003c/p\u003e\u003cdiv style\u003d\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"\u003e\u003cp style\u003d\"margin-bottom: 0px\"\u003eResource \u0026quot;medadmin0301\u0026quot; \u003c/p\u003e\u003c/div\u003e\u003cp\u003e\u003cb\u003estatus\u003c/b\u003e: in-progress\u003c/p\u003e\u003cp\u003e\u003cb\u003emedication\u003c/b\u003e: \u003ca name\u003d\"med0301\"\u003e \u003c/a\u003e\u003c/p\u003e\u003cblockquote\u003e\u003cdiv style\u003d\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"\u003e\u003cp style\u003d\"margin-bottom: 0px\"\u003eResource \u0026quot;med0301\u0026quot; \u003c/p\u003e\u003c/div\u003e\u003cp\u003e\u003cb\u003ecode\u003c/b\u003e: Vancomycin Hydrochloride (VANCOMYCIN HYDROCHLORIDE) \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"http://terminology.hl7.org/3.1.0/CodeSystem-v3-ndc.html\"\u003eNational drug codes\u003c/a\u003e#0409-6531-02)\u003c/span\u003e\u003c/p\u003e\u003c/blockquote\u003e\u003cp\u003e\u003cb\u003esubject\u003c/b\u003e: \u003ca href\u003d\"patient-pat1.html\"\u003ePatient/pat1: Donald Duck\u003c/a\u003e \u0026quot;Duck DONALD\u0026quot;\u003c/p\u003e\u003cp\u003e\u003cb\u003econtext\u003c/b\u003e: \u003ca href\u003d\"encounter-f001.html\"\u003eEncounter/f001: encounter who leads to this prescription\u003c/a\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003eeffective\u003c/b\u003e: 2015-01-15T14:30:00+01:00 --\u0026gt; (ongoing)\u003c/p\u003e\u003ch3\u003ePerformers\u003c/h3\u003e\u003ctable class\u003d\"grid\"\u003e\u003ctr\u003e\u003ctd\u003e-\u003c/td\u003e\u003ctd\u003e\u003cb\u003eActor\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e*\u003c/td\u003e\u003ctd\u003e\u003ca href\u003d\"practitioner-f007.html\"\u003ePractitioner/f007: Patrick Pump\u003c/a\u003e \u0026quot;Simone HEPS\u0026quot;\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003cp\u003e\u003cb\u003ereasonCode\u003c/b\u003e: Given as Ordered \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"codesystem-reason-medication-given-codes.html\"\u003eReason Medication Given Codes\u003c/a\u003e#b)\u003c/span\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003erequest\u003c/b\u003e: \u003ca href\u003d\"medicationrequest-medrx0318.html\"\u003eMedicationRequest/medrx0318\u003c/a\u003e\u003c/p\u003e\u003ch3\u003eDosages\u003c/h3\u003e\u003ctable class\u003d\"grid\"\u003e\u003ctr\u003e\u003ctd\u003e-\u003c/td\u003e\u003ctd\u003e\u003cb\u003eText\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eRoute\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eMethod\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eDose\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e*\u003c/td\u003e\u003ctd\u003e500mg IV q6h x 3 days\u003c/td\u003e\u003ctd\u003eIntravenous route (qualifier value) \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"https://browser.ihtsdotools.org/\"\u003eSNOMED CT\u003c/a\u003e#47625008)\u003c/span\u003e\u003c/td\u003e\u003ctd\u003eIV Push \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e ()\u003c/span\u003e\u003c/td\u003e\u003ctd\u003e500 mg\u003cspan style\u003d\"background: LightGoldenRodYellow\"\u003e (Details: UCUM code mg \u003d \u0027mg\u0027)\u003c/span\u003e\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003cp\u003e\u003cb\u003eeventHistory\u003c/b\u003e: \u003ca name\u003d\"signature\"\u003e \u003c/a\u003e\u003c/p\u003e\u003cblockquote\u003e\u003cdiv style\u003d\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"\u003e\u003cp style\u003d\"margin-bottom: 0px\"\u003eResource \u0026quot;signature\u0026quot; \u003c/p\u003e\u003c/div\u003e\u003cp\u003e\u003cb\u003etarget\u003c/b\u003e: \u003ca href\u003d\"servicerequest-physiotherapy.html\"\u003eServiceRequest/physiotherapy\u003c/a\u003e\u003c/p\u003e\u003cp\u003e\u003cb\u003erecorded\u003c/b\u003e: 02/02/2017 4:23:07 AM\u003c/p\u003e\u003ch3\u003eAgents\u003c/h3\u003e\u003ctable class\u003d\"grid\"\u003e\u003ctr\u003e\u003ctd\u003e-\u003c/td\u003e\u003ctd\u003e\u003cb\u003eRole\u003c/b\u003e\u003c/td\u003e\u003ctd\u003e\u003cb\u003eWho\u003c/b\u003e\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e*\u003c/td\u003e\u003ctd\u003eauthor (originator) \u003cspan style\u003d\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"\u003e (\u003ca href\u003d\"http://terminology.hl7.org/3.1.0/CodeSystem-v3-ParticipationType.html\"\u003eParticipationType\u003c/a\u003e#AUT)\u003c/span\u003e\u003c/td\u003e\u003ctd\u003e\u003ca href\u003d\"practitioner-example.html\"\u003ePractitioner/example: Dr Adam Careful\u003c/a\u003e \u0026quot;Adam CAREFUL\u0026quot;\u003c/td\u003e\u003c/tr\u003e\u003c/table\u003e\u003c/blockquote\u003e\u003c/div\u003e"
   },
-  "identifier": [
+  "contained": [
     {
-      "system": "http://www.acme.org.au/units",
-      "value": "Gastro"
-    }
-  ],
-  "name": "Gastroenterology",
-  "telecom": [
-    {
-      "system": "phone",
-      "value": "+1 555 234 3523",
-      "use": "mobile"
+      "resourceType": "Medication",
+      "id": "med0301",
+      "code": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/sid/ndc",
+            "code": "0409-6531-02",
+            "display": "Vancomycin Hydrochloride (VANCOMYCIN HYDROCHLORIDE)"
+          }
+        ]
+      }
     },
     {
-      "system": "email",
-      "value": "gastro@acme.org",
-      "use": "work"
+      "resourceType": "Provenance",
+      "id": "signature",
+      "target": [
+        {
+          "reference": "ServiceRequest/physiotherapy"
+        }
+      ],
+      "recorded": "2017-02-01T17:23:07Z",
+      "agent": [
+        {
+          "role": [
+            {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                  "code": "AUT"
+                }
+              ]
+            }
+          ],
+          "who": {
+            "reference": "Practitioner/example",
+            "display": "Dr Adam Careful"
+          }
+        }
+      ],
+      "signature": [
+        {
+          "type": [
+            {
+              "system": "urn:iso-astm:E1762-95:2013",
+              "code": "1.2.840.10065.1.12.1.1",
+              "display": "Author\u0027s Signature"
+            }
+          ],
+          "when": "2017-02-01T17:23:07Z",
+          "who": {
+            "reference": "Practitioner/example",
+            "display": "Dr Adam Careful"
+          },
+          "targetFormat": "application/fhir+xml",
+          "sigFormat": "application/signature+xml",
+          "data": "dGhpcyBibG9iIGlzIHNuaXBwZWQ\u003d"
+        }
+      ]
+    }
+  ],
+  "status": "in-progress",
+  "medicationReference": {
+    "reference": "#med0301"
+  },
+  "subject": {
+    "reference": "Patient/pat1",
+    "display": "Donald Duck"
+  },
+  "context": {
+    "reference": "Encounter/f001",
+    "display": "encounter who leads to this prescription"
+  },
+  "effectivePeriod": {
+    "start": "2015-01-15T14:30:00+01:00"
+  },
+  "performer": [
+    {
+      "actor": {
+        "reference": "Practitioner/f007",
+        "display": "Patrick Pump"
+      }
+    }
+  ],
+  "reasonCode": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/reason-medication-given",
+          "code": "b",
+          "display": "Given as Ordered"
+        }
+      ]
+    }
+  ],
+  "request": {
+    "reference": "MedicationRequest/medrx0318"
+  },
+  "dosage": {
+    "text": "500mg IV q6h x 3 days",
+    "route": {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "47625008",
+          "display": "Intravenous route (qualifier value)"
+        }
+      ]
+    },
+    "method": {
+      "text": "IV Push"
+    },
+    "dose": {
+      "value": 500,
+      "unit": "mg",
+      "system": "http://unitsofmeasure.org",
+      "code": "mg"
+    }
+  },
+  "eventHistory": [
+    {
+      "reference": "#signature",
+      "display": "Author\u0027s Signature"
     }
   ],
   "meta": {
@@ -141,7 +248,10 @@ keyvaluesPayload = {
         "display": "test health data"
       }
     ]
-  }
+  },
+  "@context": [
+    "https://raw.githubusercontent.com/smart-data-models/dataModel.Hl7/master/context.jsonld"
+  ]
 }
 
 normalizedPayload = """
