@@ -342,6 +342,10 @@
               "type": "string",
               "description": "Property. The street address. Model:'https://schema.org/streetAddress'"
             },
+            "streetCode": {
+              "type": "number",
+              "description": "Property. Model:Model:'https://schema.org/Integer'. Street code for toponymy."
+            },
             "addressLocality": {
               "type": "string",
               "description": "Property. The locality in which the street address is, and which is in the region. Model:'https://schema.org/addressLocality'"
@@ -369,6 +373,10 @@
             "district": {
               "type": "string",
               "description": "A district is a type of administrative division that, in some countries, is managed by the local government."
+            },
+            "locationDescription": {
+              "type": "string",
+              "description": "Property. Model:'https://schema.org/Text'. A brief description of the area location."
             }
           }
         },
