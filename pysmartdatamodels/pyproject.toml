@@ -1,9 +1,48 @@
+[tool.poetry]
+name = "pysmartdatamodels"
+version = "0.5.40"
+description = "Open-licensed and free data models to model your digital twins, share data in data spaces or develop smart applications"
+authors = ["aabella <alberto.abella@fiware.org>"]
+readme = "README.md"
+packages = [{include = "pysmartdatamodels"}]
+
+[project]
+dependencies = ["jsonref", "jsonschema", "pytz", "requests", "os-sys", "urllib.request"]
+name = "pysmartdatamodels"
+version = "0.5.40"
+authors = [
+  { name="Alberto Abella", email="alberto.abella@fiware.org" },
+]
+description = "Open-licensed and free data models to model your digital twins, share data in data spaces or develop smart applications"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: Apache2 License",
+    "Operating System :: OS Independent",
+]
+[project.urls]
+"Homepage" = "https://github.com/smart-data-models/data-models/tree/master/pysmartdatamodels"
+"Bug Tracker" = "https://github.com/smart-data-models/data-models/issues"
+
+
+[tool.poetry.dependencies]
+python = "^3.8"
+jsonref = "^1.1.0"
+jsonschema = "^4.17.3"
+pytz = "^2022.7.1"
+requests =  "^2.28.2"
+
 
 [build-system]
-requires = [
-    "setuptools>=51.0",
-    "wheel",
-    "setuptools_scm>=1.15",
-    "setuptools_scm_git_archive>=1.0",
-]
-build-backend = "setuptools.build_meta"
+requires = ["poetry-core", "jsonref", "jsonschema", "pytz", "requests"]
+build-backend = "poetry.core.masonry.api"
+
+license = "MIT"
+homepage = "https://smartdatamodels.org"
+repository = "https://github.com/smart-data-models"
+keywords = ["fiware", "data model", "datamodel", "IUDX", "OASC", "TMForum", "data spaces", "digital twins"]
+
+[tool.setuptools.package-data]
+pysmartdatamodels = {"pysmartdatamodels" = ["model-assets/smartdatamodels.json", "model-assets/official_list_data_models.json"]}
+
