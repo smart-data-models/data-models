@@ -13,6 +13,55 @@ official_list_file_name = left_part + "/model-assets/official_list_data_models.j
 ddbb_attributes_file = left_part + "/model-assets/smartdatamodels.json"
 
 # 1
+def load_all_datamodels():
+    """Returns a dict with all data models with this object structure
+        - repoName: The name of the subject
+        - repoLink: the link to the repository of the subject
+        - dataModels: An array with all the datamodels of this subject
+        - domains: an array to the domains that this subject belongs to
+        Parameters:
+
+        Returns:
+           array of objects with the description of the subject
+        """
+    import json
+
+    output = []
+    # Opens the file with the list of data models
+    with open(official_list_file_name, "r") as list_of_datamodels_pointer:
+        output = json.load(list_of_datamodels_pointer)["officialList"]
+    return output
+
+# 2
+def load_all_attributes():
+    """Returns an array of objects describing every attribute in the data models
+        - _id: identifier of the item
+        - property: the name of the attribute
+        - dataModel: the data model this attribute is present
+        - repoName: the subject this data model belongs to
+        - description: the description of the attribute
+        - typeNGSI: Whether it is a property, Geoproperty, or relationship
+        - modelTags: inherited from the data model tags
+        - license: link to the license for the data model
+        - schemaVersion: version of the data model
+        - type: data type
+        - model: when available the reference model for the attribute
+        - units: when available the recommended units for the attribute
+        - format: either date, or time, or date-time, or URI, etc the format of the attribute
+        Parameters:
+
+        Returns:
+           array of objects with the description of the subject
+        """
+    import json
+
+    output = []
+    # Opens the file with the list of data models
+    with open(ddbb_attributes_file, "r") as ddbb_attributes_file_pointer:
+        output = json.load(ddbb_attributes_file_pointer)
+    return output
+
+# 3
 def list_all_datamodels():
     """List the names of the entities defined in the data models.
     Parameters:
@@ -36,7 +85,7 @@ def list_all_datamodels():
     return output
 
 
-# 2
+# 4
 def list_all_subjects():
     """List the names of the subjects (groups of data models). The subject's names define repositories with the name dataModel.subject at the root of the https://smart-data-models.github.com site
     Parameters:
@@ -57,7 +106,7 @@ def list_all_subjects():
     return output
 
 
-# 3
+# 5
 def datamodels_subject(subject: str):
     """List the names of the entities defined in the data models.
     Parameters:
@@ -87,7 +136,7 @@ def datamodels_subject(subject: str):
     return output
 
 
-# 4
+# 6
 def description_attribute(subject, datamodel, attribute):
     """List the description of an attribute belonging to a subject and data model.
     Parameters:
@@ -130,7 +179,7 @@ def description_attribute(subject, datamodel, attribute):
     return output
 
 
-# 5
+# 7
 def datatype_attribute(subject, datamodel, attribute):
     """List the data type of an attribute belonging to a subject and data model.
     Parameters:
@@ -177,7 +226,7 @@ def datatype_attribute(subject, datamodel, attribute):
     return output
 
 
-# 6
+# 8
 def model_attribute(subject, datamodel, attribute):
     """List the model of an attribute (when available) belonging to a subject and data model.
     Parameters:
@@ -224,7 +273,7 @@ def model_attribute(subject, datamodel, attribute):
     return output
 
 
-# 7
+# 9
 def units_attribute(subject, datamodel, attribute):
     """List the recommended units of an attribute belonging to a subject and data model.
     Parameters:
@@ -271,7 +320,7 @@ def units_attribute(subject, datamodel, attribute):
     return output
 
 
-# 8
+# 10
 def attributes_datamodel(subject, datamodel):
     """List the attributes of a data model (currently only first level ones) .
     Parameters:
@@ -312,7 +361,7 @@ def attributes_datamodel(subject, datamodel):
     return output
 
 
-# 9
+# 11
 def ngsi_datatype_attribute(subject, datamodel, attribute):
     """List the NGSI data type of an attribute (Property, Relationship or Geoproperty) belonging to a subject and data model.
     Parameters:
@@ -356,7 +405,7 @@ def ngsi_datatype_attribute(subject, datamodel, attribute):
         return False
 
 
-# 10
+# 12
 def validate_data_model_schema(schema_url):
     """Validates a json schema defining a data model.
     Parameters:
@@ -699,7 +748,7 @@ def validate_data_model_schema(schema_url):
     return output
 
 
-# 11 print data models attributes
+# 12 print data models attributes
 
 
 def print_datamodel(subject, datamodel, separator, meta_attributes):
@@ -791,6 +840,8 @@ def print_datamodel(subject, datamodel, separator, meta_attributes):
     print(output)
     return output
 
+
+#14
 def subject_repolink(subject: str):
     """It returns the direct link to the repository of the subject if it is found and False if not .
     Parameters:

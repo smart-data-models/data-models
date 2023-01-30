@@ -1,5 +1,5 @@
 {
-  "updatedDate": "2022-08-25T21:26:00.31416",
+  "updatedDate": "2022-12-31T16:09:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -170,7 +170,8 @@
       "dataModels": [
         "WasteContainer",
         "WasteContainerIsle",
-        "WasteContainerModel"
+        "WasteContainerModel",
+        "WasteObserved"
       ],
       "domains": [
         "SmartEnvironment",
@@ -181,6 +182,7 @@
       "repoName": "dataModel.Transportation",
       "repoLink": "https://github.com/smart-data-models/dataModel.Transportation.git",
       "dataModels": [
+        "AnonymousCommuterId",
         "BikeHireDockingStation",
         "BikeLane",
         "CityWork",
@@ -304,6 +306,7 @@
         "EnvironmentObserved",
         "FloodMonitoring",
         "IndoorEnvironmentObserved",
+        "MosquitoDensity",
         "NoiseLevelObserved",
         "NoisePollution",
         "NoisePollutionForecast",
@@ -340,7 +343,8 @@
       "repoName": "dataModel.WaterQuality",
       "repoLink": "https://github.com/smart-data-models/dataModel.WaterQuality.git",
       "dataModels": [
-        "WaterQualityObserved"
+        "WaterQualityObserved",
+        "WaterQualityPredicted"
       ],
       "domains": [
         "SmartWater",
@@ -1339,13 +1343,16 @@
       "repoName": "dataModel.OSLO",
       "repoLink": "https://github.com/smart-data-models/dataModel.OSLO.git",
       "dataModels": [
-        "BicycleParkingStation"
+        "BicycleParkingStation",
+        "BicycleParkingStationForecast",
+        "ResourceReport",
+        "ResourceReportForecast"
       ],
       "domains": [
         "SmartCities"
       ]
     },
-{
+    {
       "repoName": "dataModel.MarineTransport",
       "repoLink": "https://github.com/smart-data-models/dataModel.MarineTransport.git",
       "dataModels": [
@@ -1353,6 +1360,45 @@
       ],
       "domains": [
         "SmartLogistics"
+      ]
+    },
+    {
+      "repoName": "dataModel.Consumption",
+      "repoLink": "https://github.com/smart-data-models/dataModel.Consumption.git",
+      "dataModels": [
+        "ConsumptionCost",
+        "ConsumptionPoint"
+      ],
+      "domains": [
+        "SmartEnergy"
+      ]
+    },
+    {
+      "repoName": "dataModel.Hl7",
+      "repoLink": "https://github.com/smart-data-models/dataModel.Hl7.git",
+      "dataModels": [
+        "Account",
+        "Citation",
+        "Claim",
+        "Immunization",
+        "Medication",
+        "MedicationAdministration",
+        "Organization",
+        "Patient",
+        "Practitioner"
+      ],
+      "domains": [
+        "SmartHealth"
+      ]
+    },
+        {
+      "repoName": "dataModel.SDMX",
+      "repoLink": "https://github.com/smart-data-models/dataModel.SDMX.git",
+      "dataModels": [
+        "Observation"
+      ],
+      "domains": [
+        "CrossSector"
       ]
     }
   ]

@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pysmartdatamodels"
-version = "0.5.40"
+version = "0.5.41"
 description = "Open-licensed and free data models to model your digital twins, share data in data spaces or develop smart applications"
 authors = ["aabella <alberto.abella@fiware.org>"]
 readme = "README.md"
@@ -9,7 +9,7 @@ packages = [{include = "pysmartdatamodels"}]
 [project]
 dependencies = ["jsonref", "jsonschema", "pytz", "requests", "os-sys", "urllib.request"]
 name = "pysmartdatamodels"
-version = "0.5.40"
+version = "0.5.41"
 authors = [
   { name="Alberto Abella", email="alberto.abella@fiware.org" },
 ]
