@@ -1,5 +1,5 @@
 {
-  "updatedDate": "2022-12-31T16:09:00.31416",
+  "updatedDate": "2023-2-3T08:09:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -1391,11 +1391,21 @@
         "SmartHealth"
       ]
     },
-        {
+    {
       "repoName": "dataModel.SDMX",
       "repoLink": "https://github.com/smart-data-models/dataModel.SDMX.git",
       "dataModels": [
         "Observation"
+      ],
+      "domains": [
+        "CrossSector"
+      ]
+    },
+    {
+      "repoName": "dataModel.DataQuality",
+      "repoLink": "https://github.com/smart-data-models/dataModels.DataQuality.git",
+      "dataModels": [
+        "DataQualityAssessment"
       ],
       "domains": [
         "CrossSector"

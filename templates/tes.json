@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "$schemaVersion": "0.0.1",
+  "$id": "https://smart-data-models.github.io/Replace this text with the name of the subject/Replace this text with the DataModelName/schema.json,",
+  "title": "Replace this text with the title of the data model",
+  "description": "Replace this text with the Description of the data model",
+  "modelTags": "",
+  "derivedFrom": "",
+  "license": "https://smart-data-models.github.io/dataModel.Energy/ThreePhaseAcMeasurement/LICENSE.md",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+    },
+    {
+      "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+    },
+    {
+      "properties": {
+        "caca": {
+          "type": "string",
+          "description": "Description of the property 1"
+        },
+        "pis": {
+          "type": "number",
+          "description": "Description of the property 2"
+        }
+      }
+    }
+  ]
+}
