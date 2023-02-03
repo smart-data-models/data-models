@@ -10,6 +10,7 @@
   "dataModel.Consumption": "https://raw.githubusercontent.com/smart-data-models/dataModel.Consumption/master/context.jsonld",
   "dataModel.COVID19": "https://raw.githubusercontent.com/smart-data-models/dataModel.COVID19/master/context.jsonld",
   "dataModel.CPSV-AP": "https://github.com/smart-data-models/dataModel.CPSV-AP.git",
+  "dataModel.DataQuality": "https://raw.githubusercontent.com/smart-data-models/dataModel.DataQuality/master/context.jsonld",
   "dataModel.DCAT-AP": "https://raw.githubusercontent.com/smart-data-models/dataModel.DCAT-AP/master/context.jsonld",
   "dataModel.Device": "https://raw.githubusercontent.com/smart-data-models/dataModel.Device/master/context.jsonld",
   "dataModel.DigitalInnovationHub": "https://raw.githubusercontent.com/smart-data-models/dataModel.DigitalInnovationHub/master/context.jsonld",
