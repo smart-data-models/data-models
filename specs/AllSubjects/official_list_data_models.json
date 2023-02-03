@@ -1,5 +1,5 @@
 {
-  "updatedDate": "2023-2-3T08:09:00.31416",
+  "updatedDate": "2023-2-3T18:31:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -334,7 +334,9 @@
     {
       "repoName": "dataModel.WaterDistribution",
       "repoLink": "https://github.com/smart-data-models/dataModel.WaterDistribution.git",
-      "dataModels": [],
+      "dataModels": [
+        "WaterDistributionNetwork"
+      ],
       "domains": [
         "SmartWater"
       ]
