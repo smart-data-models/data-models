@@ -1,5 +1,5 @@
 {
-  "updatedDate": "2023-2-3T18:31:00.31416",
+  "updatedDate": "2023-2-10T18:35:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -1408,6 +1408,20 @@
       "repoLink": "https://github.com/smart-data-models/dataModels.DataQuality.git",
       "dataModels": [
         "DataQualityAssessment"
+      ],
+      "domains": [
+        "CrossSector"
+      ]
+    },
+    {
+      "repoName": "dataModel.VerifiableCredentials",
+      "repoLink": "https://github.com/smart-data-models/dataModel.VerifiableCredentials.git",
+      "dataModels": [
+        "AccreditedAttestation",
+        "Attestation",
+        "LegalEntity",
+        "NaturalPerson",
+        "Presentation"
       ],
       "domains": [
         "CrossSector"

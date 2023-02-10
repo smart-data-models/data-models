@@ -53,6 +53,7 @@
   "dataModel.UrbanMobility": "https://raw.githubusercontent.com/smart-data-models/dataModel.UrbanMobility/master/context.jsonld",
   "dataModel.UnmannedAerialVehicle": "https://raw.githubusercontent.com/smart-data-models/dataModel.UnmannedAerialVehicle/master/context.jsonld",
   "dataModel.User": "https://raw.githubusercontent.com/smart-data-models/dataModel.User/master/context.jsonld",
+  "dataModel.VerifiableCredentials": "https://github.com/smart-data-models/dataModel.VerifiableCredentials.git",
   "dataModel.WasteManagement": "https://raw.githubusercontent.com/smart-data-models/dataModel.WasteManagement/master/context.jsonld",
   "dataModel.WasteWater": "https://raw.githubusercontent.com/smart-data-models/dataModel.WasteWater/master/context.jsonld",
   "dataModel.WaterConsumption": "https://raw.githubusercontent.com/smart-data-models/dataModel.WaterConsumption/master/context.jsonld",

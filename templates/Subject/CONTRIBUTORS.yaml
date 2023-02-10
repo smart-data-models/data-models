@@ -1,18 +1,4 @@
 description: This is a compilation list of all CONTRIBUTORS across different objects (data models) alphabetically ordered. All fields are non mandatory
 contributors:
 -
- name: NAMEOFCONTRIBUTOR
- surname: SURNAMEOFCONTRIBUTOR
- mail: MAILOFCONTRIBUTOR
- organization: ORGOFCONTRIBUTOR
- project:
- comments:
- year: 2022
--
- name: NAMEOFCONTRIBUTOR
- surname: SURNAMEOFCONTRIBUTOR
- mail: MAILOFCONTRIBUTOR
- organization: ORGOFCONTRIBUTOR
- project:
- comments:
- year: 2022
+
