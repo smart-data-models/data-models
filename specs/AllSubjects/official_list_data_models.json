@@ -1,5 +1,5 @@
 {
-  "updatedDate": "2023-2-10T18:35:00.31416",
+  "updatedDate": "2023-2-17T16:47:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -1297,6 +1297,9 @@
       "repoName": "dataModel.STAT-DCAT-AP",
       "repoLink": "https://github.com/smart-data-models/dataModel.STAT-DCAT-AP.git",
       "dataModels": [
+        "AttributeProperty",
+        "Concept",
+        "ConceptScheme",
         "Dataset"
       ],
       "domains": [
