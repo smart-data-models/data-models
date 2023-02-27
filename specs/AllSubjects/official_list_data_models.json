@@ -1,5 +1,5 @@
 {
-  "updatedDate": "2023-2-21T00:27:00.31416",
+  "updatedDate": "2023-2-27T14:17:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -1362,6 +1362,8 @@
       "repoName": "dataModel.MarineTransport",
       "repoLink": "https://github.com/smart-data-models/dataModel.MarineTransport.git",
       "dataModels": [
+        "Port",
+        "PortAuthority",
         "Vessel"
       ],
       "domains": [
