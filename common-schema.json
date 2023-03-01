@@ -121,7 +121,7 @@
                 "type",
                 "coordinates"
               ],
-              "description": "Geoproperty. Geojson reference to the item. Point",
+              "description": "GeoProperty. Geojson reference to the item. Point",
               "properties": {
                 "type": {
                   "type": "string",
@@ -152,7 +152,7 @@
                 "type",
                 "coordinates"
               ],
-              "description": "Geoproperty. Geojson reference to the item. LineString",
+              "description": "GeoProperty. Geojson reference to the item. LineString",
               "properties": {
                 "type": {
                   "type": "string",
@@ -187,7 +187,7 @@
                 "type",
                 "coordinates"
               ],
-              "description": "Geoproperty. Geojson reference to the item. Polygon",
+              "description": "GeoProperty. Geojson reference to the item. Polygon",
               "properties": {
                 "type": {
                   "type": "string",
@@ -225,7 +225,7 @@
                 "type",
                 "coordinates"
               ],
-              "description": "Geoproperty. Geojson reference to the item. MultiPoint",
+              "description": "GeoProperty. Geojson reference to the item. MultiPoint",
               "properties": {
                 "type": {
                   "type": "string",
@@ -259,7 +259,7 @@
                 "type",
                 "coordinates"
               ],
-              "description": "Geoproperty. Geojson reference to the item. MultiLineString",
+              "description": "GeoProperty. Geojson reference to the item. MultiLineString",
               "properties": {
                 "type": {
                   "type": "string",
@@ -297,7 +297,7 @@
                 "type",
                 "coordinates"
               ],
-              "description": "Geoproperty. Geojson reference to the item. MultiLineString",
+              "description": "GeoProperty. Geojson reference to the item. MultiLineString",
               "properties": {
                 "type": {
                   "type": "string",
@@ -332,7 +332,7 @@
               }
             }
           ],
-          "description": "Geoproperty. Geojson reference to the item. It can be Point, LineString, Polygon, MultiPoint, MultiLineString or MultiPolygon"
+          "description": "GeoProperty. Geojson reference to the item. It can be Point, LineString, Polygon, MultiPoint, MultiLineString or MultiPolygon"
         },
         "address": {
           "type": "object",
