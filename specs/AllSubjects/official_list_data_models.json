@@ -1,5 +1,5 @@
 {
-  "updatedDate": "2023-1-3T23:17:00.31416",
+  "updatedDate": "2023-8-3T17:17:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -1363,6 +1363,7 @@
       "repoName": "dataModel.MarineTransport",
       "repoLink": "https://github.com/smart-data-models/dataModel.MarineTransport.git",
       "dataModels": [
+        "Booking",
         "Port",
         "PortAuthority",
         "Vessel"
