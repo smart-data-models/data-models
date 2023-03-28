@@ -1,5 +1,5 @@
 {
-  "updatedDate": "2023-3-27T18:17:00.31416",
+  "updatedDate": "2023-3-28T17:03:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -1440,6 +1440,9 @@
       "repoName": "dataModel.S4BLDG",
       "repoLink": "https://github.com/smart-data-models/dataModel.S4BLDG.git",
       "dataModels": [
+        "Actuator",
+        "AirToAirHeatRecovery",
+        "Alarm"
       ],
       "domains": [
         "SmartCities"
