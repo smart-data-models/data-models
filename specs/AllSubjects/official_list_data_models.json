@@ -1,5 +1,5 @@
 {
-  "updatedDate": "2023-3-28T17:03:00.31416",
+  "updatedDate": "2023-4-48T18:45:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -1442,7 +1442,12 @@
       "dataModels": [
         "Actuator",
         "AirToAirHeatRecovery",
-        "Alarm"
+        "Alarm",
+        "AudioVisualAppliance",
+        "Boiler",
+        "Burner",
+        "Chiller",
+        "Coil"
       ],
       "domains": [
         "SmartCities"
