@@ -1,5 +1,5 @@
 {
-  "updatedDate": "2023-4-48T18:45:00.31416",
+  "updatedDate": "2023-4-11T16:30:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -1445,6 +1445,8 @@
         "Alarm",
         "AudioVisualAppliance",
         "Boiler",
+        "Building",
+        "BuildingSpace",
         "Burner",
         "Chiller",
         "Coil"
