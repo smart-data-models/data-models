@@ -1,5 +1,5 @@
 {
-  "updatedDate": "2023-4-11T16:30:00.31416",
+  "updatedDate": "2023-4-11T16:49:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -1449,7 +1449,10 @@
         "BuildingSpace",
         "Burner",
         "Chiller",
-        "Coil"
+        "Coil",
+        "CommunicationAppliance",
+"Compressor",
+"Condenser"
       ],
       "domains": [
         "SmartCities"
