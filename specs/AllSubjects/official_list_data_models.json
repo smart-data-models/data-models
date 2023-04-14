@@ -1,5 +1,5 @@
 {
-  "updatedDate": "2023-4-11T17:44:00.31416",
+  "updatedDate": "2023-4-14T14:36:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -1456,7 +1456,14 @@
         "Controller",
         "CooledBeam",
         "CoolingTower",
-        "Damper"
+        "Damper",
+        "DuctSilencer",
+        "ElectricAppliance",
+        "ElectricFlowStorageDevice",
+        "ElectricGenerator",
+        "ElectricMotor",
+        "ElectricTimeControl",
+        "Engine"
       ],
       "domains": [
         "SmartCities"
