@@ -1,5 +1,5 @@
 {
-  "updatedDate": "2023-4-20T12:06:00.31416",
+  "updatedDate": "2023-4-20T16:22:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -1469,7 +1469,14 @@
         "Evaporator",
         "Fan",
         "Filter",
-        "FireSuppressionTerminal"
+        "FireSuppressionTerminal",
+        "FlowInstrument",
+        "FlowMeter",
+        "HeatExchanger",
+        "Humidifier",
+        "Interceptor",
+        "Lamp",
+        "MedicalDevice"
       ],
       "domains": [
         "SmartCities"
