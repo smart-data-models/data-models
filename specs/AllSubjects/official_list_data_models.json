@@ -1,5 +1,5 @@
 {
-  "updatedDate": "2023-4-19T14:14:00.31416",
+  "updatedDate": "2023-4-20T12:06:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -1464,7 +1464,12 @@
         "ElectricGenerator",
         "ElectricMotor",
         "ElectricTimeControl",
-        "Engine"
+        "Engine",
+        "EvaporativeCooler",
+        "Evaporator",
+        "Fan",
+        "Filter",
+        "FireSuppressionTerminal"
       ],
       "domains": [
         "SmartCities"
