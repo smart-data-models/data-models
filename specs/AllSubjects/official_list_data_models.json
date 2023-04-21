@@ -1,5 +1,5 @@
 {
-  "updatedDate": "2023-4-20T16:22:00.31416",
+  "updatedDate": "2023-4-21T13:35:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -1476,7 +1476,8 @@
         "Humidifier",
         "Interceptor",
         "Lamp",
-        "MedicalDevice"
+        "MedicalDevice",
+        "Outlet"
       ],
       "domains": [
         "SmartCities"
