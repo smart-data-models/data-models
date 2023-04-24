@@ -1,5 +1,5 @@
 {
-  "updatedDate": "2023-4-21T13:35:00.31416",
+  "updatedDate": "2023-4-25T00:03:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -1477,7 +1477,13 @@
         "Interceptor",
         "Lamp",
         "MedicalDevice",
-        "Outlet"
+        "Outlet",
+        "ProtectiveDevice",
+        "ProtectiveDeviceTrippingUnit",
+        "Pump",
+        "SanitaryTerminal",
+        "ShadingDevice",
+        "SolarDevice"
       ],
       "domains": [
         "SmartCities"
