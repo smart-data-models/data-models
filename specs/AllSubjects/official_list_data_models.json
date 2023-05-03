@@ -1483,7 +1483,16 @@
         "Pump",
         "SanitaryTerminal",
         "ShadingDevice",
-        "SolarDevice"
+        "SolarDevice",
+        "SpaceHeater", 
+        "SwitchingDevice", 
+        "Tank", 
+        "Transformer", 
+        "TransportElement", 
+        "TubeBundle", 
+        "UnitaryControlElement", 
+        "Valve", 
+        "VibrationIsolator"
       ],
       "domains": [
         "SmartCities"
