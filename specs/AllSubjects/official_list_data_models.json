@@ -1484,18 +1484,30 @@
         "SanitaryTerminal",
         "ShadingDevice",
         "SolarDevice",
-        "SpaceHeater", 
-        "SwitchingDevice", 
-        "Tank", 
-        "Transformer", 
-        "TransportElement", 
-        "TubeBundle", 
-        "UnitaryControlElement", 
-        "Valve", 
+        "SpaceHeater",
+        "SwitchingDevice",
+        "Tank",
+        "Transformer",
+        "TransportElement",
+        "TubeBundle",
+        "UnitaryControlElement",
+        "Valve",
         "VibrationIsolator"
       ],
       "domains": [
         "SmartCities"
+      ]
+    },
+    {
+      "repoName": "dataModel.S4SYST",
+      "repoLink": "https://github.com/smart-data-models/dataModel.S4SYST.git",
+      "dataModels": [
+        "Connection",
+        "ConnectionPoint",
+        "System"
+      ],
+      "domains": [
+        "CrossSector"
       ]
     }
   ]
