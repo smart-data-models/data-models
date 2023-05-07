@@ -1,5 +1,5 @@
 {
-  "updatedDate": "2023-5-05T01:14:00.31416",
+  "updatedDate": "2023-5-07T01:29:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -1505,6 +1505,17 @@
         "Connection",
         "ConnectionPoint",
         "System"
+      ],
+      "domains": [
+        "CrossSector"
+      ]
+    },
+     {
+      "repoName": "dataModel.SAREF",
+      "repoLink": "https://github.com/smart-data-models/dataModel.SAREF.git",
+      "dataModels": [
+        "Meter",
+        "Sensor"
       ],
       "domains": [
         "CrossSector"

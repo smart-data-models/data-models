@@ -44,6 +44,7 @@
   "dataModel.QueueManagement": "https://raw.githubusercontent.com/smart-data-models/dataModel.QueueManagement/master/context.jsonld",
   "dataModel.RiskManagement": "https://raw.githubusercontent.com/smart-data-models/dataModel.RiskManagement/master/context.jsonld",
   "dataModel.RoboticIndustrialActivities": "https://raw.githubusercontent.com/smart-data-models/dataModel.RoboticIndustrialActivities/master/context.jsonld",
+  "dataModel.SAREF": "https://github.com/smart-data-models/dataModel.SAREF.git",
   "dataModel.SatelliteImagery": "https://raw.githubusercontent.com/smart-data-models/dataModel.SatelliteImagery/master/context.jsonld",
   "dataModel.SDMX": "https://raw.githubusercontent.com/smart-data-models/dataModel.SDMX/master/context.jsonld",
   "dataModel.SocialMedia": "https://raw.githubusercontent.com/smart-data-models/dataModel.SocialMedia/master/context.jsonld",
