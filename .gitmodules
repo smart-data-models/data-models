@@ -34,3 +34,6 @@
 [submodule "specs/SmartLogistics"]
 	path = specs/SmartLogistics
 	url = https://github.com/smart-data-models/SmartLogistics.git
+[submodule "specs/CrossSector"]
+	path = specs/CrossSector
+	url = https://github.com/smart-data-models/CrossSector.git
