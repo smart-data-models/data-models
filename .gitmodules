@@ -34,3 +34,6 @@
 [submodule "specs/SmartHealth"]
 	path = specs/SmartHealth
 	url = https://github.com/smart-data-models/SmartHealth.git
+[submodule "specs/CrossSector"]
+	path = specs/CrossSector
+	url = https://github.com/smart-data-models/CrossSector.git
