@@ -107,57 +107,17 @@ def keyvalues2normalized(keyvaluesPayload):
 
 
 keyvaluesPayload = {
-	"id": "https://smart-data-models.github.io/SmartWater/WaterDistributionNetwork/schema.json",
-	"type": "WaterDistributionNetwork",
-	"tankDiameter": 10,
-	"totalML": 250,
-	"tankCapacity": 500,
-	"waterFlow": 14,
-	"tankBreadth": 50,
-	"tankDepth": 200,
-	"flowrate": 70,
-	"tankLength": 300,
-	"waterTemperature": 20,
-	"waterPressure": 5,
-	"turbidity": {
-		"avgOverTime": 14,
-		"maxOverTime": 23,
-		"instValue": 34,
-		"minOverTime": 12
-	},
-	"cl": {
-		"avgOverTime": 6,
-		"maxOverTime": 20,
-		"instValue": 12,
-		"minOverTime": 23
-	},
-	"pH": {
-		"avgOverTime": 6,
-		"maxOverTime": 8,
-		"instValue": 7,
-		"minOverTime": 6
-	},
-	"deviceInfo": {
-		"rfID": "345438",
-		"deviceBatteryStatus": "Connected",
-		"deviceName": " Device 4",
-		"deviceID": "234",
-		"measurand": "2",
-		"deviceSimNumber": "9883829934",
-		"deviceModel": {
-			"brandName": "Trumen Technologies Private Limited",
-			"manufacturerName": "Trumen Technologies Private Limited",
-			"modelName": "Model 4",
-			"modelURL": "https://trumen.in/"
-		}
-	},
-	"waterLevel": 57,
-	"tankName": "Tank 16",
-	"tankShape": "Cylindrical",
-	"observationDateTime": "2021-03-11T15:51:02+05:30",
-	"compensatedTDS":25,
-	"uncompensatedTDS":27
+  "id": "0.E.6.AY1.A1",
+  "type": "Action",
+  "refProject": "O.E.6.AY1",
+  "dateCreated": "2016-08-08T10:18:16Z",
+  "dateModified": "2016-08-08T10:18:16Z",
+  "name": "Realizacion de campafias de promoci6n en medios de comunicaci6n de la provincia",
+  "executionPeriod": "2021S1",
+  "compliancePercentage": 0,
+  "modifications": "SIN MODIFICACION"
 }
+
 
 normalizedPayload = {
     "id": "urn:ngsi-ld:AttributeProperty:a3003",
@@ -202,11 +162,11 @@ normalizedPayload = {
     ]
 }
 
-payload = normalized2keyvalues(normalizedPayload)
-print(payload)
-with open("example-normalized.json", "w") as file:
-    json.dump(payload, file)
+# payload = normalized2keyvalues(normalizedPayload)
+# print(payload)
+# with open("example-normalized.json", "w") as file:
+#     json.dump(payload, file)
 
-# schema = keyvalues2normalized(keyvaluesPayload)
-# with open("keyvalues.json", "w") as file:
-#     json.dump(schema, file)
+schema = keyvalues2normalized(keyvaluesPayload)
+with open("keyvalues.json", "w") as file:
+    json.dump(schema, file)

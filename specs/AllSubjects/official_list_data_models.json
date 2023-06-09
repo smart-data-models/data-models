@@ -1,5 +1,5 @@
 {
-  "updatedDate": "2023-5-08T14:56:00.31416",
+  "updatedDate": "2023-6-09T13:13:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -1051,6 +1051,7 @@
         "CatalogueDCAT-AP",
         "CatalogueRecordDCAT-AP",
         "DataServiceDCAT-AP",
+        "DataServiceRun",
         "Dataset",
         "DistributionDCAT-AP"
       ],
