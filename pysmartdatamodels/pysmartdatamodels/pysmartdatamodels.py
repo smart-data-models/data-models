@@ -2,7 +2,7 @@
 path = __file__
 
 # Find the index of the last occurrence of /
-index = path.rfind("/")
+index = path.rfind(os.sep)
 
 
 # Extract the right part of the string up until the last /
