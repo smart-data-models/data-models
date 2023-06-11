@@ -58,7 +58,7 @@ def load_all_attributes():
 
     output = []
     # Opens the file with the list of data models
-    with open(ddbb_attributes_file, "r") as ddbb_attributes_file_pointer:
+    with open(ddbb_attributes_file, "r", encoding='utf-8') as ddbb_attributes_file_pointer:
         output = json.load(ddbb_attributes_file_pointer)
     return output
 
@@ -157,7 +157,7 @@ def description_attribute(subject, datamodel, attribute):
     done = False
 
     # Access the full database of attributes and stores is in a dictionary
-    with open(ddbb_attributes_file, "r") as ddbb_attributes_pointer:
+    with open(ddbb_attributes_file, "r", encoding='utf-8') as ddbb_attributes_pointer:
         datamodelsdict = json.load(ddbb_attributes_pointer)
 
     # Looks for the attribute in the dictionary
@@ -200,7 +200,7 @@ def datatype_attribute(subject, datamodel, attribute):
     done = False
 
     # Access the full database of attributes and stores is in a dictionary
-    with open(ddbb_attributes_file, "r") as ddbb_attributes_pointer:
+    with open(ddbb_attributes_file, "r", encoding='utf-8') as ddbb_attributes_pointer:
         datamodelsdict = json.load(ddbb_attributes_pointer)
 
     # Looks for the attribute in the dictionary
@@ -247,7 +247,7 @@ def model_attribute(subject, datamodel, attribute):
     done = False
 
     # Access the full database of attributes and stores is in a dictionary
-    with open(ddbb_attributes_file, "r") as ddbb_attributes_pointer:
+    with open(ddbb_attributes_file, "r", encoding='utf-8') as ddbb_attributes_pointer:
         datamodelsdict = json.load(ddbb_attributes_pointer)
 
     # Looks for the attribute in the dictionary
@@ -294,7 +294,7 @@ def units_attribute(subject, datamodel, attribute):
     done = False
 
     # Access the full database of attributes and stores is in a dictionary
-    with open(ddbb_attributes_file, "r") as ddbb_attributes_pointer:
+    with open(ddbb_attributes_file, "r", encoding='utf-8') as ddbb_attributes_pointer:
         datamodelsdict = json.load(ddbb_attributes_pointer)
 
     # Looks for the attribute in the dictionary
@@ -340,7 +340,7 @@ def attributes_datamodel(subject, datamodel):
     done = False
 
     # Access the full database of attributes and stores is in a dictionary
-    with open(ddbb_attributes_file, "r") as ddbb_attributes_pointer:
+    with open(ddbb_attributes_file, "r", encoding='utf-8') as ddbb_attributes_pointer:
         datamodelsdict = json.load(ddbb_attributes_pointer)
 
     # Looks for the attribute in the dictionary
@@ -779,7 +779,7 @@ def print_datamodel(subject, datamodel, separator, meta_attributes):
     import json
 
     output = []
-    with open(ddbb_attributes_file, "r") as ddbb_attributes_pointer:
+    with open(ddbb_attributes_file, "r", encoding='utf-8') as ddbb_attributes_pointer:
         datamodelsdict = json.load(ddbb_attributes_pointer)
 
     # available metadata in the list
@@ -797,7 +797,7 @@ def print_datamodel(subject, datamodel, separator, meta_attributes):
     ]
     defaultmetadata = ["property", "type", "typeNGSI", "description"]
     newline = chr(13) + chr(10)
-    with open(ddbb_attributes_file, "r") as ddbb_attributes_pointer:
+    with open(ddbb_attributes_file, "r", encoding='utf-8') as ddbb_attributes_pointer:
         datamodelsdict = json.load(ddbb_attributes_pointer)
     print(datamodelsdict[0])
     selectedattributes = []
@@ -912,4 +912,3 @@ def update_data():
 
     # Update the data files with the latest information
     # (This will depend on the specific data files and the format they use)
-
