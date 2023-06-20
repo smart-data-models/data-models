@@ -1306,7 +1306,7 @@
         "Concept",
         "ConceptScheme",
         "Dataset",
-        "DimensionProperty"
+        "DimensionProperty",
         "Distribution"
       ],
       "domains": [
