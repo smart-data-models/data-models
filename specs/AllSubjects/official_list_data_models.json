@@ -1,5 +1,5 @@
 {
-  "updatedDate": "2023-6-09T13:13:00.31416",
+  "updatedDate": "2023-06-20T14:57:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -1302,10 +1302,12 @@
       "repoLink": "https://github.com/smart-data-models/dataModel.STAT-DCAT-AP.git",
       "dataModels": [
         "AttributeProperty",
+        "Catalogue",
         "Concept",
         "ConceptScheme",
         "Dataset",
         "DimensionProperty"
+        "Distribution"
       ],
       "domains": [
         "CrossSector"
