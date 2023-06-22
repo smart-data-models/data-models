@@ -120,53 +120,186 @@ keyvaluesPayload = {
 
 
 normalizedPayload = {
-    "id": "urn:ngsi-ld:AttributeProperty:a3003",
-    "type": "AttributeProperty",
-    "language": {
-        "type": "Property",
-        "value": [
-            "en",
-            "fr"
-        ]
-    },
-    "label": {
-        "type": "Property",
-        "value": {
-            "en": "SDMX attribute COMMENT_OBS",
-            "fr": "Attribut SDMX "
-        }
-    },
-    "concept": {
-        "type": "Relationship",
-        "value": "urn:ngsi-ld:Concept:c4303"
-    },
-    "created": {
-        "type": "Property",
-        "value": "2022-01-15T07:00:00+00:00"
-    },
-    "identifier": {
-        "type": "Property",
-        "value": "a3003"
-    },
-    "modified": {
-        "type": "Property",
-        "value": "2022-01-15T07:30:00+00:00"
-    },
-    "range": {
-        "type": "Property",
-        "value": "xsd:string"
-    },
-    "@context": [
-        "https://smart-data-models.github.io/dataModel.STAT-DCAT-AP/context.jsonld",
-        "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld"
+  "id": "urn:ngsi-ld:Catalogue:id:KSLT:97146192",
+  "type": "Catalogue",
+  "dateCreated": {
+    "type": "Property",
+    "value": {
+      "@type": "DateTime",
+      "@value": "2023-03-20T18:53:50Z"
+    }
+  },
+  "dateModified": {
+    "type": "Property",
+    "value": {
+      "@type": "DateTime",
+      "@value": "2023-06-29T11:37:12Z"
+    }
+  },
+  "source": {
+    "type": "Property",
+    "value": "INE"
+  },
+  "name": {
+    "type": "Property",
+    "value": "Catalogue of statistical resources"
+  },
+  "alternateName": {
+    "type": "Property",
+    "value": "Catalogue"
+  },
+  "description": {
+    "type": "Property",
+    "value": "List of converted statistical resources"
+  },
+  "dataProvider": {
+    "type": "Property",
+    "value": "INE"
+  },
+  "owner": {
+    "type": "Property",
+    "value": [
+      "urn:ngsi-ld:Catalogue:items:FRAY:12902985",
+      "urn:ngsi-ld:Catalogue:items:WMSS:90165917"
     ]
+  },
+  "seeAlso": {
+    "type": "Property",
+    "value": [
+      "urn:ngsi-ld:Catalogue:items:XSHA:97687196"
+    ]
+  },
+  "location": {
+    "type": "Property",
+    "value": {
+      "type": "Point",
+      "coordinates": [
+        52.5209531,
+        13.3256918
+      ]
+    }
+  },
+  "address": {
+    "streetAddress": "Franklinstrasse 13",
+    "addressLocality": "Berlin",
+    "addressRegion": "Berlin",
+    "addressCountry": "Germany",
+    "postalCode": "10587",
+    "postOfficeBoxNumber": "",
+    "streetNr": "13",
+    "district": ""
+  },
+  "areaServed": "",
+  "dataset": {
+    "type": "object",
+    "value": "urn:ngsi-ld:Catalogue:dataset:VLNR:72960176"
+  },
+  "publisher": {
+    "type": "Property",
+    "value": "INE"
+  },
+  "title": {
+    "type": "Property",
+    "value": [
+      "Catalogue or statistical resources",
+      "Catálogo de recursos estadisticos"
+    ]
+  },
+  "homepage": {
+    "type": "Property",
+    "value": "urn:ngsi-ld:Catalogue:homepage:FXWI:96370263"
+  },
+  "language": {
+    "type": "Property",
+    "value": [
+      "SP",
+      "EN"
+    ]
+  },
+  "licence": {
+    "type": "Property",
+    "value": "CC BY 4.0"
+  },
+  "releaseDate": {
+    "type": "Property",
+    "value": {
+      "@type": "DateTime",
+      "@value": "2023-01-20T11:03:48Z"
+    }
+  },
+  "themes": {
+    "type": "Property",
+    "value": [
+      "demography",
+      "social movements"
+    ]
+  },
+  "modificationDate": {
+    "type": "Property",
+    "value": {
+      "@type": "DateTime",
+      "@value": "2023-02-24T16:28:58Z"
+    }
+  },
+  "hasPart": {
+    "type": "object",
+    "value": "urn:ngsi-ld:Catalogue:hasPart:EQFC:38298320"
+  },
+  "isPartOf": {
+    "type": "object",
+    "value": "urn:ngsi-ld:Catalogue:isPartOf:JACJ:87819283"
+  },
+  "record": {
+    "type": "object",
+    "value": "urn:ngsi-ld:Catalogue:record:UEFV:49174271"
+  },
+  "rights": {
+    "type": "Property",
+    "value": "Open licensed"
+  },
+  "spatial_geographic": {
+    "type": "Property",
+    "value": [
+      {
+        "type": "Point",
+        "coordinates": [
+          121.7,
+          146.6
+        ],
+        "bbox": [
+          46.5,
+          926.8,
+          995.6,
+          403.5
+        ]
+      },
+      {
+        "type": "Point",
+        "coordinates": [
+          60.3,
+          491.9
+        ],
+        "bbox": [
+          652.6,
+          335.8,
+          341.6,
+          875.0
+        ]
+      }
+    ]
+  },
+  "@context": [
+    "https://raw.githubusercontent.com/smart-data-models/dataModel.STAT-DCAT-AP/master/context.jsonld"
+  ]
 }
 
-# payload = normalized2keyvalues(normalizedPayload)
-# print(payload)
-# with open("example-normalized.json", "w") as file:
-#     json.dump(payload, file)
 
-schema = keyvalues2normalized(keyvaluesPayload)
-with open("keyvalues.json", "w") as file:
-    json.dump(schema, file)
+
+payload = normalized2keyvalues(normalizedPayload)
+print(payload)
+with open("example-normalized.json", "w") as file:
+    json.dump(payload, file)
+
+# schema = keyvalues2normalized(keyvaluesPayload)
+# with open("keyvalues.json", "w") as file:
+#     json.dump(schema, file)
