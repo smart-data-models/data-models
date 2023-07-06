@@ -1,5 +1,5 @@
 {
-  "updatedDate": "2023-06-20T14:57:00.31416",
+  "updatedDate": "2023-07-06T10:43:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -880,6 +880,7 @@
       "dataModels": [
         "Event",
         "TouristDestination",
+        "TouristProfile",
         "TouristTrip"
       ],
       "domains": [
