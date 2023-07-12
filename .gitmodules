@@ -7,9 +7,6 @@
 [submodule "specs/SmartWater"]
 	path = specs/SmartWater
 	url = https://github.com/smart-data-models/SmartWater.git
-[submodule "specs/CrossSector"]
-	path = specs/CrossSector
-	url = https://github.com/smart-data-models/CrossSector.git
 [submodule "specs/Smart-Sensoring"]
 	path = specs/Smart-Sensoring
 	url = https://github.com/smart-data-models/Smart-Sensoring.git
