@@ -1,5 +1,5 @@
 {
-  "updatedDate": "2023-07-06T10:43:00.31416",
+  "updatedDate": "2023-07-17T17:39:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -308,6 +308,7 @@
         "FloodMonitoring",
         "IndoorEnvironmentObserved",
         "MosquitoDensity",
+        "NightSkyQuality",
         "NoiseLevelObserved",
         "NoisePollution",
         "NoisePollutionForecast",
