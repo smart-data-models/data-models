@@ -1,5 +1,5 @@
 {
-  "updatedDate": "2023-07-17T17:39:00.31416",
+  "updatedDate": "2023-07-18T15:41:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -1049,13 +1049,13 @@
       "repoName": "dataModel.DCAT-AP",
       "repoLink": "https://github.com/smart-data-models/dataModel.DCAT-AP.git",
       "dataModels": [
-        "AgentDCAT-AP",
-        "CatalogueDCAT-AP",
-        "CatalogueRecordDCAT-AP",
-        "DataServiceDCAT-AP",
+        "Agent",
+        "Catalogue",
+        "CatalogueRecord",
+        "DataService",
         "DataServiceRun",
         "Dataset",
-        "DistributionDCAT-AP"
+        "Distribution"
       ],
       "domains": [
         "CrossSector"
