@@ -47,6 +47,7 @@
   "dataModel.SAREF": "https://github.com/smart-data-models/dataModel.SAREF.git",
   "dataModel.SatelliteImagery": "https://raw.githubusercontent.com/smart-data-models/dataModel.SatelliteImagery/master/context.jsonld",
   "dataModel.SDMX": "https://raw.githubusercontent.com/smart-data-models/dataModel.SDMX/master/context.jsonld",
+  "dataModel.SDG": "https://raw.githubusercontent.com/smart-data-models/dataModel.SDG/master/context.jsonld",
   "dataModel.SocialMedia": "https://raw.githubusercontent.com/smart-data-models/dataModel.SocialMedia/master/context.jsonld",
   "dataModel.Streetlighting": "https://raw.githubusercontent.com/smart-data-models/dataModel.Streetlighting/master/context.jsonld",
   "dataModel.S4BLDG": "https://github.com/smart-data-models/dataModel.S4BLDG.git",
