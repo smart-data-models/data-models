@@ -1,5 +1,5 @@
 {
-  "updatedDate": "2023-07-18T15:41:00.31416",
+  "updatedDate": "2023-07-20T10:20:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -1521,6 +1521,18 @@
       "dataModels": [
         "Meter",
         "Sensor"
+      ],
+      "domains": [
+        "CrossSector"
+      ]
+    },
+         {
+      "repoName": "dataModel.SDG",
+      "repoLink": "https://github.com/smart-data-models/dataModel.SDG.git",
+      "dataModels": [
+        "Action",
+        "Indicator",
+        "Project"
       ],
       "domains": [
         "CrossSector"
