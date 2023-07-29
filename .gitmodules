@@ -34,3 +34,6 @@
 [submodule "specs/SmartAgrifood"]
 	path = specs/SmartAgrifood
 	url = https://github.com/smart-data-models/SmartAgrifood.git
+[submodule "specs/CrossSector"]
+	path = specs/CrossSector
+	url = https://github.com/smart-data-models/CrossSector.git
