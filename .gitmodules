@@ -25,9 +25,6 @@
 [submodule "specs/SmartWater"]
 	path = specs/SmartWater
 	url = https://github.com/smart-data-models/SmartWater.git
-[submodule "specs/SmartAeronautics"]
-	path = specs/SmartAeronautics
-	url = https://github.com/smart-data-models/SmartAeronautics.git
 [submodule "specs/SmartAgrifood"]
 	path = specs/SmartAgrifood
 	url = https://github.com/smart-data-models/SmartAgrifood.git
