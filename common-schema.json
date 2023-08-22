@@ -364,11 +364,11 @@
             },
             "streetNr": {
               "type": "string",
-              "description": "Number identifying a specific property on a public street"
+              "description": "Property. Number identifying a specific property on a public street"
             },
             "district": {
               "type": "string",
-              "description": "A district is a type of administrative division that, in some countries, is managed by the local government"
+              "description": "Property. A district is a type of administrative division that, in some countries, is managed by the local government"
             }
           }
         },
@@ -411,11 +411,13 @@
             "properties": {
               "opens": {
                 "type": "string",
-                "format": "time"
+                "format": "time",
+                "description": "Property. The opening hour of the place or service on the given day(s) of the week"
               },
               "closes": {
                 "type": "string",
-                "format": "time"
+                "format": "time",
+                "description": "Property.  \tThe closing hour of the place or service on the given day(s) of the week"
               },
               "dayOfWeek": {
                 "type": "string",
@@ -628,35 +630,35 @@
       "properties": {
         "Addressable": {
           "type": "object",
-          "description": "Base schema for addressable entities",
+          "description": "Property. Base schema for addressable entities",
           "properties": {
             "href": {
               "type": "string",
               "format": "uri",
-              "description": "Hyperlink reference"
+              "description": "Relationship. Hyperlink reference"
             },
             "id": {
               "type": "string",
-              "description": "unique identifier"
+              "description": "Property. unique identifier"
             }
           }
         },
         "Extensible": {
           "type": "object",
-          "description": "Base Extensible schema for use in TMForum Open-APIs",
+          "description": "Property. Base Extensible schema for use in TMForum Open-APIs",
           "properties": {
             "@schemaLocation": {
               "type": "string",
               "format": "uri",
-              "description": "A URI to a JSON-Schema file that defines additional attributes and relationships"
+              "description": "Property. A URI to a JSON-Schema file that defines additional attributes and relationships"
             },
             "@baseType": {
               "type": "string",
-              "description": "When sub-classing, this defines the super-class"
+              "description": "Property. When sub-classing, this defines the super-class"
             },
             "@type": {
               "type": "string",
-              "description": "When sub-classing, this defines the sub-class Extensible name"
+              "description": "Property. When sub-classing, this defines the sub-class Extensible name"
             }
           },
           "dependencies": {
@@ -673,16 +675,20 @@
       "description": "Property. Object defining the temporal processing of a basic property during a period. It provides Maximum, minimum, instant value and average. Attributes using this should be named with the suffix TSA",
       "properties": {
         "avgOverTime": {
-          "type": "number"
+          "type": "number",
+          "description": "Property. Average value over period of time"
         },
         "minOverTime": {
-          "type": "number"
+          "type": "number",
+          "description": "Property. Minimum value over period of time"
         },
         "maxOverTime": {
-          "type": "number"
+          "type": "number",
+          "description": "Property. Maximum value over period of time"
         },
         "instValue": {
-          "type": "number"
+          "type": "number",
+          "description": "Property. Instant value when information is retrieved"
         }
       }
     }
