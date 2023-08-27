@@ -1,5 +1,5 @@
 {
-  "updatedDate": "2023-07-20T10:20:00.31416",
+  "updatedDate": "2023-078-28T01:44:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -1347,7 +1347,8 @@
       "repoName": "dataModel.Organization",
       "repoLink": "https://github.com/smart-data-models/dataModel.Organization.git",
       "dataModels": [
-        "Organization"
+        "Organization",
+        "Person"
       ],
       "domains": [
         "CrossSector"
