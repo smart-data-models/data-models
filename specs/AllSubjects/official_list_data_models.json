@@ -1,5 +1,5 @@
 {
-  "updatedDate": "2023-08-28T12:43:00.31416",
+  "updatedDate": "2023-08-28T17:59:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -347,6 +347,7 @@
       "repoName": "dataModel.WaterQuality",
       "repoLink": "https://github.com/smart-data-models/dataModel.WaterQuality.git",
       "dataModels": [
+        "SludgeQualityObserved",
         "WaterQualityObserved",
         "WaterQualityPredicted"
       ],
