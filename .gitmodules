@@ -34,3 +34,6 @@
 [submodule "specs/SmartManufacturing"]
 	path = specs/SmartManufacturing
 	url = https://github.com/smart-data-models/SmartManufacturing.git
+[submodule "specs/SmartRobotics"]
+	path = specs/SmartRobotics
+	url = https://github.com/smart-data-models/SmartRobotics.git
