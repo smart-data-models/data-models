@@ -1,11 +1,11 @@
 [tool.poetry]
 name = "pysmartdatamodels"
 description = "Open-licensed and free data models to model your digital twins, share data in data spaces or develop smart applications"
-version = "0.6.0"
+version = "0.6.11"
 authors = ["aabella <alberto.abella@fiware.org>", "jilin <jilin.he@fiware.org>"]
 readme = "README.md"
 packages = [{include = "pysmartdatamodels"}]
-
+homepage = "https://github.com/smart-data-models/data-models/tree/master/pysmartdatamodels"
 classifiers = [
   "Development Status :: 4 - Beta",
   "Intended Audience :: Developers",
@@ -43,15 +43,15 @@ classifiers = [
   "Programming Language :: Python :: 3.11"
 ]
 dependencies = ["jsonref", "jsonschema", "pytz", "requests", "os-sys", "urllib.request", "rstr", "Faker", "string", "random"]
-version = "0.6.0"
+version = "0.6.11"
 readme = "README.md"
 
 [project.urls]
-Homepage = "https://github.com/smart-data-models/data-models/tree/master/pysmartdatamodels"
-BugTracker = "https://github.com/smart-data-models/data-models/issues"
-Documentation = "https://smartdatamodels.org/index.php/pysmatdatamodels-documentation/"
-Issues = "https://github.com/smart-data-models/data-models/issues"
-Source = "https://github.com/smart-data-models/data-models/tree/master/pysmartdatamodels"
+homepage = "https://github.com/smart-data-models/data-models/tree/master/pysmartdatamodels"
+bugTracker = "https://github.com/smart-data-models/data-models/issues"
+documentation = "https://smartdatamodels.org/index.php/pysmatdatamodels-documentation/"
+issues = "https://github.com/smart-data-models/data-models/issues"
+source = "https://github.com/smart-data-models/data-models/tree/master/pysmartdatamodels"
 
 
 [tool.poetry.dependencies]
