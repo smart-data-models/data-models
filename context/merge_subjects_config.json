@@ -1,4 +1,5 @@
 {
+  "dataModel.ACRIS": "https://github.com/smart-data-models/dataModel.ACRIS/master/context.jsonld",
   "dataModel.Aeronautics": "https://raw.githubusercontent.com/smart-data-models/dataModel.Aeronautics/master/context.jsonld",
   "dataModel.Agrifood": "https://raw.githubusercontent.com/smart-data-models/dataModel.Agrifood/master/context.jsonld",
   "dataModel.Alert": "https://raw.githubusercontent.com/smart-data-models/dataModel.Alert/master/context.jsonld",
