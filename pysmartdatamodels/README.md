@@ -3,7 +3,7 @@
 Smart Data Models 
 ==================
 
-The [Smart Data Models](https://smartdatamodels.org) is a program lead by [4 organizations](https://smartdatamodels.org/index.php/faqs/) with the collaboration of [more than 80](https://smartdatamodels.org/index.php/statistics/) and open to collaboration. It provides multisector agile standardized free and open-licensed data models based either on actual use cases or on adopted open standards.
+The [Smart Data Models](https://smartdatamodels.org) is a program lead by [4 organizations](https://smartdatamodels.org/index.php/faqs/) with the collaboration of [more than 100](https://smartdatamodels.org/index.php/statistics/) and open to collaboration. It provides multisector agile standardized free and open-licensed data models based either on actual use cases or on adopted open standards.
 The data models describe the entities and their attributes to be used in digital twins deployments, data spaces and other smart applications. The data models are grouped in subjects. Each subject is available at a unique repository at [https://github.com/smart-data-models/](https://github.com/smart-data-models/). Contributions to existing data models can be done there. New ones are drafted in the [incubated repository](https://github.com/smart-data-models/incubated/) once [filled this form](https://smartdatamodels.org/index.php/new-incubated-data-models/) for getting the permissions. [This manual](https://bit.ly/contribution_manual) helps you with the creation. There is a database of [contributors](https://smartdatamodels.org/index.php/contributors/) available. 
 
 This python package includes all the data models and several functions (listed below) to use them in your developments.
@@ -15,19 +15,109 @@ If you want to be updated on this package you can join this [mailing list](https
 There are several online tools to manage and to create the data models, [generate examples](https://smartdatamodels.org/index.php/generate-a-ngsi-ld-keyvalues-payload-compliant-with-a-data-model/) or to adapt to [existing ontologies](https://smartdatamodels.org/index.php/generate-acontext-based-on-external-ontologies-iris/). See tools menu option at the [home site](https://smartdatamodels.org).
 
 Currently, there are thirteen domains. 
-#### [Smart Cities](https://github.com/smart-data-models/SmartCities)
-#### [Smart Agrifood](https://smartdatamodels.org/index.php/statistics/)
-#### [Smart Water](https://github.com/smart-data-models/SmartWater)
-#### [Smart Energy](https://github.com/smart-data-models/SmartEnergy)
-#### [Smart Environment](https://github.com/smart-data-models/SmartEnvironment)
-#### [Smart Robotics](https://github.com/smart-data-models/SmartRobotics)
-#### [Smart Sensoring](https://github.com/smart-data-models/Smart-Sensoring)
-#### [Cross sector](https://github.com/smart-data-models/CrossSector)
-#### [Smart Aeronautics](https://github.com/smart-data-models/SmartAeronautics)
-#### [Smart Destination](https://github.com/smart-data-models/SmartDestination)
-#### [Smart Health](https://github.com/smart-data-models/SmartHealth)
-#### [Smart Manufacturing](https://github.com/smart-data-models/SmartManufacturing)
-#### [Smart Logistics](https://github.com/smart-data-models/SmartLogistics)
+
+**[Smart Cities](https://github.com/smart-data-models/SmartCities)** | **[Smart Agrifood](https://github.com/smart-data-models/SmartAgrifood)** | **[Smart Water](https://github.com/smart-data-models/SmartWater)** | **[Smart Energy](https://github.com/smart-data-models/SmartEnergy)** | 
+**[Smart Environment](https://github.com/smart-data-models/SmartEnvironment)** | 
+**[Smart Robotics](https://github.com/smart-data-models/SmartRobotics)** | 
+**[Smart Sensoring](https://github.com/smart-data-models/Smart-Sensoring)** | 
+**[Cross sector](https://github.com/smart-data-models/CrossSector)** | 
+**[Smart Aeronautics](https://github.com/smart-data-models/SmartAeronautics)** | 
+**[Smart Destination](https://github.com/smart-data-models/SmartDestination)** | 
+**[Smart Health](https://github.com/smart-data-models/SmartHealth)** | 
+**[Smart Manufacturing](https://github.com/smart-data-models/SmartManufacturing)** | 
+**[Smart Logistics](https://github.com/smart-data-models/SmartLogistics)**
+
+### Some example code
+
+```python
+
+from pysmartdatamodels import pysmartdatamodels as sdm
+
+subject = "dataModel.Weather"
+
+dataModel = "WeatherForecast"
+
+attribute = "precipitation"
+
+serverUrl = "https://smartdatamodels.org:1026"
+
+value = 0.5
+
+schemaUrl = "https://raw.githubusercontent.com/smart-data-models/dataModel.Agrifood/master/AgriApp/schema.json"
+
+# Load all datamodels in a dict like the official list
+print(sdm.load_all_datamodels())
+
+# Load all attributes in a dict like the official export of attributes
+print(len(sdm.load_all_attributes()))   # there is more than 30.000 to get all listed
+
+# List all data models
+print(sdm.list_all_datamodels())
+
+# List all subjects
+print(sdm.list_all_subjects())
+
+# List the data models of a subject
+print(sdm.datamodels_subject("dataModel.Weather"))
+
+# List description of an attribute
+print(sdm.description_attribute(subject, dataModel, attribute))
+
+# List data-type of an attribute
+print(sdm.datatype_attribute(subject, dataModel, attribute))
+
+# Give reference model for an attribute
+print(sdm.model_attribute(subject, dataModel, attribute))
+
+# Give reference units for an attribute
+print(sdm.units_attribute(subject, dataModel, attribute))
+
+# List the attributes of a data model
+print(sdm.attributes_datamodel(subject, dataModel))
+
+# List the NGSI type (Property, Relationship or Geoproperty) of the attribute
+print(sdm.ngsi_datatype_attribute(subject, dataModel, attribute))
+
+# Validate a json schema defining a data model
+print(sdm.validate_data_model_schema(schemaUrl))
+
+# Print a list of data models attributes separated by a separator
+print(sdm.print_datamodel(subject, dataModel, ",", [
+        "property",
+        "type",
+        "dataModel",
+        "repoName",
+        "description",
+        "typeNGSI",
+        "modelTags",
+        "format",
+        "units",
+        "model",
+    ]))
+
+# Returns the link to the repository of a subject
+print(sdm.subject_repolink(subject))
+
+# Return the links to the repositories of a data model name
+print(sdm.datamodel_repolink(dataModel))
+
+# Update the official data model list or the database of attributes from the source
+# It will take a while
+sdm.update_data()
+
+# Return a fake normalized ngsi-ld format example based on the given json schema
+print(sdm.ngsi_ld_example_generator(schemaUrl))
+
+# Return a fake key value ngsi-ld format example based on the given json schema
+print(sdm.ngsi_ld_keyvalue_example_generator(schemaUrl))
+
+# Return a fake geojson feature format example based on the given json schema
+print(sdm.geojson_features_example_generator(schemaUrl))
+
+# Update a broker compliant with a specific data model, inspired by Antonio Jara
+print(sdm.update_broker(dataModel, subject, attribute, value, serverUrl=serverUrl, updateThenCreate=True))
+
+```
 
 ## Functions available include:
 
@@ -199,8 +289,8 @@ Currently, there are thirteen domains.
                   "text": "This will usually be allocated by the storage platform.. Entity creation timestamp"
                   },
         - schemaDiagnose: It counts the attributes with right descriptions and those which don't.
-        - alreadyUsedProperties: It identifies attributes that have already been used in other data models and includes their definition
-        - availableProperties: Identifies those attributes which are not already included in any other data model
+        <!-- - alreadyUsedProperties: It identifies attributes that have already been used in other data models and includes their definition
+        - availableProperties: Identifies those attributes which are not already included in any other data model -->
 
 13- Print a list of data models attributes separated by a separator. Function print_datamodel(subject, datamodel, separator, meta_attributes)
 
@@ -291,7 +381,7 @@ Currently, there are thirteen domains.
           if there's any problem related to input parameter and json schema:
               False
 
-20- Update a broker compliant with a specific data model, inspired by [Antonio Jara](https://twitter.com/Antonio_Jara). Function update_broker(datamodel, subject, attribute, value, entityId=None, serverUrl=None, broker_folder="/ngsi-ld/v1")
+20- Update a broker compliant with a specific data model, inspired by [Antonio Jara](https://twitter.com/Antonio_Jara). Function update_broker(datamodel, subject, attribute, value, entityId=None, serverUrl=None, broker_folder="/ngsi-ld/v1", updateThenCreate=True)
 
         Parameters:
           - datamodel: the name of the data model of the SDM (see https://github.com/smart-data-models/data-models/blob/master/specs/AllSubjects/official_list_data_models.json) or this form
@@ -303,6 +393,7 @@ Currently, there are thirteen domains.
           - entity_id (str): The ID of the entity to update. If left none then the query for the broker is returned
           - serverUrl (str): The URL of the NGSI-LD broker.
           - broker_folder(str): It is supposed that the broker is installed in /ngsi/ld (default) change it if installed other location
+          - updateThenCreate: If the updating attribute is nonexistent in the wanting entity, then create the attribute first if updateThenCreate is True, otherwise the operation is illegal
 
         Returns:
           - An array with two values
@@ -319,96 +410,10 @@ B.- Function to submit a new data model to an incubation repository. Currently, 
 
 if you want to suggest other functions/ needs please let us know at info@smartdatamodels.org.
 
-### some example code
-
-from pysmartdatamodels import pysmartdatamodels as sdm
-
-subject = "dataModel.Weather"
-
-dataModel = "WeatherForecast"
-
-attribute = "precipitation"
-
-serverUrl = "https://smartdatamodels.org:1026"
-
-value = 0.5
-
-schemaUrl = "https://raw.githubusercontent.com/smart-data-models/dataModel.Agrifood/master/AgriApp/schema.json"
-
-<!-- 1 -->
-print(sdm.load_all_datamodels())
-
-<!-- 2 -->
-print(len(sdm.load_all_attributes()))   # there is more than 21.000 to get all listed
-
-<!-- 3 -->
-print(sdm.list_all_datamodels())
-
-<!-- 4 -->
-print(sdm.list_all_subjects())
-
-<!-- 5 -->
-print(sdm.datamodels_subject("dataModel.Weather"))
-
-<!-- 6 -->
-print(sdm.description_attribute(subject, dataModel, attribute))
-
-<!-- 7 -->
-print(sdm.datatype_attribute(subject, dataModel, attribute))
-
-<!-- 8 -->
-print(sdm.model_attribute(subject, dataModel, attribute))
-
-<!-- 9 -->
-print(sdm.units_attribute(subject, dataModel, attribute))
-
-<!-- 10 -->
-print(sdm.attributes_datamodel(subject, dataModel))
-
-<!-- 11 -->
-print(sdm.ngsi_datatype_attribute(subject, dataModel, attribute))
-
-<!-- 12
-print(sdm.validate_data_model_schema(schemaUrl)) -->
-
-<!-- 13 -->
-print(sdm.print_datamodel(subject, dataModel, ",", [
-        "property",
-        "type",
-        "dataModel",
-        "repoName",
-        "description",
-        "typeNGSI",
-        "modelTags",
-        "format",
-        "units",
-        "model",
-    ]))
-
-<!-- 14 -->
-print(sdm.subject_repolink(subject))
-
-<!-- 15 -->
-print(sdm.datamodel_repolink(dataModel))
-
-<!-- 16 -->
-sdm.update_data()
-
-<!-- 17 -->
-print(sdm.ngsi_ld_example_generator(schemaUrl))
-
-<!-- 18 -->
-print(sdm.ngsi_ld_keyvalue_example_generator(schemaUrl))
-
-<!-- 19 -->
-print(sdm.geojson_features_example_generator(schemaUrl))
-
-<!-- 20 -->
-print(sdm.update_broker(dataModel, subject, attribute, value, serverUrl=serverUrl))
-
 ## Acknowledgments
 
 Special thanks to the following contributors:
 
 - [fdrobnic](https://github.com/fdrobnic): Changes for porting to Windows
-- [Antonio Jara](https://twitter.com/Antonio_Jara): new function for inserting data into broker
+- [Antonio Jara](https://twitter.com/Antonio_Jara): New function for inserting data into broker
+- [María José Bernal](mj.bernal@libelium.com): Necessary extension for function update_broker() to allow updating nonexistent attribute into broker
