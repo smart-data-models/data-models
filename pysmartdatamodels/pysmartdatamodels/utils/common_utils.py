@@ -20,12 +20,31 @@ import sys
 import rstr
 import string
 import random
+import requests
+
+from validator_collection import checkers
 
 from faker import Faker
 fake = Faker()
 
 pendingToImplement = "Version 0.1 not implemented"
 missingEntity = "Missing entity name"
+
+newline = "\n  "
+newsubline = "\n   "
+KEYWORDS_FOR_CERTAIN_CHECK = "smart-data-models"
+CHECKED_PROPERTY_CASES = ['well documented', 'already used', 'newly available', 'Metadata', 'Failed']
+
+def is_url_existed(url, message=""):
+    output = []
+    try:
+        pointer = requests.get(url)
+        if pointer.status_code == 200:
+            return [True, pointer.text]
+        else:
+            return [False, pointer.status_code]
+    except:
+        return [False, "wrong domain"]
 
 
 def extract_datamodel_from_raw_url(schemaUrl):
@@ -71,7 +90,7 @@ def open_jsonref(fileUrl):
         # es URL
         try:
             pointer = requests.get(fileUrl)
-            output = jsonref.loads(pointer.content.decode('utf-8'), load_on_repr=True)
+            output = jsonref.loads(pointer.content.decode('utf-8'), load_on_repr=True, merge_props=True)
             return output
         except:
             return ""
@@ -439,3 +458,268 @@ def parse_property(fullPayload, dataModel, level):
         return parse_property({prop: fullPayload[prop]["oneOf"][0]}, dataModel, level)
     else:
         return {prop: pendingToImplement, "value": fake_uri(prop, dataModel)}
+
+
+def is_metadata_properly_reported(output, schemaDict):
+    try:
+        metadata = "metadata"
+        output[metadata] = {}
+        if "derivedFrom" in schemaDict:
+            derivedFrom = schemaDict["derivedFrom"]
+            if derivedFrom != "":
+                # check that it is a valid url
+                if not checkers.is_url(derivedFrom):
+                    output["metadata"]["derivedFrom"] = {"warning": "derivedFrom is not a valid url"}
+                else:
+                    if not is_url_existed(derivedFrom)[0]:
+                        output["metadata"]["derivedFrom"] = {"warning": "derivedFrom url is not reachable"}
+        else:
+            output["metadata"]["derivedFrom"] = {"warning": "not derivedFrom clause, include derivedFrom = '' in the header"}
+    except:
+        output["metadata"]["derivedFrom"] = {"warning": "not possible to check derivedFrom clause, Does it exist a derivedFrom = '' clause in the header?"}
+
+    # check that the header license is properly reported
+    try:
+        metadata = "metadata"
+        if "metadata" not in output:
+            output[metadata] = {}
+        if "license" in schemaDict:
+            license = schemaDict["license"]
+            if license != "":
+                # check that it is a valid url
+                if not checkers.is_url(license):
+                    output["metadata"]["license"] = {"warning": "License is not a valid url. It should be a link to the license document"}
+                else:
+                    if not is_url_existed(license)[0]:
+                        output["metadata"]["license"] = {"warning": "license url is not reachable"}
+            else:
+                output["metadata"]["license"] = {"warning": "license is empty, include a license = '' in the header "}
+        else:
+            output["metadata"]["license"] = {"warning": "not license clause, does it exist a license = '' in the header?"}
+    except:
+        output["metadata"]["license"] = {"warning": "not possible to check license clause"}
+
+    return output
+
+def is_metadata_existed(output, jsonDict, schemaUrl, message="", checkall=True, checklist=None):
+
+    # if checkall is True, then ignore checklist
+    # if checkall is False, then checklist will be used
+
+    # if not checkall:
+        # ["$schema", "$id", "title", "", "description", "tags", "version", "required clause"]
+
+    # check that the "$schema" exist, by default is "http://json-schema.org/schema"
+    try:
+        metadata = "metadata"
+        if "metadata" not in output:
+            output[metadata] = {}
+        if "$schema" in jsonDict:
+            schema = jsonDict["$schema"]
+            if schema == "":
+                output["metadata"]["$schema"] = {"warning": "$schema is empty"}
+            elif not isinstance(schema, str):
+                output["metadata"]["$schema"] = {"warning": "$schema is not a string"}
+            # 
+            elif schema != "http://json-schema.org/schema#":
+                output["metadata"]["$schema"] = {"warning": "$schema should be \"http://json-schema.org/schema#\" by default"}
+        else:
+            output["metadata"]["$schema"] = {"warning": "Missing $schema clause, include $schema = '' in the header"}
+    except:
+        output["metadata"]["$schema"] = {"warning": "not possible to check $schema clause, Does it exist a $schema = '' in the header?"}
+
+    # check that the "$id" exist
+    try:
+        # print(jsonDict)
+        metadata = "metadata"
+        if "metadata" not in output:
+            output[metadata] = {}
+        if "$id" in jsonDict:
+            # print("-----------")
+            id = jsonDict["$id"]
+            if id == "":
+                output["metadata"]["$id"] = {"warning": "$id is empty"}
+            elif not isinstance(id, str):
+                output["metadata"]["$id"] = {"warning": "$id is not a string"}
+            # https://smart-data-models.github.io/dataModel.DataQuality/DataQualityAssessment/schema.json
+            elif (KEYWORDS_FOR_CERTAIN_CHECK in schemaUrl) and (id != schemaUrl):
+                output["metadata"]["$id"] = {"warning": "$id doesn't match, please check it again"}
+        else:
+            output["metadata"]["$id"] = {"warning": "Missing $id clause, include $id = '' in the header"}
+    except:
+        output["metadata"]["$id"] = {"warning": "not possible to check $id clause, Does it exist a $id = '' in the header?"}
+    
+    # check that the title exist
+    try:
+        metadata = "metadata"
+        if "metadata" not in output:
+            output[metadata] = {}
+        if "title" in jsonDict:
+            title = jsonDict["title"]
+            if title == "":
+                output["metadata"]["title"] = {"warning": "Title is empty"}
+            elif not isinstance(title, str):
+                output["metadata"]["title"] = {"warning": "Title is not a string"}
+            elif len(title) < 15:
+                output["metadata"]["title"] = {"warning": "Title too short"}
+        else:
+            output["metadata"]["title"] = {"warning": "Missing title clause, include title = '' in the header"}
+    except:
+        output["metadata"]["title"] = {"warning": "not possible to check title clause, Does it exist a title = '' in the header?"}
+
+    # check that the description exists
+    try:
+        metadata = "metadata"
+        if "metadata" not in output:
+            output[metadata] = {}
+        if "description" in jsonDict:
+            description = jsonDict["description"]
+            if description == "":
+                output["metadata"]["description"] = {"warning": "Description is empty"}
+            elif not isinstance(description, str):
+                output["metadata"]["description"] = {"warning": "Description is not a string"}
+            elif len(description) < 34:
+                output["metadata"]["description"] = {"warning": "Description is too short"}
+        else:
+            output["metadata"]["description"] = {"warning": "Missing description clause, include description = '' in the header"}
+    except:
+        output["metadata"]["description"] = {"warning": "not possible to check description clause, does it exist a description = '' in the header?"}
+
+    # check that the tags exist
+    try:
+        metadata = "metadata"
+        if "metadata" not in output:
+            output[metadata] = {}
+        if "modelTags" in jsonDict:
+            modelTags = jsonDict["modelTags"]
+            if modelTags == "":
+                output["metadata"]["modelTags"] = {"warning": "modelTags is empty"}
+            elif not isinstance(title, str):
+                output["metadata"]["modelTags"] = {"warning": "modelTags is not a string"}
+        else:
+            output["metadata"]["modelTags"] = {"warning": "Missing modelTags clause, , include modelTags = '' in the header"}
+    except:
+        output["metadata"]["modelTags"] = {"warning": "not possible to check modelTags clause, does it exit a modelTags = '' in the header?"}
+
+    # check that the version exists
+    try:
+        import re
+        metadata = "metadata"
+        if "metadata" not in output:
+            output[metadata] = {}
+        if "$schemaVersion" in jsonDict:
+            schemaVersion = jsonDict["$schemaVersion"]
+            pattern = "^\d{1,3}.\d{1,3}.\d{1,3}$"
+            if schemaVersion == "":
+                output["metadata"]["schemaVersion"] = {"warning": "missing $schemaVersion, include the value. Default = 0.0.1"}
+            elif not isinstance(schemaVersion, str):
+                output["metadata"]["schemaVersion"] = {"warning": "$schemaVersion is not a string"}
+            elif re.search(pattern, schemaVersion) is None:
+                output["metadata"]["schemaVersion"] = {"warning": "Schema version format wrong. Right is x.x.x"}
+        else:
+            output["metadata"]["schemaVersion"] = {"warning": "Missing schemaVersion clause, include $schemaVersion = '' in the header "}
+    except:
+        output["metadata"]["schemaVersion"] = {"warning": "not possible to check schemaVersion clause, does it exist a $schemaVersion = '' in the header?"}
+
+    # check that the required clause exists
+    try:
+        metadata = "metadata"
+        if "metadata" not in output:
+            output[metadata] = {}
+        if "required" in jsonDict:
+            required = jsonDict["required"]
+            # print(required)
+            # print(type(required))
+            if required == "":
+                output["metadata"]["required"] = {"warning": "missing required, include the values. Default = ['id', 'type]"}
+            elif not isinstance(required, list):
+                output["metadata"]["required"] = {"warning": "required is not a list"}
+            elif ("id" not in required) or ("type" not in required):
+                output["metadata"]["required"] = {"warning": "id and type are mandatory"}
+            elif len(required) > 4:
+                output["metadata"]["required"] = {"warning": "Too many required attributes, consider its reduction to less than 5 preferably just id and type"}
+        else:
+            output["metadata"]["required"] = {"warning": "Missing required clause, include required = ['id', 'type']"}
+    except:
+        output["metadata"]["required"] = {"warning": "not possible to check required clause, does it exist a required = ['id', 'type']?"}
+
+    return output
+
+
+def schema_output_sum(output):
+
+    documentationStatusOfProperties = output['documentationStatusOfProperties']
+    alreadyUsedProperties = output['alreadyUsedProperties']
+    availableProperties = output['availableProperties']
+    metadata = output['metadata']
+
+    results = {}
+    results = {key: [] for key in CHECKED_PROPERTY_CASES}
+    results['Failed'] = {}
+
+    for pp, value in documentationStatusOfProperties.items():
+        if value['documented'] & value['x-ngsi']:
+            results['well documented'].append(pp)
+        elif value['x-ngsi'] is False:
+            if value['x-ngsi_text'] not in results['Failed'].keys():
+                results['Failed'][value['x-ngsi_text']] = []
+            results['Failed'][value['x-ngsi_text']].append(pp)
+        elif value['documented'] is False:
+            if value['text'] not in results['Failed'].keys():
+                results['Failed'][value['text']] = []
+            results['Failed'][value['text']].append(pp)
+        if (pp == "type") and (value["type_specific"] is False):
+            results['Failed'][value["type_specific_text"]] = []
+            results['Failed'][value["type_specific_text"]].append(pp)
+        if 'duplicated_prop' in value:
+            try:
+                results['Failed'][value['duplicated_prop_text']].append(pp)
+            except:
+                results['Failed'][value['duplicated_prop_text']] = []
+                results['Failed'][value['duplicated_prop_text']].append(pp)
+
+    for pp in alreadyUsedProperties:
+        # print(pp.keys())
+        results['already used'].append(list(pp.keys())[0])
+
+    for pp in availableProperties:
+        results['newly available'].append(list(pp.keys())[0])
+
+    for pp, value in metadata.items():
+        results['Metadata'].append(value['warning'])
+
+    return results
+
+
+def message_after_check_schema(results):
+    message = ""
+    for key in CHECKED_PROPERTY_CASES[:-2]:
+        if len(results[key]) != 0:
+            msg = f"""
+These properties are {key} properties: 
+    {newline + ", ".join(results[key])}
+"""
+            message += msg
+
+    if len(results[CHECKED_PROPERTY_CASES[-1]]) != 0:
+        message += f"""
+However, We highly suggest you to fix with these properties:
+
+    {newline.join([" - "+text+newline+f"{', '.join(pps)}" for text, pps in results['Failed'].items()])}
+        """
+    else:
+        message += f"""
+No big issue with the named properties in general.
+        """
+
+    if len(results[CHECKED_PROPERTY_CASES[-2]]) != 0:
+        message += f"""
+Some warnings related to metadata:
+
+    {newline.join([" - "+text for text in results['Metadata']])}
+        """
+    else:
+        message += f"""
+No warning with metadata.        
+        """
+    return message

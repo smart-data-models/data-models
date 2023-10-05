@@ -1,4 +1,5 @@
 import os
+import re
 import json
 
 import sys
@@ -10,9 +11,11 @@ from jsonschema import validate
 import requests
 
 import urllib.request
+# from utils.common_utils import *
 from .utils import extract_subject_from_raw_url, extract_datamodel_from_raw_url, \
                     open_jsonref, parse_property, normalized2keyvalues, create_context, \
-                    generate_random_string
+                    generate_random_string, is_metadata_properly_reported, is_metadata_existed, \
+                    schema_output_sum, message_after_check_schema
 
 path = __file__
 
@@ -174,7 +177,6 @@ def description_attribute(subject, datamodel, attribute):
 
     # Looks for the attribute in the dictionary
     for item in datamodelsdict:
-        # print(item)
         try:
             if (
                 (item["repoName"] == subject)
@@ -458,125 +460,330 @@ def validate_data_model_schema(schema_url):
         except:
             return [False, "wrong domain"]
 
-    def parse_payload(schemaPayload, level):
+    def parse_description(schemaPayload):
         output = {}
-        if "allOf" in schemaPayload:
-            # echo("allOf level", level)
-            for index in range(len(schemaPayload["allOf"])):
-                # echo("passing to next level this payload=", str(schemaPayload["allOf"][index]))
-                partialOutput = parse_payload(schemaPayload["allOf"][index], level + 1)
-                output = dict(output, **partialOutput)
-        if "anyOf" in schemaPayload:
-            # echo("anyOf level", level)
-            for index in range(len(schemaPayload["anyOf"])):
-                # echo("original output", output)
-                partialOutput = parse_payload(schemaPayload["anyOf"][index], level + 1)
-                # echo("parsed anyOf", partialOutput)
-                output = dict(output, **partialOutput)
-                # echo("current output", output)
-        if "properties" in schemaPayload:
-            # echo("properties level", level)
-            for prop in schemaPayload["properties"]:
-                # echo(" dealing at level " + str(level) + " with prop=", prop)
-                if "allOf" in prop:
-                    # echo("original output", output)
-                    # echo("parsed allOf", partialOutput)
-                    output[prop] = parse_payload(
-                        schemaPayload["properties"]["allOf"], level + 1
-                    )
-                elif "anyOf" in prop:
-                    # echo("original output", output)
-                    # echo("parsed anyOf", partialOutput)
-                    output[prop] = parse_payload(
-                        schemaPayload["properties"]["anyOf"], level + 1
-                    )
-                else:
-                    # echo("parsing this payload at " + str(level) + " from prop =" + prop, schemaPayload["properties"][prop])
-                    try:
-                        output[prop]
-                    except:
-                        output[prop] = {}
-                    for item in list(schemaPayload["properties"][prop]):
-                        # echo("parsing at level " + str(level) + " item= ", item)
+        purgedDescription = str(schemaPayload["description"]).replace(chr(34), "")
+        # process the description
+        purgedDescription = re.sub(r'\.([A-Z])', r'. \1', purgedDescription)
+        
+        separatedDescription = purgedDescription. split(". ")
+        copiedDescription = list.copy(separatedDescription)
+        
+        for descriptionPiece in separatedDescription:
+            if descriptionPiece in propertyTypes:
+                output["type"] = descriptionPiece
+                copiedDescription.remove(descriptionPiece)
+            elif descriptionPiece.find("Model:") > -1:
+                copiedDescription.remove(descriptionPiece)
+                output["model"] = descriptionPiece.replace("'", "").replace(
+                        "Model:", "")
 
-                        if item == "description":
-                            # print("Detectada la descripcion de la propiedad=" + prop)
-                            separatedDescription = str(
-                                schemaPayload["properties"][prop]["description"]
-                            ).split(". ")
-                            copiedDescription = list.copy(separatedDescription)
-                            # print(copiedDescription)
-                            for descriptionPiece in separatedDescription:
-                                if descriptionPiece in propertyTypes:
-                                    # print(descriptionPiece)
-                                    try:
-                                        output[prop]["x-ngsi"]["type"] = descriptionPiece
-                                    except:
-                                        output[prop]["x-ngsi"]["type"] = {}
-                                        output[prop]["x-ngsi"]["type"] = descriptionPiece
-                                    copiedDescription.remove(descriptionPiece)
-                                    # print(schemaPayload["properties"][prop])
-                                elif descriptionPiece.find("Model:") > -1:
-                                    # print(descriptionPiece)
-                                    copiedDescription.remove(descriptionPiece)
-                                    # print(copiedDescription)
-                                    try:
-                                        output[prop]["x-ngsi"][
-                                            "model"
-                                        ] = descriptionPiece.replace("'", "").replace(
-                                            "Model:", ""
-                                        )
-                                    except:
-                                        output[prop]["x-ngsi"] = {}
-                                        output[prop]["x-ngsi"][
-                                            "model"
-                                        ] = descriptionPiece.replace("'", "").replace(
-                                            "Model:", ""
-                                        )
+            if descriptionPiece.find("Units:") > -1:
+                copiedDescription.remove(descriptionPiece)
+                output["units"] = descriptionPiece.replace("'", "").replace(
+                        "Units:", "")
+        description = ". ".join(copiedDescription)
 
-                                elif descriptionPiece.find("Units:") > -1:
-                                    # print(descriptionPiece)
-                                    copiedDescription.remove(descriptionPiece)
-                                    # print(copiedDescription)
-                                    try:
-                                        output[prop]["x-ngsi"][
-                                            "units"
-                                        ] = descriptionPiece.replace("'", "").replace(
-                                            "Units:", ""
-                                        )
-                                    except:
-                                        output[prop]["x-ngsi"] = {}
-                                        output[prop]["x-ngsi"][
-                                            "units"
-                                        ] = descriptionPiece.replace("'", "").replace(
-                                            "Units:", ""
-                                        )
-                            # print("---")
-                            description = ". ".join(copiedDescription)
-                            output[prop][
-                                "description"
-                            ] = description  # the remaining part of the description is used
+        return output, description
 
-                        elif item == "type":
-                            output[prop]["type"] = schemaPayload["properties"][prop][
-                                "type"
-                            ]
+    def merge_duplicate_attributes(aa, bb):
+        for key, values in bb.items():
+            if key in aa:
+                aa[key].extend(values)
+            else:
+                aa[key] = values
+        return aa
+
+    def parse_payload_v2(schemaPayload, level):
+        output = {}
+        attributes = {level: []}
+        if level == 1:
+            if "allOf" in schemaPayload:
+                for index in range(len(schemaPayload["allOf"])):
+                    if "definitions" in schemaPayload["allOf"][index]:
+                        partialOutput, partialAttr = parse_payload_v2(schemaPayload["allOf"][index]["definitions"], level + 1)
+                        output = dict(output, **partialOutput)
+                    elif "properties" in schemaPayload["allOf"][index]:
+                        partialOutput, partialAttr = parse_payload_v2(schemaPayload["allOf"][index], level + 1)
+                        output = dict(output, **partialOutput["properties"])
+                    else:
+                        partialOutput, partialAttr = parse_payload_v2(schemaPayload["allOf"][index], level + 1)
+                        output = dict(output, **partialOutput)
+                    attributes = merge_duplicate_attributes(attributes, partialAttr)
+            if "anyOf" in schemaPayload:
+                for index in range(len(schemaPayload["anyOf"])):
+                    if "definitions" in schemaPayload["anyOf"][index]:
+                        partialOutput, partialAttr = parse_payload_v2(schemaPayload["anyOf"][index]["definitions"], level + 1)
+                        output = dict(output, **partialOutput)
+                    elif "properties" in schemaPayload["anyOf"][index]:
+                        partialOutput, partialAttr = parse_payload_v2(schemaPayload["anyOf"][index], level + 1)
+                        output = dict(output, **partialOutput["properties"])
+                    else:
+                        partialOutput, partialAttr = parse_payload_v2(schemaPayload["anyOf"][index], level + 1)
+                        output = dict(output, **partialOutput)
+                    attributes = merge_duplicate_attributes(attributes, partialAttr)
+            if "oneOf" in schemaPayload:
+                for index in range(len(schemaPayload["oneOf"])):
+                    if "definitions" in schemaPayload["oneOf"][index]:
+                        partialOutput, partialAttr = parse_payload_v2(schemaPayload["oneOf"][index]["definitions"], level + 1)
+                        output = dict(output, **partialOutput)
+                    elif "properties" in schemaPayload["oneOf"][index]:
+                        partialOutput, partialAttr = parse_payload_v2(schemaPayload["oneOf"][index], level + 1)
+                        output = dict(output, **partialOutput["properties"])
+                    else:
+                        partialOutput, partialAttr = parse_payload_v2(schemaPayload["oneOf"][index], level + 1)
+                        output = dict(output, **partialOutput)
+                    attributes = merge_duplicate_attributes(attributes, partialAttr)
+
+            if "properties" in schemaPayload:
+                output, partialAttr = parse_payload_v2(schemaPayload["properties"], level + 1)
+                attributes = merge_duplicate_attributes(attributes, partialAttr)
+                    
+        elif level < 8:
+            if isinstance(schemaPayload, dict):
+                for subschema in schemaPayload:
+                    if subschema in ["allOf", "anyOf", "oneOf"]:
+                        output[subschema] = []
+                        for index in range(len(schemaPayload[subschema])):
+                            if "properties" in schemaPayload[subschema][index]:
+                                partialOutput, partialAttr = parse_payload_v2(schemaPayload[subschema][index], level + 1)
+                                output[subschema].append(partialOutput["properties"])
+                            else:
+                                partialOutput, partialAttr = parse_payload_v2(schemaPayload[subschema][index], level + 1)
+                                output[subschema].append(partialOutput)
+                            attributes = merge_duplicate_attributes(attributes, partialAttr)
+
+                    elif subschema == "properties":
+                        output[subschema] = {}
+                        for prop in schemaPayload["properties"]:
+                            try:
+                                output[subschema][prop]
+                            except:
+                                output[subschema][prop] = {}
+                                attributes[level].append(prop)
+                            for item in list(schemaPayload["properties"][prop]):
+                                if item in ["allOf", "anyOf", "oneOf"]:
+                                    output[subschema][prop][item] = []
+                                    for index in range(len(schemaPayload[subschema][prop][item])):
+                                        partialOutput, partialAttr = parse_payload_v2(schemaPayload[subschema][prop][item][index], level + 1)
+                                        output[subschema][prop][item].append(partialOutput)
+                                        attributes = merge_duplicate_attributes(attributes, partialAttr)
+                                elif item == "description":
+                                    # print("Detectada la descripcion de la propiedad=" + prop)
+                                    x_ngsi, description = parse_description(schemaPayload[subschema][prop])
+                                    output[subschema][prop][item] = description
+                                    if x_ngsi:
+                                        output[subschema][prop]["x-ngsi"] = x_ngsi
+                                
+                                elif item == "items":
+                                    output[subschema][prop][item], partialAttr = parse_payload_v2(schemaPayload[subschema][prop][item], level + 1)
+                                    attributes = merge_duplicate_attributes(attributes, partialAttr)
+                                elif item == "properties":
+                                    output[subschema][prop][item], partialAttr = parse_payload_v2(schemaPayload[subschema][prop][item], level + 1)
+                                    attributes = merge_duplicate_attributes(attributes, partialAttr)
+                                elif item == "type":
+                                    if schemaPayload[subschema][prop][item] == "integer":
+                                        output[subschema][prop][item] = "number"
+                                    else:
+                                        output[subschema][prop][item] = schemaPayload[subschema][prop][item]
+                                else:
+                                    output[subschema][prop][item] = schemaPayload[subschema][prop][item]
+
+                    elif isinstance(schemaPayload[subschema], dict):        
+                        attributes[level].append(subschema)     
+                        output[subschema], partialAttr = parse_payload_v2(schemaPayload[subschema], level + 1)
+                        attributes = merge_duplicate_attributes(attributes, partialAttr)
+                    else:
+                        if subschema == "description":
+                            x_ngsi, description = parse_description(schemaPayload)
+                            output[subschema] = description
+                            if x_ngsi:
+                                output["x-ngsi"] = x_ngsi
                         else:
-                            # echo("parsing prop", prop)
-                            # echo("payload", schemaPayload["properties"][prop][item])
-                            output[prop][item] = schemaPayload["properties"][prop][item]
-            return output
+                            output[subschema] = schemaPayload[subschema]
+            
+            elif isinstance(schemaPayload, list):
+                for index in range(len(schemaPayload)):
+                    partialOutput, partialAttr = parse_payload_v2(schemaPayload[index], level + 1)
+                    output = dict(output, **partialOutput)
+                    attributes = merge_duplicate_attributes(attributes, partialAttr)
         else:
-            return output
+            return None, None
+
+        return output, attributes
+
+    def parse_yamlDict(yamlDict, datamodelRepoUrl, level):
+
+        output = {}
+        if isinstance(yamlDict, list):
+            for item in yamlDict:
+                partialoutput = parse_yamlDict(item, datamodelRepoUrl, level+1)
+                output = dict(output, **partialoutput)
+        else:
+            for prop in yamlDict:
+                # print("prop ", prop)
+
+                if prop == "id": continue
+
+                if isinstance(yamlDict[prop], list) and len(yamlDict[prop]) > 1 and isinstance(yamlDict[prop][0], dict):
+                    for item in yamlDict[prop]:
+                        partialoutput = parse_yamlDict(item, datamodelRepoUrl, level+1)
+                        output = dict(output, **partialoutput)
+        
+                if isinstance(yamlDict[prop], dict):
+                    if prop in ["properties", "allOf", "oneOf", "anyOf", "items"]:
+                        partialoutput = parse_yamlDict(yamlDict[prop], datamodelRepoUrl, level+1)
+                        output = dict(output, **partialoutput)
+                        continue
+                    # print("dict prop ", prop)
+                    propKeys = list(yamlDict[prop].keys())
+
+                    # if there's type, and there's no items, allOf, properties
+                    # if type is a 
+                    if isinstance(yamlDict[prop], dict) and prop != "x-ngsi" and not prop in exceptions:
+                        # print("++++ context prop ", prop)
+                        
+                        try:
+                            propertyType = yamlDict[prop]["x-ngsi"]["type"]
+                            if propertyType in propertyTypes:
+                                # print(propertyType)
+                                # print(propertyTypes)
+                                output[prop] = {}
+                                output[prop]["x-ngsi"] = True
+                                output[prop]["x-ngsi_text"] = "ok to " + str(propertyType)
+                            else:
+                                output[prop]["x-ngsi"] = False
+                                output[prop]["x-ngsi_text"] = "Wrong NGSI type of " + propertyType + " in the description of the property on level " + str(level)
+                        except:
+                            output[prop] = {}
+                            output[prop]["x-ngsi"] = False
+                            output[prop]["x-ngsi_text"] = "Missing NGSI type of " + str(propertyTypes) + " in the description of the property on level " + str(level)
+
+                        # checking the pure description
+                        try:
+                            description = yamlDict[prop]["description"]
+                            if len(description) > 15:
+                                # No double quotes in the middle
+                                # if not (".." in description):
+                                    # If there is a link, check that the link is valid
+                                output[prop]["documented"] = True
+                                output[prop]["text"] = description
+                                # else:
+                                #     output[key]["documented"] = False
+                                #     output[key]["text"] = doubleDotsDescription
+                            else:
+                                output[prop]["documented"] = False
+                                output[prop]["text"] = incompleteDescription
+                        except:
+                            # output[key] = {}
+                            output[prop]["documented"] = False
+                            output[prop]["text"] = withoutDescription
+
+                        # Type property matches data model name
+                        if prop == "type" and level == 1:
+                            try:
+                                propertyType = yamlDict[prop]["enum"]
+                                if propertyType[0] == extract_datamodel_from_raw_url(datamodelRepoUrl):
+                                    output[prop]["type_specific"] = True
+                                    output[prop]["type_specific_text"] = "Type property matches to data model name on level " + str(level)
+                                else:
+                                    output[prop]["type_specific"] = False
+                                    output[prop]["type_specific_text"] = "Type property doesn't match to data model name on level " + str(level)
+                            except:
+                                output[prop]["type_specific"] = False
+                                output[prop]["type_specific_text"] = "Missing Type property"
+                    
+                    if "properties" in propKeys:
+                        partialoutput = parse_yamlDict(yamlDict[prop]["properties"], datamodelRepoUrl, level+1)
+                        output = dict(output, **partialoutput)
+                    if "items" in propKeys and yamlDict[prop]["items"]:
+                        if isinstance(yamlDict[prop]["items"], list):
+                            for index in range(len(yamlDict[prop]["items"])):
+                                partialoutput = parse_yamlDict(yamlDict[prop]["items"][index], datamodelRepoUrl, level+1)
+                                output = dict(output, **partialoutput)
+                        else:
+                            partialoutput = parse_yamlDict(yamlDict[prop]["items"], datamodelRepoUrl, level+1)
+                            output = dict(output, **partialoutput)
+                    if "anyOf" in propKeys:
+                        partialoutput = parse_yamlDict(yamlDict[prop]["anyOf"], datamodelRepoUrl, level+1)
+                        output = dict(output, **partialoutput)
+                    if "allOf" in propKeys:
+                        partialoutput = parse_yamlDict(yamlDict[prop]["allOf"], datamodelRepoUrl, level+1)
+                        output = dict(output, **partialoutput)
+                    if "oneOf" in propKeys:
+                        partialoutput = parse_yamlDict(yamlDict[prop]["oneOf"], datamodelRepoUrl, level+1)
+                        output = dict(output, **partialoutput) 
+
+        return output
+
+    def is_property_already_existd(output, yamlDict):
+        try:
+            commonProperties =["id", "name", "description", "location", "seeAlso", "dateCreated", "dateModified", "source", "alternateName", "dataProvider", "owner", "address", "areaServed", "type"]
+            existing = "alreadyUsedProperties"
+            available = "availableProperties"
+
+            #print("llego a la funcion")
+            output[existing] = []
+            output[available] = []
+
+            for key in yamlDict:
+                if key in commonProperties:
+                    continue
+                #print(key)
+                lowKey = key.lower()
+
+                with open(ddbb_attributes_file, "r", encoding='utf-8') as ddbb_attributes_pointer:
+                    datamodelsdict = json.load(ddbb_attributes_pointer)
+
+                results = []
+                for item in datamodelsdict:
+                    # print(item)
+                    try:
+                        if re.match(lowKey, item['property'], re.IGNORECASE):
+                            results.append(item)
+                    except:
+                        nada = 0
+
+                # print(results)
+                if len(results) > 0:
+                    definitions= []
+                    dataModelsList = []
+                    types = []
+                    for index, item in enumerate(results):
+                        dataModelsList.append(str(index + 1) + ".-" + item["dataModel"])
+                        #print(item["type"])
+                        if "description" in item or "type" in item:
+                            if "description" in item:
+                                definitions.append(str(index + 1) + ".-" + item["description"])
+                            else:
+                                definitions.append(str(index + 1) + ".- missing description")
+                            if "type" in item:
+                                types.append(str(index + 1) + ".-" +  item["type"])
+                            else:
+                                types.append(str(index + 1) + ".- missing type")
+                        else:
+                            output[existing].append({"Error": lowKey})
+                    output[existing].append({key: "Already used in data models: " + ",".join(dataModelsList) + " with these definitions: " + chr(13).join(definitions) + " and these data types: " + ",".join(types)})
+                else:
+                    output[available].append({key: "Available"})
+
+        except:
+            output[existing].append({"Error": lowKey})
+        
+        return output
 
     # initialize variables for the script
     output = {}  # the json answering the test
     tz = pytz.timezone("Europe/Madrid")
     # metaSchema = open_jsonref("https://json-schema.org/draft/2019-09/hyper-schema")
     metaSchema = open_jsonref("https://json-schema.org/draft/2020-12/meta/validation")
-    propertyTypes = ["Property", "Relationship", "Geoproperty"]
+    propertyTypes = ["Property", "Relationship", "GeoProperty"]
     incompleteDescription = "Incomplete description"
     withoutDescription = "No description at all"
+    doubleDotsDescription = "Double dots in the middle"
+    wrongTypeDescription = "Wrong NGSI types"
+    missingTypeDescription = "Missing NGSI types"
+    exceptions = ["coordinates", "bbox", "type"]
 
     # validate inputs
     existsSchema = exist_page(schema_url)
@@ -638,7 +845,7 @@ def validate_data_model_schema(schema_url):
 
     documented = "documentationStatusOfProperties"
     try:
-        yamlDict = parse_payload(schema, 1)
+        yamlDict, attributes = parse_payload_v2(schema, 1)
     except:
         output["result"] = False
         output["cause"] = "schema cannot be loaded (possibly invalid $ref)"
@@ -647,50 +854,36 @@ def validate_data_model_schema(schema_url):
         print(json.dumps(output))
         sys.exit()
     # echo("yamlDict", yamlDict)
-    output[documented] = {}
-    for key in yamlDict:
-        # print(key)
-        # print(yamlDict[key])
-        if key != "id":
-            try:
-                propertyType = yamlDict[key]["type"]
-                if propertyType in propertyTypes:
-                    # print(propertyType)
-                    # print(propertyTypes)
-                    output[documented][key] = {}
-                    output[documented][key]["x-ngsi"] = True
-                    output[documented][key]["x-ngsi_text"] = "ok to " + str(
-                        propertyType
-                    )
-                else:
-                    output[documented][key]["x-ngsi"] = False
-                    output[documented][key]["x-ngsi_text"] = (
-                        "Missing any of"
-                        + str(propertyTypes)
-                        + " in the description of the property"
-                    )
-            except:
-                output[documented][key] = {}
-                output[documented][key]["x-ngsi"] = False
-                output[documented][key]["x-ngsi_text"] = (
-                    "Missing any of"
-                    + str(propertyTypes)
-                    + " in the description of the property"
-                )
 
-            # checking the pure description
-            try:
-                description = yamlDict[key]["description"]
-                if len(description) > 10:
-                    output[documented][key]["documented"] = True
-                    output[documented][key]["text"] = description
+    # check the duplicated attributes
+    if len(attributes[2]) != len(set(attributes[2])):
+
+        def find_duplicates(input_list):
+            """
+            Find and output the duplicated values inside a list.
+            Args:
+                input_list (list): The list to search for duplicates in.
+            Returns:
+                list: A list containing the duplicated values found in the input list.
+            """
+            seen = set()
+            duplicates = set()
+
+            for item in input_list:
+                if item in seen:
+                    duplicates.add(item)
                 else:
-                    output[documented][key]["documented"] = False
-                    output[documented][key]["text"] = incompleteDescription
-            except:
-                output[documented][key] = {}
-                output[documented][key]["documented"] = False
-                output[documented][key]["text"] = withoutDescription
+                    seen.add(item)
+
+            return list(duplicates)
+
+        output["cause"] = f"Duplicated attributes (User-defined properties is duplicated with system-defined properties):\n\t{', '.join(find_duplicates(attributes[2]))}"
+        output["time"] = str(datetime.datetime.now(tz=tz))
+        output["parameters"] = {"schema_url": schema_url}
+        print(json.dumps(output))
+        sys.exit()
+
+    output[documented] = parse_yamlDict(yamlDict, schema_url, 1)
     allProperties = 0
     documentedProperties = 0
     faultyDescriptionProperties = 0
@@ -718,6 +911,18 @@ def validate_data_model_schema(schema_url):
     )
 
     # now it checks if these properties already exist in the database
+    # TODO
+    output = is_property_already_existd(output, yamlDict)
+
+    # now it checks if the metadata is properly reported
+    output = is_metadata_properly_reported(output, schemaDict)
+
+    # now it checks if the metadata does exist
+    output = is_metadata_existed(output, schemaDict, schema_url, message="schema")
+
+    # make a summary of all the output
+    results = schema_output_sum(output)
+    print(message_after_check_schema(results))
 
     # print(json.dumps(output))
     # return json.dumps(output)
@@ -1017,7 +1222,7 @@ def geojson_features_example_generator(schema_url: str):
         return geojsonFeature
     
 # 20
-def update_broker(datamodel, subject, attribute, value, entityId=None, serverUrl=None, broker_folder="/ngsi-ld/v1"):
+def update_broker(datamodel, subject, attribute, value, entityId=None, serverUrl=None, broker_folder="/ngsi-ld/v1", updateThenCreate=True):
     # inspired by @antonio_jara
     """Update a broker compliant with a specific data model
 
@@ -1031,6 +1236,7 @@ def update_broker(datamodel, subject, attribute, value, entityId=None, serverUrl
         - entity_id (str): The ID of the entity to update. If left none then the query for the broker is returned
         - serverUrl (str): The URL of the NGSI-LD broker.
         - broker_folder(str): It is supposed that the broker is installed in /ngsi/ld (default) change it if installed other location
+        - updateThenCreate: If the updating attribute is nonexistent in the wanting entity, then create the attribute first if updateThenCreate is True, otherwise the operation is illegal
 
     Returns:
         - An array with two values
@@ -1084,6 +1290,30 @@ def update_broker(datamodel, subject, attribute, value, entityId=None, serverUrl
 
             if response.status_code == 204:  # 204 indicates a successful update with no content response
                 return True
+            elif response.status_code == 207:
+                if updateThenCreate:
+                    ngsi_type = ngsi_datatype_attribute(subject, datamodel, attribute)
+                    create_properties = {attribute: {"type": ngsi_type, "value": value}}
+                    create_headers = {
+                        'Content-Type': 'application/json',
+                        'Link': f'<{create_context(subject)}>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"'
+                    }
+                    
+                    try:
+                        create_response = requests.post(entity_url, json=create_properties, headers=create_headers)
+                        if create_response.status_code == 204:  # 204 indicates a successful update with no content response
+                            return True
+                        else:
+                            print(f"Failed to update entity with nonexistent attribute. Status code: {create_response.status_code}.")
+                            print(create_response.text)
+                            return False
+
+                    except requests.exceptions.RequestException as e:
+                        print(f"Failed to update entity with nonexistent attribute: {e}")
+                        return False
+                else:
+                    print(f"Failed to update entity. Trying to update nonexistent attributes. If so, set updateThenCreate to true.")
+                    return False
             else:
                 print(f"Failed to update entity. Status code: {response.status_code}.")
                 print(response.text)
@@ -1153,3 +1383,4 @@ def update_broker(datamodel, subject, attribute, value, entityId=None, serverUrl
                     print("Variable does not match the specified data type.")
                     print(e)
                     return [False, "The attribute: " + attribute + " cannot store the value : " + str(value)]
+                
