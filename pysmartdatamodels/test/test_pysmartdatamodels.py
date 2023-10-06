@@ -92,11 +92,11 @@ assert sdm.units_attribute("dataModel.Nonexistentsubject", "Nonexistentdatamodel
 # List the attributes of a data model
 print(sdm.attributes_datamodel(subject, dataModel))
 
-# List the NGSI type (Property, Relationship or Geoproperty) of the attribute
+# List the NGSI type (Property, Relationship or GeoProperty) of the attribute
 print(sdm.ngsi_datatype_attribute(subject, dataModel, attribute))
 assert sdm.ngsi_datatype_attribute("dataModel.Weather", "WeatherForecast", "precipitation") == "Property"
 assert sdm.ngsi_datatype_attribute("dataModel.UrbanMobility", "GtfsRoute", "operatedBy") == "Relationship"
-assert sdm.ngsi_datatype_attribute("dataModel.Streetlighting", "StreetlightGroup", "location") == "Geoproperty"
+assert sdm.ngsi_datatype_attribute("dataModel.Streetlighting", "StreetlightGroup", "location") == "GeoProperty"
 assert sdm.ngsi_datatype_attribute("dataModel.Nonexistentsubject", "Nonexistentdatamodel", "Nonexistentattribute") == False
 
 # Validate a json schema defining a data model
