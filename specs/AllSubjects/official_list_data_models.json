@@ -1,5 +1,5 @@
 {
-  "updatedDate": "2023-10-05T18:27:00.31416",
+  "updatedDate": "2023-10-06T16:43:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -1558,7 +1558,15 @@
         "CheckpointFacilityOperatorParty",
         "CheckpointFacilityType",
         "ConcourseFacility",
-        "MeasurementDevice"
+        "MeasurementDevice",
+        "MeasurementDeviceLocation",
+        "MeasurementTimePeriod",
+        "OperationTimePeriod",
+        "PassengerProcess",
+        "PassengerProcessType",
+        "QueueLocation",
+        "QueueMeasurement",
+        "QueueStatus"
       ],
       "domains": [
         "SmartAeronautics"
