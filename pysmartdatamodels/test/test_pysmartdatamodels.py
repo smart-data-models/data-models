@@ -4,7 +4,7 @@ import requests
 from pysmartdatamodels import pysmartdatamodels as sdm
 
 repository = 'smart-data-models/data-models'  # Replace with your repository
-commit_sha = 'eec8417'  # Replace with the desired commit SHA
+commit_sha = '8f0f54f'  # Replace with the desired commit SHA
 
 def open_json(fileUrl):
     if fileUrl[0:4] == "http":
