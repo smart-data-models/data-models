@@ -1,5 +1,5 @@
 {
-  "updatedDate": "2023-10-06T16:43:00.31416",
+  "updatedDate": "2023-10-10T14:37:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -1564,9 +1564,14 @@
         "OperationTimePeriod",
         "PassengerProcess",
         "PassengerProcessType",
+        "PassengerQueue",
         "QueueLocation",
         "QueueMeasurement",
-        "QueueStatus"
+        "QueueStatus",
+        "QueueType",
+        "TerminalAreaLocation",
+        "TerminalFacility",
+        "ZoneAreaLocation"
       ],
       "domains": [
         "SmartAeronautics"
