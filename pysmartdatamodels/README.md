@@ -309,6 +309,15 @@ Currently, there are thirteen domains.
           - First the boolean result of the operation True if successful and False if not
           - Second a textual context explanation in every case
 
+21- Generate a PostgreSQL schema SQL script from the model.yaml representation of a Smart Data Model.
+
+      Parameters:
+        model_yaml (str): url of the model.yaml file (public available). (i.e. raw version of a github repo https://raw.githubusercontent.com/smart-data-models/dataModel.Weather/master/WeatherAlert/model.yaml)
+
+      Returns:
+        str: A string containing the PostgreSQL schema SQL script.
+    """
+
 
 ## Pending features (glad to receive contributions to them)
 
@@ -405,6 +414,9 @@ print(sdm.geojson_features_example_generator(schemaUrl))
 
 <!-- 20 -->
 print(sdm.update_broker(dataModel, subject, attribute, value, serverUrl=serverUrl))
+
+<!-- 21 -->
+print(sdm.generate_sql_schema(modelYaml))
 
 ## Acknowledgments
 
