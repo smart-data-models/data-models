@@ -12,6 +12,8 @@ value = 0.5
 
 schemaUrl = "https://raw.githubusercontent.com/smart-data-models/dataModel.Agrifood/master/AgriApp/schema.json"
 
+modelYaml = "https://raw.githubusercontent.com/smart-data-models/dataModel.Weather/master/WeatherAlert/model.yaml"
+
 print(sdm.load_all_datamodels())
 
 print(len(sdm.load_all_attributes())) # there is more than 21.000 to get all listed
@@ -49,3 +51,5 @@ print(sdm.ngsi_ld_keyvalue_example_generator(schemaUrl))
 print(sdm.geojson_features_example_generator(schemaUrl))
 
 print(sdm.update_broker(dataModel, subject, attribute, value, serverUrl=serverUrl))
+
+print(sdm.generate_sql_schema(modelYaml))
