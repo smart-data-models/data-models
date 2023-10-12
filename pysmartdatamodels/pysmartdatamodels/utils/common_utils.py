@@ -14,19 +14,48 @@
 #  limitations under the License.
 #  for questions address it to alberto.abella@fiware.org
 ################################################################################
-
+import os
 import json
-import sys
-import rstr
-import string
 import random
+import string
+import sys
 
 from faker import Faker
+import requests
+import rstr
+import ruamel.yaml as yaml
+
+
 fake = Faker()
 
 pendingToImplement = "Version 0.1 not implemented"
 missingEntity = "Missing entity name"
 
+
+def open_yaml(file_url):
+    """
+    Opens a YAML file either from a URL or a local file path and returns its content as a dictionary.
+    """
+    try:
+        # Check if the file has a .yaml extension
+        _, file_extension = os.path.splitext(file_url)
+        if file_extension.lower() != '.yaml':
+            raise ValueError("Invalid file format. The file should have a .yaml extension.")
+        
+        if file_url.startswith("http"):
+            # It is a URL
+            pointer = requests.get(file_url)
+            return yaml.safe_load(pointer.content.decode('utf-8'))
+    except:
+        return "Exception"
+    else:
+        # It is a file
+        try:
+            file = open(file_url, "r")
+            return yaml.safe_load(file.read())
+        except:
+            return "Wrong file path"
+        
 
 def extract_datamodel_from_raw_url(schemaUrl):
     """It returns the name of the data model given the schema repository url
