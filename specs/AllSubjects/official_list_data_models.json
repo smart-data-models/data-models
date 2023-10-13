@@ -1,5 +1,5 @@
 {
-  "updatedDate": "2023-08-28T17:59:00.31416",
+  "updatedDate": "2023-10-10T14:37:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -184,6 +184,7 @@
       "dataModels": [
         "AnonymousCommuterId",
         "AnprFlowObserved",
+        "APDSObservation",
         "BikeHireDockingStation",
         "BikeLane",
         "CityWork",
@@ -1375,8 +1376,10 @@
       "repoLink": "https://github.com/smart-data-models/dataModel.MarineTransport.git",
       "dataModels": [
         "Booking",
+        "EdiCodeco",
         "Port",
         "PortAuthority",
+        "PortCall",
         "Vessel"
       ],
       "domains": [
@@ -1519,7 +1522,7 @@
         "CrossSector"
       ]
     },
-     {
+    {
       "repoName": "dataModel.SAREF",
       "repoLink": "https://github.com/smart-data-models/dataModel.SAREF.git",
       "dataModels": [
@@ -1530,7 +1533,7 @@
         "CrossSector"
       ]
     },
-         {
+    {
       "repoName": "dataModel.SDG",
       "repoLink": "https://github.com/smart-data-models/dataModel.SDG.git",
       "dataModels": [
@@ -1540,6 +1543,38 @@
       ],
       "domains": [
         "CrossSector"
+      ]
+    },
+    {
+      "repoName": "dataModel.ACRIS",
+      "repoLink": "https://github.com/smart-data-models/dataModel.ACRIS.git",
+      "dataModels": [
+        "AirportElevation",
+        "AirportElevationUnitOfMeasurement",
+        "AirportFacility",
+        "AirportLocation",
+        "CheckpointAreaLocation",
+        "CheckpointFacility",
+        "CheckpointFacilityOperatorParty",
+        "CheckpointFacilityType",
+        "ConcourseFacility",
+        "MeasurementDevice",
+        "MeasurementDeviceLocation",
+        "MeasurementTimePeriod",
+        "OperationTimePeriod",
+        "PassengerProcess",
+        "PassengerProcessType",
+        "PassengerQueue",
+        "QueueLocation",
+        "QueueMeasurement",
+        "QueueStatus",
+        "QueueType",
+        "TerminalAreaLocation",
+        "TerminalFacility",
+        "ZoneAreaLocation"
+      ],
+      "domains": [
+        "SmartAeronautics"
       ]
     }
   ]

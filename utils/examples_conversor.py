@@ -17,6 +17,7 @@
 # This program takes either a keyvalues payload and converts it into a normalized version and the other way round
 import json
 
+
 def normalized2keyvalues(normalizedPayload):
     import json
     normalizedDict = normalizedPayload
@@ -107,199 +108,142 @@ def keyvalues2normalized(keyvaluesPayload):
 
 
 keyvaluesPayload = {
-  "id": "0.E.6.AY1.A1",
-  "type": "Action",
-  "refProject": "O.E.6.AY1",
-  "dateCreated": "2016-08-08T10:18:16Z",
-  "dateModified": "2016-08-08T10:18:16Z",
-  "name": "Realizacion de campafias de promoci6n en medios de comunicaci6n de la provincia",
-  "executionPeriod": "2021S1",
-  "compliancePercentage": 0,
-  "modifications": "SIN MODIFICACION"
+  "id": "urn:ngsi-ld:QueueMeasurement:id:IEQX:79193255",
+  "type": "QueueMeasurement",
+  "Occupancy": 58,
+  "ProjectedWaitTime": 544.4,
+  "Throughput": 384,
+  "WaitTime": 645.9,
+  "MeasurementDevice": {
+    "Name": "",
+    "MeasurementDeviceLocation": {
+      "Name": ""
+    }
+  },
+  "MeasurementTimePeriod": {
+    "EndTime": "2023-03-22T18:59:02Z"
+  },
+  "PassengerQueue": {
+    "Identifier": "1",
+    "Name": "1",
+    "CheckpointFacility": {
+      "Description": "",
+      "Identifier": "1bdaec90-7a42-11e7-bb31-be2e44b06b34",
+      "Name": "Checkpoint B",
+      "CheckpointAreaLocation": "",
+      "CheckpointFacilityOperatorParty": "",
+      "CheckpointFacilityType": "",
+      "ConcourseFacility": {
+        "Identifier": "BA/B",
+        "Name": "Boarding Area B",
+        "TerminalFacility": {
+          "Identifier": "T1",
+          "Name": "Terminal 1",
+          "AirportFacility": {
+            "IataCode": "SFO",
+            "IcaoCode": "KSFO",
+            "Name": "San Francisco InternationalAirport"
+          }
+        }
+      },
+      "OperationTimePeriod": ""
+    },
+    "PassengerProcess": {
+      "Name": "",
+      "PassengerProcessType": {
+        "Code": "",
+        "Description": ""
+      }
+    },
+    "QueueLocation": {
+      "Name": ""
+    },
+    "QueueStatus": {
+      "Name": ""
+    },
+    "QueueType": {
+      "Code": "",
+      "Description": ""
+    }
+  }
 }
-
 
 normalizedPayload = {
-  "id": "urn:ngsi-ld:Catalogue:id:KSLT:97146192",
-  "type": "Catalogue",
-  "dateCreated": {
-    "type": "Property",
-    "value": {
-      "@type": "DateTime",
-      "@value": "2023-03-20T18:53:50Z"
-    }
-  },
-  "dateModified": {
-    "type": "Property",
-    "value": {
-      "@type": "DateTime",
-      "@value": "2023-06-29T11:37:12Z"
-    }
-  },
-  "source": {
-    "type": "Property",
-    "value": "INE"
-  },
-  "name": {
-    "type": "Property",
-    "value": "Catalogue of statistical resources"
-  },
-  "alternateName": {
-    "type": "Property",
-    "value": "Catalogue"
-  },
-  "description": {
-    "type": "Property",
-    "value": "List of converted statistical resources"
-  },
-  "dataProvider": {
-    "type": "Property",
-    "value": "INE"
-  },
-  "owner": {
-    "type": "Property",
-    "value": [
-      "urn:ngsi-ld:Catalogue:items:FRAY:12902985",
-      "urn:ngsi-ld:Catalogue:items:WMSS:90165917"
+    "id": "urn:ngsi-ld:Catalogue:id:KSLT:97146192",
+    "type": "Catalogue",
+    "dateCreated": {
+        "type": "Property",
+        "value": {
+            "@type": "DateTime",
+            "@value": "2023-03-20T18:53:50Z"
+        }
+    },
+    "dateModified": {
+        "id": "urn:ngsi-ld:CheckpointFacility:id:MMJG:16938337",
+        "type": "CheckpointFacility",
+        "Description": "control",
+        "Identifier": "control-1",
+        "Name": "",
+        "CheckpointAreaLocation": {
+            "Latitude": 40.42,
+            "Longitude": 3.708,
+            "Name": "gate 23",
+            "Srid": 0,
+            "AirportElevation": {
+                "Name": "",
+                "Value": 571.3,
+                "AirportElevationUnitOfMeasurement": {
+                    "Name": "Mater"
+                }
+            },
+            "ZoneAreaLocation": {
+                "Name": "",
+                "TerminalAreaLocation": {
+                    "Name": "",
+                    "AirportLocation": {
+                        "Latitude": 40.42,
+                        "Longitude": 3.708,
+                        "Name": "gate 23",
+                        "Srid": 534
+                    }
+                }
+            }
+        },
+        "CheckpointFacilityOperatorParty": {
+            "Name": ""
+        },
+        "CheckpointFacilityType": {
+            "Code": "",
+            "Description": ""
+        },
+        "ConcourseFacility": {
+            "Identifier": "",
+            "Name": "",
+            "TerminalFacility": {
+                "Identifier": "terminal 1",
+                "Name": "",
+                "AirportFacility": {
+                    "IataCode": "BMA",
+                    "IcaoCode": "ESSB",
+                    "Name": ""
+                }
+            }
+        },
+        "OperationTimePeriod": {
+            "ClosingTime": "23:59",
+            "OpeningTime": "0:00"
+        }
+    },
+    "@context": [
+        "https://raw.githubusercontent.com/smart-data-models/dataModel.STAT-DCAT-AP/master/context.jsonld"
     ]
-  },
-  "seeAlso": {
-    "type": "Property",
-    "value": [
-      "urn:ngsi-ld:Catalogue:items:XSHA:97687196"
-    ]
-  },
-  "location": {
-    "type": "Property",
-    "value": {
-      "type": "Point",
-      "coordinates": [
-        52.5209531,
-        13.3256918
-      ]
-    }
-  },
-  "address": {
-    "streetAddress": "Franklinstrasse 13",
-    "addressLocality": "Berlin",
-    "addressRegion": "Berlin",
-    "addressCountry": "Germany",
-    "postalCode": "10587",
-    "postOfficeBoxNumber": "",
-    "streetNr": "13",
-    "district": ""
-  },
-  "areaServed": "",
-  "dataset": {
-    "type": "object",
-    "value": "urn:ngsi-ld:Catalogue:dataset:VLNR:72960176"
-  },
-  "publisher": {
-    "type": "Property",
-    "value": "INE"
-  },
-  "title": {
-    "type": "Property",
-    "value": [
-      "Catalogue or statistical resources",
-      "Catálogo de recursos estadisticos"
-    ]
-  },
-  "homepage": {
-    "type": "Property",
-    "value": "urn:ngsi-ld:Catalogue:homepage:FXWI:96370263"
-  },
-  "language": {
-    "type": "Property",
-    "value": [
-      "SP",
-      "EN"
-    ]
-  },
-  "licence": {
-    "type": "Property",
-    "value": "CC BY 4.0"
-  },
-  "releaseDate": {
-    "type": "Property",
-    "value": {
-      "@type": "DateTime",
-      "@value": "2023-01-20T11:03:48Z"
-    }
-  },
-  "themes": {
-    "type": "Property",
-    "value": [
-      "demography",
-      "social movements"
-    ]
-  },
-  "modificationDate": {
-    "type": "Property",
-    "value": {
-      "@type": "DateTime",
-      "@value": "2023-02-24T16:28:58Z"
-    }
-  },
-  "hasPart": {
-    "type": "object",
-    "value": "urn:ngsi-ld:Catalogue:hasPart:EQFC:38298320"
-  },
-  "isPartOf": {
-    "type": "object",
-    "value": "urn:ngsi-ld:Catalogue:isPartOf:JACJ:87819283"
-  },
-  "record": {
-    "type": "object",
-    "value": "urn:ngsi-ld:Catalogue:record:UEFV:49174271"
-  },
-  "rights": {
-    "type": "Property",
-    "value": "Open licensed"
-  },
-  "spatial_geographic": {
-    "type": "Property",
-    "value": [
-      {
-        "type": "Point",
-        "coordinates": [
-          121.7,
-          146.6
-        ],
-        "bbox": [
-          46.5,
-          926.8,
-          995.6,
-          403.5
-        ]
-      },
-      {
-        "type": "Point",
-        "coordinates": [
-          60.3,
-          491.9
-        ],
-        "bbox": [
-          652.6,
-          335.8,
-          341.6,
-          875.0
-        ]
-      }
-    ]
-  },
-  "@context": [
-    "https://raw.githubusercontent.com/smart-data-models/dataModel.STAT-DCAT-AP/master/context.jsonld"
-  ]
 }
 
+# payload = normalized2keyvalues(normalizedPayload)
+# print(payload)
+# with open("example-normalized.json", "w") as file:
+#     json.dump(payload, file)
 
-
-payload = normalized2keyvalues(normalizedPayload)
-print(payload)
-with open("example-normalized.json", "w") as file:
-    json.dump(payload, file)
-
-# schema = keyvalues2normalized(keyvaluesPayload)
-# with open("keyvalues.json", "w") as file:
-#     json.dump(schema, file)
+schema = keyvalues2normalized(keyvaluesPayload)
+with open("keyvalues.json", "w") as file:
+    json.dump(schema, file)

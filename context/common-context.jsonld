@@ -14,6 +14,7 @@
         "availabilityRestriction": "https://smartdatamodels.org/availabilityRestriction",
         "availableLanguage": "https://smartdatamodels.org/availableLanguage",
         "avgOverTime": "https://smartdatamodels.org/avgOverTime",
+        "closes": "https://smartdatamodels.org/closes",
         "color": "https://smartdatamodels.org/color",
         "contactOption": "https://smartdatamodels.org/contactOption",
         "contactPoint": "https://smartdatamodels.org/contactPoint",
@@ -23,6 +24,7 @@
         "dateModified": "https://smartdatamodels.org/dateModified",
         "dateObserved": "https://smartdatamodels.org/dateObserved",
         "dateYearLess": "https://smartdatamodels.org/dateYearLess",
+        "dayOfWeek": "https://smartdatamodels.org/dayOfWeek",
         "description": "http://purl.org/dc/terms/description",
         "district": "https://smartdatamodels.org/district",
         "email": "https://smartdatamodels.org/email",
@@ -41,6 +43,7 @@
         "name": "https://smartdatamodels.org/name",
         "openingHours": "https://smartdatamodels.org/openingHours",
         "openingHoursSpecification": "https://smartdatamodels.org/openingHoursSpecification",
+        "opens": "https://smartdatamodels.org/opens",
         "owner": "https://smartdatamodels.org/owner",
         "person": "https://smartdatamodels.org/person",
         "postOfficeBoxNumber": "https://smartdatamodels.org/postOfficeBoxNumber",
@@ -58,6 +61,8 @@
         "touristType": "https://smartdatamodels.org/touristType",
         "url": "https://smartdatamodels.org/url",
         "userAlias": "https://smartdatamodels.org/userAlias",
+        "validFrom": "https://smartdatamodels.org/validFrom",
+        "validThrough": "https://smartdatamodels.org/validThrough",
         "video": "https://smartdatamodels.org/video"
     }
 }

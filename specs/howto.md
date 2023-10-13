@@ -1,7 +1,7 @@
 # How to use Smart Data Models in your projects
 
-This section aims to provide few simple guidelines for the adoption of FIWARE
-Harmonised Data Models. Readers interested into modifying or creating new data
+This section aims to provide few simple guidelines for the adoption of Smart
+Data Models. Readers interested into modifying or creating new data
 models should refer to [Data models guidelines](guidelines.md). This guide is
 not exhaustive and does not aim to cover the specifics of each model, rather it
 provides general usage tips valid for most of the existing models and for
@@ -11,7 +11,7 @@ Data Models have been defined to be compatible with ([NGSI v2](http://fiware.git
 this does not imply that they cannot be used outside of the NGSI context model,
 it does however indicate that some of [design principles](guidelines.md) have
 been driven by that. This also implicitly means that Data Models will follow the
-evolution of [NGSI-LD](https://www.etsi.org/deliver/etsi_gs/CIM/001_099/004/01.01.01_60/gs_CIM004v010101p.pdf) standard. 
+evolution of [NGSI-LD](https://www.etsi.org/deliver/etsi_gs/CIM/001_099/009/01.07.01_60/gs_CIM009v010701p.pdf) standard. 
 
 ## General principles
 
@@ -256,7 +256,7 @@ the respective JSON Schema and against a
 (to ensure that also the content encoding is compliant with the reference
 implementation) for the key values format.
 
-As a consequence of the NGSI v2 specifications, all Data Models must include the
+As a consequence of the NGSI specifications, all Data Models must include the
 following attributes:
 
 -   `id` : a unique identified of the entity modelled.
@@ -332,7 +332,7 @@ With the introduction of
 a growing number attributes are being defined which represent relationships
 between entities.
 
-Previously the Smart data model defined the name of such attributes was normed
+Previously the Smart data models defined the name of such attributes was normed
 to be `ref` followed by the name of the Entity Type referenced by the attribute,
 for example in the case of Entity Type `Device`, the full attribute would be
 `refDevice`.
