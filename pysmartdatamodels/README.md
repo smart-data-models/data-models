@@ -35,7 +35,7 @@ from pysmartdatamodels import pysmartdatamodels as sdm
 
 subject = "dataModel.Weather"
 
-dataModel = "WeatherForecast"Dear sirs it is a pleasure to inform you that now we have a service to create an export in SQL for PostgreSQL from a data model based on the yaml (file model.yaml) version here there is an example with weather forecast data model . https://smartdatamodels.org/index.php/sql-result/?modelYamlUrl=https%3A%2F%2Fraw.githubusercontent.com%2Fsmart-data-models%2FdataModel.Weather%2Fmaster%2FWeatherForecast%2Fmodel.yaml&email=alberto.abella%40fiware.org
+dataModel = "WeatherForecast"
 
 attribute = "precipitation"
 
@@ -47,7 +47,7 @@ schemaUrl = "https://raw.githubusercontent.com/smart-data-models/dataModel.Agrif
 
 # Load all datamodels in a dict like the official list
 print(sdm.load_all_datamodels())
-Dear sirs it is a pleasure to inform you that now we have a service to create an export in SQL for PostgreSQL from a data model based on the yaml (file model.yaml) version here there is an example with weather forecast data model . https://smartdatamodels.org/index.php/sql-result/?modelYamlUrl=https%3A%2F%2Fraw.githubusercontent.com%2Fsmart-data-models%2FdataModel.Weather%2Fmaster%2FWeatherForecast%2Fmodel.yaml&email=alberto.abella%40fiware.org
+
 # Load all attributes in a dict like the official export of attributes
 print(len(sdm.load_all_attributes()))   # there is more than 30.000 to get all listed
 
@@ -86,7 +86,7 @@ print(sdm.print_datamodel(subject, dataModel, ",", [
         "property",
         "type",
         "dataModel",
-        "repoName",Dear sirs it is a pleasure to inform you that now we have a service to create an export in SQL for PostgreSQL from a data model based on the yaml (file model.yaml) version here there is an example with weather forecast data model . https://smartdatamodels.org/index.php/sql-result/?modelYamlUrl=https%3A%2F%2Fraw.githubusercontent.com%2Fsmart-data-models%2FdataModel.Weather%2Fmaster%2FWeatherForecast%2Fmodel.yaml&email=alberto.abella%40fiware.org
+        "repoName",
         "description",
         "typeNGSI",
         "modelTags",
@@ -296,7 +296,7 @@ print(sdm.update_broker(dataModel, subject, attribute, value, serverUrl=serverUr
 
         Print the different elements of the attributes of a data model separated by a given separator.
         Parameters:
-          subject: name of the subjectDear sirs it is a pleasure to inform you that now we have a service to create an export in SQL for PostgreSQL from a data model based on the yaml (file model.yaml) version here there is an example with weather forecast data model . https://smartdatamodels.org/index.php/sql-result/?modelYamlUrl=https%3A%2F%2Fraw.githubusercontent.com%2Fsmart-data-models%2FdataModel.Weather%2Fmaster%2FWeatherForecast%2Fmodel.yaml&email=alberto.abella%40fiware.org
+          subject: name of the subject
           datamodel: name of the data model
           separator: string between the different elements printed
           meta_attributes: list of different qualifiers of an attribute
