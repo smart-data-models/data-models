@@ -400,6 +400,15 @@ print(sdm.update_broker(dataModel, subject, attribute, value, serverUrl=serverUr
           - First the boolean result of the operation True if successful and False if not
           - Second a textual context explanation in every case
 
+21- Generate a PostgreSQL schema SQL script from the model.yaml representation of a Smart Data Model.
+
+      Parameters:
+        model_yaml (str): url of the model.yaml file (public available). (i.e. raw version of a github repo https://raw.githubusercontent.com/smart-data-models/dataModel.Weather/master/WeatherAlert/model.yaml)
+
+      Returns:
+        str: A string containing the PostgreSQL schema SQL script.
+    """
+
 
 ## Pending features (glad to receive contributions to them)
 
@@ -409,6 +418,7 @@ A.- Function to allow submission of improvements (i.e. missing recommended units
 B.- Function to submit a new data model to an incubation repository. Currently, this is done manually [incubated repository](https://github.com/smart-data-models/incubated/tree/master). By filling this [form](https://smartdatamodels.org/index.php/new-incubated-data-models/) you are granted to contribute with new data models.     
 
 if you want to suggest other functions/ needs please let us know at info@smartdatamodels.org.
+
 
 ## Acknowledgments
 
