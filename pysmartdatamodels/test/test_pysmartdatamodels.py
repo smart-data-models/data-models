@@ -147,11 +147,7 @@ print(sdm.ngsi_ld_keyvalue_example_generator(schemaUrl))
 # Return a fake geojson feature format example based on the given json schema
 print(sdm.geojson_features_example_generator(schemaUrl))
 
-
-print(sdm.update_broker(dataModel, subject, attribute, value, serverUrl=serverUrl))
-
 print(sdm.generate_sql_schema(modelYaml))
 
 # Update a broker compliant with a specific data model, inspired by Antonio Jara
 print(sdm.update_broker(dataModel, subject, attribute, value, serverUrl=serverUrl, updateThenCreate=True))
-
