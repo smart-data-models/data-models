@@ -1,14 +1,22 @@
+
+import datetime
+
 import os
 import re
-import json
 
+import json
+import os
 import sys
-import datetime
+import urllib.request
 
 import jsonschema
 import pytz
-from jsonschema import validate
 import requests
+from jsonschema import validate
+from .utils import (create_context, extract_datamodel_from_raw_url,
+                    extract_subject_from_raw_url, generate_random_string,
+                    normalized2keyvalues, open_jsonref, open_yaml, parse_property)
+
 
 import urllib.request
 # from utils.common_utils import *
@@ -16,6 +24,7 @@ from .utils import extract_subject_from_raw_url, extract_datamodel_from_raw_url,
                     open_jsonref, parse_property, normalized2keyvalues, create_context, \
                     generate_random_string, is_metadata_properly_reported, is_metadata_existed, \
                     schema_output_sum, message_after_check_schema
+
 
 path = __file__
 
@@ -1383,4 +1392,107 @@ def update_broker(datamodel, subject, attribute, value, entityId=None, serverUrl
                     print("Variable does not match the specified data type.")
                     print(e)
                     return [False, "The attribute: " + attribute + " cannot store the value : " + str(value)]
-                
+
+def generate_sql_schema(model_yaml: str) -> str:
+    """
+    Generate a PostgreSQL schema SQL script from the model.yaml representation of a Smart Data Model.
+
+    Parameters:
+        model_yaml (str): url of the model.yaml file (public available). (i.e. raw version of a github repo https://raw.githubusercontent.com/smart-data-models/dataModel.Weather/master/WeatherAlert/model.yaml)
+
+    Returns:
+        str: A string containing the PostgreSQL schema SQL script.
+    """
+
+    # open yaml
+    model_yaml = open_yaml(model_yaml)
+
+    # Get the entity name
+    entity = list(model_yaml.keys())[0]
+
+    # Initialize SQL schema statements
+    sql_schema_statements = []
+    sql_type_statement = []
+
+    sql_data_types= ""
+
+    # Define format mappings for YAML formats to postgreSQL Schema types
+    type_mapping = {
+        "string": "TEXT",
+        "integer": "INTEGER",
+        "number": "NUMERIC",
+        "boolean": "BOOLEAN",
+        "object": "JSON",
+        "array": "JSON",
+    }
+
+    # Define format mappings for YAML formats to postgreSQL Schema types
+    format_mapping = {
+        "date-time": "TIMESTAMP",
+        "date": "DATE",
+        "time": "TIME",
+        "uri": "TEXT",
+        "email": "TEXT",
+        "idn-email": "TEXT",
+        "hostname": "TEXT",
+        "duration": "TEXT"
+    }
+
+    # Start by creating the table
+    table_create_statement = f"CREATE TABLE {entity} ("
+
+    for key, value in model_yaml[entity]["properties"].items():
+        field_type = "JSON"  # Default to JSON if type is not defined
+
+        # Field type mapping
+        if "type" in value:
+            if "format" in value:
+                # format type mapping (format overrides type)
+                field_type = format_mapping.get(value["format"])
+                # add attribute to the SQL schema statement
+                sql_schema_statements.append(f"{key} {field_type}")
+            
+            elif "enum" in value:
+                enum_values = value["enum"]
+                enum_values = [str(element) for element in enum_values]
+                if key == "type":
+                    field_type = f"{entity}_type"
+                else:
+                    field_type = f"{key}_type"
+                # create sql create type statment
+                sql_type_statement.append(f"CREATE TYPE {field_type} AS ENUM ({','.join(map(repr, enum_values))});")
+
+                sql_data_types += "CREATE TYPE " + field_type + " AS ENUM ("
+                sql_data_types += f"{','.join(map(repr, enum_values))}"
+                sql_data_types += ");"
+
+                # add attribute to the SQL schema statement
+                sql_schema_statements.append(f"{key} {field_type}")
+
+            else:
+                field_type = type_mapping.get(value["type"])
+                # add attribute to the SQL schema statement
+                sql_schema_statements.append(f"{key} {field_type}")
+
+        # Handle the case when "allOf" exists
+        if key == "allOf" and isinstance(value, list):
+            for values in value:
+                for sub_key, sub_value in values.items():
+                    if isinstance(sub_value, dict):
+                        if "format" in sub_value:
+                            sub_field_type = format_mapping.get(sub_value["format"])
+                            sql_schema_statements.append(f"{sub_key} {sub_field_type}")
+                        if "type" in sub_value:
+                            sub_field_type = type_mapping.get(sub_value["type"])
+                            sql_schema_statements.append(f"{sub_key} {sub_field_type}")
+        if key == "id":
+            field_type = "TEXT"
+
+    # Complete the CREATE TABLE statement
+    table_create_statement += ", ".join(sql_schema_statements)
+    table_create_statement += ");"
+    # PostgreSQL schema 
+    result = sql_data_types + "\n" + table_create_statement
+    print(result)
+
+    return result

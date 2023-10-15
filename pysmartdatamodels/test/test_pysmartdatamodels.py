@@ -44,7 +44,12 @@ value = 0.5
 
 schemaUrl = "https://raw.githubusercontent.com/smart-data-models/dataModel.Agrifood/master/AgriApp/schema.json"
 
+
+modelYaml = "https://raw.githubusercontent.com/smart-data-models/dataModel.Weather/master/WeatherAlert/model.yaml"
+
+
 # Load all datamodels in a dict like the official list
+
 print(sdm.load_all_datamodels())
 assert sdm.load_all_datamodels() == test_load_all_datamodels()
 
@@ -141,6 +146,8 @@ print(sdm.ngsi_ld_keyvalue_example_generator(schemaUrl))
 
 # Return a fake geojson feature format example based on the given json schema
 print(sdm.geojson_features_example_generator(schemaUrl))
+
+print(sdm.generate_sql_schema(modelYaml))
 
 # Update a broker compliant with a specific data model, inspired by Antonio Jara
 print(sdm.update_broker(dataModel, subject, attribute, value, serverUrl=serverUrl, updateThenCreate=True))
