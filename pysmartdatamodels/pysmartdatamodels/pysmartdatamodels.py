@@ -1393,6 +1393,7 @@ def update_broker(datamodel, subject, attribute, value, entityId=None, serverUrl
                     print(e)
                     return [False, "The attribute: " + attribute + " cannot store the value : " + str(value)]
 
+#21
 def generate_sql_schema(model_yaml: str) -> str:
     """
     Generate a PostgreSQL schema SQL script from the model.yaml representation of a Smart Data Model.
@@ -1473,6 +1474,9 @@ def generate_sql_schema(model_yaml: str) -> str:
                 field_type = type_mapping.get(value["type"])
                 # add attribute to the SQL schema statement
                 sql_schema_statements.append(f"{key} {field_type}")
+        elif "oneOf" in value:
+            field_type = "JSON"
+            sql_schema_statements.append(f"{key} {field_type}")
 
         # Handle the case when "allOf" exists
         if key == "allOf" and isinstance(value, list):
@@ -1485,8 +1489,11 @@ def generate_sql_schema(model_yaml: str) -> str:
                         if "type" in sub_value:
                             sub_field_type = type_mapping.get(sub_value["type"])
                             sql_schema_statements.append(f"{sub_key} {sub_field_type}")
+
         if key == "id":
-            field_type = "TEXT"
+            field_type = "TEXT PRIMARY KEY"
+            # add attribute to the SQL schema statement
+            sql_schema_statements.append(f"{key} {field_type}")
 
     # Complete the CREATE TABLE statement
     table_create_statement += ", ".join(sql_schema_statements)
