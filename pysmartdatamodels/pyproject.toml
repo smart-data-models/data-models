@@ -58,9 +58,9 @@ source = "https://github.com/smart-data-models/data-models/tree/master/pysmartda
 
 [tool.poetry.dependencies]
 python = "^3.8"
-jsonref = "^1.1.0"
+jsonref = "<1.0.0"
 jsonschema = "^4.17.3"
-pytz = "^2022.7.1"
+pytz = ">=2022.7.1, <2023.0.0"
 requests =  "^2.28.2"
 rstr = "^3.2.1"
 Faker = "^18.10.1"
