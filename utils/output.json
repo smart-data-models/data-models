@@ -1,0 +1,27 @@
+{
+    "id": "https://smart-data-models.github.io/dataModel.PointOfInterest/PointOfInterest/schema.json",
+    "@context": "iudx:PointOfInterest",
+    "type": [
+        "PointOfInterest"
+    ],
+    "name": {
+        "type": "string",
+        "value": "BMC Kiosk"
+    },
+    "additionalInfoURL": {
+        "type": "string",
+        "value": "https://voc.iudx.org.in/additionalInfoURL"
+    },
+    "municipalityInfo": {
+        "type": "object",
+        "value": {
+            "district": "Bangalore Urban",
+            "ulbName": "BMC",
+            "cityID": "23",
+            "stateName": "Karnataka",
+            "cityName": "Bangalore",
+            "zoneID": "2",
+            "wardNum": 4
+        }
+    }
+}

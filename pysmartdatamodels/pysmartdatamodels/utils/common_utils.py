@@ -17,6 +17,7 @@
 import os
 import json
 import random
+import re
 
 import string
 import sys
@@ -29,7 +30,7 @@ from validator_collection import checkers
 from faker import Faker
 import requests
 import rstr
-import ruamel.yaml as yaml
+import ruamel.yaml
 
 
 fake = Faker()
@@ -41,6 +42,9 @@ newline = "\n  "
 newsubline = "\n   "
 KEYWORDS_FOR_CERTAIN_CHECK = "smart-data-models"
 CHECKED_PROPERTY_CASES = ['well documented', 'already used', 'newly available', 'Metadata', 'Failed']
+
+# Regular expression pattern to extract owner, repository, branch, and file path
+github_url_pattern = r"https://github\.com/([^/]+)/([^/]+)/blob/([^/]+)/(.+)"
 
 def is_url_existed(url, message=""):
     output = []
@@ -58,25 +62,29 @@ def open_yaml(file_url):
     """
     Opens a YAML file either from a URL or a local file path and returns its content as a dictionary.
     """
+    yaml = ruamel.yaml.YAML(typ='safe')
     try:
-        # Check if the file has a .yaml extension
         _, file_extension = os.path.splitext(file_url)
         if file_extension.lower() != '.yaml':
-            raise ValueError("Invalid file format. The file should have a .yaml extension.")
-        
+            print("Invalid file format. The file should have a .yaml extension.")
+
         if file_url.startswith("http"):
-            # It is a URL
-            pointer = requests.get(file_url)
-            return yaml.safe_load(pointer.content.decode('utf-8'))
-    except:
-        return "Exception"
-    else:
-        # It is a file
-        try:
-            file = open(file_url, "r")
-            return yaml.safe_load(file.read())
-        except:
-            return "Wrong file path"
+            if re.match(github_url_pattern, file_url):
+                raw_github_url = convert_to_raw_github_url(file_url)
+                response = requests.get(raw_github_url)
+                response.raise_for_status()  # Raise HTTPError for bad responses
+                return yaml.load(response.content.decode('utf-8'))
+            else:
+                response = requests.get(file_url)
+                response.raise_for_status()
+                return yaml.load(response.content.decode('utf-8'))
+        else:
+            with open(file_url, "r") as file:
+                return yaml.load(file)
+    except requests.exceptions.RequestException as e:
+        print(f"Failed to fetch content from URL: {e}")
+    except Exception as e:
+        print(f"Error: {e}")
         
 
 def extract_datamodel_from_raw_url(schemaUrl):
@@ -755,3 +763,17 @@ Some warnings related to metadata:
 No warning with metadata.        
         """
     return message
+
+
+def convert_to_raw_github_url(input_url): 
+    match = re.match(github_url_pattern, input_url)
+    
+    if match:
+        owner = match.group(1)
+        repository = match.group(2)
+        branch = match.group(3)
+        file_path = match.group(4)
+        raw_github_url = f"https://raw.githubusercontent.com/{owner}/{repository}/{branch}/{file_path}"
+        return raw_github_url
+    else:
+        print("Invalid GitHub URL format")

@@ -13,17 +13,13 @@ import jsonschema
 import pytz
 import requests
 from jsonschema import validate
-from .utils import (create_context, extract_datamodel_from_raw_url,
-                    extract_subject_from_raw_url, generate_random_string,
-                    normalized2keyvalues, open_jsonref, open_yaml, parse_property)
-
 
 import urllib.request
-# from utils.common_utils import *
+#from utils.common_utils import *
 from .utils import extract_subject_from_raw_url, extract_datamodel_from_raw_url, \
                     open_jsonref, parse_property, normalized2keyvalues, create_context, \
                     generate_random_string, is_metadata_properly_reported, is_metadata_existed, \
-                    schema_output_sum, message_after_check_schema
+                    schema_output_sum, message_after_check_schema, open_yaml
 
 
 path = __file__
@@ -41,6 +37,9 @@ ddbb_attributes_file = left_part + "/model-assets/smartdatamodels.json"
 # data models that are not able to generate examples from the schema due to certain issue
 issue_datamodels = ["SeaportFacilities", "OffStreetParking", "OnStreetParking", "ParkingGroup", "WeatherAlert", "Museum", "MosquitoDensity", "Alert", "MediaEvent",  "DataResourceFrictionlessData", "TableSchemaFrictionlessData", "free_bike_status", "geofencing_zones", "station_information", "station_status", "system_alerts", "Presentation", "DigitalInnovationHub"]
 issue_message = "====== The specific models are still pending ====== \nWe cannot generate examples from it now due to some inner problems of the data model scheme json file"
+
+# Regular expression pattern to extract owner, repository, branch, and file path
+github_url_pattern = r"https://github\.com/([^/]+)/([^/]+)/blob/([^/]+)/(.+)"
 
 # 1
 def load_all_datamodels():
@@ -1393,6 +1392,7 @@ def update_broker(datamodel, subject, attribute, value, entityId=None, serverUrl
                     print(e)
                     return [False, "The attribute: " + attribute + " cannot store the value : " + str(value)]
 
+#21
 def generate_sql_schema(model_yaml: str) -> str:
     """
     Generate a PostgreSQL schema SQL script from the model.yaml representation of a Smart Data Model.
@@ -1473,6 +1473,9 @@ def generate_sql_schema(model_yaml: str) -> str:
                 field_type = type_mapping.get(value["type"])
                 # add attribute to the SQL schema statement
                 sql_schema_statements.append(f"{key} {field_type}")
+        elif "oneOf" in value:
+            field_type = "JSON"
+            sql_schema_statements.append(f"{key} {field_type}")
 
         # Handle the case when "allOf" exists
         if key == "allOf" and isinstance(value, list):
@@ -1485,8 +1488,11 @@ def generate_sql_schema(model_yaml: str) -> str:
                         if "type" in sub_value:
                             sub_field_type = type_mapping.get(sub_value["type"])
                             sql_schema_statements.append(f"{sub_key} {sub_field_type}")
+
         if key == "id":
-            field_type = "TEXT"
+            field_type = "TEXT PRIMARY KEY"
+            # add attribute to the SQL schema statement
+            sql_schema_statements.append(f"{key} {field_type}")
 
     # Complete the CREATE TABLE statement
     table_create_statement += ", ".join(sql_schema_statements)

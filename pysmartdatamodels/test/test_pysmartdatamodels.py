@@ -3,6 +3,7 @@ import requests
 
 from pysmartdatamodels import pysmartdatamodels as sdm
 
+
 repository = 'smart-data-models/data-models'  # Replace with your repository
 commit_sha = '8f0f54f'  # Replace with the desired commit SHA
 
@@ -45,7 +46,7 @@ value = 0.5
 schemaUrl = "https://raw.githubusercontent.com/smart-data-models/dataModel.Agrifood/master/AgriApp/schema.json"
 
 
-modelYaml = "https://raw.githubusercontent.com/smart-data-models/dataModel.Weather/master/WeatherAlert/model.yaml"
+modelYaml = "https://raw.githubusercontent.com/smart-data-models/dataModel.Transportation/master/FareCollectionSystem/model.yaml"
 
 
 # Load all datamodels in a dict like the official list
@@ -147,6 +148,7 @@ print(sdm.ngsi_ld_keyvalue_example_generator(schemaUrl))
 # Return a fake geojson feature format example based on the given json schema
 print(sdm.geojson_features_example_generator(schemaUrl))
 
+# Generates the sql schema based on the yaml representation of a data model 
 print(sdm.generate_sql_schema(modelYaml))
 
 # Update a broker compliant with a specific data model, inspired by Antonio Jara
