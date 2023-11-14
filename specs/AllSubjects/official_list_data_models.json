@@ -1,5 +1,5 @@
 {
-  "updatedDate": "2023-10-10T14:37:00.31416",
+  "updatedDate": "2023-11-14T13:54:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -1575,6 +1575,49 @@
       ],
       "domains": [
         "SmartAeronautics"
+      ]
+    },
+    {
+      "repoName": "dataModel.ERA",
+      "repoLink": "https://github.com/smart-data-models/dataModel.ERA.git",
+      "dataModels": [
+        "Certificate",
+        "ContactLineSystem",
+        "ETCSLevel",
+        "Feature",
+        "FrenchTrainDetectionSystemLimitation",
+        "InfrastructureManager",
+        "InfrastructureObject",
+        "LineReference",
+        "LoadCapability",
+        "Manufacturer",
+        "MaximumMagneticField",
+        "MaximumSpeedAndCantDeficiency",
+        "MinAxleLoadVehicleCategory",
+        "NationalRailwayLine",
+        "NetElement",
+        "NetRelation",
+        "OperationalPoint",
+        "PhaseInfo",
+        "Platform",
+        "RaisedPantographsDistanceAndSpeed",
+        "SectionOfLine",
+        "Siding",
+        "Signal",
+        "SpecialArea",
+        "SpecialTunnelArea",
+        "SubsetWithCommonCharacteristics",
+        "SystemSeparationInfo",
+        "TopologicalObject",
+        "Track",
+        "TrainDetectionSystem",
+        "Tunnel",
+        "Vehicle",
+        "VehicleKeeper",
+        "VehicleType"
+      ],
+      "domains": [
+        "SmartLogistics"
       ]
     }
   ]
