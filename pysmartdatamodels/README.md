@@ -32,6 +32,7 @@ Currently, there are thirteen domains.
 ```python
 
 from pysmartdatamodels import pysmartdatamodels as sdm
+from pysmartdatamodels.utils import *
 
 subject = "dataModel.Weather"
 
@@ -44,6 +45,10 @@ serverUrl = "https://smartdatamodels.org:1026"
 value = 0.5
 
 schemaUrl = "https://raw.githubusercontent.com/smart-data-models/dataModel.Agrifood/master/AgriApp/schema.json"
+
+modelYaml = "https://raw.githubusercontent.com/smart-data-models/dataModel.Transportation/master/FareCollectionSystem/model.yaml"
+
+DCATAPExampleUrl = "https://raw.githubusercontent.com/smart-data-models/dataModel.DCAT-AP/master/Distribution/examples/example.json"
 
 # Load all datamodels in a dict like the official list
 print(sdm.load_all_datamodels())
@@ -114,9 +119,14 @@ print(sdm.ngsi_ld_keyvalue_example_generator(schemaUrl))
 # Return a fake geojson feature format example based on the given json schema
 print(sdm.geojson_features_example_generator(schemaUrl))
 
+# Generates the sql schema based on the yaml representation of a data model 
+print(sdm.generate_sql_schema(modelYaml))
+
 # Update a broker compliant with a specific data model, inspired by Antonio Jara
 print(sdm.update_broker(dataModel, subject, attribute, value, serverUrl=serverUrl, updateThenCreate=True))
 
+# Take a distribution DCAT-AP in json and validates if the downloadURL contains a valid payload against conformsTo
+print(sdm.validate_dcat_ap_distribution_sdm(open_jsonref(DCATAPExampleUrl)))
 ```
 
 ## Functions available include:
@@ -407,8 +417,19 @@ print(sdm.update_broker(dataModel, subject, attribute, value, serverUrl=serverUr
 
       Returns:
         str: A string containing the PostgreSQL schema SQL script.
-    """
 
+22- The function takes a distribution DCAT-AP in json and validates if the downloadURL contains a valid payload against conformsTo.
+
+      Parameters:
+           json_data: metadata in DCAT-AP distribution format (See https://github.com/smart-data-models/dataModel.DCAT-AP/blob/master/Distribution/schema.json and
+           https://semiceu.github.io/DCAT-AP/releases/3.0.0/
+                conformsTo: Attribute (Array) with links to the json schemas of SDM
+                downloadURL: Public available link to the raw format of the payload
+
+       Returns:
+           It prints a version of the attributes separated by the separator listing the meta_attributes specified
+           A variable with the same strings
+           if any of the input parameters is not found it returns False
 
 ## Pending features (glad to receive contributions to them)
 

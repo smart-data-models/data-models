@@ -2,26 +2,10 @@ import json
 import requests
 
 from pysmartdatamodels import pysmartdatamodels as sdm
-
+from pysmartdatamodels.utils import *
 
 repository = 'smart-data-models/data-models'  # Replace with your repository
-commit_sha = '8f0f54f'  # Replace with the desired commit SHA
-
-def open_json(fileUrl):
-    if fileUrl[0:4] == "http":
-        # es URL
-        try:
-            pointer = requests.get(fileUrl)
-            return json.loads(pointer.content.decode('utf-8'))
-        except:
-            return None
-    else:
-        # es file
-        try:
-            file = open(fileUrl, "r")
-            return json.loads(file.read())
-        except:
-            return None
+commit_sha = '13c4452'  # Replace with the desired commit SHA
         
 def test_load_all_datamodels():
     file_path = 'pysmartdatamodels/pysmartdatamodels/model-assets/official_list_data_models.json'  # Replace with the file path
@@ -45,12 +29,11 @@ value = 0.5
 
 schemaUrl = "https://raw.githubusercontent.com/smart-data-models/dataModel.Agrifood/master/AgriApp/schema.json"
 
-
 modelYaml = "https://raw.githubusercontent.com/smart-data-models/dataModel.Transportation/master/FareCollectionSystem/model.yaml"
 
+DCATAPExampleUrl = "https://raw.githubusercontent.com/smart-data-models/dataModel.DCAT-AP/master/Distribution/examples/example.json"
 
 # Load all datamodels in a dict like the official list
-
 print(sdm.load_all_datamodels())
 assert sdm.load_all_datamodels() == test_load_all_datamodels()
 
@@ -73,7 +56,7 @@ assert sdm.datamodels_subject("dataModel.Nonexistentsubject") == False
 # List description of an attribute
 print(sdm.description_attribute(subject, dataModel, attribute))
 assert sdm.description_attribute("dataModel.Weather", "WeatherForecast", "precipitation") == "Amount of water rain expected"
-assert sdm.description_attribute("dataModel.Agrifood", "AgriCrop", "hasAgriSoil") == "Reference to the recommended types of soil suitable for growing this crop."
+assert sdm.description_attribute("dataModel.Agrifood", "AgriCrop", "hasAgriSoil") == "Reference to the recommended types of soil suitable for growing this crop"
 assert sdm.description_attribute("dataModel.Nonexistentsubject", "Nonexistentdatamodel", "Nonexistentattribute") == False
 
 # List data-type of an attribute
@@ -91,14 +74,14 @@ assert sdm.model_attribute("dataModel.Nonexistentsubject", "Nonexistentdatamodel
 
 # Give reference units for an attribute
 print(sdm.units_attribute(subject, dataModel, attribute))
-assert sdm.units_attribute("dataModel.Weather", "WeatherForecast", "precipitation") == "Liters per square meter."
+assert sdm.units_attribute("dataModel.Weather", "WeatherForecast", "precipitation") == "Liters per square meter"
 assert sdm.units_attribute("dataModel.Transportation", "TrafficFlowObserved", "averageVehicleSpeed") == "Kilometer per hour (Km/h)"
 assert sdm.units_attribute("dataModel.Nonexistentsubject", "Nonexistentdatamodel", "Nonexistentattribute") == False
 
 # List the attributes of a data model
 print(sdm.attributes_datamodel(subject, dataModel))
 
-# List the NGSI type (Property, Relationship or GeoProperty) of the attribute
+# List the NGSI type (Property, Relationship or Geoproperty) of the attribute
 print(sdm.ngsi_datatype_attribute(subject, dataModel, attribute))
 assert sdm.ngsi_datatype_attribute("dataModel.Weather", "WeatherForecast", "precipitation") == "Property"
 assert sdm.ngsi_datatype_attribute("dataModel.UrbanMobility", "GtfsRoute", "operatedBy") == "Relationship"
@@ -122,13 +105,13 @@ print(sdm.print_datamodel(subject, dataModel, ",", [
         "model",
     ]))
 
-# Returns the link to the repository of a subject
+#  Returns the link to the repository of a subject
 print(sdm.subject_repolink(subject))
 assert sdm.subject_repolink("dataModel.Weather") == "https://github.com/smart-data-models/dataModel.Weather.git"
 assert sdm.subject_repolink("dataModel.UnmannedAerialVehicle") == "https://github.com/smart-data-models/dataModel.UnmannedAerialVehicle.git"
 assert sdm.subject_repolink("dataModel.Nonexistentsubject") == False
 
-# # Return the links to the repositories of a data model name
+# Return the links to the repositories of a data model name
 print(sdm.datamodel_repolink(dataModel))
 assert sdm.datamodel_repolink("WeatherForecast") == ['https://github.com/smart-data-models/dataModel.Weather.git']
 assert sdm.datamodel_repolink("Activity") == ['https://github.com/smart-data-models/dataModel.User.git', \
@@ -148,8 +131,8 @@ print(sdm.ngsi_ld_keyvalue_example_generator(schemaUrl))
 # Return a fake geojson feature format example based on the given json schema
 print(sdm.geojson_features_example_generator(schemaUrl))
 
-# Generates the sql schema based on the yaml representation of a data model 
-print(sdm.generate_sql_schema(modelYaml))
-
 # Update a broker compliant with a specific data model, inspired by Antonio Jara
 print(sdm.update_broker(dataModel, subject, attribute, value, serverUrl=serverUrl, updateThenCreate=True))
+
+# Take a distribution DCAT-AP in json and validates if the downloadURL contains a valid payload against conformsTo
+print(sdm.validate_dcat_ap_distribution_sdm(open_jsonref(DCATAPExampleUrl)))
