@@ -27,6 +27,7 @@
   "dataModel.Hl7": "https://raw.githubusercontent.com/smart-data-models/dataModel.Hl7/master/context.jsonld",
   "dataModel.IT": "https://raw.githubusercontent.com/smart-data-models/dataModel.IT/master/context.jsonld",
   "dataModel.IssueTracking": "https://raw.githubusercontent.com/smart-data-models/dataModel.IssueTracking/master/context.jsonld",
+  "dataModel.HumanResources": "https://raw.githubusercontent.com/smart-data-models/dataModel.dataModel.HumanResources/master/context.jsonld",
   "dataModel.KeyPerformanceIndicator": "https://raw.githubusercontent.com/smart-data-models/dataModel.KeyPerformanceIndicator/master/context.jsonld",
   "dataModel.MachineLearning": "https://raw.githubusercontent.com/smart-data-models/dataModel.MachineLearning/master/context.jsonld",
   "dataModel.ManufacturingMachine": "https://raw.githubusercontent.com/smart-data-models/dataModel.ManufacturingMachine/master/context.jsonld",
