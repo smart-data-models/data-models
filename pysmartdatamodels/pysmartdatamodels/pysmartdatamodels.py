@@ -1370,7 +1370,10 @@ def update_broker(datamodel, subject, attribute, value, entityId=None, serverUrl
                         id_random = "urn:ngsi-ld" + generate_random_string(length=4) + ":" + generate_random_string(length=4)
                         if serverUrl is not None:
                             ngsi_type = ngsi_datatype_attribute(subject, datamodel, attribute)
-                            payload = {"id": id_random, "type": datamodel, attribute: {"type": ngsi_type, "value": value}, "@context": create_context(subject)}
+                            if ngsi_type == "Relationship":
+                                payload = {"id": id_random, "type": datamodel, attribute: {"type": ngsi_type, "object": value}, "@context": create_context(subject)}
+                            else:
+                                payload = {"id": id_random, "type": datamodel, attribute: {"type": ngsi_type, "value": value}, "@context": create_context(subject)}
                             return insert_in_broker(serverUrl, payload)
                         else: # no entity id and no broker, just returned the payload to be inserted
                             return [True, {"id": id_random, "type": datamodel, attribute: value, "@context": create_context(subject)}]

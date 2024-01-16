@@ -1,5 +1,5 @@
 {
-  "updatedDate": "2023-11-14T13:54:00.31416",
+  "updatedDate": "2024-01-16T02:14:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -1618,6 +1618,16 @@
       ],
       "domains": [
         "SmartLogistics"
+      ]
+    },
+     {
+      "repoName": "dataModel.HumanResources",
+      "repoLink": "https://github.com/smart-data-models/dataModel.HumanResources.git",
+      "dataModels": [
+        "CurriculumVitae"
+      ],
+      "domains": [
+        "CrossSector"
       ]
     }
   ]
