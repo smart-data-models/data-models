@@ -1,9 +1,6 @@
 [submodule "specs/pending"]
 	path = specs/pending
 	url = https://github.com/smart-data-models/pending.git
-[submodule "specs/SmartHealth"]
-	path = specs/SmartHealth
-	url = https://github.com/smart-data-models/SmartHealth.git
 [submodule "specs/SmartLogistics"]
 	path = specs/SmartLogistics
 	url = https://github.com/smart-data-models/SmartLogistics.git
