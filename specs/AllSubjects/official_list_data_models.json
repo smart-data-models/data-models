@@ -1,5 +1,5 @@
 {
-  "updatedDate": "2024-01-16T02:14:00.31416",
+  "updatedDate": "2024-02-07T18:31:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -236,6 +236,7 @@
         "DeviceMeasurement",
         "DeviceModel",
         "DeviceOperation",
+        "Modbus",
         "PrivacyObject",
         "SmartMeteringObservation"
       ],
