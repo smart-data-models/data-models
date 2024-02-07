@@ -16,6 +16,9 @@
 [submodule "specs/SmartCities"]
 	path = specs/SmartCities
 	url = https://github.com/smart-data-models/SmartCities.git
+[submodule "specs/SmartDestination"]
+	path = specs/SmartDestination
+	url = https://github.com/smart-data-models/SmartDestination.git
 [submodule "specs/SmartEnergy"]
 	path = specs/SmartEnergy
 	url = https://github.com/smart-data-models/SmartEnergy.git
