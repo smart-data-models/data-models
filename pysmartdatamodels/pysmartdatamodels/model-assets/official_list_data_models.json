@@ -1,5 +1,5 @@
 {
-  "updatedDate": "2023-10-10T14:37:00.31416",
+  "updatedDate": "2024-02-07T18:31:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -236,6 +236,7 @@
         "DeviceMeasurement",
         "DeviceModel",
         "DeviceOperation",
+        "Modbus",
         "PrivacyObject",
         "SmartMeteringObservation"
       ],
@@ -1575,6 +1576,59 @@
       ],
       "domains": [
         "SmartAeronautics"
+      ]
+    },
+    {
+      "repoName": "dataModel.ERA",
+      "repoLink": "https://github.com/smart-data-models/dataModel.ERA.git",
+      "dataModels": [
+        "Certificate",
+        "ContactLineSystem",
+        "ETCSLevel",
+        "Feature",
+        "FrenchTrainDetectionSystemLimitation",
+        "InfrastructureManager",
+        "InfrastructureObject",
+        "LineReference",
+        "LoadCapability",
+        "Manufacturer",
+        "MaximumMagneticField",
+        "MaximumSpeedAndCantDeficiency",
+        "MinAxleLoadVehicleCategory",
+        "NationalRailwayLine",
+        "NetElement",
+        "NetRelation",
+        "OperationalPoint",
+        "PhaseInfo",
+        "Platform",
+        "RaisedPantographsDistanceAndSpeed",
+        "SectionOfLine",
+        "Siding",
+        "Signal",
+        "SpecialArea",
+        "SpecialTunnelArea",
+        "SubsetWithCommonCharacteristics",
+        "SystemSeparationInfo",
+        "TopologicalObject",
+        "Track",
+        "TrainDetectionSystem",
+        "Tunnel",
+        "Vehicle",
+        "VehicleKeeper",
+        "VehicleType"
+      ],
+      "domains": [
+        "SmartLogistics"
+      ]
+    },
+     {
+      "repoName": "dataModel.HumanResources",
+      "repoLink": "https://github.com/smart-data-models/dataModel.HumanResources.git",
+      "dataModels": [
+        "CurriculumVitae"
+      ],
+      "domains": [
+        "CrossSector"
       ]
     }
   ]
