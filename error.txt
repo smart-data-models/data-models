@@ -1,0 +1,459 @@
+Additional properties are not allowed ('address', 'areaServed', 'licence', 'location', 'modificationDate', 'owner', 'releaseDate', 'spatial_geographic', 'themes' were unexpected)
+
+Failed validating 'additionalProperties' in schema['allOf'][1]:
+    {'additionalProperties': False,
+     'properties': {'alternateName': {'description': 'Property. An '
+                                                     'alternative name for '
+                                                     'this item',
+                                      'type': 'string'},
+                    'dataProvider': {'description': 'Property. A sequence '
+                                                    'of characters '
+                                                    'identifying the '
+                                                    'provider of the '
+                                                    'harmonised data '
+                                                    'entity',
+                                     'type': 'string'},
+                    'dataset': {'description': 'Relationship. '
+                                               "Model:'http://www.w3.org/ns/dcat#dataset'. "
+                                               'This property links the '
+                                               'Catalogue with a Dataset '
+                                               'that is part of the '
+                                               'Catalogue',
+                                'items': {'anyOf': [{'description': 'Property. '
+                                                                    'Identifier '
+                                                                    'format '
+                                                                    'of '
+                                                                    'any '
+                                                                    'NGSI '
+                                                                    'entity',
+                                                     'maxLength': 256,
+                                                     'minLength': 1,
+                                                     'pattern': '^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$',
+                                                     'type': 'string'},
+                                                    {'description': 'Property. '
+                                                                    'Identifier '
+                                                                    'format '
+                                                                    'of '
+                                                                    'any '
+                                                                    'NGSI '
+                                                                    'entity',
+                                                     'format': 'uri',
+                                                     'type': 'string'}]},
+                                'type': 'array'},
+                    'dateCreated': {'description': 'Property. Entity '
+                                                   'creation timestamp. '
+                                                   'This will usually be '
+                                                   'allocated by the '
+                                                   'storage platform',
+                                    'format': 'date-time',
+                                    'type': 'string'},
+                    'dateModified': {'description': 'Property. Timestamp '
+                                                    'of the last '
+                                                    'modification of the '
+                                                    'entity. This will '
+                                                    'usually be allocated '
+                                                    'by the storage '
+                                                    'platform',
+                                     'format': 'date-time',
+                                     'type': 'string'},
+                    'description': {'description': 'Property. '
+                                                   "Model:'http://www.w3.org/2000/01/rdf-schema#Literal'. "
+                                                   'This property contains '
+                                                   'a free-text account of '
+                                                   'the Catalogue. This '
+                                                   'property can be '
+                                                   'repeated for parallel '
+                                                   'language versions of '
+                                                   'the description. For '
+                                                   'further information on '
+                                                   'multilingual issues, '
+                                                   'please refer to '
+                                                   'section 11 of the pdf '
+                                                   'document '
+                                                   'https://joinup.ec.europa.eu/sites/default/files/distribution/access_url/2019-05/0812e528-c428-4832-b674-d5b9c68d1b42/StatDCAT-AP_1.0.1.pdf',
+                                    'items': {'description': 'Property. '
+                                                             'Catalog '
+                                                             'description '
+                                                             'in different '
+                                                             'languages',
+                                              'type': 'string'},
+                                    'type': 'array'},
+                    'hasPart': {'description': 'Relationship. '
+                                               "Model:'http://www.w3.org/ns/dcat#Catalog'. "
+                                               'This property refers to a '
+                                               'related Catalogue that is '
+                                               'part of the described '
+                                               'Catalogue',
+                                'items': {'format': 'uri',
+                                          'type': 'string'},
+                                'type': 'array'},
+                    'homepage': {'description': 'Property. '
+                                                "Model:'http://xmlns.com/foaf/0.1/#term_homepage'. "
+                                                'This property refers to a '
+                                                'web page that acts as the '
+                                                'main page for the '
+                                                'Catalogue',
+                                 'format': 'uri',
+                                 'type': 'string'},
+                    'id': {'anyOf': [{'description': 'Property. Identifier '
+                                                     'format of any NGSI '
+                                                     'entity',
+                                      'maxLength': 256,
+                                      'minLength': 1,
+                                      'pattern': '^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$',
+                                      'type': 'string'},
+                                     {'description': 'Property. Identifier '
+                                                     'format of any NGSI '
+                                                     'entity',
+                                      'format': 'uri',
+                                      'type': 'string'}],
+                           'description': 'Property. Unique identifier of '
+                                          'the entity'},
+                    'isPartOf': {'description': 'Relationship. '
+                                                "Model:'http://www.w3.org/ns/dcat#Catalog'. "
+                                                'This property refers to a '
+                                                'related Catalogue in '
+                                                'which the described '
+                                                'Catalogue is physically '
+                                                'or logically included',
+                                 'format': 'uri',
+                                 'type': 'string'},
+                    'issued': {'description': 'Property. '
+                                              "Model:'http://www.w3.org/2000/01/rdf-schema#Literal'. "
+                                              'This property contains the '
+                                              'date of formal issuance '
+                                              '(e.g., publication) of the '
+                                              'Catalogue',
+                               'format': 'date-time',
+                               'type': 'string'},
+                    'language': {'description': 'Property. '
+                                                "Model:'http://purl.org/dc/terms/LinguisticSystem'. "
+                                                'This property refers to a '
+                                                'language used in the '
+                                                'textual metadata '
+                                                'describing titles, '
+                                                'descriptions, etc. of the '
+                                                'Datasets in the '
+                                                'Catalogue. This property '
+                                                'can be repeated if the  '
+                                                'metadata is provided in '
+                                                'multiple languages',
+                                 'items': {'type': 'string'},
+                                 'type': 'array'},
+                    'license': {'description': 'Property. '
+                                               "Model:'http://purl.org/dc/terms/LicenseDocument'. "
+                                               'This property refers to '
+                                               'the licence under which '
+                                               'the Catalogue can be used '
+                                               'or reused',
+                                'type': 'string'},
+                    'modified': {'description': 'Property. '
+                                                "Model:'http://www.w3.org/2000/01/rdf-schema#Literal'. "
+                                                'This property contains '
+                                                'the most recent date on '
+                                                'which the Catalogue was '
+                                                'modified',
+                                 'format': 'date-time',
+                                 'type': 'string'},
+                    'name': {'description': 'Property. The name of this '
+                                            'item',
+                             'type': 'string'},
+                    'onwer': {'description': 'Property. A List containing '
+                                             'a JSON encoded sequence of '
+                                             'characters referencing the '
+                                             'unique Ids of the owner(s)',
+                              'items': {'anyOf': [{'description': 'Property. '
+                                                                  'Identifier '
+                                                                  'format '
+                                                                  'of any '
+                                                                  'NGSI '
+                                                                  'entity',
+                                                   'maxLength': 256,
+                                                   'minLength': 1,
+                                                   'pattern': '^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$',
+                                                   'type': 'string'},
+                                                  {'description': 'Property. '
+                                                                  'Identifier '
+                                                                  'format '
+                                                                  'of any '
+                                                                  'NGSI '
+                                                                  'entity',
+                                                   'format': 'uri',
+                                                   'type': 'string'}],
+                                        'description': 'Property. Unique '
+                                                       'identifier of the '
+                                                       'entity'},
+                              'type': 'array'},
+                    'publisher': {'description': 'Property. '
+                                                 "Model:'http://xmlns.com/foaf/0.1/#term_Agent'. "
+                                                 'This property refers to '
+                                                 'an entity (organisation) '
+                                                 'responsible for making '
+                                                 'the Catalogue available',
+                                  'type': 'string'},
+                    'record': {'description': 'Relationship. '
+                                              "Model:'http://www.w3.org/ns/dcat#CatalogRecord'. "
+                                              'This property refers to a '
+                                              'Catalogue Record that is '
+                                              'part of the Catalogue',
+                               'items': {'anyOf': [{'description': 'Property. '
+                                                                   'Identifier '
+                                                                   'format '
+                                                                   'of any '
+                                                                   'NGSI '
+                                                                   'entity',
+                                                    'maxLength': 256,
+                                                    'minLength': 1,
+                                                    'pattern': '^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$',
+                                                    'type': 'string'},
+                                                   {'description': 'Property. '
+                                                                   'Identifier '
+                                                                   'format '
+                                                                   'of any '
+                                                                   'NGSI '
+                                                                   'entity',
+                                                    'format': 'uri',
+                                                    'type': 'string'}]},
+                               'type': 'array'},
+                    'rights': {'description': 'Property. '
+                                              "Model:'http://purl.org/dc/terms/RightsStatement'. "
+                                              'This property refers to a '
+                                              'statement that specifies '
+                                              'rights associated with the '
+                                              'Catalogue',
+                               'type': 'string'},
+                    'seeAlso': {'description': 'Property. list of uri '
+                                               'pointing to additional '
+                                               'resources about the item',
+                                'oneOf': [{'items': {'format': 'uri',
+                                                     'type': 'string'},
+                                           'minItems': 1,
+                                           'type': 'array'},
+                                          {'format': 'uri',
+                                           'type': 'string'}]},
+                    'source': {'description': 'Property. A sequence of '
+                                              'characters giving the '
+                                              'original source of the '
+                                              'entity data as a URL. '
+                                              'Recommended to be the fully '
+                                              'qualified domain name of '
+                                              'the source provider, or the '
+                                              'URL to the source object',
+                               'type': 'string'},
+                    'spatial': {'description': 'GeoProperty. '
+                                               "Model:'http://purl.org/dc/terms/Location'. "
+                                               'This property refers to a '
+                                               'geographical area covered '
+                                               'by the Catalogue',
+                                'items': {'description': 'GeoProperty. '
+                                                         'Geojson '
+                                                         'reference to the '
+                                                         'item. It can be '
+                                                         'Point, '
+                                                         'LineString, '
+                                                         'Polygon, '
+                                                         'MultiPoint, '
+                                                         'MultiLineString '
+                                                         'or MultiPolygon',
+                                          'oneOf': [{'description': 'GeoProperty. '
+                                                                    'Geojson '
+                                                                    'reference '
+                                                                    'to '
+                                                                    'the '
+                                                                    'item. '
+                                                                    'Point',
+                                                     'properties': {'bbox': {'items': {'type': 'number'},
+                                                                             'minItems': 4,
+                                                                             'type': 'array'},
+                                                                    'coordinates': {'items': {'type': 'number'},
+                                                                                    'minItems': 2,
+                                                                                    'type': 'array'},
+                                                                    'type': {'enum': ['Point'],
+                                                                             'type': 'string'}},
+                                                     'required': ['type',
+                                                                  'coordinates'],
+                                                     'title': 'GeoJSON '
+                                                              'Point',
+                                                     'type': 'object'},
+                                                    {'description': 'GeoProperty. '
+                                                                    'Geojson '
+                                                                    'reference '
+                                                                    'to '
+                                                                    'the '
+                                                                    'item. '
+                                                                    'LineString',
+                                                     'properties': {'bbox': {'items': {'type': 'number'},
+                                                                             'minItems': 4,
+                                                                             'type': 'array'},
+                                                                    'coordinates': {'items': {'items': {'type': 'number'},
+                                                                                              'minItems': 2,
+                                                                                              'type': 'array'},
+                                                                                    'minItems': 2,
+                                                                                    'type': 'array'},
+                                                                    'type': {'enum': ['LineString'],
+                                                                             'type': 'string'}},
+                                                     'required': ['type',
+                                                                  'coordinates'],
+                                                     'title': 'GeoJSON '
+                                                              'LineString',
+                                                     'type': 'object'},
+                                                    {'description': 'GeoProperty. '
+                                                                    'Geojson '
+                                                                    'reference '
+                                                                    'to '
+                                                                    'the '
+                                                                    'item. '
+                                                                    'Polygon',
+                                                     'properties': {'bbox': {'items': {'type': 'number'},
+                                                                             'minItems': 4,
+                                                                             'type': 'array'},
+                                                                    'coordinates': {'items': {'items': {'items': {'type': 'number'},
+                                                                                                        'minItems': 2,
+                                                                                                        'type': 'array'},
+                                                                                              'minItems': 4,
+                                                                                              'type': 'array'},
+                                                                                    'type': 'array'},
+                                                                    'type': {'enum': ['Polygon'],
+                                                                             'type': 'string'}},
+                                                     'required': ['type',
+                                                                  'coordinates'],
+                                                     'title': 'GeoJSON '
+                                                              'Polygon',
+                                                     'type': 'object'},
+                                                    {'description': 'GeoProperty. '
+                                                                    'Geojson '
+                                                                    'reference '
+                                                                    'to '
+                                                                    'the '
+                                                                    'item. '
+                                                                    'MultiPoint',
+                                                     'properties': {'bbox': {'items': {'type': 'number'},
+                                                                             'minItems': 4,
+                                                                             'type': 'array'},
+                                                                    'coordinates': {'items': {'items': {'type': 'number'},
+                                                                                              'minItems': 2,
+                                                                                              'type': 'array'},
+                                                                                    'type': 'array'},
+                                                                    'type': {'enum': ['MultiPoint'],
+                                                                             'type': 'string'}},
+                                                     'required': ['type',
+                                                                  'coordinates'],
+                                                     'title': 'GeoJSON '
+                                                              'MultiPoint',
+                                                     'type': 'object'},
+                                                    {'description': 'GeoProperty. '
+                                                                    'Geojson '
+                                                                    'reference '
+                                                                    'to '
+                                                                    'the '
+                                                                    'item. '
+                                                                    'MultiLineString',
+                                                     'properties': {'bbox': {'items': {'type': 'number'},
+                                                                             'minItems': 4,
+                                                                             'type': 'array'},
+                                                                    'coordinates': {'items': {'items': {'items': {'type': 'number'},
+                                                                                                        'minItems': 2,
+                                                                                                        'type': 'array'},
+                                                                                              'minItems': 2,
+                                                                                              'type': 'array'},
+                                                                                    'type': 'array'},
+                                                                    'type': {'enum': ['MultiLineString'],
+                                                                             'type': 'string'}},
+                                                     'required': ['type',
+                                                                  'coordinates'],
+                                                     'title': 'GeoJSON '
+                                                              'MultiLineString',
+                                                     'type': 'object'},
+                                                    {'description': 'GeoProperty. '
+                                                                    'Geojson '
+                                                                    'reference '
+                                                                    'to '
+                                                                    'the '
+                                                                    'item. '
+                                                                    'MultiLineString',
+                                                     'properties': {'bbox': {'items': {'type': 'number'},
+                                                                             'minItems': 4,
+                                                                             'type': 'array'},
+                                                                    'coordinates': {'items': {'items': {'items': {'items': {'type': 'number'},
+                                                                                                                  'minItems': 2,
+                                                                                                                  'type': 'array'},
+                                                                                                        'minItems': 4,
+                                                                                                        'type': 'array'},
+                                                                                              'type': 'array'},
+                                                                                    'type': 'array'},
+                                                                    'type': {'enum': ['MultiPolygon'],
+                                                                             'type': 'string'}},
+                                                     'required': ['type',
+                                                                  'coordinates'],
+                                                     'title': 'GeoJSON '
+                                                              'MultiPolygon',
+                                                     'type': 'object'}]},
+                                'type': 'array'},
+                    'themeTaxonomy': {'description': 'Property. '
+                                                     "Model:'http://www.w3.org/2004/02/skos/core#ConceptScheme'. "
+                                                     'This property refers '
+                                                     'to a knowledge '
+                                                     'organization system '
+                                                     'used to classify the '
+                                                     "Catalogue's Datasets",
+                                      'items': {'type': 'string'},
+                                      'type': 'array'},
+                    'title': {'description': 'Property. '
+                                             "Model:'http://www.w3.org/2000/01/rdf-schema#Literal'. "
+                                             'This property contains a '
+                                             'name given to the Catalogue. '
+                                             'This property can be '
+                                             'repeated for parallel '
+                                             'language versions of the '
+                                             'name',
+                              'items': {'type': 'string'},
+                              'type': 'array'},
+                    'type': {'description': 'Property. '
+                                            "Model:'https://schema.org/Text'. "
+                                            'It has to be Catalogue',
+                             'enum': ['Catalogue'],
+                             'type': 'string'}}}
+
+On instance:
+    {'address': {'addressCountry': 'Germany',
+                 'addressLocality': 'Berlin',
+                 'addressRegion': 'Berlin',
+                 'district': '',
+                 'postOfficeBoxNumber': '',
+                 'postalCode': '10587',
+                 'streetAddress': 'Franklinstrasse 13',
+                 'streetNr': '13'},
+     'alternateName': 'Catalogue',
+     'areaServed': '',
+     'dataProvider': 'INE',
+     'dataset': ['urn:ngsi-ld:Catalogue:dataset:VLNR:72960176'],
+     'dateCreated': '2023-03-20T18:53:50Z',
+     'dateModified': '2023-06-29T11:37:12Z',
+     'description': ['List of converted statistical resources'],
+     'hasPart': ['urn:ngsi-ld:Catalogue:hasPart:EQFC:38298320'],
+     'homepage': 'urn:ngsi-ld:Catalogue:homepage:FXWI:96370263',
+     'id': 'urn:ngsi-ld:Catalogue:id:KSLT:97146192',
+     'isPartOf': 'urn:ngsi-ld:Catalogue:isPartOf:JACJ:87819283',
+     'language': ['SP', 'EN'],
+     'licence': 'CC BY 4.0',
+     'location': {'coordinates': [52.5209531, 13.3256918], 'type': 'Point'},
+     'modificationDate': '2023-02-24T16:28:58Z',
+     'name': 'Catalogue of statistical resources',
+     'owner': ['urn:ngsi-ld:Catalogue:items:FRAY:12902985',
+               'urn:ngsi-ld:Catalogue:items:WMSS:90165917'],
+     'publisher': 'INE',
+     'record': ['urn:ngsi-ld:Catalogue:record:UEFV:49174271'],
+     'releaseDate': '2023-01-20T11:03:48Z',
+     'rights': 'Open licensed',
+     'seeAlso': ['urn:ngsi-ld:Catalogue:items:XSHA:97687196'],
+     'source': 'INE',
+     'spatial_geographic': [{'bbox': [46.5, 926.8, 995.6, 403.5],
+                             'coordinates': [121.7, 146.6],
+                             'type': 'Point'},
+                            {'bbox': [652.6, 335.8, 341.6, 875.0],
+                             'coordinates': [60.3, 491.9],
+                             'type': 'Point'}],
+     'themes': ['demography', 'social movements'],
+     'title': ['Catalogue or statistical resources',
+               'Catálogo de recursos estadisticos'],
+     'type': 'Catalogue'}
