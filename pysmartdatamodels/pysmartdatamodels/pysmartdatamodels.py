@@ -1,7 +1,5 @@
-
 import datetime
 
-import os
 import re
 
 import json
@@ -15,12 +13,11 @@ import requests
 from jsonschema import validate
 
 import urllib.request
-#from utils.common_utils import *
-from .utils import extract_subject_from_raw_url, extract_datamodel_from_raw_url, \
-                    open_jsonref, parse_property, normalized2keyvalues, create_context, \
-                    generate_random_string, is_metadata_properly_reported, is_metadata_existed, \
-                    schema_output_sum, message_after_check_schema, open_yaml
 
+from .utils import extract_subject_from_raw_url, extract_datamodel_from_raw_url, \
+    open_jsonref, parse_property, normalized2keyvalues, create_context, \
+    generate_random_string, is_metadata_properly_reported, is_metadata_existed, \
+    schema_output_sum, message_after_check_schema, open_yaml
 
 path = __file__
 
@@ -33,13 +30,18 @@ left_part = path[:index]
 
 official_list_file_name = left_part + "/model-assets/official_list_data_models.json"
 ddbb_attributes_file = left_part + "/model-assets/smartdatamodels.json"
+metadata_file = left_part + "/model-assets/datamodels_metadata.json"
 
 # data models that are not able to generate examples from the schema due to certain issue
-issue_datamodels = ["SeaportFacilities", "OffStreetParking", "OnStreetParking", "ParkingGroup", "WeatherAlert", "Museum", "MosquitoDensity", "Alert", "MediaEvent",  "DataResourceFrictionlessData", "TableSchemaFrictionlessData", "free_bike_status", "geofencing_zones", "station_information", "station_status", "system_alerts", "Presentation", "DigitalInnovationHub"]
+issue_datamodels = ["SeaportFacilities", "OffStreetParking", "OnStreetParking", "ParkingGroup", "WeatherAlert",
+                    "Museum", "MosquitoDensity", "Alert", "MediaEvent", "DataResourceFrictionlessData",
+                    "TableSchemaFrictionlessData", "free_bike_status", "geofencing_zones", "station_information",
+                    "station_status", "system_alerts", "Presentation", "DigitalInnovationHub"]
 issue_message = "====== The specific models are still pending ====== \nWe cannot generate examples from it now due to some inner problems of the data model scheme json file"
 
 # Regular expression pattern to extract owner, repository, branch, and file path
 github_url_pattern = r"https://github\.com/([^/]+)/([^/]+)/blob/([^/]+)/(.+)"
+
 
 # 1
 def load_all_datamodels():
@@ -61,6 +63,7 @@ def load_all_datamodels():
         output = json.load(list_of_datamodels_pointer)["officialList"]
     return output
 
+
 # 2
 def load_all_attributes():
     """Returns an array of objects describing every attribute in the data models
@@ -69,7 +72,7 @@ def load_all_attributes():
         - dataModel: the data model this attribute is present
         - repoName: the subject this data model belongs to
         - description: the description of the attribute
-        - typeNGSI: Whether it is a property, Geoproperty, or relationship
+        - typeNGSI: Whether it is a Property, GeoProperty, or Relationship
         - modelTags: inherited from the data model tags
         - license: link to the license for the data model
         - schemaVersion: version of the data model
@@ -89,6 +92,7 @@ def load_all_attributes():
         output = json.load(ddbb_attributes_file_pointer)
     return output
 
+
 # 3
 def list_all_datamodels():
     """List the names of the entities defined in the data models.
@@ -102,7 +106,6 @@ def list_all_datamodels():
     # Opens the file with the list of data models
     with open(official_list_file_name, "r", encoding='utf-8') as list_of_datamodels_pointer:
         # Loads it in the dictionary
-        print(official_list_file_name)
         datamodelsdict = json.load(list_of_datamodels_pointer)["officialList"]
         # Stores it in the output variable
         for item in datamodelsdict:
@@ -187,9 +190,9 @@ def description_attribute(subject, datamodel, attribute):
     for item in datamodelsdict:
         try:
             if (
-                (item["repoName"] == subject)
-                and (item["dataModel"] == datamodel)
-                and (item["property"] == attribute)
+                    (item["repoName"] == subject)
+                    and (item["dataModel"] == datamodel)
+                    and (item["property"] == attribute)
             ):
                 output = item["description"]
                 done = True
@@ -229,9 +232,9 @@ def datatype_attribute(subject, datamodel, attribute):
         # print(item)
         try:
             if (
-                (item["repoName"] == subject)
-                and (item["dataModel"] == datamodel)
-                and (item["property"] == attribute)
+                    (item["repoName"] == subject)
+                    and (item["dataModel"] == datamodel)
+                    and (item["property"] == attribute)
             ):
                 if "type" in item:
                     output = item["type"]
@@ -240,7 +243,7 @@ def datatype_attribute(subject, datamodel, attribute):
                     output = False
                     done = True
         except:
-            nada = 0
+            done = False
     else:
         if not done:
             output = False
@@ -275,9 +278,9 @@ def model_attribute(subject, datamodel, attribute):
         # print(item)
         try:
             if (
-                (item["repoName"] == subject)
-                and (item["dataModel"] == datamodel)
-                and (item["property"] == attribute)
+                    (item["repoName"] == subject)
+                    and (item["dataModel"] == datamodel)
+                    and (item["property"] == attribute)
             ):
                 if "model" in item:
                     output = item["model"]
@@ -321,9 +324,9 @@ def units_attribute(subject, datamodel, attribute):
         # print(item)
         try:
             if (
-                (item["repoName"] == subject)
-                and (item["dataModel"] == datamodel)
-                and (item["property"] == attribute)
+                    (item["repoName"] == subject)
+                    and (item["dataModel"] == datamodel)
+                    and (item["property"] == attribute)
             ):
                 if "units" in item:
                     output = item["units"]
@@ -382,7 +385,7 @@ def attributes_datamodel(subject, datamodel):
 
 # 11
 def ngsi_datatype_attribute(subject, datamodel, attribute):
-    """List the NGSI data type of an attribute (Property, Relationship or Geoproperty) belonging to a subject and data model.
+    """List the NGSI data type of an attribute (Property, Relationship or GeoProperty) belonging to a subject and data model.
     Parameters:
         subject: name of the subject
         datamodel: name of the data model
@@ -407,9 +410,9 @@ def ngsi_datatype_attribute(subject, datamodel, attribute):
         # print(item)
         try:
             if (
-                (item["repoName"] == subject)
-                and (item["dataModel"] == datamodel)
-                and (item["property"] == attribute)
+                    (item["repoName"] == subject)
+                    and (item["dataModel"] == datamodel)
+                    and (item["property"] == attribute)
             ):
                 if "typeNGSI" in item:
                     output = item["typeNGSI"]
@@ -421,6 +424,7 @@ def ngsi_datatype_attribute(subject, datamodel, attribute):
         return output
     else:
         return False
+
 
 # 12
 def validate_data_model_schema(schema_url):
@@ -458,7 +462,6 @@ def validate_data_model_schema(schema_url):
     def exist_page(url):
         import requests
 
-        output = []
         try:
             pointer = requests.get(url)
             if pointer.status_code == 200:
@@ -473,10 +476,10 @@ def validate_data_model_schema(schema_url):
         purgedDescription = str(schemaPayload["description"]).replace(chr(34), "")
         # process the description
         purgedDescription = re.sub(r'\.([A-Z])', r'. \1', purgedDescription)
-        
-        separatedDescription = purgedDescription. split(". ")
+
+        separatedDescription = purgedDescription.split(". ")
         copiedDescription = list.copy(separatedDescription)
-        
+
         for descriptionPiece in separatedDescription:
             if descriptionPiece in propertyTypes:
                 output["type"] = descriptionPiece
@@ -484,12 +487,12 @@ def validate_data_model_schema(schema_url):
             elif descriptionPiece.find("Model:") > -1:
                 copiedDescription.remove(descriptionPiece)
                 output["model"] = descriptionPiece.replace("'", "").replace(
-                        "Model:", "")
+                    "Model:", "")
 
             if descriptionPiece.find("Units:") > -1:
                 copiedDescription.remove(descriptionPiece)
                 output["units"] = descriptionPiece.replace("'", "").replace(
-                        "Units:", "")
+                    "Units:", "")
         description = ". ".join(copiedDescription)
 
         return output, description
@@ -509,7 +512,8 @@ def validate_data_model_schema(schema_url):
             if "allOf" in schemaPayload:
                 for index in range(len(schemaPayload["allOf"])):
                     if "definitions" in schemaPayload["allOf"][index]:
-                        partialOutput, partialAttr = parse_payload_v2(schemaPayload["allOf"][index]["definitions"], level + 1)
+                        partialOutput, partialAttr = parse_payload_v2(schemaPayload["allOf"][index]["definitions"],
+                                                                      level + 1)
                         output = dict(output, **partialOutput)
                     elif "properties" in schemaPayload["allOf"][index]:
                         partialOutput, partialAttr = parse_payload_v2(schemaPayload["allOf"][index], level + 1)
@@ -521,7 +525,8 @@ def validate_data_model_schema(schema_url):
             if "anyOf" in schemaPayload:
                 for index in range(len(schemaPayload["anyOf"])):
                     if "definitions" in schemaPayload["anyOf"][index]:
-                        partialOutput, partialAttr = parse_payload_v2(schemaPayload["anyOf"][index]["definitions"], level + 1)
+                        partialOutput, partialAttr = parse_payload_v2(schemaPayload["anyOf"][index]["definitions"],
+                                                                      level + 1)
                         output = dict(output, **partialOutput)
                     elif "properties" in schemaPayload["anyOf"][index]:
                         partialOutput, partialAttr = parse_payload_v2(schemaPayload["anyOf"][index], level + 1)
@@ -533,7 +538,8 @@ def validate_data_model_schema(schema_url):
             if "oneOf" in schemaPayload:
                 for index in range(len(schemaPayload["oneOf"])):
                     if "definitions" in schemaPayload["oneOf"][index]:
-                        partialOutput, partialAttr = parse_payload_v2(schemaPayload["oneOf"][index]["definitions"], level + 1)
+                        partialOutput, partialAttr = parse_payload_v2(schemaPayload["oneOf"][index]["definitions"],
+                                                                      level + 1)
                         output = dict(output, **partialOutput)
                     elif "properties" in schemaPayload["oneOf"][index]:
                         partialOutput, partialAttr = parse_payload_v2(schemaPayload["oneOf"][index], level + 1)
@@ -546,7 +552,7 @@ def validate_data_model_schema(schema_url):
             if "properties" in schemaPayload:
                 output, partialAttr = parse_payload_v2(schemaPayload["properties"], level + 1)
                 attributes = merge_duplicate_attributes(attributes, partialAttr)
-                    
+
         elif level < 8:
             if isinstance(schemaPayload, dict):
                 for subschema in schemaPayload:
@@ -554,10 +560,12 @@ def validate_data_model_schema(schema_url):
                         output[subschema] = []
                         for index in range(len(schemaPayload[subschema])):
                             if "properties" in schemaPayload[subschema][index]:
-                                partialOutput, partialAttr = parse_payload_v2(schemaPayload[subschema][index], level + 1)
+                                partialOutput, partialAttr = parse_payload_v2(schemaPayload[subschema][index],
+                                                                              level + 1)
                                 output[subschema].append(partialOutput["properties"])
                             else:
-                                partialOutput, partialAttr = parse_payload_v2(schemaPayload[subschema][index], level + 1)
+                                partialOutput, partialAttr = parse_payload_v2(schemaPayload[subschema][index],
+                                                                              level + 1)
                                 output[subschema].append(partialOutput)
                             attributes = merge_duplicate_attributes(attributes, partialAttr)
 
@@ -573,7 +581,8 @@ def validate_data_model_schema(schema_url):
                                 if item in ["allOf", "anyOf", "oneOf"]:
                                     output[subschema][prop][item] = []
                                     for index in range(len(schemaPayload[subschema][prop][item])):
-                                        partialOutput, partialAttr = parse_payload_v2(schemaPayload[subschema][prop][item][index], level + 1)
+                                        partialOutput, partialAttr = parse_payload_v2(
+                                            schemaPayload[subschema][prop][item][index], level + 1)
                                         output[subschema][prop][item].append(partialOutput)
                                         attributes = merge_duplicate_attributes(attributes, partialAttr)
                                 elif item == "description":
@@ -582,12 +591,14 @@ def validate_data_model_schema(schema_url):
                                     output[subschema][prop][item] = description
                                     if x_ngsi:
                                         output[subschema][prop]["x-ngsi"] = x_ngsi
-                                
+
                                 elif item == "items":
-                                    output[subschema][prop][item], partialAttr = parse_payload_v2(schemaPayload[subschema][prop][item], level + 1)
+                                    output[subschema][prop][item], partialAttr = parse_payload_v2(
+                                        schemaPayload[subschema][prop][item], level + 1)
                                     attributes = merge_duplicate_attributes(attributes, partialAttr)
                                 elif item == "properties":
-                                    output[subschema][prop][item], partialAttr = parse_payload_v2(schemaPayload[subschema][prop][item], level + 1)
+                                    output[subschema][prop][item], partialAttr = parse_payload_v2(
+                                        schemaPayload[subschema][prop][item], level + 1)
                                     attributes = merge_duplicate_attributes(attributes, partialAttr)
                                 elif item == "type":
                                     if schemaPayload[subschema][prop][item] == "integer":
@@ -597,8 +608,8 @@ def validate_data_model_schema(schema_url):
                                 else:
                                     output[subschema][prop][item] = schemaPayload[subschema][prop][item]
 
-                    elif isinstance(schemaPayload[subschema], dict):        
-                        attributes[level].append(subschema)     
+                    elif isinstance(schemaPayload[subschema], dict):
+                        attributes[level].append(subschema)
                         output[subschema], partialAttr = parse_payload_v2(schemaPayload[subschema], level + 1)
                         attributes = merge_duplicate_attributes(attributes, partialAttr)
                     else:
@@ -609,7 +620,7 @@ def validate_data_model_schema(schema_url):
                                 output["x-ngsi"] = x_ngsi
                         else:
                             output[subschema] = schemaPayload[subschema]
-            
+
             elif isinstance(schemaPayload, list):
                 for index in range(len(schemaPayload)):
                     partialOutput, partialAttr = parse_payload_v2(schemaPayload[index], level + 1)
@@ -625,7 +636,7 @@ def validate_data_model_schema(schema_url):
         output = {}
         if isinstance(yamlDict, list):
             for item in yamlDict:
-                partialoutput = parse_yamlDict(item, datamodelRepoUrl, level+1)
+                partialoutput = parse_yamlDict(item, datamodelRepoUrl, level + 1)
                 output = dict(output, **partialoutput)
         else:
             for prop in yamlDict:
@@ -635,22 +646,22 @@ def validate_data_model_schema(schema_url):
 
                 if isinstance(yamlDict[prop], list) and len(yamlDict[prop]) > 1 and isinstance(yamlDict[prop][0], dict):
                     for item in yamlDict[prop]:
-                        partialoutput = parse_yamlDict(item, datamodelRepoUrl, level+1)
+                        partialoutput = parse_yamlDict(item, datamodelRepoUrl, level + 1)
                         output = dict(output, **partialoutput)
-        
+
                 if isinstance(yamlDict[prop], dict):
                     if prop in ["properties", "allOf", "oneOf", "anyOf", "items"]:
-                        partialoutput = parse_yamlDict(yamlDict[prop], datamodelRepoUrl, level+1)
+                        partialoutput = parse_yamlDict(yamlDict[prop], datamodelRepoUrl, level + 1)
                         output = dict(output, **partialoutput)
                         continue
                     # print("dict prop ", prop)
                     propKeys = list(yamlDict[prop].keys())
 
                     # if there's type, and there's no items, allOf, properties
-                    # if type is a 
+                    # if type is a
                     if isinstance(yamlDict[prop], dict) and prop != "x-ngsi" and not prop in exceptions:
                         # print("++++ context prop ", prop)
-                        
+
                         try:
                             propertyType = yamlDict[prop]["x-ngsi"]["type"]
                             if propertyType in propertyTypes:
@@ -661,11 +672,14 @@ def validate_data_model_schema(schema_url):
                                 output[prop]["x-ngsi_text"] = "ok to " + str(propertyType)
                             else:
                                 output[prop]["x-ngsi"] = False
-                                output[prop]["x-ngsi_text"] = "Wrong NGSI type of " + propertyType + " in the description of the property on level " + str(level)
+                                output[prop][
+                                    "x-ngsi_text"] = "Wrong NGSI type of " + propertyType + " in the description of the property on level " + str(
+                                    level)
                         except:
                             output[prop] = {}
                             output[prop]["x-ngsi"] = False
-                            output[prop]["x-ngsi_text"] = "Missing NGSI type of " + str(propertyTypes) + " in the description of the property on level " + str(level)
+                            output[prop]["x-ngsi_text"] = "Missing NGSI type of " + str(
+                                propertyTypes) + " in the description of the property on level " + str(level)
 
                         # checking the pure description
                         try:
@@ -673,7 +687,7 @@ def validate_data_model_schema(schema_url):
                             if len(description) > 15:
                                 # No double quotes in the middle
                                 # if not (".." in description):
-                                    # If there is a link, check that the link is valid
+                                # If there is a link, check that the link is valid
                                 output[prop]["documented"] = True
                                 output[prop]["text"] = description
                                 # else:
@@ -693,51 +707,57 @@ def validate_data_model_schema(schema_url):
                                 propertyType = yamlDict[prop]["enum"]
                                 if propertyType[0] == extract_datamodel_from_raw_url(datamodelRepoUrl):
                                     output[prop]["type_specific"] = True
-                                    output[prop]["type_specific_text"] = "Type property matches to data model name on level " + str(level)
+                                    output[prop][
+                                        "type_specific_text"] = "Type property matches to data model name on level " + str(
+                                        level)
                                 else:
                                     output[prop]["type_specific"] = False
-                                    output[prop]["type_specific_text"] = "Type property doesn't match to data model name on level " + str(level)
+                                    output[prop][
+                                        "type_specific_text"] = "Type property doesn't match to data model name on level " + str(
+                                        level)
                             except:
                                 output[prop]["type_specific"] = False
                                 output[prop]["type_specific_text"] = "Missing Type property"
-                    
+
                     if "properties" in propKeys:
-                        partialoutput = parse_yamlDict(yamlDict[prop]["properties"], datamodelRepoUrl, level+1)
+                        partialoutput = parse_yamlDict(yamlDict[prop]["properties"], datamodelRepoUrl, level + 1)
                         output = dict(output, **partialoutput)
                     if "items" in propKeys and yamlDict[prop]["items"]:
                         if isinstance(yamlDict[prop]["items"], list):
                             for index in range(len(yamlDict[prop]["items"])):
-                                partialoutput = parse_yamlDict(yamlDict[prop]["items"][index], datamodelRepoUrl, level+1)
+                                partialoutput = parse_yamlDict(yamlDict[prop]["items"][index], datamodelRepoUrl,
+                                                               level + 1)
                                 output = dict(output, **partialoutput)
                         else:
-                            partialoutput = parse_yamlDict(yamlDict[prop]["items"], datamodelRepoUrl, level+1)
+                            partialoutput = parse_yamlDict(yamlDict[prop]["items"], datamodelRepoUrl, level + 1)
                             output = dict(output, **partialoutput)
                     if "anyOf" in propKeys:
-                        partialoutput = parse_yamlDict(yamlDict[prop]["anyOf"], datamodelRepoUrl, level+1)
+                        partialoutput = parse_yamlDict(yamlDict[prop]["anyOf"], datamodelRepoUrl, level + 1)
                         output = dict(output, **partialoutput)
                     if "allOf" in propKeys:
-                        partialoutput = parse_yamlDict(yamlDict[prop]["allOf"], datamodelRepoUrl, level+1)
+                        partialoutput = parse_yamlDict(yamlDict[prop]["allOf"], datamodelRepoUrl, level + 1)
                         output = dict(output, **partialoutput)
                     if "oneOf" in propKeys:
-                        partialoutput = parse_yamlDict(yamlDict[prop]["oneOf"], datamodelRepoUrl, level+1)
-                        output = dict(output, **partialoutput) 
+                        partialoutput = parse_yamlDict(yamlDict[prop]["oneOf"], datamodelRepoUrl, level + 1)
+                        output = dict(output, **partialoutput)
 
         return output
 
     def is_property_already_existd(output, yamlDict):
         try:
-            commonProperties =["id", "name", "description", "location", "seeAlso", "dateCreated", "dateModified", "source", "alternateName", "dataProvider", "owner", "address", "areaServed", "type"]
+            commonProperties = ["id", "name", "description", "location", "seeAlso", "dateCreated", "dateModified",
+                                "source", "alternateName", "dataProvider", "owner", "address", "areaServed", "type"]
             existing = "alreadyUsedProperties"
             available = "availableProperties"
 
-            #print("llego a la funcion")
+            # print("llego a la funcion")
             output[existing] = []
             output[available] = []
 
             for key in yamlDict:
                 if key in commonProperties:
                     continue
-                #print(key)
+                # print(key)
                 lowKey = key.lower()
 
                 with open(ddbb_attributes_file, "r", encoding='utf-8') as ddbb_attributes_pointer:
@@ -754,30 +774,32 @@ def validate_data_model_schema(schema_url):
 
                 # print(results)
                 if len(results) > 0:
-                    definitions= []
+                    definitions = []
                     dataModelsList = []
                     types = []
                     for index, item in enumerate(results):
                         dataModelsList.append(str(index + 1) + ".-" + item["dataModel"])
-                        #print(item["type"])
+                        # print(item["type"])
                         if "description" in item or "type" in item:
                             if "description" in item:
                                 definitions.append(str(index + 1) + ".-" + item["description"])
                             else:
                                 definitions.append(str(index + 1) + ".- missing description")
                             if "type" in item:
-                                types.append(str(index + 1) + ".-" +  item["type"])
+                                types.append(str(index + 1) + ".-" + item["type"])
                             else:
                                 types.append(str(index + 1) + ".- missing type")
                         else:
                             output[existing].append({"Error": lowKey})
-                    output[existing].append({key: "Already used in data models: " + ",".join(dataModelsList) + " with these definitions: " + chr(13).join(definitions) + " and these data types: " + ",".join(types)})
+                    output[existing].append({key: "Already used in data models: " + ",".join(
+                        dataModelsList) + " with these definitions: " + chr(13).join(
+                        definitions) + " and these data types: " + ",".join(types)})
                 else:
                     output[available].append({key: "Available"})
 
         except:
             output[existing].append({"Error": lowKey})
-        
+
         return output
 
     # initialize variables for the script
@@ -885,7 +907,8 @@ def validate_data_model_schema(schema_url):
 
             return list(duplicates)
 
-        output["cause"] = f"Duplicated attributes (User-defined properties is duplicated with system-defined properties):\n\t{', '.join(find_duplicates(attributes[2]))}"
+        output[
+            "cause"] = f"Duplicated attributes (User-defined properties is duplicated with system-defined properties):\n\t{', '.join(find_duplicates(attributes[2]))}"
         output["time"] = str(datetime.datetime.now(tz=tz))
         output["parameters"] = {"schema_url": schema_url}
         print(json.dumps(output))
@@ -907,15 +930,15 @@ def validate_data_model_schema(schema_url):
             notDescribedProperties += 1
 
     output["schemaDiagnose"] = (
-        "This schema has "
-        + str(allProperties)
-        + " properties. "
-        + str(notDescribedProperties)
-        + " properties are not described at all and "
-        + str(faultyDescriptionProperties)
-        + " have descriptions that must be completed. "
-        + str(allProperties - faultyDescriptionProperties - notDescribedProperties)
-        + " are described but you can review them anyway. "
+            "This schema has "
+            + str(allProperties)
+            + " properties. "
+            + str(notDescribedProperties)
+            + " properties are not described at all and "
+            + str(faultyDescriptionProperties)
+            + " have descriptions that must be completed. "
+            + str(allProperties - faultyDescriptionProperties - notDescribedProperties)
+            + " are described but you can review them anyway. "
     )
 
     # now it checks if these properties already exist in the database
@@ -950,7 +973,7 @@ def print_datamodel(subject, datamodel, separator, meta_attributes):
              dataModel: the data model the attribute belongs to
              repoName: the subject the attribute belongs to
              description: the definition of the attribute
-             typeNGSI: the NGSI type, Property, Relationship or Geoproperty
+             typeNGSI: the NGSI type, Property, Relationship or GeoProperty
              modelTags: the tags assigned to the data model
              format: For those attributes having it the format, i.e. date-time
              units: For those attributes having it the recommended units, i.e. meters
@@ -1027,7 +1050,7 @@ def print_datamodel(subject, datamodel, separator, meta_attributes):
     return output
 
 
-#14
+# 14
 def subject_repolink(subject: str):
     """It returns the direct link to the repository of the subject if it is found and False if not .
     Parameters:
@@ -1054,6 +1077,7 @@ def subject_repolink(subject: str):
         output = False
 
     return output
+
 
 # 15
 def datamodel_repolink(datamodel: str):
@@ -1084,6 +1108,7 @@ def datamodel_repolink(datamodel: str):
 
     return output
 
+
 # 16
 def update_data():
     """Download the latest data files from a remote server
@@ -1092,11 +1117,15 @@ def update_data():
     data_dir = os.path.join(os.path.dirname(__file__), "model-assets")
 
     # Download the latest data files from a remote server
-    urllib.request.urlretrieve("https://raw.githubusercontent.com/smart-data-models/data-models/master/specs/AllSubjects/official_list_data_models.json", os.path.join(data_dir, "official_list_data_models.json"))
-    urllib.request.urlretrieve("https://smartdatamodels.org/extra/smartdatamodels.json", os.path.join(data_dir, "smartdatamodels.json"))
+    urllib.request.urlretrieve(
+        "https://raw.githubusercontent.com/smart-data-models/data-models/master/specs/AllSubjects/official_list_data_models.json",
+        os.path.join(data_dir, "official_list_data_models.json"))
+    urllib.request.urlretrieve("https://smartdatamodels.org/extra/smartdatamodels.json",
+                               os.path.join(data_dir, "smartdatamodels.json"))
 
     # Update the data files with the latest information
     # (This will depend on the specific data files and the format they use)
+
 
 # 17
 def ngsi_ld_example_generator(schema_url: str):
@@ -1116,7 +1145,7 @@ def ngsi_ld_example_generator(schema_url: str):
     if dataModel == "dataModel" or subject == "subject": return False
     if dataModel in issue_datamodels: return issue_message
 
-    #echo("schema_url",schema_url)
+    # echo("schema_url",schema_url)
     payload = open_jsonref(schema_url)
     if payload == "": return False
 
@@ -1146,7 +1175,7 @@ def ngsi_ld_example_generator(schema_url: str):
         fullDict = payload["properties"].copy()
 
     # echo("fullDict", fullDict)
-    #with open("fullDict.json", "w") as file:
+    # with open("fullDict.json", "w") as file:
     #    file.write(str(fullDict))
 
     for prop in fullDict:
@@ -1187,6 +1216,7 @@ def ngsi_ld_keyvalue_example_generator(schema_url: str):
 
     return keyvalues
 
+
 # 19
 def geojson_features_example_generator(schema_url: str):
     """It returns a fake geojson feature format example based on the given json schema
@@ -1213,7 +1243,7 @@ def geojson_features_example_generator(schema_url: str):
     else:
         for prop in basePayload:
             if isinstance(basePayload[prop], dict) and ('type' in basePayload[prop]):
-                if basePayload[prop]["type"] == "Geoproperty":
+                if basePayload[prop]["type"] == "GeoProperty":
                     geopropertyName = prop
         if geopropertyName == "":
             return "{\"error\": " + noGeometryMessage + "}"
@@ -1228,9 +1258,11 @@ def geojson_features_example_generator(schema_url: str):
         rawPayload.pop("type")
         geojsonFeature["properties"] = rawPayload
         return geojsonFeature
-    
+
+
 # 20
-def update_broker(datamodel, subject, attribute, value, entityId=None, serverUrl=None, broker_folder="/ngsi-ld/v1", updateThenCreate=True):
+def update_broker(datamodel, subject, attribute, value, entityId=None, serverUrl=None, broker_folder="/ngsi-ld/v1",
+                  updateThenCreate=True):
     # inspired by @antonio_jara
     """Update a broker compliant with a specific data model
 
@@ -1263,17 +1295,18 @@ def update_broker(datamodel, subject, attribute, value, entityId=None, serverUrl
 
         try:
             # Send a POST request to the NSI-LD broker to insert the entity
-            response = requests.post(broker_url + broker_folder + "/entities", data=json_ld_entity, headers={"Content-Type": "application/ld+json"})
+            response = requests.post(broker_url + broker_folder + "/entities", data=json_ld_entity,
+                                     headers={"Content-Type": "application/ld+json"})
 
             # Check the response status code
             if response.status_code == 201:
                 return [True, "Successfully inserted in server " + broker_url + " the entity " + str(entity)]
             else:
                 print("Failed to insert entity. Status code:", response.status_code)
-                return [False, "Failed to insert entity in broker :" + broker_url + " with the status code" + str(response.status_code) + " and this Response:" + response.text + " for this payload " + str(entity)]
+                return [False, "Failed to insert entity in broker :" + broker_url + " with the status code" + str(
+                    response.status_code) + " and this Response:" + response.text + " for this payload " + str(entity)]
         except requests.exceptions.RequestException as e:
-            return [False, "An error  type (" + str(e) + ") occurred inserting the entity in broker :" + broker_url ]
-
+            return [False, "An error  type (" + str(e) + ") occurred inserting the entity in broker :" + broker_url]
 
     def update_entity_in_broker(entity_id, updated_properties, broker_url):
         """Update an entity in an NGSI-LD broker.
@@ -1306,13 +1339,14 @@ def update_broker(datamodel, subject, attribute, value, entityId=None, serverUrl
                         'Content-Type': 'application/json',
                         'Link': f'<{create_context(subject)}>; rel="http://www.w3.org/ns/json-ld#context"; type="application/ld+json"'
                     }
-                    
+
                     try:
                         create_response = requests.post(entity_url, json=create_properties, headers=create_headers)
                         if create_response.status_code == 204:  # 204 indicates a successful update with no content response
                             return True
                         else:
-                            print(f"Failed to update entity with nonexistent attribute. Status code: {create_response.status_code}.")
+                            print(
+                                f"Failed to update entity with nonexistent attribute. Status code: {create_response.status_code}.")
                             print(create_response.text)
                             return False
 
@@ -1320,7 +1354,8 @@ def update_broker(datamodel, subject, attribute, value, entityId=None, serverUrl
                         print(f"Failed to update entity with nonexistent attribute: {e}")
                         return False
                 else:
-                    print(f"Failed to update entity. Trying to update nonexistent attributes. If so, set updateThenCreate to true.")
+                    print(
+                        f"Failed to update entity. Trying to update nonexistent attributes. If so, set updateThenCreate to true.")
                     return False
             else:
                 print(f"Failed to update entity. Status code: {response.status_code}.")
@@ -1331,16 +1366,16 @@ def update_broker(datamodel, subject, attribute, value, entityId=None, serverUrl
             print(f"Failed to update entity: {e}")
             return False
 
-    #load list of DM
-    dataModelsListUrl  = "https://raw.githubusercontent.com/smart-data-models/data-models/master/specs/AllSubjects/official_list_data_models.json"
+    # load list of DM
+    dataModelsListUrl = "https://raw.githubusercontent.com/smart-data-models/data-models/master/specs/AllSubjects/official_list_data_models.json"
     dataModelsList = open_jsonref(dataModelsListUrl)["officialList"]
     # for repo in dataModelsList:
     #     print(repo)
     dataModels = [repo["dataModels"] for repo in dataModelsList]
-    subjects =  [repo["repoName"] for repo in dataModelsList]
+    subjects = [repo["repoName"] for repo in dataModelsList]
     # print(dataModels)
     # all list of data models (even repeated ones)
-    full_list_datamodels  = [element for sublist in dataModels for element in sublist]
+    full_list_datamodels = [element for sublist in dataModels for element in sublist]
     # check if data model exists
     if datamodel not in full_list_datamodels:
         return [False, "Data model: " + datamodel + " not found in any subject"]
@@ -1366,20 +1401,27 @@ def update_broker(datamodel, subject, attribute, value, entityId=None, serverUrl
                     validate(value, schema)
                     print("Variable matches the specified data type.")
 
-                    if entityId is None: # we need to create an entity
-                        id_random = "urn:ngsi-ld" + generate_random_string(length=4) + ":" + generate_random_string(length=4)
+                    if entityId is None:  # we need to create an entity
+                        id_random = "urn:ngsi-ld" + generate_random_string(length=4) + ":" + generate_random_string(
+                            length=4)
                         if serverUrl is not None:
                             ngsi_type = ngsi_datatype_attribute(subject, datamodel, attribute)
                             if ngsi_type == "Relationship":
-                                payload = {"id": id_random, "type": datamodel, attribute: {"type": ngsi_type, "object": value}, "@context": create_context(subject)}
+                                payload = {"id": id_random, "type": datamodel,
+                                           attribute: {"type": ngsi_type, "object": value},
+                                           "@context": create_context(subject)}
                             else:
-                                payload = {"id": id_random, "type": datamodel, attribute: {"type": ngsi_type, "value": value}, "@context": create_context(subject)}
+                                payload = {"id": id_random, "type": datamodel,
+                                           attribute: {"type": ngsi_type, "value": value},
+                                           "@context": create_context(subject)}
                             return insert_in_broker(serverUrl, payload)
-                        else: # no entity id and no broker, just returned the payload to be inserted
-                            return [True, {"id": id_random, "type": datamodel, attribute: value, "@context": create_context(subject)}]
+                        else:  # no entity id and no broker, just returned the payload to be inserted
+                            return [True, {"id": id_random, "type": datamodel, attribute: value,
+                                           "@context": create_context(subject)}]
 
-                    else: # there is an entity so let's update
-                        payload = {"id": entityId, "type": datamodel, attribute: value, "@context": create_context(subject)}
+                    else:  # there is an entity so let's update
+                        payload = {"id": entityId, "type": datamodel, attribute: value,
+                                   "@context": create_context(subject)}
                         if serverUrl is not None:
                             result = update_entity_in_broker(entityId, payload, serverUrl)
                             if result:
@@ -1387,7 +1429,7 @@ def update_broker(datamodel, subject, attribute, value, entityId=None, serverUrl
                             else:
                                 return [result, "There is a problem updating this payload" + str(payload)]
                         else:
-                            return[True, "the payload for the update should be this one:" +str(payload)]
+                            return [True, "the payload for the update should be this one:" + str(payload)]
 
 
                 except jsonschema.exceptions.ValidationError as e:
@@ -1395,7 +1437,8 @@ def update_broker(datamodel, subject, attribute, value, entityId=None, serverUrl
                     print(e)
                     return [False, "The attribute: " + attribute + " cannot store the value : " + str(value)]
 
-#21
+
+# 21
 def generate_sql_schema(model_yaml: str) -> str:
     """
     Generate a PostgreSQL schema SQL script from the model.yaml representation of a Smart Data Model.
@@ -1417,7 +1460,7 @@ def generate_sql_schema(model_yaml: str) -> str:
     sql_schema_statements = []
     sql_type_statement = []
 
-    sql_data_types= ""
+    sql_data_types = ""
 
     # Define format mappings for YAML formats to postgreSQL Schema types
     type_mapping = {
@@ -1454,7 +1497,7 @@ def generate_sql_schema(model_yaml: str) -> str:
                 field_type = format_mapping.get(value["format"])
                 # add attribute to the SQL schema statement
                 sql_schema_statements.append(f"{key} {field_type}")
-            
+
             elif "enum" in value:
                 enum_values = value["enum"]
                 enum_values = [str(element) for element in enum_values]
@@ -1505,3 +1548,86 @@ def generate_sql_schema(model_yaml: str) -> str:
     print(result)
 
     return result
+
+# 22
+def look_for_datamodel(datamodel_search_text, approx_percentage = 0):
+
+    """Look for the data models that match the text included
+
+    Parameters:
+        - datamodel_search_text: piece of string with a text to be searched across the name of the data model of the SDM (It can be a part of the data model name)
+        - approx_percentage: optional parameter, in case a non-exact matching is required, percentage of likelikhood between 0 and 99. i.e. 90 means quite similar. Example Weather is 64% similar to WeatherObserved, or 74% to WeatherAlert
+
+    Returns:
+        - An array with the values of the matching data models names
+
+    """
+    from fuzzywuzzy import fuzz
+    # library to enable the fuzzy search
+
+    datamodels = list_all_datamodels()
+    output = []
+    if approx_percentage == 0:
+        output = [dm for dm in datamodels if datamodel_search_text in dm]
+    else:
+        output = [dm  for dm in datamodels if (fuzz.ratio(dm, datamodel_search_text) > approx_percentage)]
+    return output
+
+def list_datamodel_metadata(datamodel, subject):
+    """Look for the metadata data models that match the text included
+
+       Parameters:
+           - datamodel: Exact name of the data model
+           - subject: Exact name of the subject
+
+       Returns:
+           - An object  with the metadata available for this data model in the different subjects
+                -   version
+                i.e. "0.0.2"
+                -   modelTags
+                i.e. "GreenMov"
+                -   title of the data model
+                i.e. "Smart Data Models. User Context schema"
+                -   $id single link to the schema"
+                i.e. https://smart-data-models.github.io/dataModel.User/UserContext/schema.json"
+                -   description del data model
+                i.e. "Information on the context of an anonymized in a given point in time"
+                -   required attributes (array)
+                i.e. ["id", "type"]
+                -   yamlUrl link to the yaml version of the schema (model.yaml)
+                i.e. https://raw.githubusercontent.com/smart-data-models/dataModel.User/master/UserContext/model.yaml
+                -   jsonSchemaUrl link to the schema (schema.json)
+                i.e. https://raw.githubusercontent.com/smart-data-models/dataModel.User/master/UserContext/schema.json"
+                -   @context location of the @context of the subject.
+                i.e. "https://raw.githubusercontent.com/smart-data-models/dataModel.User/master/context.jsonld"
+                - exampleKeyvaluesJson link to the example in key values for NGSI v2 (json)
+                i.e. "https://raw.githubusercontent.com/smart-data-models/dataModel.User/master/UserContext/examples/example.json"
+                 - exampleKeyvaluesJsonld link to the example in key values for NGSI LD (jsonld)
+                 i.e. "https://raw.githubusercontent.com/smart-data-models/dataModel.User/master/UserContext/examples/example.jsonld"
+                 - exampleNormalizedJson link to the example in normalized for NGSI v2 (json)
+                 i.e. "https://raw.githubusercontent.com/smart-data-models/dataModel.User/master/UserContext/examples/example-normalized.json"
+                 - exampleNormalizedJsonld link to the example in normalized for NGSI LD (jsonld)
+                 i.e. "https://raw.githubusercontent.com/smart-data-models/dataModel.User/master/UserContext/examples/example-normalized.jsonld"
+                 - sql sql export of the schema.
+                 i.e. "https://raw.githubusercontent.com/smart-data-models/dataModel.User/master/UserContext/schema.sql"
+                 - adopters	list of the adopters of the data model
+                 i.e. "https://raw.githubusercontent.com/smart-data-models/dataModel.User/master/UserContext/ADOPTERS.yaml"
+                 - contributors	list of the contributors of the subject
+                 i.e. "https://raw.githubusercontent.com/smart-data-models/dataModel.User/master/CONTRIBUTORS.yaml"
+           - if the data model is not found it returs False
+           """
+
+    output = []
+
+    # Opens the file with the metadata about the data models
+    with open(metadata_file, "r", encoding='utf-8') as metadata_file_pointer:
+        metadata_dict = json.load(metadata_file_pointer)
+
+    # It looks if this datamodel-subject pair is in the metadata. Although only one result is expected execution this way is quicker than other alternatives
+    output = [metadata for metadata in metadata_dict if (metadata["dataModel"] == datamodel) and (metadata["subject"] == subject)]
+
+    # returns the outcome
+    if len(output) == 0:
+        return False
+    else:
+        return output[0]

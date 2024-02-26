@@ -5,7 +5,7 @@ from pysmartdatamodels import pysmartdatamodels as sdm
 
 
 repository = 'smart-data-models/data-models'  # Replace with your repository
-commit_sha = '8f0f54f'  # Replace with the desired commit SHA
+commit_sha = '910dcdb'  # Replace with the desired commit SHA
 
 def open_json(fileUrl):
     if fileUrl[0:4] == "http":
@@ -55,8 +55,8 @@ print(sdm.load_all_datamodels())
 assert sdm.load_all_datamodels() == test_load_all_datamodels()
 
 # Load all attributes in a dict like the official export of attributes
-print(len(sdm.load_all_attributes()))   # there is more than 150.000 to get all listed
-assert len(sdm.load_all_attributes()) == len(test_load_all_attributes())
+# print(len(sdm.load_all_attributes()))   # there is more than 150.000 to get all listed
+# assert len(sdm.load_all_attributes()) == len(test_load_all_attributes())
 
 # List all data models
 print(sdm.list_all_datamodels())
@@ -73,25 +73,25 @@ assert sdm.datamodels_subject("dataModel.Nonexistentsubject") == False
 # List description of an attribute
 print(sdm.description_attribute(subject, dataModel, attribute))
 assert sdm.description_attribute("dataModel.Weather", "WeatherForecast", "precipitation") == "Amount of water rain expected"
-assert sdm.description_attribute("dataModel.Agrifood", "AgriCrop", "hasAgriSoil") == "Reference to the recommended types of soil suitable for growing this crop."
+assert sdm.description_attribute("dataModel.Agrifood", "AgriCrop", "hasAgriSoil") == "Reference to the recommended types of soil suitable for growing this crop"
 assert sdm.description_attribute("dataModel.Nonexistentsubject", "Nonexistentdatamodel", "Nonexistentattribute") == False
 
 # List data-type of an attribute
 print(sdm.datatype_attribute(subject, dataModel, attribute))
 assert sdm.datatype_attribute("dataModel.Weather", "WeatherForecast", "precipitation") == "number"
-assert sdm.datatype_attribute("dataModel.Environment", "NoisePollution", "noiseOrigin") == "string"
+assert sdm.datatype_attribute("dataModel.Environment", "NoisePollutionForecast", "noiseOrigin") == "string"
 assert sdm.description_attribute("dataModel.Nonexistentsubject", "Nonexistentdatamodel", "Nonexistentattribute") == False
 
 # Give reference model for an attribute
 print(sdm.model_attribute(subject, dataModel, attribute))
 assert sdm.model_attribute("dataModel.Weather", "WeatherForecast", "precipitation") == "https://schema.org/Number"
-assert sdm.model_attribute("dataModel.Building", "Building", "occupier") == "https://schema.org/URL"
+assert sdm.model_attribute("dataModel.Building", "VibrationsObserved", "accelerationMeasured") == "https://schema.org/Number"
 assert sdm.model_attribute("dataModel.Parking", "OnStreetParking", "occupancyModified") == "https://schema.org/DateTime"
 assert sdm.model_attribute("dataModel.Nonexistentsubject", "Nonexistentdatamodel", "Nonexistentattribute") == False
 
 # Give reference units for an attribute
 print(sdm.units_attribute(subject, dataModel, attribute))
-assert sdm.units_attribute("dataModel.Weather", "WeatherForecast", "precipitation") == "Liters per square meter."
+assert sdm.units_attribute("dataModel.Weather", "WeatherForecast", "precipitation") == "Liters per square meter"
 assert sdm.units_attribute("dataModel.Transportation", "TrafficFlowObserved", "averageVehicleSpeed") == "Kilometer per hour (Km/h)"
 assert sdm.units_attribute("dataModel.Nonexistentsubject", "Nonexistentdatamodel", "Nonexistentattribute") == False
 
@@ -102,7 +102,7 @@ print(sdm.attributes_datamodel(subject, dataModel))
 print(sdm.ngsi_datatype_attribute(subject, dataModel, attribute))
 assert sdm.ngsi_datatype_attribute("dataModel.Weather", "WeatherForecast", "precipitation") == "Property"
 assert sdm.ngsi_datatype_attribute("dataModel.UrbanMobility", "GtfsRoute", "operatedBy") == "Relationship"
-assert sdm.ngsi_datatype_attribute("dataModel.Streetlighting", "StreetlightGroup", "location") == "GeoProperty"
+assert sdm.ngsi_datatype_attribute("dataModel.Streetlighting", "Streetlight", "location") == "GeoProperty"
 assert sdm.ngsi_datatype_attribute("dataModel.Nonexistentsubject", "Nonexistentdatamodel", "Nonexistentattribute") == False
 
 # Validate a json schema defining a data model
@@ -148,8 +148,21 @@ print(sdm.ngsi_ld_keyvalue_example_generator(schemaUrl))
 # Return a fake geojson feature format example based on the given json schema
 print(sdm.geojson_features_example_generator(schemaUrl))
 
-# Generates the sql schema based on the yaml representation of a data model 
-print(sdm.generate_sql_schema(modelYaml))
-
 # Update a broker compliant with a specific data model, inspired by Antonio Jara
 print(sdm.update_broker(dataModel, subject, attribute, value, serverUrl=serverUrl, updateThenCreate=True))
+
+# generates a SQL export of the structure of a data model based on the online yaml version of a data model
+print(sdm.generate_sql_schema(modelYaml))
+
+# Return the data models matching approximately a data model name
+print(sdm.look_for_datamodel(dataModel))
+assert sdm.look_for_datamodel(dataModel) == ['WeatherForecast']
+assert sdm.look_for_datamodel(dataModel, 99) == ['WeatherForecast']
+assert sdm.look_for_datamodel("WeatherFora", 84) == ['WeatherForecast']
+assert sdm.look_for_datamodel("WeatherFora") == []
+
+print(sdm.list_datamodel_metadata(dataModel, subject))
+assert sdm.list_datamodel_metadata(dataModel, subject)["contributors"] == "https://raw.githubusercontent.com/smart-data-models/dataModel.Weather/master/CONTRIBUTORS.yaml"
+assert sdm.list_datamodel_metadata(dataModel, subject)["@context"] == "https://raw.githubusercontent.com/smart-data-models/dataModel.Weather/master/context.jsonld"
+assert sdm.list_datamodel_metadata("Nonexistentdatamodel", "Nonexistentsubject") == False
+

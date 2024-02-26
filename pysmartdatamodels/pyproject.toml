@@ -1,9 +1,10 @@
 [tool.poetry]
 name = "pysmartdatamodels"
+repository = "https://github.com/smart-data-models/data-models/tree/master/pysmartdatamodels"
 description = "Open-licensed and free data models to model your digital twins, share data in data spaces or develop smart applications"
-version = "0.6.13"
+version = "0.6.4"
 authors = ["aabella <alberto.abella@fiware.org>", "jilin <jilin.he@fiware.org>"]
-readme = "README.md"
+readme = "./pysmartdatamodels/README.md"
 packages = [{include = "pysmartdatamodels"}]
 homepage = "https://github.com/smart-data-models/data-models/tree/master/pysmartdatamodels"
 classifiers = [
@@ -44,8 +45,8 @@ classifiers = [
   "Programming Language :: Python :: 3.10",
   "Programming Language :: Python :: 3.11"
 ]
-dependencies = ["jsonref", "jsonschema", "pytz", "requests", "os-sys", "urllib.request", "rstr", "Faker", "string", "random"]
-version = "0.6.13"
+dependencies = ["jsonref", "jsonschema", "pytz", "requests", "os-sys", "urllib.request", "rstr", "Faker", "string", "random", "fuzzywuzzy"]
+version = "0.6.4"
 readme = "README.md"
 
 [project.urls]
@@ -66,12 +67,14 @@ rstr = "^3.2.1"
 Faker = "^18.10.1"
 urllib3 = "^2.0.5"
 validator-collection = "^1.5.0"
+fuzzywuzzy = ">=0.18"
+python-Levenshtein =">=0.25"
 
 [build-system]
-requires = ["poetry-core", "jsonref", "jsonschema", "pytz", "requests", "rstr", "Faker", "urllib3"]
+requires = ["poetry-core", "jsonref", "jsonschema", "pytz", "requests", "rstr", "Faker", "urllib3", "fuzzywuzzy", "python-Levenshtein"]
 build-backend = "poetry.core.masonry.api"
 
 
 [tool.setuptools.package-data]
-pysmartdatamodels = ["utils/*.py", "model-assets/smartdatamodels.json", "model-assets/official_list_data_models.json"]
+pysmartdatamodels = ["utils/*.py", "model-assets/*.json"]
 
