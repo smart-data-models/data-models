@@ -1129,6 +1129,7 @@ def update_data():
 
 # 17
 def ngsi_ld_example_generator(schema_url: str):
+    # TODO: Add ranges to the generated values of the different attributes
     """It returns a fake normalized ngsi-ld format example based on the given json schema
     Parameters:
         schema_url: url of the schema (public available). (i.e. raw version of a github repo https://raw.githubusercontent.com/smart-data-models/dataModel.Aeronautics/master/AircraftModel/schema.json
@@ -1197,6 +1198,7 @@ def ngsi_ld_example_generator(schema_url: str):
 
 # 18
 def ngsi_ld_keyvalue_example_generator(schema_url: str):
+    # TODO: Add ranges to the generated values of the different attributes
     """It returns a fake key value ngsi-ld format example based on the given json schema
     Parameters:
         schema_url: url of the schema (public available). (i.e. raw version of a github repo https://raw.githubusercontent.com/smart-data-models/dataModel.Aeronautics/master/AircraftModel/schema.json
@@ -1219,6 +1221,7 @@ def ngsi_ld_keyvalue_example_generator(schema_url: str):
 
 # 19
 def geojson_features_example_generator(schema_url: str):
+    # TODO: Add ranges to the generated values of the different attributes
     """It returns a fake geojson feature format example based on the given json schema
     Parameters:
         schema_url: url of the schema (public available). (i.e. raw version of a github repo https://raw.githubusercontent.com/smart-data-models/dataModel.Aeronautics/master/AircraftModel/schema.json
@@ -1614,6 +1617,22 @@ def list_datamodel_metadata(datamodel, subject):
                  i.e. "https://raw.githubusercontent.com/smart-data-models/dataModel.User/master/UserContext/ADOPTERS.yaml"
                  - contributors	list of the contributors of the subject
                  i.e. "https://raw.githubusercontent.com/smart-data-models/dataModel.User/master/CONTRIBUTORS.yaml"
+                 - spec Specification in English
+                 i.e. "https://raw.githubusercontent.com/smart-data-models/dataModel.User/master/UserContext/doc/spec.md"
+                 - spec_DE Specification in German
+                 i.e. "https://raw.githubusercontent.com/smart-data-models/dataModel.User/master/UserContext/doc/spec_DE.md"
+                 - spec_ES Specification in Spanish
+                 i.e. "https://raw.githubusercontent.com/smart-data-models/dataModel.User/master/UserContext/doc/spec_ES.md"
+                 - spec_FR Specification in French
+                 i.e. "https://raw.githubusercontent.com/smart-data-models/dataModel.User/master/UserContext/doc/spec_FR.md"
+                 - spec_IT Specification in Italian
+                 i.e. "https://raw.githubusercontent.com/smart-data-models/dataModel.User/master/UserContext/doc/spec_IT.md"
+                 - spec_JA Specification in Japanese
+                 i.e. "https://raw.githubusercontent.com/smart-data-models/dataModel.User/master/UserContext/doc/spec_JA.md"
+                 - spec_KO Specification in Korean
+                 i.e. "https://raw.githubusercontent.com/smart-data-models/dataModel.User/master/UserContext/doc/spec_KO.md"
+                 - spec_ZH Specification in Chinese
+                 i.e. "https://raw.githubusercontent.com/smart-data-models/dataModel.User/master/UserContext/doc/spec_ZH.md"
            - if the data model is not found it returs False
            """
 
@@ -1631,3 +1650,188 @@ def list_datamodel_metadata(datamodel, subject):
         return False
     else:
         return output[0]
+
+#def validate_payload(datamodel, subject, pyaload):
+    """Look for the metadata data models that match the text included
+
+       Parameters:
+           - datamodel: Exact name of the data model
+           - subject: Exact name of the subject
+           - payload: key values format of payload to be validated
+
+       Returns:
+           - An object with two subattributes 
+                -   result: True or false
+                -   details: Details about the succesful validation 
+                -   Case True: I.e. if there is a warnning like exceeding attributes present but not in the data model)
+                -   Case False: I.e. the outcome of the validation library
+        
+        Remarks for the development
+        -   Maybe the libraries jsonschema, json-checker, pydantic could be useful here
+        - Structure: 
+        -   validate the inputs
+        -       validate that the payload is a real and valid json
+        -       validate that there is a type attribute coinciding to the data model name
+        -       validate that the pointed data model really exist in the database 
+    """
+
+    # def validate_payload(datamodel, subject, payload):
+    # TODO: Add this function to the package in next version
+    """Validates a payload against a data model 
+
+       Parameters:
+           - datamodel: Exact name of the data model
+           - subject: Exact name of the subject
+           - payload: key values format of payload to be validated
+
+       Returns:
+           - An object with two subattributes 
+                -   result: True or false
+                -   details: Details about the successful validation 
+                -   Case True: I.e. if there is a warning like exceeding attributes present but not in the data model)
+                -   Case False: I.e. the outcome of the validation library
+
+        Remarks for the development
+        -   Maybe the libraries jsonschema, json-checker, pydantic could be useful here
+        - Structure: 
+        -   validate the inputs
+        -       validate that the payload is a real and valid json
+        -       validate that there is a type attribute coinciding to the data model name
+        -       validate that the pointed data model really exist in the database 
+    """
+
+    # def create_QR_code(datamodel, subject):
+    # TODO: Add this function to the package in next version
+    """Look for the metadata data models that match the text included
+
+       Parameters:
+           - datamodel: Exact name of the data model
+           - subject: Exact name of the subject
+
+       Returns:
+           - An image payload  
+                
+
+        Remarks for the development
+        -   This code below creates such QR 
+        - It has to 
+        -   1) be adapted to the input parameters and to the output format
+        - Remove own functions already present in the package
+        -   2) include the new required packages in the requirements of the package
+        - Maybe this internal procedure for extending the package can help on getting all the details https://smartdatamodels.org/index.php/procedure-to-extend-pysmartdatamodels-package/ of course not all tasks need to be accomplished if you are extending the package in your PR  
+        
+        def create_qr_image(filename, repo_name, dataModel):
+    import qrcode
+    from PIL import Image, ImageDraw, ImageFont
+    from github import Github
+
+    def open_json(fileUrl):
+        import json
+        import requests
+        if fileUrl[0:4] == "http":
+            # es URL
+            try:
+                pointer = requests.get(fileUrl)
+                return json.loads(pointer.content.decode('utf-8'))
+            except:
+                return None
+
+        else:
+            # es file
+            try:
+                file = open(fileUrl, "r")
+                return json.loads(file.read())
+            except:
+                return None
+            # test
+
+    logo_path = "smartdatamodels.png"
+    credentialsFile = "/home/aabella/transparentia/CLIENTES/EU/FIWARE/credentials.json"
+    # credentialsFile = "/home/fiware/credentials.json"
+    credentials = open_json(credentialsFile)
+    access_token = credentials["token"]
+    repo_owner = credentials["globalUser"]
+    g = Github(access_token)
+    repo = g.get_organization(repo_owner).get_repo(repo_name)
+
+
+    # Generate QR code image
+    qr = qrcode.QRCode(
+        version=None,
+        error_correction=qrcode.constants.ERROR_CORRECT_L,
+        box_size=10,
+        border=3,
+    )
+    url = f"https://github.com/{repo_owner}/{repo_name}/blob/master/{dataModel}/doc/spec.md"
+
+    qr.add_data(url)
+    qr.make(fit=True)
+    # img = qr.make_image(fill_color="#002e67", back_color="white")
+    img = qr.make_image(fill_color="#002e67", back_color="white")
+    border_size = 24
+    border = Image.new("RGB", (img.size[0] + border_size * 2, img.size[1] + border_size * 2), "white")
+    border.paste(img, (border_size, border_size))
+
+    # Add the letter
+    draw = ImageDraw.Draw(border)
+    font = ImageFont.truetype("arial.ttf", 20)
+    draw.text((border_size, border_size), "Structure of the Data model:" + dataModel, font=font, fill="#002e67")
+    moreinfo  = "FIWARE Foundation. info@smartdatamodels.org"
+    draw.text((border_size, border_size + img.size[0]), moreinfo, fill="#002e67", font=font,)
+    # Add the logo
+    logo = Image.open(logo_path)
+    logo_size = int(border_size * 2.5)
+    logo = logo.resize((logo_size, logo_size))
+    border.paste(logo, (
+    int((border_size * 2 + img.size[0] - logo_size) / 2), int((border_size * 2 + img.size[1] - logo_size) / 2)))
+
+    # Save image to file
+    border.save(filename)
+
+    # Upload file to GitHub repository
+    with open(filename, "rb") as f:
+        content = f.read()
+    # repo.create_file(dataModel + "/" + filename, "QR image", content)
+ 
+    """
+
+    # def include_local_datamodel(schema, subject, datamodel, contributors (optional), adopters (optional), notes(optional)):
+    # TODO: Add this function to the package in next version
+    """The aim of this function is to allow the users to include new data models locally 
+    This information will not be shared with the central repository unless the user is really willing to do it with an additional functions (see submit datamodel function)
+
+       Parameters:
+           - schema: In json schema with the description meeting the contribution manual https://bit.ly/contribution_manual
+           - subject: Exact name of the proposed local subject
+           - datamodel: name of the proposed data model 
+           - contributors: Optional parameter. List of the contributors of the data model (usually it is a pointer to an external file in yaml like this one https://github.com/smart-data-models/dataModel.Transportation/blob/master/CONTRIBUTORS.yaml
+           - adopters: Optional parameter. List of the adopters of the data model (usually it is a pointer to an external file in yaml like this one https://github.com/smart-data-models/dataModel.Transportation/blob/master/APDSObservation/ADOPTERS.yaml
+           
+       Returns:
+           - Extends the files located ad model-assets/smartdatamodels.json, official_list_data_models and datamodels_metadata.json.
+           - As a result local data models will be treated absolutely like the official ones
+                   
+        Remarks for the development
+        -   The new subject-datamodel pair should be different from an existing one to prevent overwriting existing data models
+        - Maybe it could be useful for the development the current script we have for running the inventory of the database https://github.com/smart-data-models/data-models/blob/master/utils/30_f_properties_inventory_10.0.py
+          
+    """
+
+    # def submit_datamodel(subject, datamodel, contributors (optional), adopters (optional), notes(optional), example_payload, notes_context, public_repository, credentials):
+    # TODO: Add this function to the package in next version
+    """The aim of this function is to allow the users to share their local data models to the central repository in order to get it accepted
+    The function will create the structure expected in the local repository provided, eventually this local repository could be the incubated.  
+    
+       Parameters:
+           - subject: Exact name of the proposed local subject
+           - datamodel: name of the proposed data model 
+           - contributors: Optional parameter. List of the contributors of the data model (usually it is a pointer to an external file in yaml like this one https://github.com/smart-data-models/dataModel.Transportation/blob/master/CONTRIBUTORS.yaml
+           - adopters: Optional parameter. List of the adopters of the data model (usually it is a pointer to an external file in yaml like this one https://github.com/smart-data-models/dataModel.Transportation/blob/master/APDSObservation/ADOPTERS.yaml
+
+       Returns:
+           - A PR in the selected repository creating according to the structure described in the contribution manual https://docs.google.com/presentation/d/e/2PACX-1vTs-Ng5dIAwkg91oTTUdt8ua7woBXhPnwavZ0FxgR8BsAI_Ek3C5q97Nd94HS8KhP-r_quD4H0fgyt3/pub?start=false&loop=false&delayms=3000#slide=id.g280c21c8f96_0_124 (page 10 contribution manual)
+           - Eventually a mail to info@smartdatamodels.org announcing the availability of the repo in order to start the accepting process.
+
+        
+
+    """
