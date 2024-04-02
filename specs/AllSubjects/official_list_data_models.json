@@ -1,5 +1,5 @@
 {
-  "updatedDate": "2024-02-07T18:31:00.31416",
+  "updatedDate": "2024-04-03T01:34:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -1629,6 +1629,17 @@
       ],
       "domains": [
         "CrossSector"
+      ]
+    },
+     {
+      "repoName": "dataModel.AAS",
+      "repoLink": "https://github.com/smart-data-models/dataModel.AAS.git",
+      "dataModels": [
+        "I4AAS",
+        "I4Asset"
+      ],
+      "domains": [
+        "SmartManufacturing"
       ]
     }
   ]
