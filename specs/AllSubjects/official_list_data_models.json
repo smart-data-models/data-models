@@ -1,5 +1,5 @@
 {
-  "updatedDate": "2024-04-03T01:34:00.31416",
+  "updatedDate": "2024-04-03T18:06:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -1636,7 +1636,8 @@
       "repoLink": "https://github.com/smart-data-models/dataModel.AAS.git",
       "dataModels": [
         "I4AAS",
-        "I4Asset"
+        "I4Asset",
+        "I4Submodel"
       ],
       "domains": [
         "SmartManufacturing"
