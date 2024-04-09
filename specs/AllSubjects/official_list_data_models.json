@@ -1,5 +1,5 @@
 {
-  "updatedDate": "2024-04-03T18:06:00.31416",
+  "updatedDate": "2024-04-09T19:09:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -1637,7 +1637,9 @@
       "dataModels": [
         "I4AAS",
         "I4Asset",
-        "I4Submodel"
+        "I4Submodel",
+        "I4SubmodelElementOperation",
+        "I4SubmodelElementProperty"
       ],
       "domains": [
         "SmartManufacturing"
