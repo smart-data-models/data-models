@@ -1,5 +1,5 @@
 {
-  "updatedDate": "2024-04-30T18:01:00.31416",
+  "updatedDate": "2024-04-30T18:23:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -1646,7 +1646,7 @@
       ]
     },
     {
-      "repoName": "dataModel.Gaia-XAAS",
+      "repoName": "dataModel.Gaia-X",
       "repoLink": "https://github.com/smart-data-models/dataModel.Gaia-X.git",
       "dataModels": [
         "CPU",
