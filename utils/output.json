@@ -1,27 +1,198 @@
 {
-    "id": "https://smart-data-models.github.io/dataModel.PointOfInterest/PointOfInterest/schema.json",
-    "@context": "iudx:PointOfInterest",
-    "type": [
-        "PointOfInterest"
-    ],
-    "name": {
+    "id": "$af4345f234525$",
+    "mrn": {
         "type": "string",
-        "value": "BMC Kiosk"
+        "value": "urn:mrn:eshuv:portcalls:portcall:id:941"
     },
-    "additionalInfoURL": {
+    "type": "PortCall",
+    "portCode": {
         "type": "string",
-        "value": "https://voc.iudx.org.in/additionalInfoURL"
+        "value": "ESVLC"
     },
-    "municipalityInfo": {
-        "type": "object",
-        "value": {
-            "district": "Bangalore Urban",
-            "ulbName": "BMC",
-            "cityID": "23",
-            "stateName": "Karnataka",
-            "cityName": "Bangalore",
-            "zoneID": "2",
-            "wardNum": 4
-        }
-    }
+    "portCallNumber": {
+        "type": "string",
+        "value": "ESHUV202301296"
+    },
+    "regularLine": {
+        "type": "string",
+        "value": "GRIMALDI - SHORT SEA SERVICE B"
+    },
+    "terminal": {
+        "type": "string",
+        "value": "TERMINAL ESTE, S.A."
+    },
+    "status": {
+        "type": "string",
+        "value": "AUTHORIZED"
+    },
+    "authorizedBy": {
+        "type": "string",
+        "value": "PORT_ARMY_AUTHORITIES"
+    },
+    "authorizationDate": {
+        "format": "date-time",
+        "type": "string",
+        "value": "2023-01-01T08:00:00.00Z"
+    },
+    "voyageNumber": {
+        "type": "string",
+        "value": "12021060223"
+    },
+    "lastPortCode": {
+        "type": "string",
+        "value": "ESBCN"
+    },
+    "nextPortCode": {
+        "type": "string",
+        "value": "NLRTM"
+    },
+    "vesselTypeCategory": {
+        "type": "string",
+        "value": "CONTAINER"
+    },
+    "vesselTypeClass": {
+        "type": "string",
+        "value": "FULL CONTAINER"
+    },
+    "vesselRef": {
+        "type": "string",
+        "value": "URI:NGSI-LD:Portcall:001"
+    },
+    "vesselMrn": {
+        "type": "string",
+        "value": "urn:mrn:ESHUV:portcalls:portcallvessel:id:12345"
+    },
+    "vesselName": {
+        "type": "string",
+        "value": "Acme ERC SHIP"
+    },
+    "imo": {
+        "type": "number",
+        "value": 87123445
+    },
+    "mmsi": {
+        "type": "number",
+        "value": 210049000
+    },
+    "callSign": {
+        "type": "string",
+        "value": "5BP-*987C3"
+    },
+    "masterName": {
+        "type": "string",
+        "value": "John Doe"
+    },
+    "wasteAgreementExists": {
+        "type": "boolean",
+        "value": "true"
+    },
+    "dangerousGoodsCarried": {
+        "type": "boolean",
+        "value": "true"
+    },
+    "dangerousGoodsLoading": {
+        "type": "boolean",
+        "value": "true"
+    },
+    "dangerousGoodsUnloading": {
+        "type": "boolean",
+        "value": "false"
+    },
+    "agentName": {
+        "type": "string",
+        "value": "Acme Consignors S.L."
+    },
+    "agentLegalCode": {
+        "type": "string",
+        "value": "A-43242342"
+    },
+    "agentChangeDate": {
+        "format": "date-time",
+        "type": "string",
+        "value": "2023-01-01T08:00:00"
+    },
+    "secondAgentName": {
+        "type": "string",
+        "value": "John Doe"
+    },
+    "secondAgentLegalCode": {
+        "type": "string",
+        "value": "31133133-V"
+    },
+    "manifestActivated": {
+        "type": "boolean",
+        "value": "true"
+    },
+    "manifestActivationDate": {
+        "format": "date-time",
+        "type": "string",
+        "value": "2023-01-01T08:00:00"
+    },
+    "interiorTraffic": {
+        "type": "boolean",
+        "value": "false"
+    },
+    "remarks": {
+        "type": "string",
+        "value": "Fondeado hasta arreglar aver\u00eda"
+    },
+    "crewArrival": {
+        "type": "number",
+        "value": 100
+    },
+    "crewDeparture": {
+        "type": "number",
+        "value": 120
+    },
+    "passengersArrival": {
+        "type": "number",
+        "value": 20
+    },
+    "passengersDeparture": {
+        "type": "number",
+        "value": 25
+    },
+    "eta": {
+        "format": "date-time",
+        "type": "string",
+        "value": "2023-01-01T07:15:00"
+    },
+    "rta": {
+        "format": "date-time",
+        "type": "string",
+        "value": "2023-01-01T07:30:00"
+    },
+    "pta": {
+        "format": "date-time",
+        "type": "string",
+        "value": "2023-01-01T07:15:00"
+    },
+    "ata": {
+        "format": "date-time",
+        "type": "string",
+        "value": "2023-01-01T08:00:00"
+    },
+    "etd": {
+        "format": "date-time",
+        "type": "string",
+        "value": "2023-01-02T07:15:00"
+    },
+    "rtd": {
+        "format": "date-time",
+        "type": "string",
+        "value": "2023-01-02T07:00:00"
+    },
+    "ptd": {
+        "format": "date-time",
+        "type": "string",
+        "value": "2023-01-02T07:00:00"
+    },
+    "atd": {
+        "format": "date-time",
+        "type": "string",
+        "value": "2023-01-02T07:00:00"
+    },
+    "@context": [
+        "https://raw.githubusercontent.com/smart-data-models/dataModel.MarineTransport/master/context.jsonld"
+    ]
 }

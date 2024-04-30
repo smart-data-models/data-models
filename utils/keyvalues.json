@@ -1,1 +1,38 @@
-{"id": "https://smart-data-models.github.io/dataModel.PointOfInterest/PointOfInterest/schema.json", "@context": "iudx:PointOfInterest", "type": ["PointOfInterest"], "name": {"type": "string", "value": "BMC Kiosk"}, "additionalInfoURL": {"type": "string", "value": "https://voc.iudx.org.in/additionalInfoURL"}, "municipalityInfo": {"type": "object", "value": {"district": "Bangalore Urban", "ulbName": "BMC", "cityID": "23", "stateName": "Karnataka", "cityName": "Bangalore", "zoneID": "2", "wardNum": 4}}}
+{
+  "id": "urn:ngsi-ld:Memory:id:XJWG:82694953",
+  "type": "Memory",
+  "dateCreated": "2024-02-12T22:38:51Z",
+  "dateModified": "2024-04-02T15:33:47Z",
+  "source": "",
+  "name": "regular memory",
+  "alternateName": "",
+  "description": "",
+  "dataProvider": "",
+  "owner": [
+    "urn:ngsi-ld:Memory:items:HIOM:43953773"
+  ],
+  "seeAlso": [],
+  "location": {
+    "type": "Point",
+    "coordinates": [
+      50.8484048,
+      4.3671841
+    ]
+  },
+  "address": {
+    "streetAddress": "Avenue des Arts",
+    "addressLocality": "Brussels",
+    "addressRegion": "Stay ",
+    "addressCountry": "Belgium",
+    "postalCode": "1210",
+    "postOfficeBoxNumber": "",
+    "streetNr": "6-9",
+    "district": ""
+  },
+  "areaServed": "europe",
+  "memorySize": 16,
+  "memoryClass": "DDR SDRAM",
+  "memoryRank": "other",
+  "eccEnabled": false,
+  "hardwareEncryption": false
+}

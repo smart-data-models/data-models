@@ -23,6 +23,7 @@
   "dataModel.ERA": "https://raw.githubusercontent.com/smart-data-models/dataModel.ERA/master/context.jsonld",
   "dataModel.Forestry": "https://raw.githubusercontent.com/smart-data-models/dataModel.Forestry/master/context.jsonld",
   "dataModel.FrictionlessData": "https://raw.githubusercontent.com/smart-data-models/dataModel.FrictionlessData/master/context.jsonld",
+  "dataModel.Gaia-X": "https://raw.githubusercontent.com/smart-data-models/dataModel.Gaia-X/master/context.jsonld",
   "dataModel.GBFS": "https://raw.githubusercontent.com/smart-data-models/dataModel.GBFS/master/context.jsonld",
   "dataModel.GreenEnergy": "https://raw.githubusercontent.com/smart-data-models/dataModel.GreenEnergy/master/context.jsonld",
   "dataModel.Hl7": "https://raw.githubusercontent.com/smart-data-models/dataModel.Hl7/master/context.jsonld",

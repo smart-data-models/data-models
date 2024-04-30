@@ -1,5 +1,5 @@
 {
-  "updatedDate": "2024-04-09T19:09:00.31416",
+  "updatedDate": "2024-04-30T18:01:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -1643,6 +1643,19 @@
       ],
       "domains": [
         "SmartManufacturing"
+      ]
+    },
+    {
+      "repoName": "dataModel.Gaia-XAAS",
+      "repoLink": "https://github.com/smart-data-models/dataModel.Gaia-X.git",
+      "dataModels": [
+        "CPU",
+        "Disk",
+        "GPU",
+        "Memory"
+      ],
+      "domains": [
+        "CrossSector"
       ]
     }
   ]

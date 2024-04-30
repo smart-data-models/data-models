@@ -108,142 +108,160 @@ def keyvalues2normalized(keyvaluesPayload):
 
 
 keyvaluesPayload = {
-  "id": "urn:ngsi-ld:QueueMeasurement:id:IEQX:79193255",
-  "type": "QueueMeasurement",
-  "Occupancy": 58,
-  "ProjectedWaitTime": 544.4,
-  "Throughput": 384,
-  "WaitTime": 645.9,
-  "MeasurementDevice": {
-    "Name": "",
-    "MeasurementDeviceLocation": {
-      "Name": ""
+  "id": "$af4345f234525$",
+  "mrn": "urn:mrn:eshuv:portcalls:portcall:id:941",
+  "type": "PortCall",
+  "portCode": "ESVLC",
+  "portCallNumber": "ESHUV202301296",
+  "regularLine": "BALE: CITY1 - ISLANDER",
+  "terminal": "TERMINAL ESTE, S.A.",
+  "status": "AUTHORIZED",
+  "authorizedBy": "PORT_ARMY_AUTHORITIES",
+  "authorizationDate": "2023-01-01T08:00:00.00Z",
+  "voyageNumber": "12021060223",
+  "lastPortCode": "ESBCN",
+  "nextPortCode": "NLRTM",
+  "vesselTypeCategory": "CONTAINER",
+  "vesselTypeClass": "FULL CONTAINER",
+  "vesselRef": "URI:NGSI-LD:Portcall:001",
+  "vesselMrn": "urn:mrn:ESHUV:portcalls:portcallvessel:id:12345",
+  "vesselName": "Acme ERC SHIP",
+  "imo": 87123445,
+  "mmsi": 210049000,
+  "callSign": "5BP-*987C3",
+  "masterName": "John Doe",
+  "wasteAgreementExists": True,
+  "dangerousGoodsCarried": True,
+  "dangerousGoodsLoading": True,
+  "dangerousGoodsUnloading": False,
+  "agentName": "Acme Consignors S.L.",
+  "agentLegalCode": "A-43242342",
+  "agentChangeDate": "2023-01-01T08:00:00",
+  "secondAgentName": "John Doe",
+  "secondAgentLegalCode": "31133133-V",
+  "manifestActivated": True,
+  "manifestActivationDate": "2023-01-01T08:00:00",
+  "interiorTraffic": False,
+  "remarks": "Fondeado hasta arreglar avería",
+  "crewArrival": 100,
+  "crewDeparture": 120,
+  "passengersArrival": 20,
+  "passengersDeparture": 25,
+  "eta": "2023-01-01T07:15:00",
+  "rta": "2023-01-01T07:30:00",
+  "pta": "2023-01-01T07:15:00",
+  "ata": "2023-01-01T08:00:00",
+  "etd": "2023-01-02T07:15:00",
+  "rtd": "2023-01-02T07:00:00",
+  "ptd": "2023-01-02T07:00:00",
+  "atd": "2023-01-02T07:00:00",
+  "regularLine": "GRIMALDI - SHORT SEA SERVICE B",
+  "@context": [
+    "https://raw.githubusercontent.com/smart-data-models/dataModel.MarineTransport/master/context.jsonld"
+  ]
+}
+
+normalizedPayload ={
+  "id": "urn:ngsi-ld:Memory:id:XJWG:82694953",
+  "type": "Memory",
+  "dateCreated": {
+    "type": "Date-Time",
+    "value": "2024-02-12T22:38:51Z"
+  },
+  "dateModified": {
+    "type": "Date-Time",
+    "value": "2024-04-02T15:33:47Z"
+  },
+  "source": {
+    "type": "Text",
+    "value": ""
+  },
+  "name": {
+    "type": "Text",
+    "value": "regular memory"
+  },
+  "alternateName": {
+    "type": "Text",
+    "value": ""
+  },
+  "description": {
+    "type": "Text",
+    "value": ""
+  },
+  "dataProvider": {
+    "type": "Text",
+    "value": ""
+  },
+  "owner": {
+    "type": "array",
+    "value": [
+      "urn:ngsi-ld:Memory:items:HIOM:43953773"
+    ]
+  },
+  "seeAlso": {
+    "type": "array",
+    "value": [
+    ]
+  },
+  "location": {
+    "type": "geo:json",
+    "value": {
+      "type": "Point",
+      "coordinates": [
+        50.8484048,
+        4.3671841
+      ]
     }
   },
-  "MeasurementTimePeriod": {
-    "EndTime": "2023-03-22T18:59:02Z"
-  },
-  "PassengerQueue": {
-    "Identifier": "1",
-    "Name": "1",
-    "CheckpointFacility": {
-      "Description": "",
-      "Identifier": "1bdaec90-7a42-11e7-bb31-be2e44b06b34",
-      "Name": "Checkpoint B",
-      "CheckpointAreaLocation": "",
-      "CheckpointFacilityOperatorParty": "",
-      "CheckpointFacilityType": "",
-      "ConcourseFacility": {
-        "Identifier": "BA/B",
-        "Name": "Boarding Area B",
-        "TerminalFacility": {
-          "Identifier": "T1",
-          "Name": "Terminal 1",
-          "AirportFacility": {
-            "IataCode": "SFO",
-            "IcaoCode": "KSFO",
-            "Name": "San Francisco InternationalAirport"
-          }
-        }
-      },
-      "OperationTimePeriod": ""
-    },
-    "PassengerProcess": {
-      "Name": "",
-      "PassengerProcessType": {
-        "Code": "",
-        "Description": ""
-      }
-    },
-    "QueueLocation": {
-      "Name": ""
-    },
-    "QueueStatus": {
-      "Name": ""
-    },
-    "QueueType": {
-      "Code": "",
-      "Description": ""
+  "address": {
+    "type": "StructuredValue",
+    "value": {
+      "streetAddress": "Avenue des Arts",
+      "addressLocality": "Brussels",
+      "addressRegion": "Stay ",
+      "addressCountry": "Belgium",
+      "postalCode": "1210",
+      "postOfficeBoxNumber": "",
+      "streetNr": "6-9",
+      "district": ""
     }
+  },
+  "areaServed": {
+    "type": "Text",
+    "value": "europe"
+  },
+  "memorySize": {
+    "type": "Number",
+    "value": 16,
+    "unitCode": "Gb"
+  },
+  "memoryClass": {
+    "type": "Text",
+    "value": "DDR SDRAM"
+  },
+  "memoryRank": {
+    "type": "Text",
+    "value": "other"
+  },
+  "eccEnabled": {
+    "type": "Boolean",
+    "value": False
+  },
+  "hardwareEncryption": {
+    "type": "Boolean",
+    "value": False
   }
 }
 
-normalizedPayload = {
-    "id": "urn:ngsi-ld:Catalogue:id:KSLT:97146192",
-    "type": "Catalogue",
-    "dateCreated": {
-        "type": "Property",
-        "value": {
-            "@type": "DateTime",
-            "@value": "2023-03-20T18:53:50Z"
-        }
-    },
-    "dateModified": {
-        "id": "urn:ngsi-ld:CheckpointFacility:id:MMJG:16938337",
-        "type": "CheckpointFacility",
-        "Description": "control",
-        "Identifier": "control-1",
-        "Name": "",
-        "CheckpointAreaLocation": {
-            "Latitude": 40.42,
-            "Longitude": 3.708,
-            "Name": "gate 23",
-            "Srid": 0,
-            "AirportElevation": {
-                "Name": "",
-                "Value": 571.3,
-                "AirportElevationUnitOfMeasurement": {
-                    "Name": "Mater"
-                }
-            },
-            "ZoneAreaLocation": {
-                "Name": "",
-                "TerminalAreaLocation": {
-                    "Name": "",
-                    "AirportLocation": {
-                        "Latitude": 40.42,
-                        "Longitude": 3.708,
-                        "Name": "gate 23",
-                        "Srid": 534
-                    }
-                }
-            }
-        },
-        "CheckpointFacilityOperatorParty": {
-            "Name": ""
-        },
-        "CheckpointFacilityType": {
-            "Code": "",
-            "Description": ""
-        },
-        "ConcourseFacility": {
-            "Identifier": "",
-            "Name": "",
-            "TerminalFacility": {
-                "Identifier": "terminal 1",
-                "Name": "",
-                "AirportFacility": {
-                    "IataCode": "BMA",
-                    "IcaoCode": "ESSB",
-                    "Name": ""
-                }
-            }
-        },
-        "OperationTimePeriod": {
-            "ClosingTime": "23:59",
-            "OpeningTime": "0:00"
-        }
-    },
-    "@context": [
-        "https://raw.githubusercontent.com/smart-data-models/dataModel.STAT-DCAT-AP/master/context.jsonld"
-    ]
-}
 
-# payload = normalized2keyvalues(normalizedPayload)
+
+
+
+payload = normalized2keyvalues(normalizedPayload)
 # print(payload)
-# with open("example-normalized.json", "w") as file:
-#     json.dump(payload, file)
-
-schema = keyvalues2normalized(keyvaluesPayload)
 with open("keyvalues.json", "w") as file:
-    json.dump(schema, file)
+    json.dump(payload, file, indent=2)
+
+# schema = keyvalues2normalized(keyvaluesPayload)
+# with open("example-normalized.json", "w") as file:
+#     json.dump(schema, file, indent=2)
