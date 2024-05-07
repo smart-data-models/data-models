@@ -1,0 +1,10 @@
+
+3.- THE FUNCTION FOR INCLUDING THE NEW DATA MODEL UPDATING THE 3 FILES IN THE PACKAGE
+4.- create a function to say where the package is installed and where the templated data model is located
+5.- Modify validate_data_model_schema to make possible to validate not only a public repo but a local one
+6.- test the insertion of the template function
+7.- meter los nuevos casos de prueba para la función de añadir un nuevo modelo de datos
+8.- crear una función para borrar un modelo de datos local
+
+
+

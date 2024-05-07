@@ -1,0 +1,30 @@
+{
+  "id": "uri:ngsi-ld:sample:my_datamodel:1234",
+  "type": "my_datamodel",
+  "template__date": "2018-07-07T15:05:59.408Z",
+  "template__array": [
+    "Device:eQL-EDF3GL-2006201705",
+    "Device:eQL-EDF3GL-2006201705"
+  ],
+  "template__string": "HKAPK0200",
+  "template__number": 150781.96448,
+  "template__object": {
+    "template__subattribute1": 11996.416016,
+    "template__subattribute2": "sample_text",
+    "template__subattribute3": [
+      "subattribute1",
+      "subattribute2"
+    ]
+  },
+  "template__boolean": true,
+  "template__email": "sample_email@example.com",
+  "template__relationship": "uri:ngsi-ld:sample:other_entity:4321",
+  "template__geoproperty": {
+    "type": "Point",
+    "coordinates": [
+      3.313743000000,
+      50.855703000000
+    ]
+  }
+}
+

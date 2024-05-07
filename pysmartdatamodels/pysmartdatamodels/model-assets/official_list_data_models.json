@@ -1,5 +1,5 @@
 {
-  "updatedDate": "2024-02-07T18:31:00.31416",
+  "updatedDate": "2024-04-30T18:23:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -1626,6 +1626,33 @@
       "repoLink": "https://github.com/smart-data-models/dataModel.HumanResources.git",
       "dataModels": [
         "CurriculumVitae"
+      ],
+      "domains": [
+        "CrossSector"
+      ]
+    },
+     {
+      "repoName": "dataModel.AAS",
+      "repoLink": "https://github.com/smart-data-models/dataModel.AAS.git",
+      "dataModels": [
+        "I4AAS",
+        "I4Asset",
+        "I4Submodel",
+        "I4SubmodelElementOperation",
+        "I4SubmodelElementProperty"
+      ],
+      "domains": [
+        "SmartManufacturing"
+      ]
+    },
+    {
+      "repoName": "dataModel.Gaia-X",
+      "repoLink": "https://github.com/smart-data-models/dataModel.Gaia-X.git",
+      "dataModels": [
+        "CPU",
+        "Disk",
+        "GPU",
+        "Memory"
       ],
       "domains": [
         "CrossSector"

@@ -10,4 +10,10 @@
 
 # version 0.7.0
 - Including in the documentation the TODO of the pending functions to be implemented to help forkers to implement some of the functions
--
+
+# version 0.7.1
+- Including new function validate_dcat_ap_distribution_sdm
+- Updating the comments of most of the functions
+- Some code improvements by jilin.he@fiware.org
+- Included a new directory with templates for the creation of a data model. Not used yet but next version they will be used for the creation of local data models. Available at my_subject directory
+- Fixing the missing dependency of ruamel.yaml package

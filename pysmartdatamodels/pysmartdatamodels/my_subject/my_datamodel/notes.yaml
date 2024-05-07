@@ -1,0 +1,8 @@
+notesHeader:
+  notes appearing at the beginning of the spec
+notesMiddle:
+  notes appearing in the middle of the spec
+notesFooter:
+  notes appearing in the footer of the spec
+notesReadme:
+  notes appearing in the beginning of the README.md at the root of the data model directory

@@ -1,13 +1,39 @@
 import json
+import jsonref
 import requests
 
-from pysmartdatamodels import pysmartdatamodels as sdm
+import sys
+import os
+
+# Get the current directory of the test file
+current_dir = os.path.dirname(os.path.realpath(__file__))
+
+# Construct the path to your package directory
+package_dir = os.path.join(current_dir, "..")
+
+# Add the package directory to sys.path to prioritize local import
+sys.path.insert(0, package_dir)
+import pysmartdatamodels as sdm
 
 
 repository = 'smart-data-models/data-models'  # Replace with your repository
-commit_sha = '1deeb49'  # Replace with the desired commit SHA
+commit_sha = '7653fb3a5e9b3aae682eaa19ddf91aea8370d0fb'  # Replace with the desired commit SHA
 
-def open_json(fileUrl):
+def open_json(fileUrl: str):
+    """
+    Opens a JSON file given its URL or path and returns the loaded content as a JSON object.
+    Parameters:
+    - file_url (str): The URL or path of the JSON file.
+    Returns:
+    - dict: The loaded JSON content if successful, none otherwise.
+    Example:
+    open_json("https://example.com/data.json")
+    {...}
+    open_json("local_file.json")
+    {...}
+    open_json("invalid-url")
+    None
+    """
     if fileUrl[0:4] == "http":
         # es URL
         try:
@@ -22,16 +48,48 @@ def open_json(fileUrl):
             return json.loads(file.read())
         except:
             return None
-        
+
+def open_jsonref(fileUrl: str):
+    """
+    Opens a JSON file given its URL or path and returns the loaded content as a JSON object.
+    Capable of parsing JSON file with $ref
+    Parameters:
+    - file_url (str): The URL or path of the JSON file.
+    Returns:
+    - dict: The loaded JSON content if successful, none otherwise.
+    Example:
+    open_jsonref("https://example.com/data.json")
+    {...}
+    open_jsonref("local_file.json")
+    {...}
+    open_jsonref("invalid-url")
+    None
+    """
+    if fileUrl[0:4] == "http":
+        # es URL
+        try:
+            pointer = requests.get(fileUrl)
+            output = jsonref.loads(pointer.content.decode('utf-8'), load_on_repr=True, merge_props=True)
+            return output
+        except:
+            return None
+    else:
+        # es file
+        try:
+            file = open(fileUrl, "r")
+            return jsonref.loads(file.read(), load_on_repr=True, merge_props=True)
+        except:
+            return None
+
 def test_load_all_datamodels():
-    file_path = 'pysmartdatamodels/pysmartdatamodels/model-assets/official_list_data_models.json'  # Replace with the file path
+    file_path = 'specs/AllSubjects/official_list_data_models.json'  # Replace with the file path
     fileUrl = f"https://raw.githubusercontent.com/{repository}/{commit_sha}/{file_path}"
+    print(fileUrl)
     return open_json(fileUrl)["officialList"]
-    
+
 def test_load_all_attributes():
-    file_path = 'pysmartdatamodels/pysmartdatamodels/model-assets/smartdatamodels.json'  # Replace with the file path
-    fileUrl = f"https://raw.githubusercontent.com/{repository}/{commit_sha}/{file_path}"
-    return open_json(fileUrl)
+    file_path = "https://smartdatamodels.org/extra/smartdatamodels.json"
+    return open_json(file_path)
 
 subject = "dataModel.Weather"
 
@@ -45,18 +103,18 @@ value = 0.5
 
 schemaUrl = "https://raw.githubusercontent.com/smart-data-models/dataModel.Agrifood/master/AgriApp/schema.json"
 
-
 modelYaml = "https://raw.githubusercontent.com/smart-data-models/dataModel.Transportation/master/FareCollectionSystem/model.yaml"
-
+#
+DCATAPExampleUrl = "https://raw.githubusercontent.com/smart-data-models/dataModel.DCAT-AP/master/Distribution/examples/example.json"
 
 # Load all datamodels in a dict like the official list
 
-print(sdm.load_all_datamodels())
+# print(sdm.load_all_datamodels())
 assert sdm.load_all_datamodels() == test_load_all_datamodels()
 
 # Load all attributes in a dict like the official export of attributes
-# print(len(sdm.load_all_attributes()))   # there is more than 150.000 to get all listed
-# assert len(sdm.load_all_attributes()) == len(test_load_all_attributes())
+print(len(sdm.load_all_attributes()))   # there is more than 150.000 to get all listed
+assert len(sdm.load_all_attributes()) == len(test_load_all_attributes())
 
 # List all data models
 print(sdm.list_all_datamodels())
@@ -131,8 +189,7 @@ assert sdm.subject_repolink("dataModel.Nonexistentsubject") == False
 # # Return the links to the repositories of a data model name
 print(sdm.datamodel_repolink(dataModel))
 assert sdm.datamodel_repolink("WeatherForecast") == ['https://github.com/smart-data-models/dataModel.Weather.git']
-assert sdm.datamodel_repolink("Activity") == ['https://github.com/smart-data-models/dataModel.User.git', \
-                                              'https://github.com/smart-data-models/dataModel.OCF.git']
+assert sdm.datamodel_repolink("Activity") == ['https://github.com/smart-data-models/dataModel.User.git', 'https://github.com/smart-data-models/dataModel.OCF.git']
 assert sdm.datamodel_repolink("Nonexistentdatamodel") == False
 
 # Update the official data model list or the database of attributes from the source
@@ -144,7 +201,7 @@ print(sdm.ngsi_ld_example_generator(schemaUrl))
 
 # Return a fake key value ngsi-ld format example based on the given json schema
 print(sdm.ngsi_ld_keyvalue_example_generator(schemaUrl))
-
+#
 # Return a fake geojson feature format example based on the given json schema
 print(sdm.geojson_features_example_generator(schemaUrl))
 
@@ -161,9 +218,17 @@ assert sdm.look_for_datamodel(dataModel, 99) == ['WeatherForecast']
 assert sdm.look_for_datamodel("WeatherFora", 84) == ['WeatherForecast']
 assert sdm.look_for_datamodel("WeatherFora") == []
 
+# Return the metadata of a data model contributors, context and specification in Spanish
 print(sdm.list_datamodel_metadata(dataModel, subject))
 assert sdm.list_datamodel_metadata(dataModel, subject)["contributors"] == "https://raw.githubusercontent.com/smart-data-models/dataModel.Weather/master/CONTRIBUTORS.yaml"
 assert sdm.list_datamodel_metadata(dataModel, subject)["@context"] == "https://raw.githubusercontent.com/smart-data-models/dataModel.Weather/master/context.jsonld"
 assert sdm.list_datamodel_metadata(dataModel, subject)["spec_ES"] == "https://raw.githubusercontent.com/smart-data-models/dataModel.Weather/master/WeatherForecast/doc/spec_ES.md"
 assert sdm.list_datamodel_metadata("Nonexistentdatamodel", "Nonexistentsubject") == False
+
+# Take a distribution DCAT-AP in json and validates if the downloadURL contains a valid payload against conformsTo
+
+content_DCAT = open_jsonref(DCATAPExampleUrl)
+# print(content_DCAT)
+assert (sdm.validate_dcat_ap_distribution_sdm(content_DCAT) == True)
+assert (sdm.validate_dcat_ap_distribution_sdm(schemaUrl) == False)
 

@@ -1,0 +1,56 @@
+{
+  "id": "uri:ngsi-ld:sample:my_datamodel:1234",
+  "type": "my_datamodel",
+  "template_date": {
+    "type": "Date",
+    "value": "2018-07-07T15:05:59.408Z"
+  },
+  "template_array": {
+    "type": "array",
+    "value": [
+      "Device:eQL-EDF3GL-2006201705",
+      "Device:eQL-EDF3GL-2006201705"
+    ]
+  },
+  "template_string": {
+    "type": "Text",
+    "value": "HKAPK0200"
+  },
+  "template_number": {
+    "type": "Number",
+    "value": 150781.96448
+  },
+  "template_object": {
+    "type": "StructuredValue",
+    "value": {
+      "template_subattribute1": 11996.416016,
+      "template_subattribute2": "sample_text",
+      "template_subattribute3": [
+        "subattribute1",
+        "subattribute2"
+      ]
+    }
+  },
+  "template_boolean": {
+    "type": "Boolean",
+    "value": true
+  },
+  "template_email": {
+    "type": "Text",
+    "value": "sample_email@example.com"
+  },
+  "template_relationship": {
+    "type": "URL",
+    "value": "uri:ngsi-ld:sample:other_entity:4321"
+  },
+   "template_geoproperty": {
+    "type": "geo:json",
+    "value": {
+      "type": "Point",
+      "coordinates": [
+        3.313743000000,
+        50.855703000000
+      ]
+    }
+  }
+}
