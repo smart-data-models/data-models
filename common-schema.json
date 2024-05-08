@@ -570,7 +570,7 @@
             },
             "faxNumber": {
               "type": "string",
-              "description": "Property. Model:'http://schema.org/Text'. The fax number"
+              "description": "Property. Model:'http://schema.org/Text'. The fax number of the item"
             },
             "productSupported": {
               "type": "string",
