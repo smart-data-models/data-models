@@ -1,5 +1,5 @@
 {
-  "updatedDate": "2024-04-30T18:23:00.31416",
+  "updatedDate": "2024-05-10T11:58:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -1014,6 +1014,7 @@
         "WifiPointOfInterest"
       ],
       "domains": [
+        "CrossSector",
         "SmartCities"
       ]
     },
