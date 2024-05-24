@@ -15,8 +15,9 @@ from jsonschema import validate, Draft202012Validator
 
 import urllib.request
 
+# from pysmartdatamodels.utils.common_utils import extract_subject_from_raw_url, extract_datamodel_from_raw_url, open_jsonref, parse_property2ngsild_example, normalized2keyvalues_v2, create_context, generate_random_string, is_metadata_properly_reported, is_metadata_existed,  schema_output_sum, message_after_check_schema, open_yaml, is_url_existed,  parse_payload_v2, parse_yamlDict
 
-from .utils.common_utils import extract_subject_from_raw_url, extract_datamodel_from_raw_url, open_jsonref, parse_property2ngsild_example, normalized2keyvalues_v2, create_context, generate_random_string, is_metadata_properly_reported, is_metadata_existed,  schema_output_sum, message_after_check_schema, open_yaml, is_url_existed,  parse_payload_v2, parse_yamlDict
+from utils.common_utils import extract_subject_from_raw_url, extract_datamodel_from_raw_url, open_jsonref, parse_property2ngsild_example, normalized2keyvalues_v2, create_context, generate_random_string, is_metadata_properly_reported, is_metadata_existed,  schema_output_sum, message_after_check_schema, open_yaml, is_url_existed,  parse_payload_v2, parse_yamlDict
 
 path = __file__
 
@@ -826,7 +827,7 @@ def ngsi_ld_example_generator(schema_url: str):
         schema_url: url of the schema (public available). (i.e. raw version of a github repo https://raw.githubusercontent.com/smart-data-models/dataModel.Aeronautics/master/AircraftModel/schema.json
 
     Returns:
-        if the input parameter exists and the json schema is a valide json:
+        if the input parameter exists and the json schema is a valid json:
             a fake normalized ngsi-ld format example stored in dictionary format
         if there's any problem related to input parameter and json schema:
             False
@@ -1591,3 +1592,25 @@ def validate_dcat_ap_distribution_sdm(json_data):
 
     return validated
     ################## END OF SECTION FOR VALIDATION WITH SMART DATA MODELS ##################
+
+# 25
+def subject_for_datamodel(datamodel):
+    """The function looks for the subject corresponding to a data model name
+    if not found it returns false
+       Parameters:
+           datamodel: name of the data model
+
+       Returns:
+           An array (always) if there is only one element with the names of the subjects
+           Usually only one element in the array is returned because there are few clashes in data model names
+           False if no subject is found
+    """
+
+    with open(official_list_file_name, "r", encoding='utf-8') as list_of_datamodels_pointer:
+        list_of_datamodels = json.load(list_of_datamodels_pointer)["officialList"]
+        subjects = [repo["repoName"] for repo in list_of_datamodels if datamodel in repo["dataModels"]]
+    if len(subjects) == 0:
+        return False
+    else:
+        return subjects
+

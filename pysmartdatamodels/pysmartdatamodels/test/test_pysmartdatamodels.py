@@ -9,15 +9,17 @@ import os
 current_dir = os.path.dirname(os.path.realpath(__file__))
 
 # Construct the path to your package directory
-package_dir = os.path.join(current_dir, "..")
+package_path = os.path.dirname(current_dir)
 
 # Add the package directory to sys.path to prioritize local import
-sys.path.insert(0, package_dir)
+sys.path.insert(0, package_path)
+
+print(sys.path)
 import pysmartdatamodels as sdm
 
 
 repository = 'smart-data-models/data-models'  # Replace with your repository
-commit_sha = '7653fb3a5e9b3aae682eaa19ddf91aea8370d0fb'  # Replace with the desired commit SHA
+commit_sha = '2234baefe2b6aa4debcdeabb8971a04c95b7344d'  # Replace with the desired commit SHA
 
 def open_json(fileUrl: str):
     """
@@ -232,3 +234,6 @@ content_DCAT = open_jsonref(DCATAPExampleUrl)
 assert (sdm.validate_dcat_ap_distribution_sdm(content_DCAT) == True)
 assert (sdm.validate_dcat_ap_distribution_sdm(schemaUrl) == False)
 
+
+assert (sdm.subject_for_datamodel(dataModel)[0] == "dataModel.Weather")
+assert (sdm.subject_for_datamodel("wrong_model") == False)

@@ -108,57 +108,43 @@ def keyvalues2normalized(keyvaluesPayload):
 
 
 keyvaluesPayload = {
-  "id": "$af4345f234525$",
-  "mrn": "urn:mrn:eshuv:portcalls:portcall:id:941",
-  "type": "PortCall",
-  "portCode": "ESVLC",
-  "portCallNumber": "ESHUV202301296",
-  "regularLine": "BALE: CITY1 - ISLANDER",
-  "terminal": "TERMINAL ESTE, S.A.",
+  "id": "02ce3860-3126-42af-8ac7-c2a661134130",
+  "type": "Berth",
+  "mrn": "urn:mrn:eshuv:portcalls:berth:id:18013",
+  "gln": 1234567890123,
+  "portCode": "ESHUV",
+  "year": 2023,
+  "portCallNumber": "ESHUV202300123",
+  "portCallRef": "urn:mrn:eshuv:portcalls:portcall:2023:id:941",
+  "stopRank": 2,
+  "terminal": "Muelle Levante",
+  "berthCode": "urn:mrn:eshuv:portcalls:berth:code:10",
+  "berthName": "Levante comercial",
+  "gln": 84332157000139,
+  "firstBollard": "N03",
+  "lastBollard": "N12",
   "status": "AUTHORIZED",
-  "authorizedBy": "PORT_ARMY_AUTHORITIES",
-  "authorizationDate": "2023-01-01T08:00:00.00Z",
-  "voyageNumber": "12021060223",
-  "lastPortCode": "ESBCN",
-  "nextPortCode": "NLRTM",
-  "vesselTypeCategory": "CONTAINER",
-  "vesselTypeClass": "FULL CONTAINER",
-  "vesselRef": "URI:NGSI-LD:Portcall:001",
-  "vesselMrn": "urn:mrn:ESHUV:portcalls:portcallvessel:id:12345",
-  "vesselName": "Acme ERC SHIP",
-  "imo": 87123445,
-  "mmsi": 210049000,
-  "callSign": "5BP-*987C3",
-  "masterName": "John Doe",
-  "wasteAgreementExists": True,
-  "dangerousGoodsCarried": True,
-  "dangerousGoodsLoading": True,
-  "dangerousGoodsUnloading": False,
-  "agentName": "Acme Consignors S.L.",
-  "agentLegalCode": "A-43242342",
-  "agentChangeDate": "2023-01-01T08:00:00",
-  "secondAgentName": "John Doe",
-  "secondAgentLegalCode": "31133133-V",
-  "manifestActivated": True,
-  "manifestActivationDate": "2023-01-01T08:00:00",
-  "interiorTraffic": False,
-  "remarks": "Fondeado hasta arreglar avería",
-  "crewArrival": 100,
-  "crewDeparture": 120,
-  "passengersArrival": 20,
-  "passengersDeparture": 25,
-  "eta": "2023-01-01T07:15:00",
-  "rta": "2023-01-01T07:30:00",
-  "pta": "2023-01-01T07:15:00",
-  "ata": "2023-01-01T08:00:00",
-  "etd": "2023-01-02T07:15:00",
-  "rtd": "2023-01-02T07:00:00",
-  "ptd": "2023-01-02T07:00:00",
-  "atd": "2023-01-02T07:00:00",
-  "regularLine": "GRIMALDI - SHORT SEA SERVICE B",
-  "@context": [
-    "https://raw.githubusercontent.com/smart-data-models/dataModel.MarineTransport/master/context.jsonld"
-  ]
+  "requestedAt": "2023-01-01T07:30:00",
+  "authorizedAt": "2023-01-01T07:30:00",
+  "berthingTypeCode": "AB1",
+  "mooringLines": 12,
+  "activityCode": "ZOP",
+  "etaBerth": "2023-01-01T07:30:00",
+  "rtaBerth": "2023-01-01T07:30:00",
+  "ptaBerth": "2023-01-01T07:30:00",
+  "ataBerth": "2023-01-01T07:30:00",
+  "etdBerth": "2023-01-01T07:30:00",
+  "rtdBerth": "2023-01-01T07:30:00",
+  "ptdBerth": "2023-01-01T07:30:00",
+  "atdBerth": "2023-01-01T07:30:00",
+  "arrivalDraught": 12.3,
+  "departureDraught": 9.5,
+  "remarks": "FONDEA PARA SUMINISTRO DE COMBUSTIBLE POR GABARRA",
+  "authorizationRemarks": "authorized after departure of ship XX",
+  "agentName": "Acme Huelva S.L.",
+  "agentLegalCode": "A-98345678",
+  "createdAt": "2023-01-01T07:30:00",
+  "modifiedAt": "2023-01-01T07:30:00"
 }
 
 normalizedPayload ={
@@ -257,11 +243,11 @@ normalizedPayload ={
 
 
 
-payload = normalized2keyvalues(normalizedPayload)
-# print(payload)
-with open("keyvalues.json", "w") as file:
-    json.dump(payload, file, indent=2)
+# payload = normalized2keyvalues(normalizedPayload)
+# # print(payload)
+# with open("keyvalues.json", "w") as file:
+#     json.dump(payload, file, indent=2)
 
-# schema = keyvalues2normalized(keyvaluesPayload)
-# with open("example-normalized.json", "w") as file:
-#     json.dump(schema, file, indent=2)
+schema = keyvalues2normalized(keyvaluesPayload)
+with open("example-normalized.json", "w") as file:
+    json.dump(schema, file, indent=2)

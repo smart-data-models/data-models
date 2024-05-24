@@ -33,6 +33,40 @@ Currently, there are thirteen domains.
 
 from pysmartdatamodels import pysmartdatamodels as sdm
 
+def open_jsonref(fileUrl: str):
+    import requests
+    import jsonref
+    """
+    Opens a JSON file given its URL or path and returns the loaded content as a JSON object.
+    Capable of parsing JSON file with $ref
+    Parameters:
+    - file_url (str): The URL or path of the JSON file.
+    Returns:
+    - dict: The loaded JSON content if successful, none otherwise.
+    Example:
+    open_jsonref("https://example.com/data.json")
+    {...}
+    open_jsonref("local_file.json")
+    {...}
+    open_jsonref("invalid-url")
+    None
+    """
+    if fileUrl[0:4] == "http":
+        # es URL
+        try:
+            pointer = requests.get(fileUrl)
+            output = jsonref.loads(pointer.content.decode('utf-8'), load_on_repr=True, merge_props=True)
+            return output
+        except:
+            return None
+    else:
+        # es file
+        try:
+            file = open(fileUrl, "r")
+            return jsonref.loads(file.read(), load_on_repr=True, merge_props=True)
+        except:
+            return None
+
 subject = "dataModel.Weather"
 
 dataModel = "WeatherForecast"
@@ -46,6 +80,11 @@ value = 0.5
 schemaUrl = "https://smart-data-models.github.io/dataModel.Agrifood/AgriApp/schema.json"
 
 modelYaml = "https://raw.githubusercontent.com/smart-data-models/dataModel.Transportation/master/FareCollectionSystem/model.yaml"
+
+DCATAPExampleUrl = "https://raw.githubusercontent.com/smart-data-models/dataModel.DCAT-AP/master/Distribution/examples/example.json"
+
+content_DCAT = open_jsonref(DCATAPExampleUrl)
+
 
 # Load all datamodels in a dict like the official list
 print("1 : ")
@@ -151,6 +190,15 @@ print(sdm.look_for_datamodel("WeatherFora", 84))
 print("23 : ")
 print(sdm.list_datamodel_metadata(dataModel, subject))
 
+# retrieve the metadata, context, version, model tags, schema, yaml schema, title, description, $id, required, examples, adopters, contributors and sql export of a data model
+print("23 : ")
+print(sdm.list_datamodel_metadata(dataModel, subject))
+
+print("24:")
+print(sdm.validate_dcat_ap_distribution_sdm(content_DCAT))
+
+print("25:")
+print(sdm.subject_for_datamodel(dataModel))
 
 ```
 
@@ -495,7 +543,29 @@ print(sdm.list_datamodel_metadata(dataModel, subject))
                  - contributors	list of the contributors of the subject
                  i.e. "https://raw.githubusercontent.com/smart-data-models/dataModel.User/master/CONTRIBUTORS.yaml"
            - if the data model is not found it returs False
-           
+
+24.- Validates a DCAT-AP registry by using its conformsTo if the conformsTo points to a smart data model schema
+
+    Parameters:
+           json_data: metadata in DCAT-AP distribution format (See https://github.com/smart-data-models/dataModel.DCAT-AP/blob/master/Distribution/schema.json and
+           https://semiceu.github.io/DCAT-AP/releases/3.0.0/
+                conformsTo: Attribute (Array) with links to the json schemas of SDM
+                downloadURL: Public available link to the raw format of the payload
+
+       Returns:
+           It prints a version of the attributes separated by the separator listing the meta_attributes specified
+           A variable with the same strings
+           if any of the input parameters is not found it returns False
+
+25- Look for the subjects corresponding to a data model name  
+
+      Parameters:
+           datamodel: name of the data model
+
+       Returns:
+           An array (always) if there is only one element with the names of the subjects
+           Usually only one element in the array isa returned because there are few clashes in data model names
+           False if no subject is found         
 
 ## Pending features (glad to receive contributions to them)
 
