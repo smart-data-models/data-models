@@ -57,6 +57,7 @@
   "dataModel.Streetlighting": "https://raw.githubusercontent.com/smart-data-models/dataModel.Streetlighting/master/context.jsonld",
   "dataModel.S4BLDG": "https://github.com/smart-data-models/dataModel.S4BLDG.git",
   "dataModel.S4SYST": "https://github.com/smart-data-models/dataModel.S4SYST.git",
+  "dataModel.STAT-DCAT-AP": "https://raw.githubusercontent.com/smart-data-models/dataModel.STAT-DCAT-AP/master/context.jsonld",
   "dataModel.TourismDestinations": "https://raw.githubusercontent.com/smart-data-models/dataModel.TourismDestinations/master/context.jsonld",
   "dataModel.Transportation": "https://raw.githubusercontent.com/smart-data-models/dataModel.Transportation/master/context.jsonld",
   "dataModel.UrbanMobility": "https://raw.githubusercontent.com/smart-data-models/dataModel.UrbanMobility/master/context.jsonld",
