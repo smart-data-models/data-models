@@ -1,5 +1,5 @@
 {
-  "updatedDate": "2024-05-10T11:58:00.31416",
+  "updatedDate": "2024-06-07T12:20:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -1377,6 +1377,7 @@
       "repoName": "dataModel.MarineTransport",
       "repoLink": "https://github.com/smart-data-models/dataModel.MarineTransport.git",
       "dataModels": [
+        "Berth",
         "Booking",
         "EdiCodeco",
         "Port",
