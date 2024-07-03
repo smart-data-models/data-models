@@ -10,7 +10,7 @@ The Roadmap of the Smart Data Models Initiative is the following:
 
 * There is an option in smartdatamodels.org for listing other [initiatives pending](https://smartdatamodels.org/index.php/smart-data-models-wish-list/)
 
-* Automation of the testing tools to check consistency within the data models Accomplished[**] (https://smartdatamodels.org/index.php/data-models-contribution-api/)](https://smartdatamodels.org/index.php/data-models-contribution-api/) ))
+* Automation of the testing tools to check consistency within the data models **Accomplished** [https://smartdatamodels.org/index.php/data-models-contribution-api/](https://smartdatamodels.org/index.php/data-models-contribution-api/)
 
 
 
