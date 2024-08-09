@@ -1,4 +1,4 @@
-{"$schema": "http://json-schema.org/schema#", 
+{"$schema": "https://json-schema.org/draft/2020-12/schema", 
 "$id": "https://smart-data-models.github.io/data-models/terms.jsonld", 
 "title": "Terms included into the Smart Data Models", 
 "definitions": {"activityType": "The action performed (e.g. Drive). Normative References: [https://schema.org/Action](https://schema.org/Action), [https://www.w3.org/TR/activitystreams-vocabulary/#activity-types](https://www.w3.org/TR/activitystreams-vocabulary/#activity-types), [https://health-lifesci.schema.org/PhysicalActivityCategory](https://health-lifesci.schema.org/PhysicalActivityCategory)", 

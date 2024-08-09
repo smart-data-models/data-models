@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://smart-data-models.github.io/data-models/Entity-ngsiv2-datamodels-schema.json",
   "title": "NGSIv2 Entity. Normalized Format for Smart Data Models",
   "description": "NGSIv2 Entity. Normalized Format aligned with the usage given by Smart Data Models. Restrictions: geo:point, geo:line, geo:polygon, geo:box not covered. keyValues representation not covered",
