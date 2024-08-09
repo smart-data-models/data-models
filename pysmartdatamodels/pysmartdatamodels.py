@@ -1252,7 +1252,7 @@ def look_for_datamodel(datamodel_search_text, approx_percentage = 0):
         - An array with the values of the matching data models names
 
     """
-    from fuzzywuzzy import fuzz
+    from rapidfuzz import fuzz
     # library to enable the fuzzy search
 
     datamodels = list_all_datamodels()
