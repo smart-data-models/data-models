@@ -1,5 +1,5 @@
 {
-  "updatedDate": "2024-06-07T12:20:00.31416",
+  "updatedDate": "2024-09-13T16:29:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -859,6 +859,7 @@
         "EOAnalysis",
         "EODataHub",
         "EOGeoDataLayer",
+        "EOSatelliteImagery",
         "EOInstrument",
         "EOProduct",
         "EOSatellitePlatform"
