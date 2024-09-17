@@ -1,5 +1,5 @@
 {
-  "updatedDate": "2024-09-18T01:00:00.31416",
+  "updatedDate": "2024-09-18T01:05:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -1021,7 +1021,7 @@
     },
     {
       "repoName": "dataModel.RoboticIndustrialActivities",
-      "repoLink": "https://github.com/smart-data-models/RoboticIndustrialActivities.git",
+      "repoLink": "https://github.com/smart-data-models/dataModel.RoboticIndustrialActivities.git",
       "dataModels": [
         "Pallet",
         "Piece",
