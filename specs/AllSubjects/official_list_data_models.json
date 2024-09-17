@@ -1,5 +1,5 @@
 {
-  "updatedDate": "2024-09-13T16:29:00.31416",
+  "updatedDate": "2024-09-18T01:00:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -997,7 +997,7 @@
     },
     {
       "repoName": "dataModel.MachineLearning",
-      "repoLink": "https://github.com/smart-data-models/dataModel.DistributedLedgerTech.git",
+      "repoLink": "https://github.com/smart-data-models/dataModel.MachineLearning.git",
       "dataModels": [
         "MLModel",
         "MLProcessing",
