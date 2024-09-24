@@ -1,12 +1,12 @@
 {
-  "$schema": "http://json-schema.org/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$schemaVersion": "0.0.1",
-  "$id": "https://smart-data-models.github.io/dataModel.Energy/ThreePhaseAcMeasurement/schema.json",
-  "title": "Smart Data Models - Energy / Three Phase AC Measurement",
-  "description": "An electrical  measurement from a system that uses three phase alternating current.",
+  "$id": "https://smart-data-models.github.io/dataModel.SUBJECT/DATAMODEL/schema.json",
+  "title": "Smart Data Models - SUBJECT / DATAMODEL",
+  "description": "Description of the data model DATAMODEL ",
   "modelTags": "",
   "derivedFrom": "",
-  "license": "https://smart-data-models.github.io/dataModel.Energy/ThreePhaseAcMeasurement/LICENSE.md",
+  "license": "https://smart-data-models.github.io/dataModel.SUBJECT/DATAMODEL/LICENSE.md",
   "type": "object",
   "allOf": [
     {

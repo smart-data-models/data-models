@@ -1,6 +1,6 @@
 # Context related files
 
-this file compiles several resources for the creation of customized @context resoruces for the [Smart Data Models](https://smartdatamodels.org) Program
+this file compiles several resources for the creation of customized @context resources for the [Smart Data Models](https://smartdatamodels.org) Program
 
 # Root directory
 - common-context.jsonld: It includes those terms which are declared as common in Smart Data Models Program
