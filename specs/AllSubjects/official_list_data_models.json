@@ -1,5 +1,5 @@
 {
-  "updatedDate": "2024-09-18T01:23:00.31416",
+  "updatedDate": "2024-09-30T11:58:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -1337,6 +1337,7 @@
       "repoName": "dataModel.CPSV-AP",
       "repoLink": "https://github.com/smart-data-models/dataModel.CPSV-AP.git",
       "dataModels": [
+        "Address",
         "BusinessEvent",
         "Cost",
         "CriterionRequirement",
