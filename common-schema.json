@@ -18,7 +18,7 @@
           "description": "Property. Identifier format of any NGSI entity"
         }
       ],
-      "description": "Property. Unique identifier of the entity"
+      "description": "Relationship. Unique identifier of the entity"
     },
     "email": {
       "type": "string",
