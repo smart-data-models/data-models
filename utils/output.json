@@ -1,14 +1,6 @@
 {
-    "id": "02ce3860-3126-42af-8ac7-c2a661134130",
-    "type": "Berth",
-    "mrn": {
-        "type": "string",
-        "value": "urn:mrn:eshuv:portcalls:berth:id:18013"
-    },
-    "gln": {
-        "type": "number",
-        "value": 84332157000139
-    },
+    "id": "urn:mrn:eshuv:portcalls:activity:id:40923",
+    "type": "Operation",
     "portCode": {
         "type": "string",
         "value": "ESHUV"
@@ -23,130 +15,72 @@
     },
     "portCallRef": {
         "type": "string",
-        "value": "urn:mrn:eshuv:portcalls:portcall:2023:id:941"
+        "value": "urn:mrn:eshuv:portcalls:activity:id:941"
+    },
+    "berthRef": {
+        "type": "string",
+        "value": "urn:mrn:eshuv:portcalls:berth:id:1234"
     },
     "stopRank": {
         "type": "number",
         "value": 2
     },
+    "operationRank": {
+        "type": "boolean",
+        "value": "true"
+    },
+    "ets": {
+        "format": "date-time",
+        "type": "string",
+        "value": "2023-01-01T07:30:00"
+    },
+    "etc": {
+        "format": "date-time",
+        "type": "string",
+        "value": "2023-01-01T07:30:00"
+    },
+    "operationTypeCode": {
+        "type": "string",
+        "value": "ZE"
+    },
+    "productCode": {
+        "type": "string",
+        "value": "Z41"
+    },
+    "amount": {
+        "type": "number",
+        "value": 120
+    },
+    "measureUnit": {
+        "type": "string",
+        "value": "TEU"
+    },
+    "maxWeightPerUnit": {
+        "type": "number",
+        "value": 23.3
+    },
     "terminal": {
         "type": "string",
-        "value": "Muelle Levante"
+        "value": "Muelle Sur"
     },
-    "berthCode": {
+    "position": {
         "type": "string",
-        "value": "urn:mrn:eshuv:portcalls:berth:code:10"
-    },
-    "berthName": {
-        "type": "string",
-        "value": "Levante comercial"
-    },
-    "firstBollard": {
-        "type": "string",
-        "value": "N03"
-    },
-    "lastBollard": {
-        "type": "string",
-        "value": "N12"
-    },
-    "status": {
-        "type": "string",
-        "value": "AUTHORIZED"
-    },
-    "requestedAt": {
-        "format": "date-time",
-        "type": "string",
-        "value": "2023-01-01T07:30:00"
-    },
-    "authorizedAt": {
-        "format": "date-time",
-        "type": "string",
-        "value": "2023-01-01T07:30:00"
-    },
-    "berthingTypeCode": {
-        "type": "string",
-        "value": "AB1"
-    },
-    "mooringLines": {
-        "type": "number",
-        "value": 12
-    },
-    "activityCode": {
-        "type": "string",
-        "value": "ZOP"
-    },
-    "etaBerth": {
-        "format": "date-time",
-        "type": "string",
-        "value": "2023-01-01T07:30:00"
-    },
-    "rtaBerth": {
-        "format": "date-time",
-        "type": "string",
-        "value": "2023-01-01T07:30:00"
-    },
-    "ptaBerth": {
-        "format": "date-time",
-        "type": "string",
-        "value": "2023-01-01T07:30:00"
-    },
-    "ataBerth": {
-        "format": "date-time",
-        "type": "string",
-        "value": "2023-01-01T07:30:00"
-    },
-    "etdBerth": {
-        "format": "date-time",
-        "type": "string",
-        "value": "2023-01-01T07:30:00"
-    },
-    "rtdBerth": {
-        "format": "date-time",
-        "type": "string",
-        "value": "2023-01-01T07:30:00"
-    },
-    "ptdBerth": {
-        "format": "date-time",
-        "type": "string",
-        "value": "2023-01-01T07:30:00"
-    },
-    "atdBerth": {
-        "format": "date-time",
-        "type": "string",
-        "value": "2023-01-01T07:30:00"
-    },
-    "arrivalDraught": {
-        "type": "number",
-        "value": 12.3
-    },
-    "departureDraught": {
-        "type": "number",
-        "value": 9.5
+        "value": "Segunda l\u00ednea granel"
     },
     "remarks": {
         "type": "string",
-        "value": "FONDEA PARA SUMINISTRO DE COMBUSTIBLE POR GABARRA"
+        "value": "Delayed 1h"
     },
-    "authorizationRemarks": {
+    "manipulationMeansCode": {
         "type": "string",
-        "value": "authorized after departure of ship XX"
+        "value": "3"
     },
-    "agentName": {
-        "type": "string",
-        "value": "Acme Huelva S.L."
+    "manipulationMeansNumber": {
+        "type": "number",
+        "value": 2
     },
-    "agentLegalCode": {
+    "stevedoreRef": {
         "type": "string",
-        "value": "A-98345678"
-    },
-    "createdAt": {
-        "format": "date-time",
-        "type": "string",
-        "value": "2023-01-01T07:30:00"
-    },
-    "modifiedAt": {
-        "format": "date-time",
-        "type": "string",
-        "value": "2023-01-01T07:30:00"
+        "value": "1234"
     }
 }
