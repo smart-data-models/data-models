@@ -1,5 +1,5 @@
 {
-  "updatedDate": "2024-10-30T18:41:00.31416",
+  "updatedDate": "2024-11-12T11:22:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -1384,6 +1384,7 @@
         "Berth",
         "Booking",
         "EdiCodeco",
+        "MasterVessel",
         "Operation",
         "Port",
         "PortAuthority",

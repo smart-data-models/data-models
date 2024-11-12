@@ -102,34 +102,108 @@ def keyvalues2normalized(keyvaluesPayload):
         output["@context"] = output["@context"]["value"]
     print(output)
     with open("output.json", "w") as outputfile:
-        rawoutput = json.dumps(output, indent=4)
+        rawoutput = json.dumps(output, indent=2)
         outputfile.write(rawoutput)
     return output
 
 
 keyvaluesPayload = {
-  "id": "urn:mrn:eshuv:portcalls:activity:id:40923",
-  "type": "Operation",
-  "portCode": "ESHUV",
-  "year": 2023,
-  "portCallNumber": "ESHUV202300123",
-  "portCallRef": "urn:mrn:eshuv:portcalls:activity:id:941",
-  "berthRef": "urn:mrn:eshuv:portcalls:berth:id:1234",
-  "stopRank": 2,
-  "operationRank": 1,
-  "ets": "2023-01-01T07:30:00",
-  "etc": "2023-01-01T07:30:00",
-  "operationTypeCode": "ZE",
-  "productCode": "Z41",
-  "amount": 120,
-  "measureUnit": "TEU",
-  "maxWeightPerUnit": 23.3,
-  "terminal": "Muelle Sur",
-  "position": "Segunda línea granel",
-  "remarks": "Delayed 1h",
-  "manipulationMeansCode": "3",
-  "manipulationMeansNumber": 2,
-  "stevedoreRef": "1234"
+  "technicalSpecification": {
+    "nominalVoltage": 0,
+    "stateOfCharge": {
+      "stateOfChargeValue": 0,
+      "@type": "StateOfChargeEntity",
+      "lastUpdate": "2024-05-28T11:14:10.231+02:00"
+    },
+    "maximumVoltage": 0,
+    "minimumVoltage": 0,
+    "initialSelfDischarge": 0,
+    "ubeCertified": 0,
+    "remainingCapacity": {
+      "remainingCapacityValue": 0,
+      "@type": "RemainingCapacityEntity",
+      "lastUpdate": "2024-05-28T11:14:10.231+02:00"
+    },
+    "stateOfCertifiedEnergy": 0,
+    "ubeRemaining": {
+      "uBERemainingValue": 0,
+      "@type": "UBERemainingEntity",
+      "lastUpdate": "2024-05-28T11:14:10.230+02:00"
+    },
+    "capacityFade": {
+      "@type": "CapacityFadeEntity",
+      "capacityFadeValue": 0,
+      "lastUpdate": "2024-05-28T11:14:10.231+02:00"
+    }
+  },
+  "powerCapability": {
+    "originalPowerCapability": [
+      {
+        "atSoC": 0,
+        "powerCapabilityAt": 0
+      }
+    ],
+    "powerCapabilityRatio": 0,
+    "powerCapabilityFade": 0,
+    "remainingPowerCapability": [
+      {
+        "remainingPowerCapabilityValue": {
+          "atSoC": 0,
+          "powerCapabilityAt": 0,
+          "rPCLastUpdated": "2024-05-28T11:14:10.229+02:00",
+          "@type": "RemainingPowerCapabilityDynamicAt"
+        },
+        "lastUpdate": "2024-05-28T11:14:10.229+02:00"
+      }
+    ],
+    "maximumPermittedBatteryPower": 0
+  },
+  "internalResistance": {
+    "currentInternalResistancePack": {
+      "@type": "CurrentInternalResistanceEntity",
+      "currentInternalResistanceValue": 0,
+      "lastUpdate": "2024-05-28T11:14:10.231+02:00"
+    },
+    "initialInternalResistancePack": 0
+  },
+  "roundtripEfficiency": {
+    "currentSelfDischargingRate": {
+      "currentSelfDischargingRateEntity": 0,
+      "@type": "CurrentSelfDischargingRateEntity",
+      "lastUpdate": "2024-05-28T11:14:10.231+02:00"
+    },
+    "initialSelfDischargingRate": 0
+  },
+  "negativeEvents": [
+    {
+      "negativeEvent": [
+        "yedUsFwdkelQbxeTeQOvaScfqIOOmaa"
+      ]
+    }
+  ],
+  "temperatureConditions": {
+    "timeExtremeHighTemp": 0,
+    "temperatureRangeIdleState": 55.97384822471584,
+    "timeExtremeLowTemp": 0
+  },
+  "batteryLifetime": {
+    "energyThroughput": 0,
+    "ratedCapacity": 0,
+    "warrantyPeriod": 0,
+    "numberOfFullCycles": 0,
+    "capacityThresholdExhaustion": 0,
+    "putIntoService": "2024-05-28T11:14:10.230+02:00",
+    "lifetimeReferenceTest": "eOMtThyhVNLWUZNRcBaQKxI",
+    "cRate": 0,
+    "expectedNumberOfCycles": -3498709441132260400,
+    "capacityThroughput": 0,
+    "soceThresholdForExhaustion": 0
+  },
+  "dynamicAttribute": {
+    "lastUpdate": "2024-05-28T11:14:10.231+02:00"
+  },
+  "id": "urn:uuid:ef9b6cff-5659-45d0-8e07-4298611a0b56",
+  "type": "Performance"
 }
 
 
