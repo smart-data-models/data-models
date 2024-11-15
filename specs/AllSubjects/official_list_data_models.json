@@ -1,5 +1,5 @@
 {
-  "updatedDate": "2024-11-12T11:22:00.31416",
+  "updatedDate": "2024-11-15T17:00:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -1661,6 +1661,16 @@
         "Disk",
         "GPU",
         "Memory"
+      ],
+      "domains": [
+        "CrossSector"
+      ]
+    },
+    {
+      "repoName": "dataModel.SmartDataModels",
+      "repoLink": "https://github.com/smart-data-models/dataModel.SmartDataModels.git",
+      "dataModels": [
+        "DataModel"
       ],
       "domains": [
         "CrossSector"
