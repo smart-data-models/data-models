@@ -40,3 +40,6 @@
 [submodule "specs/SmartWater"]
 	path = specs/SmartWater
 	url = https://github.com/smart-data-models/SmartWater.git
+[submodule "specs/dataModel.DataSpace"]
+	path = specs/dataModel.DataSpace
+	url = https://github.com/smart-data-models/dataModel.DataSpace.git
