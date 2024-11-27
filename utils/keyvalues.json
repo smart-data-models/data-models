@@ -1,38 +1,77 @@
 {
-  "id": "urn:ngsi-ld:Memory:id:XJWG:82694953",
-  "type": "Memory",
-  "dateCreated": "2024-02-12T22:38:51Z",
-  "dateModified": "2024-04-02T15:33:47Z",
-  "source": "",
-  "name": "regular memory",
+  "id": "urn:ngsi-ld:InteroperableAssets:id:WGEQ:22085426",
+  "type": "InteroperableAssets",
+  "dateCreated": {
+    "@type": "DateTime",
+    "@value": "2024-04-22T01:37:25Z"
+  },
+  "dateModified": {
+    "@type": "DateTime",
+    "@value": "2024-04-24T17:29:14Z"
+  },
+  "source": "Sm4rtenance Project",
+  "name": "",
   "alternateName": "",
   "description": "",
   "dataProvider": "",
   "owner": [
-    "urn:ngsi-ld:Memory:items:HIOM:43953773"
+    ""
   ],
-  "seeAlso": [],
+  "seeAlso": [
+    ""
+  ],
   "location": {
     "type": "Point",
     "coordinates": [
-      50.8484048,
-      4.3671841
+      40.41,
+      3.7033
     ]
   },
   "address": {
-    "streetAddress": "Avenue des Arts",
-    "addressLocality": "Brussels",
-    "addressRegion": "Stay ",
-    "addressCountry": "Belgium",
-    "postalCode": "1210",
+    "streetAddress": "",
+    "addressLocality": "Madrid",
+    "addressRegion": "Madrid",
+    "addressCountry": "Spain",
+    "postalCode": "28050",
     "postOfficeBoxNumber": "",
-    "streetNr": "6-9",
+    "streetNr": "",
     "district": ""
   },
-  "areaServed": "europe",
-  "memorySize": 16,
-  "memoryClass": "DDR SDRAM",
-  "memoryRank": "other",
-  "eccEnabled": false,
-  "hardwareEncryption": false
+  "areaServed": "",
+  "dataSpaceIdentifier": "SM4RTENANCE",
+  "dataExchangeProtocols": [
+    {
+      "name": "Link Data event stream",
+      "description": "A Linked Data Event Stream (LDES) is a technical standard that applies linked data principles to data streams, allowing for the exchange of data between silos in a sustainable and cost-effective manner. It is defined as a collection of immutable objects, called LDES members, described using the Resource Description Framework (RDF). LDES enables data publishers to publish their datasets as append-only collections, allowing consumers to replicate the full dataset and keep it synchronized, while also facilitating real-time updates and improving data usability and findability",
+      "identifier": "LDES",
+      "version": "1.0",
+      "documentation": [
+        "https://semiceu.github.io/LinkedDataEventStreams/"
+      ]
+    },
+    {
+      "name": "NGSI LD",
+      "description": "NGSI-LD is an information model and API for publishing, querying, and subscribing to context information, standardized by ETSI to facilitate open exchange and sharing of structured data across various domains. It represents context information as entities with properties and relationships, using a property graph model with semantics based on RDF and the semantic web framework. NGSI-LD builds upon previous context management frameworks and can be serialized using JSON-LD, making it compatible with linked data principles and allowing for unique IRI identifiers for entities and relationships",
+      "identifier": "NGSI-LD.1.6",
+      "version": "1.6",
+      "documentation": [
+        "https://www.etsi.org/deliver/etsi_gs/CIM/001_099/009/01.06.01_60/gs_CIM009v010601p.pdf"
+      ]
+    }
+  ],
+  "dataModelSources": [
+    {
+      "name": "Smart Data Models",
+      "description": "The Smart Data Models initiative is a collaborative effort led by FIWARE Foundation, TM Forum, IUDX, and OASC to create and promote standardized, interoperable data models across multiple sectors. It aims to support a digital marketplace of smart solutions by developing common, royalty-free data models that are publicly available. The initiative focuses on using JSON Schema as a core component, enabling exports in various formats to enhance compatibility with semantic and linked data approaches. By providing these open-licensed, standardized data models, the initiative seeks to combat data silos, improve data sharing, and facilitate application portability across different platforms and sectors, ultimately fostering innovation and interoperability in smart solutions.",
+      "identifier": "Smart-Data-Models",
+      "internalIdentifier": "WeatherObserved",
+      "version": "0.3",
+      "documentation": [
+        "https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/doc/spec.md"
+      ]
+    }
+  ],
+  "@context": [
+    "https://smart-data-models.github.io/dataModel.DataSpace/context.jsonld"
+  ]
 }

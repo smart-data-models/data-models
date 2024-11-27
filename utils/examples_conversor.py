@@ -107,207 +107,156 @@ def keyvalues2normalized(keyvaluesPayload):
     return output
 
 
-keyvaluesPayload = {
-  "technicalSpecification": {
-    "nominalVoltage": 0,
-    "stateOfCharge": {
-      "stateOfChargeValue": 0,
-      "@type": "StateOfChargeEntity",
-      "lastUpdate": "2024-05-28T11:14:10.231+02:00"
-    },
-    "maximumVoltage": 0,
-    "minimumVoltage": 0,
-    "initialSelfDischarge": 0,
-    "ubeCertified": 0,
-    "remainingCapacity": {
-      "remainingCapacityValue": 0,
-      "@type": "RemainingCapacityEntity",
-      "lastUpdate": "2024-05-28T11:14:10.231+02:00"
-    },
-    "stateOfCertifiedEnergy": 0,
-    "ubeRemaining": {
-      "uBERemainingValue": 0,
-      "@type": "UBERemainingEntity",
-      "lastUpdate": "2024-05-28T11:14:10.230+02:00"
-    },
-    "capacityFade": {
-      "@type": "CapacityFadeEntity",
-      "capacityFadeValue": 0,
-      "lastUpdate": "2024-05-28T11:14:10.231+02:00"
-    }
-  },
-  "powerCapability": {
-    "originalPowerCapability": [
-      {
-        "atSoC": 0,
-        "powerCapabilityAt": 0
-      }
-    ],
-    "powerCapabilityRatio": 0,
-    "powerCapabilityFade": 0,
-    "remainingPowerCapability": [
-      {
-        "remainingPowerCapabilityValue": {
-          "atSoC": 0,
-          "powerCapabilityAt": 0,
-          "rPCLastUpdated": "2024-05-28T11:14:10.229+02:00",
-          "@type": "RemainingPowerCapabilityDynamicAt"
-        },
-        "lastUpdate": "2024-05-28T11:14:10.229+02:00"
-      }
-    ],
-    "maximumPermittedBatteryPower": 0
-  },
-  "internalResistance": {
-    "currentInternalResistancePack": {
-      "@type": "CurrentInternalResistanceEntity",
-      "currentInternalResistanceValue": 0,
-      "lastUpdate": "2024-05-28T11:14:10.231+02:00"
-    },
-    "initialInternalResistancePack": 0
-  },
-  "roundtripEfficiency": {
-    "currentSelfDischargingRate": {
-      "currentSelfDischargingRateEntity": 0,
-      "@type": "CurrentSelfDischargingRateEntity",
-      "lastUpdate": "2024-05-28T11:14:10.231+02:00"
-    },
-    "initialSelfDischargingRate": 0
-  },
-  "negativeEvents": [
-    {
-      "negativeEvent": [
-        "yedUsFwdkelQbxeTeQOvaScfqIOOmaa"
-      ]
-    }
-  ],
-  "temperatureConditions": {
-    "timeExtremeHighTemp": 0,
-    "temperatureRangeIdleState": 55.97384822471584,
-    "timeExtremeLowTemp": 0
-  },
-  "batteryLifetime": {
-    "energyThroughput": 0,
-    "ratedCapacity": 0,
-    "warrantyPeriod": 0,
-    "numberOfFullCycles": 0,
-    "capacityThresholdExhaustion": 0,
-    "putIntoService": "2024-05-28T11:14:10.230+02:00",
-    "lifetimeReferenceTest": "eOMtThyhVNLWUZNRcBaQKxI",
-    "cRate": 0,
-    "expectedNumberOfCycles": -3498709441132260400,
-    "capacityThroughput": 0,
-    "soceThresholdForExhaustion": 0
-  },
-  "dynamicAttribute": {
-    "lastUpdate": "2024-05-28T11:14:10.231+02:00"
-  },
-  "id": "urn:uuid:ef9b6cff-5659-45d0-8e07-4298611a0b56",
-  "type": "Performance"
+keyvaluesPayload ={
+  "_id": "6557985a8f4f3ce5fd4e87df",
+  "id": "https://smartdatamodels.org/dataModel.Hl7/Account/_valueDate/extension#0.0.1",
+  "parentContext": "https://smartdatamodels.org/dataModel.Hl7/_valueDate",
+  "parentId": "https://smartdatamodels.org/dataModel.Hl7/Account/_valueDate#0.0.1",
+  "context": "https://smartdatamodels.org/dataModel.Hl7/extension",
+  "property": "extension",
+  "dataModel": "Account",
+  "repoName": "dataModel.Hl7",
+  "modelTags": "HL7",
+  "license": "https://github.com/smart-data-models/dataModel.Hl7/blob/master/Account/LICENSE.md",
+  "schemaVersion": "0.0.1",
+  "dataType": "array",
+  "description": "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension"
 }
 
 
-normalizedPayload ={
-  "id": "urn:ngsi-ld:Memory:id:XJWG:82694953",
-  "type": "Memory",
+normalizedPayload = {
+  "id": "urn:ngsi-ld:InteroperableAssets:id:WGEQ:22085426",
+  "type": "InteroperableAssets",
   "dateCreated": {
-    "type": "Date-Time",
-    "value": "2024-02-12T22:38:51Z"
+    "type": "Property",
+    "value": {
+      "@type": "DateTime",
+      "@value": "2024-04-22T01:37:25Z"
+    }
   },
   "dateModified": {
-    "type": "Date-Time",
-    "value": "2024-04-02T15:33:47Z"
+    "type": "Property",
+    "value": {
+      "@type": "DateTime",
+      "@value": "2024-04-24T17:29:14Z"
+    }
   },
   "source": {
-    "type": "Text",
-    "value": ""
+    "type": "Property",
+    "value": "Sm4rtenance Project"
   },
   "name": {
-    "type": "Text",
-    "value": "regular memory"
+    "type": "Property",
+    "value": ""
   },
   "alternateName": {
-    "type": "Text",
+    "type": "Property",
     "value": ""
   },
   "description": {
-    "type": "Text",
+    "type": "Property",
     "value": ""
   },
   "dataProvider": {
-    "type": "Text",
+    "type": "Property",
     "value": ""
   },
   "owner": {
-    "type": "array",
+    "type": "Property",
     "value": [
-      "urn:ngsi-ld:Memory:items:HIOM:43953773"
+      ""
     ]
   },
   "seeAlso": {
-    "type": "array",
+    "type": "Property",
     "value": [
+      ""
     ]
   },
   "location": {
-    "type": "geo:json",
+    "type": "GeoProperty",
     "value": {
       "type": "Point",
       "coordinates": [
-        50.8484048,
-        4.3671841
+        40.41,
+        3.7033
       ]
     }
   },
   "address": {
-    "type": "StructuredValue",
+    "type": "Property",
     "value": {
-      "streetAddress": "Avenue des Arts",
-      "addressLocality": "Brussels",
-      "addressRegion": "Stay ",
-      "addressCountry": "Belgium",
-      "postalCode": "1210",
+      "streetAddress": "",
+      "addressLocality": "Madrid",
+      "addressRegion": "Madrid",
+      "addressCountry": "Spain",
+      "postalCode": "28050",
       "postOfficeBoxNumber": "",
-      "streetNr": "6-9",
+      "streetNr": "",
       "district": ""
     }
   },
   "areaServed": {
-    "type": "Text",
-    "value": "europe"
+    "type": "Property",
+    "value": ""
   },
-  "memorySize": {
-    "type": "Number",
-    "value": 16,
-    "unitCode": "Gb"
+  "dataSpaceIdentifier": {
+    "type": "Property",
+    "value": "SM4RTENANCE"
   },
-  "memoryClass": {
-    "type": "Text",
-    "value": "DDR SDRAM"
+  "dataExchangeProtocols": {
+    "type": "Property",
+    "value": [
+      {
+        "name": "Link Data event stream",
+        "description": "A Linked Data Event Stream (LDES) is a technical standard that applies linked data principles to data streams, allowing for the exchange of data between silos in a sustainable and cost-effective manner. It is defined as a collection of immutable objects, called LDES members, described using the Resource Description Framework (RDF). LDES enables data publishers to publish their datasets as append-only collections, allowing consumers to replicate the full dataset and keep it synchronized, while also facilitating real-time updates and improving data usability and findability",
+        "identifier": "LDES",
+        "version": "1.0",
+        "documentation": [
+          "https://semiceu.github.io/LinkedDataEventStreams/"
+        ]
+      },
+      {
+        "name": "NGSI LD",
+        "description": "NGSI-LD is an information model and API for publishing, querying, and subscribing to context information, standardized by ETSI to facilitate open exchange and sharing of structured data across various domains. It represents context information as entities with properties and relationships, using a property graph model with semantics based on RDF and the semantic web framework. NGSI-LD builds upon previous context management frameworks and can be serialized using JSON-LD, making it compatible with linked data principles and allowing for unique IRI identifiers for entities and relationships",
+        "identifier": "NGSI-LD.1.6",
+        "version": "1.6",
+        "documentation": [
+          "https://www.etsi.org/deliver/etsi_gs/CIM/001_099/009/01.06.01_60/gs_CIM009v010601p.pdf"
+        ]
+      }
+    ]
   },
-  "memoryRank": {
-    "type": "Text",
-    "value": "other"
+  "dataModelSources": {
+    "type": "Property",
+    "value": [
+      {
+        "name": "Smart Data Models",
+        "description": "The Smart Data Models initiative is a collaborative effort led by FIWARE Foundation, TM Forum, IUDX, and OASC to create and promote standardized, interoperable data models across multiple sectors. It aims to support a digital marketplace of smart solutions by developing common, royalty-free data models that are publicly available. The initiative focuses on using JSON Schema as a core component, enabling exports in various formats to enhance compatibility with semantic and linked data approaches. By providing these open-licensed, standardized data models, the initiative seeks to combat data silos, improve data sharing, and facilitate application portability across different platforms and sectors, ultimately fostering innovation and interoperability in smart solutions.",
+        "identifier": "Smart-Data-Models",
+        "internalIdentifier": "WeatherObserved",
+        "version": "0.3",
+        "documentation": [
+          "https://github.com/smart-data-models/dataModel.Weather/blob/master/WeatherObserved/doc/spec.md"
+        ]
+      }
+    ]
   },
-  "eccEnabled": {
-    "type": "Boolean",
-    "value": False
-  },
-  "hardwareEncryption": {
-    "type": "Boolean",
-    "value": False
-  }
+  "@context": [
+    "https://smart-data-models.github.io/dataModel.DataSpace/context.jsonld"
+  ]
 }
 
 
 
 
 
-# payload = normalized2keyvalues(normalizedPayload)
-# # print(payload)
-# with open("keyvalues.json", "w") as file:
-#     json.dump(payload, file, indent=2)
 
-schema = keyvalues2normalized(keyvaluesPayload)
-with open("example-normalized.json", "w") as file:
-    json.dump(schema, file, indent=2)
+payload = normalized2keyvalues(normalizedPayload)
+# print(payload)
+with open("keyvalues.json", "w") as file:
+    json.dump(payload, file, indent=2)
+
+# schema = keyvalues2normalized(keyvaluesPayload)
+# with open("example-normalized.json", "w") as file:
+#     json.dump(schema, file, indent=2)

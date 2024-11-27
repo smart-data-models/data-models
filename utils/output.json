@@ -1,122 +1,51 @@
 {
-  "technicalSpecification": {
-    "type": "object",
-    "value": {
-      "nominalVoltage": 0,
-      "stateOfCharge": {
-        "stateOfChargeValue": 0,
-        "@type": "StateOfChargeEntity",
-        "lastUpdate": "2024-05-28T11:14:10.231+02:00"
-      },
-      "maximumVoltage": 0,
-      "minimumVoltage": 0,
-      "initialSelfDischarge": 0,
-      "ubeCertified": 0,
-      "remainingCapacity": {
-        "remainingCapacityValue": 0,
-        "@type": "RemainingCapacityEntity",
-        "lastUpdate": "2024-05-28T11:14:10.231+02:00"
-      },
-      "stateOfCertifiedEnergy": 0,
-      "ubeRemaining": {
-        "uBERemainingValue": 0,
-        "@type": "UBERemainingEntity",
-        "lastUpdate": "2024-05-28T11:14:10.230+02:00"
-      },
-      "capacityFade": {
-        "@type": "CapacityFadeEntity",
-        "capacityFadeValue": 0,
-        "lastUpdate": "2024-05-28T11:14:10.231+02:00"
-      }
-    }
+  "_id": {
+    "type": "string",
+    "value": "6557985a8f4f3ce5fd4e87df"
   },
-  "powerCapability": {
-    "type": "object",
-    "value": {
-      "originalPowerCapability": [
-        {
-          "atSoC": 0,
-          "powerCapabilityAt": 0
-        }
-      ],
-      "powerCapabilityRatio": 0,
-      "powerCapabilityFade": 0,
-      "remainingPowerCapability": [
-        {
-          "remainingPowerCapabilityValue": {
-            "atSoC": 0,
-            "powerCapabilityAt": 0,
-            "rPCLastUpdated": "2024-05-28T11:14:10.229+02:00",
-            "@type": "RemainingPowerCapabilityDynamicAt"
-          },
-          "lastUpdate": "2024-05-28T11:14:10.229+02:00"
-        }
-      ],
-      "maximumPermittedBatteryPower": 0
-    }
+  "id": "https://smartdatamodels.org/dataModel.Hl7/Account/_valueDate/extension#0.0.1",
+  "parentContext": {
+    "type": "string",
+    "value": "https://smartdatamodels.org/dataModel.Hl7/_valueDate"
   },
-  "internalResistance": {
-    "type": "object",
-    "value": {
-      "currentInternalResistancePack": {
-        "@type": "CurrentInternalResistanceEntity",
-        "currentInternalResistanceValue": 0,
-        "lastUpdate": "2024-05-28T11:14:10.231+02:00"
-      },
-      "initialInternalResistancePack": 0
-    }
+  "parentId": {
+    "type": "string",
+    "value": "https://smartdatamodels.org/dataModel.Hl7/Account/_valueDate#0.0.1"
   },
-  "roundtripEfficiency": {
-    "type": "object",
-    "value": {
-      "currentSelfDischargingRate": {
-        "currentSelfDischargingRateEntity": 0,
-        "@type": "CurrentSelfDischargingRateEntity",
-        "lastUpdate": "2024-05-28T11:14:10.231+02:00"
-      },
-      "initialSelfDischargingRate": 0
-    }
+  "context": {
+    "type": "string",
+    "value": "https://smartdatamodels.org/dataModel.Hl7/extension"
   },
-  "negativeEvents": {
-    "type": "array",
-    "value": [
-      {
-        "negativeEvent": [
-          "yedUsFwdkelQbxeTeQOvaScfqIOOmaa"
-        ]
-      }
-    ]
+  "property": {
+    "type": "string",
+    "value": "extension"
   },
-  "temperatureConditions": {
-    "type": "object",
-    "value": {
-      "timeExtremeHighTemp": 0,
-      "temperatureRangeIdleState": 55.97384822471584,
-      "timeExtremeLowTemp": 0
-    }
+  "dataModel": {
+    "type": "string",
+    "value": "Account"
   },
-  "batteryLifetime": {
-    "type": "object",
-    "value": {
-      "energyThroughput": 0,
-      "ratedCapacity": 0,
-      "warrantyPeriod": 0,
-      "numberOfFullCycles": 0,
-      "capacityThresholdExhaustion": 0,
-      "putIntoService": "2024-05-28T11:14:10.230+02:00",
-      "lifetimeReferenceTest": "eOMtThyhVNLWUZNRcBaQKxI",
-      "cRate": 0,
-      "expectedNumberOfCycles": -3498709441132260400,
-      "capacityThroughput": 0,
-      "soceThresholdForExhaustion": 0
-    }
+  "repoName": {
+    "type": "string",
+    "value": "dataModel.Hl7"
   },
-  "dynamicAttribute": {
-    "type": "object",
-    "value": {
-      "lastUpdate": "2024-05-28T11:14:10.231+02:00"
-    }
+  "modelTags": {
+    "type": "string",
+    "value": "HL7"
   },
-  "id": "urn:uuid:ef9b6cff-5659-45d0-8e07-4298611a0b56",
-  "type": "Performance"
+  "license": {
+    "type": "string",
+    "value": "https://github.com/smart-data-models/dataModel.Hl7/blob/master/Account/LICENSE.md"
+  },
+  "schemaVersion": {
+    "type": "string",
+    "value": "0.0.1"
+  },
+  "dataType": {
+    "type": "string",
+    "value": "array"
+  },
+  "description": {
+    "type": "string",
+    "value": "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension"
+  }
 }
