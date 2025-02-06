@@ -15,3 +15,10 @@ The file [master_tests.py](https://github.com/smart-data-models/data-models/blob
 - '< email >' is the email of the user running the test
 - '<only_report_errors>' is a boolean (true or 1) to show just only those unsuccessful tests
 
+What can be contributed by you. 
+Lots of tests. Just a few
+1) Test that the notes.yaml file is a valid yaml file
+2) Test that the ADOPTERS.yaml file is a valid yaml file
+3) Test that the schema validates the files example.json and example.jsonld
+4) Test the file example-normalized.json is a valid NGSIv2  file 
+5) Test the file example-normalized.jsonld is a valid NGSI-LD  file
