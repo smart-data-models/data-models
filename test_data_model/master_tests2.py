@@ -282,7 +282,7 @@ if __name__ == "__main__":
         repo_path = download_files(raw_base_url, download_dir)
 
         # List of test files to run
-        test_files = ["test_valid_json", "test_file_exists", "test_schema_descriptions", "test_schema_metadata", "test_duplicated_attributes",  "test_yaml_files" , "test_valid_keyvalues_examples", "test_valid_ngsiv2"]
+        test_files = ["test_valid_json", "test_file_exists", "test_schema_descriptions", "test_schema_metadata", "test_duplicated_attributes",  "test_yaml_files" , "test_valid_keyvalues_examples", "test_valid_ngsiv2", "test_valid_ngsild"]
 
         # Run the tests
         test_results = run_tests(test_files, repo_path, only_report_errors)

@@ -182,7 +182,7 @@ if __name__ == "__main__":
         sys.exit(1)
 
     # Temporary directory to download/copy the files
-    download_dir = "/var/html/www/tmp/repo_to_test"
+    download_dir = "/home/aabella/transparentia/CLIENTES/EU/FIWARE/GITHUB/tmp/repo_to_test"
 
     try:
         # If the input is a URL, convert it to a raw file base URL
@@ -195,7 +195,7 @@ if __name__ == "__main__":
         repo_path = download_files(raw_base_url, download_dir)
 
         # List of test files to run
-        test_files = ["test_valid_json", "test_file_exists", "test_schema_descriptions", "test_schema_metadata", "test_duplicated_attributes"]
+        test_files = ["test_valid_json", "test_file_exists", "test_schema_descriptions", "test_schema_metadata", "test_duplicated_attributes", " test_valid_keyvalues_examples."]
 
         # Run the tests
         test_results = run_tests(test_files, repo_path, only_report_errors)
