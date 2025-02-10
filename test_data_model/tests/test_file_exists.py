@@ -21,26 +21,37 @@ def test_file_exists(repo_path):
     Test if a file exists.
 
     Parameters:
-        file_path (str): The path to the file to check.
+        repo_path (str): The path to the repository to check.
 
     Returns:
-        tuple: (success: bool, message: str)
+        tuple: (test_name: str, success: bool, message: list)
     """
 
     test_name = "Checking if the mandatory files according to the contribution manual are present"
 
-    mandatory_files = ["schema.json", "examples/example.json", "examples/example-normalized.json", "examples/example.jsonld", "examples/example-normalized.jsonld", "notes.yaml", "ADOPTERS.yaml"]
+    mandatory_files = [
+        "schema.json",
+        "examples/example.json",
+        "examples/example-normalized.json",
+        "examples/example.jsonld",
+        "examples/example-normalized.jsonld",
+        "notes.yaml",
+        "ADOPTERS.yaml"
+    ]
     output = []
     success = True
+
     for file in mandatory_files:
-        path_to_file = repo_path + "/" + file
-        # print(f"The path to file is {path_to_file}")
+        path_to_file = os.path.join(repo_path, file)
         exist_file = os.path.exists(path_to_file)
         success = success and exist_file
 
-        if exist_file:
-            output.append(f"The file {path_to_file} exists")
-        else:
-            output.append(f"*** The file {path_to_file} DOES NOT exist")
-    return test_name, success, output
+        # Extract the file name from the path
+        file_name = os.path.basename(file)
 
+        if exist_file:
+            output.append(f"The file {file_name} exists")
+        else:
+            output.append(f"*** The file {file_name} DOES NOT exist")
+
+    return test_name, success, output
