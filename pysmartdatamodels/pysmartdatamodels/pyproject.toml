@@ -1,0 +1,82 @@
+[tool.poetry]
+name = "pysmartdatamodels"
+repository = "https://github.com/smart-data-models/data-models/tree/master/pysmartdatamodels"
+description = "Open-licensed and free data models to model your digital twins, share data in data spaces or develop smart applications"
+version = "0.8.0.1.1"
+authors = ["aabella <alberto.abella@fiware.org>", "jilin <jilin.he@fiware.org>"]
+readme = "./pysmartdatamodels/README.md"
+packages = [{include = "pysmartdatamodels"}]
+homepage = "https://github.com/smart-data-models/data-models/tree/master/pysmartdatamodels"
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11"
+]
+
+
+[project]
+name = "pysmartdatamodels"
+description = "Open-licensed and free data models to model your digital twins, share data in data spaces or develop smart applications"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+keywords = ["FIWARE", "NGSI", "Orion", "Scorpio", "stellio", "json", "json schema", "jsonld", "data model", "datamodel", "IUDX", "OASC", "TMForum", "data spaces", "digital twins"]
+authors = [
+    {name="Alberto Abella"},
+    {email="alberto.abella@fiware.org" },
+    {name="Jilin He"},
+    {email="jilin.he@fiware.org"},
+    {name="Rihab Feki"},
+    {email="rihab.feki@fiware.org"},
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11"
+]
+dependencies = ["jsonref", "jsonschema", "pytz", "requests", "os-sys", "rstr", "Faker", "fuzzywuzzy", "python-Levenshtein", "ruamel.yaml", "date-time", "validator_collection"]
+version = "0.8.0.1.1"
+readme = "README.md"
+
+[project.urls]
+homepage = "https://github.com/smart-data-models/data-models/tree/master/pysmartdatamodels"
+bugTracker = "https://github.com/smart-data-models/data-models/issues"
+documentation = "https://github.com/smart-data-models/data-models/blob/master/pysmartdatamodels/README.md"
+issues = "https://github.com/smart-data-models/data-models/issues"
+source = "https://github.com/smart-data-models/data-models/tree/master/pysmartdatamodels"
+
+
+[tool.poetry.dependencies]
+python = "^3.8"
+jsonref = ">=1.0.0"
+jsonschema = "^4.17.3"
+pytz = ">=2022.7.1"
+requests =  "^2.28.2"
+rstr = "^3.2.1"
+Faker = ">=18.10.1"
+urllib3 = "^2.0.7"
+validator-collection = "^1.5.0"
+fuzzywuzzy = ">=0.18"
+python-Levenshtein =">=0.25"
+"ruamel.yaml" = ">=0.18.1"
+
+
+[build-system]
+requires = ["poetry-core", "jsonref", "jsonschema", "pytz", "requests", "rstr", "Faker", "urllib3", "fuzzywuzzy", "python-Levenshtein", "ruamel.yaml"]
+build-backend = "poetry.core.masonry.api"
+
+
+[tool.setuptools.package-data]
+pysmartdatamodels = ["utils/*.py", "model-assets/*.json"]
+

@@ -1,5 +1,5 @@
 {
-  "updatedDate": "2024-05-10T11:58:00.31416",
+  "updatedDate": "2024-11-27T17:47:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -91,11 +91,13 @@
         "AgriApp",
         "AgriCrop",
         "AgriFarm",
+        "AgriFertilize",
         "AgriGreenhouse",
         "AgriParcel",
         "AgriParcelOperation",
         "AgriParcelRecord",
         "AgriPest",
+        "AgriPhytosanitary",
         "AgriProductType",
         "AgriSoil",
         "Animal",
@@ -859,6 +861,7 @@
         "EOAnalysis",
         "EODataHub",
         "EOGeoDataLayer",
+        "EOSatelliteImagery",
         "EOInstrument",
         "EOProduct",
         "EOSatellitePlatform"
@@ -996,7 +999,7 @@
     },
     {
       "repoName": "dataModel.MachineLearning",
-      "repoLink": "https://github.com/smart-data-models/dataModel.DistributedLedgerTech.git",
+      "repoLink": "https://github.com/smart-data-models/dataModel.MachineLearning.git",
       "dataModels": [
         "MLModel",
         "MLProcessing",
@@ -1020,7 +1023,7 @@
     },
     {
       "repoName": "dataModel.RoboticIndustrialActivities",
-      "repoLink": "https://github.com/smart-data-models/RoboticIndustrialActivities.git",
+      "repoLink": "https://github.com/smart-data-models/dataModel.RoboticIndustrialActivities.git",
       "dataModels": [
         "Pallet",
         "Piece",
@@ -1336,6 +1339,7 @@
       "repoName": "dataModel.CPSV-AP",
       "repoLink": "https://github.com/smart-data-models/dataModel.CPSV-AP.git",
       "dataModels": [
+        "Address",
         "BusinessEvent",
         "Cost",
         "CriterionRequirement",
@@ -1377,8 +1381,11 @@
       "repoName": "dataModel.MarineTransport",
       "repoLink": "https://github.com/smart-data-models/dataModel.MarineTransport.git",
       "dataModels": [
+        "Berth",
         "Booking",
         "EdiCodeco",
+        "MasterVessel",
+        "Operation",
         "Port",
         "PortAuthority",
         "PortCall",
@@ -1429,7 +1436,7 @@
     },
     {
       "repoName": "dataModel.DataQuality",
-      "repoLink": "https://github.com/smart-data-models/dataModels.DataQuality.git",
+      "repoLink": "https://github.com/smart-data-models/dataModel.DataQuality.git",
       "dataModels": [
         "DataQualityAssessment"
       ],
@@ -1654,6 +1661,26 @@
         "Disk",
         "GPU",
         "Memory"
+      ],
+      "domains": [
+        "CrossSector"
+      ]
+    },
+    {
+      "repoName": "dataModel.SmartDataModels",
+      "repoLink": "https://github.com/smart-data-models/dataModel.SmartDataModels.git",
+      "dataModels": [
+        "Attribute"
+      ],
+      "domains": [
+        "CrossSector"
+      ]
+    },
+    {
+      "repoName": "dataModel.DataSpace",
+      "repoLink": "https://github.com/smart-data-models/dataModel.DataSpace.git",
+      "dataModels": [
+        "InteroperableAssets"
       ],
       "domains": [
         "CrossSector"

@@ -15,7 +15,7 @@ package_path = os.path.dirname(current_dir)
 sys.path.insert(0, package_path)
 
 print(sys.path)
-import pysmartdatamodels as sdm
+from pysmartdatamodels import pysmartdatamodels as sdm
 
 
 repository = 'smart-data-models/data-models'  # Replace with your repository

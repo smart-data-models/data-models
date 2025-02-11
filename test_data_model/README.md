@@ -19,6 +19,6 @@ What can be contributed by you.
 Lots of tests. Just a few
 1) ~~Test that the notes.yaml file is a valid yaml file~~
 2) ~~Test that the ADOPTERS.yaml file is a valid yaml file~~
-3) Test that the schema validates the files example.json and example.jsonld
+3) ~~Test that the schema validates the files example.json and example.jsonld~~ 
 4) ~~Test the file example-normalized.json is a valid NGSIv2  file~~ 
-5) Test the file example-normalized.jsonld is a valid NGSI-LD  file
+5) ~~Test the file example-normalized.jsonld is a valid NGSI-LD  file~~
