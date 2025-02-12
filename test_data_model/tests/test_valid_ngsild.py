@@ -61,7 +61,7 @@ def check_context_url(context):
     else:
         return False, "*** Invalid @context format. Expected a URL or an array of URLs."
 
-def test_valid_ngsild(repo_path):
+def test_valid_ngsild(repo_path, options):
     """
     Validate if the example-normalized.jsonld file is a valid NGSI-LD file.
 
@@ -77,6 +77,13 @@ def test_valid_ngsild(repo_path):
     test_name = "Validating example-normalized.jsonld as NGSI-LD format"
     success = True
     output = []
+
+    # Example usage of the options parameter (optional, for future flexibility)
+#    if options.get("published", False):
+#        unpublished = True
+#    if options.get("private", False):
+#        output.append("This is a private model.")
+
 
     # List of valid attribute types
     valid_attribute_types = ["Property", "GeoProperty", "Relationship", "LanguageProperty", "ListProperty"]

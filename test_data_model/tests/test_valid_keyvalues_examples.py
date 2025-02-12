@@ -80,7 +80,7 @@ def check_context_url(context):
     else:
         return False, "*** Invalid @context format. Expected a URL or an array of URLs."
 
-def test_valid_keyvalues_examples(repo_to_test):
+def test_valid_keyvalues_examples(repo_to_test, options):
     """
     Test that the example.json and example.jsonld files are valid against the schema.json file.
     Also, check that the @context URL(s) in example.jsonld are valid (report a warning if any are not reachable).
@@ -101,6 +101,13 @@ def test_valid_keyvalues_examples(repo_to_test):
 
     output = []
     success = True
+
+#    Example usage of the options parameter (optional, for future flexibility)
+#    if options.get("published", False):
+#        unpublished = True
+#    if options.get("private", False):
+#        output.append("This is a private model.")
+
 
     # Check if the schema file exists
     if not os.path.exists(schema_file):
@@ -157,4 +164,4 @@ def test_valid_keyvalues_examples(repo_to_test):
 #     print(f"Success: {success}")
 #     print("Output:")
 #     for message in output:
-#         print(message)
+#         print(message) 

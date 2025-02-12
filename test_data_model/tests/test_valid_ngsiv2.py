@@ -51,7 +51,7 @@ def validate_entity(entity):
     return success, messages
 
 
-def test_valid_ngsiv2(repo_path):
+def test_valid_ngsiv2(repo_path, options):
     """
     Validate if the example-normalized.json file is a valid NGSI v2 file in normalized format.
 
@@ -64,6 +64,14 @@ def test_valid_ngsiv2(repo_path):
     test_name = "Validating example-normalized.json as NGSI v2 normalized format"
     success = True
     output = []
+
+
+#    Example usage of the options parameter (optional, for future flexibility)
+#    if options.get("published", False):
+#        unpublished = True
+#    if options.get("private", False):
+#        output.append("This is a private model.")
+
 
     try:
         # Load the example-normalized.json file

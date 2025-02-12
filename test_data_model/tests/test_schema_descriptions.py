@@ -1,20 +1,3 @@
-#################################################################################
-#  Licensed to the FIWARE Foundation (FF) under one                             #
-#  or more contributor license agreements. The FF licenses this file            #
-#  to you under the Apache License, Version 2.0 (the "License")                 #
-#  you may not use this file except in compliance with the License.             #
-#  You may obtain a copy of the License at                                      #
-#                                                                               #
-#      http://www.apache.org/licenses/LICENSE-2.0                               #
-#                                                                               #
-#  Unless required by applicable law or agreed to in writing, software          #
-#  distributed under the License is distributed on an "AS IS" BASIS,            #
-#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.     #
-#  See the License for the specific language governing permissions and          #
-#  limitations under the License.                                               #
-#  Author: Alberto Abella                                                       #
-#################################################################################
-
 import json
 import os
 import requests
@@ -148,7 +131,7 @@ def check_property_descriptions(properties, base_uri, output, path=""):
             else:
                 output.append(f"The attribute '{current_path}' is properly documented.")
 
-def test_schema_descriptions(repo_to_test):
+def test_schema_descriptions(repo_to_test, options):
     """
     Test that all elements in the schema.json file include a description and that the description is valid.
     Returns:
@@ -156,6 +139,13 @@ def test_schema_descriptions(repo_to_test):
         success (bool): True if all descriptions are valid, False otherwise.
         output (list): List of messages describing the results of the test.
     """
+
+#    Example usage of the options parameter (optional, for future flexibility)
+#    if options.get("published", False):
+#        unpublished = True
+#    if options.get("private", False):
+#        output.append("This is a private model.")
+
     schema_file = os.path.join(repo_to_test, "schema.json")
     if not os.path.exists(schema_file):
         return "Checking that the schema is properly described in all its attributes", False, ["Schema file not found."]

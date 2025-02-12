@@ -16,19 +16,20 @@
 #################################################################################
 import os
 
-def test_file_exists(repo_path):
+def test_file_exists(repo_path, options):
     """
     Test if a file exists.
 
     Parameters:
-        repo_path (str): The path to the repository to check.
+        repo_path (str): The path to the repository containing the files to check.
+        options (dict): Additional options for the test (e.g., {"published": True, "private": False}).
 
     Returns:
-        tuple: (test_name: str, success: bool, message: list)
+        tuple: (test_name: str, success: bool, output: list)
     """
-
     test_name = "Checking if the mandatory files according to the contribution manual are present"
 
+    # List of mandatory files to check
     mandatory_files = [
         "schema.json",
         "examples/example.json",
@@ -38,20 +39,25 @@ def test_file_exists(repo_path):
         "notes.yaml",
         "ADOPTERS.yaml"
     ]
+
     output = []
     success = True
 
+    # Example usage of the options parameter (optional, for future flexibility)
+    if options.get("published", False):
+        output.append("This is an officially published model.")
+    if options.get("private", False):
+        output.append("This is a private model.")
+
+    # Check if each mandatory file exists
     for file in mandatory_files:
         path_to_file = os.path.join(repo_path, file)
         exist_file = os.path.exists(path_to_file)
         success = success and exist_file
 
-        # Extract the file name from the path
-        file_name = os.path.basename(file)
-
         if exist_file:
-            output.append(f"The file {file_name} exists")
+            output.append(f"The file {path_to_file} exists")
         else:
-            output.append(f"*** The file {file_name} DOES NOT exist")
+            output.append(f"*** The file {path_to_file} DOES NOT exist")
 
     return test_name, success, output

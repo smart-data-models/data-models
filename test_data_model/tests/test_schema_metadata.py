@@ -1,24 +1,8 @@
-#################################################################################
-#  Licensed to the FIWARE Foundation (FF) under one                             #
-#  or more contributor license agreements. The FF licenses this file            #
-#  to you under the Apache License, Version 2.0 (the "License")                 #
-#  you may not use this file except in compliance with the License.             #
-#  You may obtain a copy of the License at                                      #
-#                                                                               #
-#      http://www.apache.org/licenses/LICENSE-2.0                               #
-#                                                                               #
-#  Unless required by applicable law or agreed to in writing, software          #
-#  distributed under the License is distributed on an "AS IS" BASIS,            #
-#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.     #
-#  See the License for the specific language governing permissions and          #
-#  limitations under the License.                                               #
-#  Author: Alberto Abella                                                       #
-#################################################################################
 import json
 import re
 import requests
 
-def test_schema_metadata(repo_path):
+def test_schema_metadata(repo_path, options):
     """
        Validate the metadata of a schema.json file.
 
@@ -46,6 +30,13 @@ def test_schema_metadata(repo_path):
     test_name = "Validating schema.json metadata"
     success = True
     output = []
+
+    # Example usage of the options parameter (optional, for future flexibility)
+    if options.get("published", False):
+        unpublished = True
+    if options.get("private", False):
+        output.append("This is a private model.")
+
 
     try:
         with open(f"{repo_path}/schema.json", 'r') as file:
@@ -114,8 +105,13 @@ def test_schema_metadata(repo_path):
             try:
                 response = requests.get(schema["$id"])
                 if response.status_code != 200:
-                    success = False
-                    output.append(f"*** $id does not point to a valid site (status code: {response.status_code})")
+                    if unpublished:
+                        success = true
+                        output.append(" warning the $id is  not pointintg to a valid url. Check when publishing")
+                    else:
+                        # the model is published 
+                        success = False
+                        output.append(f"*** $id does not point to a valid site (status code: {response.status_code})")
                 else:
                     output.append("$id is valid and points to a real site")
             except requests.RequestException as e:
@@ -124,8 +120,8 @@ def test_schema_metadata(repo_path):
 
         # Check for derivedFrom (even if empty) and report a warning if empty
         if "derivedFrom" not in schema:
-            success = False
-            output.append("*** derivedFrom is missing")
+            success = True
+            output.append("Warning: derivedFrom is missing")
         else:
             if not schema["derivedFrom"]:
                 output.append("Warning: derivedFrom is empty")

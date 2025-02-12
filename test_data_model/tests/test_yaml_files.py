@@ -28,7 +28,7 @@ def validate_yaml_file(file_path):
         file_name = os.path.basename(file_path)
         return False, f"*** An error occurred while reading '{file_name}': {e}"
 
-def test_yaml_files(repo_to_test):
+def test_yaml_files(repo_to_test, options):
     """
     Test that the ADOPTERS.yaml and notes.yaml files are valid YAML files.
 
@@ -45,6 +45,13 @@ def test_yaml_files(repo_to_test):
     yaml_files = ["ADOPTERS.yaml", "notes.yaml"]
     output = []
     success = True
+
+#    Example usage of the options parameter (optional, for future flexibility)
+#    if options.get("published", False):
+#        unpublished = True
+#    if options.get("private", False):
+#        output.append("This is a private model.")
+
 
     for yaml_file in yaml_files:
         file_path = os.path.join(repo_to_test, yaml_file)

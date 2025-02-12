@@ -1,22 +1,6 @@
-#################################################################################
-#  Licensed to the FIWARE Foundation (FF) under one                             #
-#  or more contributor license agreements. The FF licenses this file            #
-#  to you under the Apache License, Version 2.0 (the "License")                 #
-#  you may not use this file except in compliance with the License.             #
-#  You may obtain a copy of the License at                                      #
-#                                                                               #
-#      http://www.apache.org/licenses/LICENSE-2.0                               #
-#                                                                               #
-#  Unless required by applicable law or agreed to in writing, software          #
-#  distributed under the License is distributed on an "AS IS" BASIS,            #
-#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.     #
-#  See the License for the specific language governing permissions and          #
-#  limitations under the License.                                               #
-#  Author: Alberto Abella                                                       #
-#################################################################################
 import json
 
-def test_string_incorrect(repo_path):
+def test_string_incorrect(repo_path, options):
     """
     Validate that attributes with type 'string' do not have 'items' or 'properties'.
 
@@ -26,9 +10,15 @@ def test_string_incorrect(repo_path):
     Returns:
         tuple: (test_name: str, success: bool, output: list)
     """
-    test_name = "Checking invalid string attributes. "
+    test_name = "Checking invalid string attributes"
     success = True
     output = []
+
+#    Example usage of the options parameter (optional, for future flexibility)
+#    if options.get("published", False):
+#        unpublished = True
+#    if options.get("private", False):
+#        output.append("This is a private model.")
 
     try:
         with open(f"{repo_path}/schema.json", 'r') as file:
@@ -60,9 +50,9 @@ def test_string_incorrect(repo_path):
     return test_name, success, output
 
 # Example of calling the function
-# repo_path = "your_repo_path_here"
-# test_name, success, results = test_string_incorrect(repo_path)
-# print(test_name)
-# for line in results:
-#     print(line)
+#repo_path = "your_repo_path_here"
+#test_name, success, results = check_invalid_string_attributes(repo_path)
+#print(test_name)
+#for line in results:
+#    print(line)
 
