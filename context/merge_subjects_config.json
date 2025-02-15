@@ -73,5 +73,6 @@
   "dataModel.WaterDistributionManagementEPANET": "https://raw.githubusercontent.com/smart-data-models/dataModel.WaterDistributionManagementEPANET/master/context.jsonld",
   "dataModel.WaterQuality": "https://raw.githubusercontent.com/smart-data-models/dataModel.WaterQuality/master/context.jsonld",
   "dataModel.Weather": "https://raw.githubusercontent.com/smart-data-models/dataModel.Weather/master/context.jsonld",
-  "dataModel.WifiNetwork": "https://raw.githubusercontent.com/smart-data-models/dataModel.WifiNetwork/master/context.jsonld"
+  "dataModel.WifiNetwork": "https://raw.githubusercontent.com/smart-data-models/dataModel.WifiNetwork/master/context.jsonld",
+  "dataModel.ZEB": "https://raw.githubusercontent.com/smart-data-models/dataModel.ZEB/master/context.jsonld"
 }

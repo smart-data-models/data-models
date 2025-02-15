@@ -1,5 +1,5 @@
 {
-  "updatedDate": "2024-11-27T17:47:00.31416",
+  "updatedDate": "2025-02-15T13:26:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -1684,6 +1684,16 @@
       ],
       "domains": [
         "CrossSector"
+      ]
+    },
+    {
+      "repoName": "dataModel.ZEB",
+      "repoLink": "https://github.com/smart-data-models/dataModel.ZEB.git",
+      "dataModels": [
+        "Wall"
+      ],
+      "domains": [
+        "SmartCities"
       ]
     }
   ]
