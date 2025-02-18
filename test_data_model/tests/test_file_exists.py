@@ -56,8 +56,8 @@ def test_file_exists(repo_path, options):
         success = success and exist_file
 
         if exist_file:
-            output.append(f"The file {path_to_file} exists")
+            output.append(f"The file '{file}' exists")  # Only include the file name
         else:
-            output.append(f"*** The file {path_to_file} DOES NOT exist")
+            output.append(f"*** The file '{file}' DOES NOT exist")  # Only include the file name
 
     return test_name, success, output

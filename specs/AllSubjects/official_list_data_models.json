@@ -1,5 +1,5 @@
 {
-  "updatedDate": "2025-02-15T13:26:00.31416",
+  "updatedDate": "2025-02-18T23:32:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -930,6 +930,7 @@
       "repoName": "dataModel.OPCUA",
       "repoLink": "https://github.com/smart-data-models/dataModel.OPCUA.git",
       "dataModels": [
+        "MachineTool",
         "MotionDeviceSystem",
         "WoodworkingMachine"
       ],
@@ -1647,7 +1648,8 @@
         "I4Asset",
         "I4Submodel",
         "I4SubmodelElementOperation",
-        "I4SubmodelElementProperty"
+        "I4SubmodelElementProperty",
+        "TimeSeries"
       ],
       "domains": [
         "SmartManufacturing"

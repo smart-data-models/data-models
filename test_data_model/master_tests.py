@@ -205,8 +205,8 @@ def main():
         sys.exit(1)
 
     # Temporary directory to download/copy the files
-    download_dir = "/var/html/www/extra/test2/repo_to_test"
-
+    # download_dir = "/var/html/www/extra/test2/repo_to_test"
+    download_dir = "/home/aabella/transparentia/CLIENTES/EU/FIWARE/GITHUB/repo_to_test"
     try:
         # If the input is a URL, convert it to a raw file base URL
         if is_url(args.repo_url_or_local_path):
@@ -223,7 +223,17 @@ def main():
 #            "test_schema_metadata", "test_duplicated_attributes", "test_yaml_files", 
 #            "test_valid_keyvalues_examples", "test_valid_ngsiv2", "test_valid_ngsild"
 #        ]
-        test_files = ["test_schema_metadata", "test_file_exists", "test_valid_json", "test_valid_ngsild", "test_yaml_files", "test_schema_descriptions", "test_string_incorrect", "test_valid_keyvalues_examples", "test_valid_ngsiv2"]
+        test_files = ["test_file_exists",
+                      "test_valid_json",
+                      "test_yaml_files",
+                      "test_schema_descriptions",
+                      "test_schema_metadata",
+                      "test_string_incorrect",
+                      "test_valid_keyvalues_examples",
+                      "test_valid_ngsiv2",
+                      "test_valid_ngsild",
+                      "test_duplicated_attributes"
+                      ]
 
         # Create options dictionary
         options = {

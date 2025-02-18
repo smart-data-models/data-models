@@ -32,11 +32,8 @@ def test_schema_metadata(repo_path, options):
     output = []
 
     # Example usage of the options parameter (optional, for future flexibility)
-    if options.get("published", False):
-        unpublished = True
-    if options.get("private", False):
-        output.append("This is a private model.")
-
+    unpublished = not options.get("published", False)
+    private = options.get("private", True)
 
     try:
         with open(f"{repo_path}/schema.json", 'r') as file:
@@ -106,7 +103,7 @@ def test_schema_metadata(repo_path, options):
                 response = requests.get(schema["$id"])
                 if response.status_code != 200:
                     if unpublished:
-                        success = true
+                        success = True
                         output.append(" warning the $id is  not pointintg to a valid url. Check when publishing")
                     else:
                         # the model is published 
