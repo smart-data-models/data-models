@@ -72,18 +72,9 @@ def test_valid_ngsild(repo_path, options):
         tuple: (test_name: str, success: bool, message: str)
     """
 
-
-
     test_name = "Validating example-normalized.jsonld as NGSI-LD format"
     success = True
     output = []
-
-    # Example usage of the options parameter (optional, for future flexibility)
-#    if options.get("published", False):
-#        unpublished = True
-#    if options.get("private", False):
-#        output.append("This is a private model.")
-
 
     # List of valid attribute types
     valid_attribute_types = ["Property", "GeoProperty", "Relationship", "LanguageProperty", "ListProperty"]
@@ -104,7 +95,7 @@ def test_valid_ngsild(repo_path, options):
                 if field not in entity:
                     success = False
                     output.append(f"*** Entity is missing required field: {field}")
-                    break
+
 
             # Check for the '@context' field
             if "@context" not in entity:
@@ -121,32 +112,44 @@ def test_valid_ngsild(repo_path, options):
                     if not isinstance(value, dict):
                         success = False
                         output.append(f"*** Property/Relationship '{key}' must be a dictionary")
-                        break
+
 
                     # Check for the 'type' field in the attribute
                     if "type" not in value:
                         success = False
                         output.append(f"*** Property/Relationship '{key}' is missing the 'type' field")
-                        break
+
 
                     # Validate the attribute type
                     attribute_type = value.get("type")
                     if attribute_type not in valid_attribute_types:
                         success = False
                         output.append(f"*** Invalid attribute type '{attribute_type}' for '{key}'. Allowed types: {valid_attribute_types}")
-                        break
 
-                    # Check for 'value' or 'object' based on the attribute type
-                    if attribute_type == "Relationship":
-                        if "object" not in value:
+
+                    # Handle LanguageProperty type
+                    if attribute_type == "LanguageProperty":
+                        if "languageMap" not in value:
                             success = False
-                            output.append(f"*** Relationship '{key}' is missing the 'object' field")
-                            break
+                            output.append(f"*** LanguageProperty '{key}' is missing the 'languageMap' field")
+
+                        # Check if 'value' or 'object' are present (they should not be)
+                        if "value" in value or "object" in value:
+                            success = False
+                            output.append(f"*** LanguageProperty '{key}' should not contain 'value' or 'object' fields")
+
                     else:
-                        if "value" not in value:
-                            success = False
-                            output.append(f"*** Property '{key}' is missing the 'value' field")
-                            break
+                        # Handle other attribute types
+                        if attribute_type == "Relationship":
+                            if "object" not in value:
+                                success = False
+                                output.append(f"*** Relationship '{key}' is missing the 'object' field")
+
+                        else:
+                            if "value" not in value:
+                                success = False
+                                output.append(f"*** Property '{key}' is missing the 'value' field")
+
 
     except json.JSONDecodeError:
         success = False

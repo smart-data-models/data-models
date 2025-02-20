@@ -1630,7 +1630,7 @@
         "SmartLogistics"
       ]
     },
-     {
+    {
       "repoName": "dataModel.HumanResources",
       "repoLink": "https://github.com/smart-data-models/dataModel.HumanResources.git",
       "dataModels": [
@@ -1640,7 +1640,7 @@
         "CrossSector"
       ]
     },
-     {
+    {
       "repoName": "dataModel.AAS",
       "repoLink": "https://github.com/smart-data-models/dataModel.AAS.git",
       "dataModels": [

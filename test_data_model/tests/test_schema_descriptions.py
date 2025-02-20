@@ -1,8 +1,24 @@
+#################################################################################
+#  Licensed to the FIWARE Foundation (FF) under one                             #
+#  or more contributor license agreements. The FF licenses this file            #
+#  to you under the Apache License, Version 2.0 (the "License")                 #
+#  you may not use this file except in compliance with the License.             #
+#  You may obtain a copy of the License at                                      #
+#                                                                               #
+#      http://www.apache.org/licenses/LICENSE-2.0                               #
+#                                                                               #
+#  Unless required by applicable law or agreed to in writing, software          #
+#  distributed under the License is distributed on an "AS IS" BASIS,            #
+#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.     #
+#  See the License for the specific language governing permissions and          #
+#  limitations under the License.                                               #
+#  Author: Alberto Abella                                                       #
+#################################################################################
+
 import json
 import os
 import requests
 from urllib.parse import urljoin
-
 def validate_description(description):
     """
     Validate that the description follows the required format.
@@ -82,6 +98,7 @@ def resolve_ref(ref, base_uri):
         else:
             raise ValueError(f"*** Failed to fetch external schema from {resolved_url}")
 
+
 def check_property_descriptions(properties, base_uri, output, path=""):
     """
     Recursively check descriptions for all properties, including nested ones and arrays.
@@ -102,7 +119,28 @@ def check_property_descriptions(properties, base_uri, output, path=""):
         elif "items" in prop_details:
             # Handle arrays
             items = prop_details["items"]
-            if "properties" in items:
+            if "anyOf" in items:
+                # Handle anyOf clause for array items
+                for idx, any_of_item in enumerate(items["anyOf"]):
+                    if "properties" in any_of_item:
+                        # Recursively check properties of anyOf items (if items are objects)
+                        check_property_descriptions(any_of_item["properties"], base_uri, output, f"{current_path}.items.anyOf[{idx}]")
+                    elif "items" in any_of_item:
+                        # Recursively check nested arrays within anyOf
+                        check_property_descriptions({"items": any_of_item["items"]}, base_uri, output, f"{current_path}.items.anyOf[{idx}]")
+                    else:
+                        # Check for a description in the anyOf item (for primitive types)
+                        if "description" not in any_of_item:
+                            output.append(f"*** The attribute '{current_path}.items.anyOf[{idx}]' is missing a description.")
+                        else:
+                            # Validate the description
+                            description = any_of_item["description"]
+                            is_valid, message = validate_description(description)
+                            if not is_valid:
+                                output.append(f"*** The attribute '{current_path}.items.anyOf[{idx}]' has an invalid description: {message}")
+                            else:
+                                output.append(f"The attribute '{current_path}.items.anyOf[{idx}]' is properly documented.")
+            elif "properties" in items:
                 # Recursively check properties of array items (if items are objects)
                 check_property_descriptions(items["properties"], base_uri, output, f"{current_path}.items")
             elif "items" in items:
@@ -119,7 +157,7 @@ def check_property_descriptions(properties, base_uri, output, path=""):
                     if not is_valid:
                         output.append(f"*** The attribute '{current_path}.items' has an invalid description: {message}")
                     else:
-                        output.append(f"*** The attribute '{current_path}.items' is properly documented.")
+                        output.append(f"The attribute '{current_path}.items' is properly documented.")
         elif "description" not in prop_details:
             output.append(f"*** The attribute '{current_path}' is missing a description.")
         else:
@@ -171,14 +209,3 @@ def test_schema_descriptions(repo_to_test, options):
 
     test_name = "Checking that the schema is properly described in all its attributes"
     return test_name, success, output
-
-# Example usage (for standalone testing)
-#if __name__ == "__main__":
-#    repo_to_test = "path/to/repo"  # Replace with the actual path to the repository
-#    test_name, success, output = test_schema_descriptions(repo_to_test)
-#    print(f"Test Name: {test_name}")
-#    print(f"Success: {success}")
-#    print("Output:")
-#    for message in output:
-#        print(message)
-

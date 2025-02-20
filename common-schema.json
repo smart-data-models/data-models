@@ -134,14 +134,16 @@
                   "minItems": 2,
                   "items": {
                     "type": "number"
-                  }
+                  },
+                  "description": "Property. Coordinates of the Point"
                 },
                 "bbox": {
                   "type": "array",
                   "minItems": 4,
                   "items": {
                     "type": "number"
-                  }
+                  },
+                  "description": "Property. BBox of the  Point"
                 }
               }
             },
@@ -163,6 +165,7 @@
                 "coordinates": {
                   "type": "array",
                   "minItems": 2,
+                  "description": "Property. Coordinates of the LineString",
                   "items": {
                     "type": "array",
                     "minItems": 2,
@@ -176,7 +179,8 @@
                   "minItems": 4,
                   "items": {
                     "type": "number"
-                  }
+                  },
+                  "description": "Property. BBox coordinates of the LineString"
                 }
               }
             },
@@ -197,6 +201,7 @@
                 },
                 "coordinates": {
                   "type": "array",
+                  "description": "Property. Coordinates of the Polygon",
                   "items": {
                     "type": "array",
                     "minItems": 4,
@@ -214,7 +219,8 @@
                   "minItems": 4,
                   "items": {
                     "type": "number"
-                  }
+                  },
+                  "description": "Property. BBox coordinates of the Polygon"
                 }
               }
             },
@@ -235,6 +241,7 @@
                 },
                 "coordinates": {
                   "type": "array",
+                  "description": "Property. Coordinates of the MulitPoint",
                   "items": {
                     "type": "array",
                     "minItems": 2,
@@ -248,7 +255,8 @@
                   "minItems": 4,
                   "items": {
                     "type": "number"
-                  }
+                  },
+                  "description": "Property. BBox coordinates of the LineString"
                 }
               }
             },
@@ -269,6 +277,7 @@
                 },
                 "coordinates": {
                   "type": "array",
+                  "description": "Property. Coordinates of the MultiLineString",
                   "items": {
                     "type": "array",
                     "minItems": 2,
@@ -286,7 +295,8 @@
                   "minItems": 4,
                   "items": {
                     "type": "number"
-                  }
+                  },
+                  "description": "Property. BBox coordinates of the LineString"
                 }
               }
             },
@@ -307,6 +317,7 @@
                 },
                 "coordinates": {
                   "type": "array",
+                  "description": "Property. Coordinates of the MultiPolygon",
                   "items": {
                     "type": "array",
                     "items": {
