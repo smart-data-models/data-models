@@ -232,7 +232,8 @@ def main():
                       "test_valid_keyvalues_examples",
                       "test_valid_ngsiv2",
                       "test_valid_ngsild",
-                      "test_duplicated_attributes"
+                      "test_duplicated_attributes",
+                      "test_array_object_structure"
                       ]
 
         # Create options dictionary
