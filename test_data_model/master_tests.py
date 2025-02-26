@@ -1,3 +1,21 @@
+#################################################################################
+#  Licensed to the FIWARE Foundation (FF) under one                             #
+#  or more contributor license agreements. The FF licenses this file            #
+#  to you under the Apache License, Version 2.0 (the "License")                 #
+#  you may not use this file except in compliance with the License.             #
+#  You may obtain a copy of the License at                                      #
+#                                                                               #
+#      http://www.apache.org/licenses/LICENSE-2.0                               #
+#                                                                               #
+#  Unless required by applicable law or agreed to in writing, software          #
+#  distributed under the License is distributed on an "AS IS" BASIS,            #
+#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.     #
+#  See the License for the specific language governing permissions and          #
+#  limitations under the License.                                               #
+#  Author: Alberto Abella                                                       #
+#################################################################################
+# version 26/02/25 - 1
+
 import json
 import importlib
 import sys
@@ -178,6 +196,8 @@ def run_tests(test_files, repo_to_test, only_report_errors, options):
 
 def main():
     # Set up argument parser
+    results_dir = "/var/www/html/extra/test2/results"
+    # results_dir = "/home/aabella/PycharmProjects/data-models/test_data_model/results"
     parser = argparse.ArgumentParser(description="Run tests on a repository.")
     
     # Mandatory arguments
@@ -255,7 +275,7 @@ def main():
         # Save a file with the results
         email_name = args.email.replace("@", "_at_")
         time_name = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        filename = f"/var/www/html/extra/test2/results/{time_name}_{email_name}.json"
+        filename = f"{results_dir}/{time_name}_{email_name}.json"
         with open(filename, "w") as f:
             json.dump(test_results, f, indent=4)
 

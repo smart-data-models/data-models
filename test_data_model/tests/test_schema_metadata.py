@@ -14,6 +14,7 @@
 #  limitations under the License.                                               #
 #  Author: Alberto Abella                                                       #
 #################################################################################
+# version 26/02/25 - 1
 
 import json
 import re
@@ -121,7 +122,7 @@ def test_schema_metadata(repo_path, options):
                 if response.status_code != 200:
                     if unpublished:
                         success = True
-                        output.append(" warning the $id is  not pointintg to a valid url. Check when publishing")
+                        output.append("Warning the $id is  not pointing to a valid url. Check when publishing")
                     else:
                         # the model is published 
                         success = False
