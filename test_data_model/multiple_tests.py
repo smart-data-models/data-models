@@ -105,7 +105,10 @@ def main():
     results = []
     for subdirectory in subdirectories:
         print(f"Running tests for {subdirectory}...")
-        test_result = run_master_tests(repo_url, root_directory +"/" + subdirectory, email, only_report_errors)
+        test_result = run_master_tests(repo_url, root_directory + "/" + subdirectory, email, only_report_errors)
+        for item in test_result:
+            print(item)
+            item["datamodel"] = subdirectory
         results.append({
             "datamodel": subdirectory,
             "result": test_result

@@ -196,8 +196,8 @@ def run_tests(test_files, repo_to_test, only_report_errors, options):
 
 def main():
     # Set up argument parser
-    results_dir = "/var/www/html/extra/test2/results"
-    # results_dir = "/home/aabella/PycharmProjects/data-models/test_data_model/results"
+    # results_dir = "/var/www/html/extra/test2/results"
+    results_dir = "/home/aabella/PycharmProjects/data-models/test_data_model/results"
     parser = argparse.ArgumentParser(description="Run tests on a repository.")
     
     # Mandatory arguments

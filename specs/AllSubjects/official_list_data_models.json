@@ -1,5 +1,5 @@
 {
-  "updatedDate": "2025-02-18T23:32:00.31416",
+  "updatedDate": "2025-02-25T15:56:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -1692,7 +1692,16 @@
       "repoName": "dataModel.ZEB",
       "repoLink": "https://github.com/smart-data-models/dataModel.ZEB.git",
       "dataModels": [
-        "Wall"
+        "Column",
+        "Door",
+        "Glass",
+        "Material",
+        "MaterialLayer",
+        "Opening",
+        "Slab",
+        "Stair",
+        "Wall",
+        "Window"
       ],
       "domains": [
         "SmartCities"
