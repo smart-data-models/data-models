@@ -2,6 +2,16 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://smart-data-models.github.io/data-models/common-schema.json",
   "title": "Common definitions for  Harmonized Data Models",
+  "patternProperties": {
+    "^.*$": {
+      "type": "object",
+      "properties": {
+        "ngsildproof": {
+          ...
+        }
+      }
+    }
+  },
   "definitions": {
     "EntityIdentifierType": {
       "anyOf": [
