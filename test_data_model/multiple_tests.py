@@ -17,31 +17,37 @@
 # version 26/02/25 - 1
 
 import sys
-import json
 import subprocess
 import requests
 from datetime import datetime
+import json
 
-def get_subdirectories(repo_url, root_directory):
+
+def get_subdirectories(subject_root):
     """
     Get the list of first-level subdirectories in the specified root directory of a GitHub repository.
 
     Parameters:
-        repo_url (str): The URL of the GitHub repository.
-        root_directory (str): The root directory to list subdirectories from.
+        subject_root (str): The full path to the root directory in the GitHub repository (e.g., https://github.com/smart-data-models/incubated/tree/d7b7b48f03b9b221d141e074e1d311985ab04f25/SMARTMANUFACTURING/dataModel.PredictiveMaintenance).
 
     Returns:
         list: List of subdirectory names.
     """
-    # Extract the owner and repo name from the URL
-    parts = repo_url.strip("/").split("/")
-    owner = parts[-2]
-    repo = parts[-1]
-
-    # GitHub API URL to list contents of the root directory
-    api_url = f"https://api.github.com/repos/{owner}/{repo}/contents/{root_directory}"
-
     try:
+        # Extract the owner, repo, branch, and root directory from the subject_root
+        parts = subject_root.strip("/").split("/")
+        if len(parts) < 7:
+            raise ValueError("Invalid subject_root URL. It must include owner, repo, branch, and root directory.")
+
+        owner = parts[3]  # e.g., "smart-data-models"
+        repo = parts[4]   # e.g., "incubated"
+        branch = parts[6]  # e.g., "d7b7b48f03b9b221d141e074e1d311985ab04f25"
+        root_directory = "/".join(parts[7:])  # e.g., "SMARTMANUFACTURING/dataModel.PredictiveMaintenance"
+
+        # GitHub API URL to list contents of the root directory
+        api_url = f"https://api.github.com/repos/{owner}/{repo}/contents/{root_directory}?ref={branch}"
+
+        # Fetch the contents of the root directory
         response = requests.get(api_url)
         if response.status_code == 200:
             contents = response.json()
@@ -52,13 +58,12 @@ def get_subdirectories(repo_url, root_directory):
             raise Exception(f"Failed to fetch directory contents: HTTP {response.status_code}")
     except Exception as e:
         raise Exception(f"Error fetching subdirectories: {e}")
-
-def run_master_tests(repo_url, subdirectory, email, only_report_errors):
+def run_master_tests(subject_root, subdirectory, email, only_report_errors):
     """
     Run the master_tests.py script for a specific subdirectory.
 
     Parameters:
-        repo_url (str): The URL of the GitHub repository.
+        subject_root (str): The full path to the root directory in the GitHub repository.
         subdirectory (str): The subdirectory to test.
         email (str): The email address for reporting results.
         only_report_errors (bool): Whether to report only errors.
@@ -68,15 +73,21 @@ def run_master_tests(repo_url, subdirectory, email, only_report_errors):
     """
     try:
         # Construct the full URL to the subdirectory
-        subdirectory_url = f"{repo_url}/tree/master/{subdirectory}"
-        print(subdirectory_url)
+        # Remove any trailing slashes and append the subdirectory
+        print("before directory")
+        print(subject_root)
+        subject_root = subject_root.rstrip("/")
+        print(subdirectory)
+        subdirectory_url = f"{subject_root}/{subdirectory}"
+        print(f"Testing subdirectory: {subdirectory_url}")
+
         # Run the master_tests.py script
         result = subprocess.run(
             [
                 "python3", "master_tests.py",
                 subdirectory_url,
                 email,
-                "true" if only_report_errors else "false"
+                "1" if only_report_errors else "0"
             ],
             capture_output=True,
             text=True
@@ -85,30 +96,33 @@ def run_master_tests(repo_url, subdirectory, email, only_report_errors):
         # Parse the output as JSON
         return json.loads(result.stdout)
     except Exception as e:
-        print("hemos tenido un error")
+        print(f"Error running tests for {subdirectory}: {e}")
         return {"error": str(e)}
 
 def main():
-    if len(sys.argv) != 5:
-        print("Usage: python3 multiple_tests.py <repo_url> <root_directory> <email> <only_report_errors>")
+    if len(sys.argv) != 4:
+        print("Usage: python3 multiple_tests.py <subject_root> <email> <only_report_errors>")
         sys.exit(1)
 
-    repo_url = sys.argv[1]
-    root_directory = sys.argv[2]
-    email = sys.argv[3]
-    only_report_errors = sys.argv[4].lower() == "true"
+    ### remove
+    print(sys.argv[1])
+    subject_root = sys.argv[1]
+    email = sys.argv[2]
+    only_report_errors = sys.argv[3].lower() == "true"
 
     # Get the list of subdirectories
-    subdirectories = get_subdirectories(repo_url, root_directory)
-    print(subdirectories)
+    subdirectories = get_subdirectories(subject_root)
     # Run tests for each subdirectory and collect results
     results = []
+    print(subdirectories)
     for subdirectory in subdirectories:
         print(f"Running tests for {subdirectory}...")
-        test_result = run_master_tests(repo_url, root_directory + "/" + subdirectory, email, only_report_errors)
-        for item in test_result:
-            print(item)
-            item["datamodel"] = subdirectory
+        test_result = run_master_tests(subject_root, subdirectory, email, only_report_errors)
+        ### remove
+        print(test_result)
+        # for item in test_result:
+        #     print(item)
+        #     item["datamodel"] = subdirectory
         results.append({
             "datamodel": subdirectory,
             "result": test_result

@@ -1,0 +1,6 @@
+{
+  "results_dir": "/home/aabella/PycharmProjects/data-models/test_data_model/results",
+  "results_dir_help": "This directory will store the results of the tests either one or multiple. It has to be writable by the script",
+  "download_dir": "/home/aabella/transparentia/CLIENTES/EU/FIWARE/GITHUB/repo_to_test",
+  "download_dir_help": "this directory is use for temporal download of files and removed once finished. Don't point to any directory with valuable content"
+}
