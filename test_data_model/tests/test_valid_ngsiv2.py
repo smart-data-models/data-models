@@ -16,7 +16,7 @@
 #################################################################################
 # version 26/02/25 - 1
 
-import json
+from json import load, JSONDecodeError
 
 def validate_entity(entity):
     """
@@ -77,7 +77,7 @@ def test_valid_ngsiv2(repo_path, options):
     try:
         # Load the example-normalized.json file
         with open(f"{repo_path}/examples/example-normalized.json", 'r') as file:
-            data = json.load(file)
+            data = load(file)
 
         success, output = validate_entity(data)
 
@@ -97,7 +97,7 @@ def test_valid_ngsiv2(repo_path, options):
                 if "value" not in data [entity]:
                     success = False
                     output.append(f"*** {entity} has not value")
-    except json.JSONDecodeError:
+    except JSONDecodeError:
         success = False
         output.append("*** example-normalized.json is not a valid JSON file")
     except FileNotFoundError:

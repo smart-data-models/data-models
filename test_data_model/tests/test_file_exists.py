@@ -15,7 +15,8 @@
 #  Author: Alberto Abella                                                       #
 #################################################################################
 # version 26/02/25 - 1
-import os
+#import os
+from os.path import join, exists
 
 def test_file_exists(repo_path, options):
     """
@@ -52,8 +53,8 @@ def test_file_exists(repo_path, options):
 
     # Check if each mandatory file exists
     for file in mandatory_files:
-        path_to_file = os.path.join(repo_path, file)
-        exist_file = os.path.exists(path_to_file)
+        path_to_file = join(repo_path, file)
+        exist_file = exists(path_to_file)
         success = success and exist_file
 
         if exist_file:

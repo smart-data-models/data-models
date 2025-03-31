@@ -15,25 +15,32 @@
 #  Author: Alberto Abella                                                       #
 #################################################################################
 # version 28/02/25 - 1
-import json
-import os
-import requests
+from json import load
+from os.path import join, exists
+from requests import get
 from urllib.parse import urljoin
 from jsonpointer import resolve_pointer
+from itertools import product
 
 
 def validate_description(description):
     """
-    Validate that the description follows the required format.
-    - The description must include a mandatory NGSI type (Property, GeoProperty, or Relationship).
-    - The NGSI type must not contain extra spaces.
-    - Optional elements (Model, Units, Enum, Privacy, Multilingual) must follow the format Key:'value'.
-    - The description must be at least 15 characters long.
-    """
+    Validate the description of a schema property.
+      - The description must include a mandatory NGSI type (Property, GeoProperty, or Relationship).
+      - The NGSI type must not contain extra spaces.
+      - Optional elements (Model, Units, Enum, Privacy, Multilingual) must follow the format Key:'value'.
+      - The description must be at least 15 characters long.
+
+    Parameters:
+        description (str): The description string to validate.
+
+    Returns:
+        tuple: A tuple containing a boolean indicating whether the description is valid and a message explaining the validation result.
+    """    
     if len(description) < 15:
         return False, "*** Description must be at least 15 characters long."
 
-    parts = [part for part in description.split(". ")]
+    parts = list(description.split(". "))
 
     valid_ngsi_types = ["Property", "GeoProperty", "Relationship", "LanguageProperty", "ListProperty"]
     ngsi_type_found = None
@@ -43,44 +50,56 @@ def validate_description(description):
             break
 
     if not ngsi_type_found:
-        for part in parts:
-            for ngsi_type in valid_ngsi_types:
-                if ngsi_type in part and part != ngsi_type:
-                    return False, f"NGSI type '{part}' contains extra characters."
-        return False, "*** NGSI type is not described. Must be one of: Property, GeoProperty, Relationship, LanguageProperty, ListProperty"
-
+        return next(
+            (
+                (False, f"NGSI type '{part}' contains extra characters.")
+                for part, ngsi_type in product(parts, valid_ngsi_types)
+                if ngsi_type in part and part != ngsi_type
+            ),
+            (
+                False,
+                "*** NGSI type is not described. Must be one of: Property, GeoProperty, Relationship, LanguageProperty, ListProperty",
+            ),
+        )
+    
     if ngsi_type_found.strip() != ngsi_type_found:
         return False, f"*** NGSI type '{ngsi_type_found}' contains extra spaces."
 
     optional_keys = ["Model:", "Units:", "Enum:", "Privacy:", "Multilingual"]
-    for part in parts:
-        for key in optional_keys:
-            if part.startswith(key):
-                if not part[len(key):].startswith("'"):
-                    return False, f"*** Invalid format for '{key}'. Expected format: {key}'value'."
-                if not part.endswith("'"):
-                    return False, f"*** Invalid format for '{key}'. Expected format: {key}'value'."
+    for part, key in product(parts, optional_keys):
+        if part.startswith(key):
+            if not part[len(key):].startswith("'"):
+                return False, f"*** Invalid format for '{key}'. Expected format: {key}'value'."
+            if not part.endswith("'"):
+                return False, f"*** Invalid format for '{key}'. Expected format: {key}'value'."
 
     return True, "Description is valid."
 
 
 def resolve_ref(ref, base_uri):
     """
-    Resolve a $ref to its external schema and return the referenced schema.
-    Handles both remote URLs and JSON Pointers, and recursively resolves nested $refs.
-    JSON Pointers (starting with #) are resolved relative to the schema being referenced.
+    Resolve a JSON Schema $ref to its corresponding schema and return the referenced schema.
+      - Handles both local and remote references, resolving JSON Pointers if present.
+      - Recursively resolves nested $refs within the resolved schema.
+
+    Parameters:
+        ref (str): The JSON Schema $ref string.
+        base_uri (str): The base URI to resolve relative references against.
+
+    Returns:
+        dict: The resolved schema.
+
+    Raises:
+        ValueError: If the reference cannot be resolved or if an error occurs during resolution.
     """
-    if "#" in ref:
-        url_part, pointer_part = ref.split("#", 1)
-    else:
-        url_part, pointer_part = ref, ""
+    url_part, pointer_part = ref.split("#", 1) if "#" in ref else (ref, "")
 
     if url_part.startswith("http"):
         resolved_url = url_part
     else:
         resolved_url = urljoin(base_uri, url_part)
 
-    response = requests.get(resolved_url)
+    response = get(resolved_url)
     if response.status_code != 200:
         raise ValueError(f"*** Failed to fetch external schema from {resolved_url}")
 
@@ -91,7 +110,9 @@ def resolve_ref(ref, base_uri):
             # Resolve the JSON Pointer relative to the fetched schema
             schema = resolve_pointer(schema, pointer_part)
         except Exception as e:
-            raise ValueError(f"*** Failed to resolve JSON Pointer '{pointer_part}' in schema: {e}")
+            raise ValueError(
+                f"*** Failed to resolve JSON Pointer '{pointer_part}' in schema: {e}"
+            ) from e
 
     # Recursively resolve any nested $refs in the resolved schema
     schema = resolve_nested_refs(schema, resolved_url if url_part else base_uri)
@@ -101,14 +122,24 @@ def resolve_ref(ref, base_uri):
 
 def resolve_nested_refs(schema, base_uri):
     """
-    Recursively resolve any nested $refs in the schema.
+    Recursively resolve nested JSON Schema $refs within a schema.
+
+    Traverses the schema object and resolves any $ref properties to their corresponding schemas.
+    Handles both dictionaries and lists.
+
+    Parameters:
+        schema (dict or list): The schema object to resolve references within.
+        base_uri (str): The base URI to resolve relative references against.
+
+    Returns:
+        dict or list: The schema with all nested $refs resolved.
     """
     if isinstance(schema, dict):
         if "$ref" in schema:
             return resolve_ref(schema["$ref"], base_uri)
-        else:
-            for key, value in schema.items():
-                schema[key] = resolve_nested_refs(value, base_uri)
+
+        for key, value in schema.items():
+            schema[key] = resolve_nested_refs(value, base_uri)
     elif isinstance(schema, list):
         for i, item in enumerate(schema):
             schema[i] = resolve_nested_refs(item, base_uri)
@@ -118,8 +149,19 @@ def resolve_nested_refs(schema, base_uri):
 
 def check_property_descriptions(properties, base_uri, output, path="", processed_refs=None):
     """
-    Recursively check descriptions for all properties, including nested ones and arrays.
-    Keeps track of processed references to avoid duplicate processing.
+    Recursively checks descriptions for all properties in a schema.
+
+    This function traverses the properties of a schema, including nested properties within objects and arrays,
+    and validates their descriptions against predefined criteria. It handles $ref references, resolving them
+    to check descriptions in external or referenced schemas. It also checks for descriptions in array items
+    and anyOf properties.
+
+    Parameters:
+        properties (dict): The properties object from the schema.
+        base_uri (str): The base URI for resolving $ref references.
+        output (list): A list to store the output messages.
+        path (str, optional): The current path within the schema being checked. Defaults to "".
+        processed_refs (set, optional): A set to keep track of processed $refs to avoid infinite recursion. Defaults to None.
     """
     if processed_refs is None:
         processed_refs = set()
@@ -141,8 +183,12 @@ def check_property_descriptions(properties, base_uri, output, path="", processed
             try:
                 ref_schema = resolve_ref(ref, base_uri)
                 if "properties" in ref_schema:
-                    check_property_descriptions(ref_schema["properties"], base_uri, output, current_path,
-                                                processed_refs)
+                    check_property_descriptions(properties=ref_schema["properties"],
+                                                base_uri=base_uri,
+                                                output=output,
+                                                path=current_path,
+                                                processed_refs=processed_refs)
+
                 if "description" in ref_schema:
                     description = ref_schema["description"]
                     is_valid, message = validate_description(description)
@@ -154,6 +200,7 @@ def check_property_descriptions(properties, base_uri, output, path="", processed
                     output.append(f"*** The attribute '{current_path}' is missing a description.")
             except ValueError as e:
                 output.append(f"*** Error resolving $ref for property '{current_path}': {e}")
+
             continue
 
         # Check description for the current property
@@ -248,21 +295,27 @@ def check_property_descriptions(properties, base_uri, output, path="", processed
                     else:
                         output.append(f"The attribute '{current_path}.items' is properly documented.")
 
-
+              
 def test_schema_descriptions(repo_to_test, options):
     """
-    Test that all elements in the schema.json file include a description and that the description is valid.
+    Test the descriptions in a JSON Schema.
+
+    This test checks if a schema.json file exists and validates the descriptions of all properties within the schema,
+    including nested properties and properties referenced via $ref. It ensures that descriptions meet certain criteria,
+    such as minimum length and the inclusion of specific elements (e.g., NGSI type, Model, Units).
+
+    Parameters:
+        repo_to_test (str): Path to the repository being tested.
+
     Returns:
-        test_name (str): Name of the test.
-        success (bool): True if all descriptions are valid, False otherwise.
-        output (list): List of messages describing the results of the test.
+        tuple: A tuple containing the test name, a boolean indicating success or failure, and a list of output messages.
     """
-    schema_file = os.path.join(repo_to_test, "schema.json")
-    if not os.path.exists(schema_file):
+    schema_file = join(repo_to_test, "schema.json")
+    if not exists(schema_file):
         return "Checking that the schema is properly described in all its attributes", False, ["Schema file not found."]
 
     with open(schema_file, 'r') as f:
-        schema = json.load(f)
+        schema = load(f)
 
     output = []
     base_uri = schema.get("$id", "")

@@ -16,9 +16,9 @@
 #################################################################################
 # version 26/02/25 - 1
 
-import json
-import re
-import requests
+from json import load, JSONDecodeError
+from re import compile
+from requests import get, RequestException
 
 def test_schema_metadata(repo_path, options):
     """
@@ -35,7 +35,8 @@ def test_schema_metadata(repo_path, options):
        - it has a license (even if it is empty) just a warning
 
        Parameters:
-           file_path (str): The path to the schema.json file.
+           repo_path (str): The path to the schema.json file.
+           options (dict): The options passed to the requests library.
 
        Returns:
            tuple: (success: bool, message: str)
@@ -55,7 +56,7 @@ def test_schema_metadata(repo_path, options):
 
     try:
         with open(f"{repo_path}/schema.json", 'r') as file:
-            schema = json.load(file)
+            schema = load(file)
 
         # Check for $schema and validate its value
         if "$schema" not in schema:
@@ -64,7 +65,8 @@ def test_schema_metadata(repo_path, options):
         else:
             if schema["$schema"] != "https://json-schema.org/draft/2020-12/schema":
                 success = False
-                output.append(f"*** $schema is not pointing to https://json-schema.org/draft/2020-12/schema (found: {schema['$schema']})")
+                output.append(f"*** $schema is not pointing to https://json-schema.org/draft/2020-12/schema "
+                              f"(found: {schema['$schema']})")
             else:
                 output.append("$schema is valid")
 
@@ -83,7 +85,7 @@ def test_schema_metadata(repo_path, options):
             success = False
             output.append("*** $schemaVersion is missing")
         else:
-            version_pattern = re.compile(r"^\d{1,2}\.\d{1,2}\.\d{1,2}$")
+            version_pattern = compile(r"^\d{1,2}\.\d{1,2}\.\d{1,2}$")
             if not version_pattern.match(schema["$schemaVersion"]):
                 success = False
                 output.append(f"*** $schemaVersion is not in the correct format (XX.XX.XX) (found: {schema['$schemaVersion']})")
@@ -94,23 +96,21 @@ def test_schema_metadata(repo_path, options):
         if "title" not in schema:
             success = False
             output.append("*** title is missing")
+        elif len(schema["title"]) < minTitleLength:
+            success = False
+            output.append(f"*** title is too short (minimum {minTitleLength} characters) (found: {len(schema['title'])} characters)")
         else:
-            if len(schema["title"]) < minTitleLength:
-                success = False
-                output.append(f"*** title is too short (minimum {minTitleLength} characters) (found: {len(schema['title'])} characters)")
-            else:
-                output.append("title is valid")
+            output.append("title is valid")
 
         # Check for description and ensure it is at least 50 characters long
         if "description" not in schema:
             success = False
             output.append("*** description is missing")
+        elif len(schema["description"]) < minDescriptionLength:
+            success = False
+            output.append(f"*** description is too short (minimum {minDescriptionLength} characters) (found: {len(schema['description'])} characters)")
         else:
-            if len(schema["description"]) < minDescriptionLength:
-                success = False
-                output.append(f"*** description is too short (minimum {minDescriptionLength} characters) (found: {len(schema['description'])} characters)")
-            else:
-                output.append("description is valid")
+            output.append("description is valid")
 
         # Check for $id and validate that it points to a real site
         if "$id" not in schema:
@@ -118,7 +118,7 @@ def test_schema_metadata(repo_path, options):
             output.append("*** $id is missing")
         else:
             try:
-                response = requests.get(schema["$id"])
+                response = get(schema["$id"])
                 if response.status_code != 200:
                     if unpublished:
                         success = True
@@ -129,7 +129,7 @@ def test_schema_metadata(repo_path, options):
                         output.append(f"*** $id does not point to a valid site (status code: {response.status_code})")
                 else:
                     output.append("$id is valid and points to a real site")
-            except requests.RequestException as e:
+            except RequestException as e:
                 success = False
                 output.append(f"*** $id is not reachable: {e}")
 
@@ -171,7 +171,7 @@ def test_schema_metadata(repo_path, options):
             else:
                 output.append("license is present and not empty")
 
-    except json.JSONDecodeError:
+    except JSONDecodeError:
         success = False
         output.append("*** schema.json is not a valid JSON file")
     except FileNotFoundError:

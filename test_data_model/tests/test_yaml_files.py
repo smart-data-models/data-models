@@ -16,8 +16,8 @@
 #################################################################################
 # version 26/02/25 - 1
 
-import os
-import yaml
+from os.path import join, exists, basename
+from yaml import safe_load, YAMLError
 
 def validate_yaml_file(file_path):
     """
@@ -33,17 +33,17 @@ def validate_yaml_file(file_path):
     """
     try:
         with open(file_path, 'r') as file:
-            yaml.safe_load(file)
+            safe_load(file)
         # Extract only the filename from the full path
-        file_name = os.path.basename(file_path)
+        file_name = basename(file_path)
         return True, f"The file '{file_name}' is a valid YAML file."
-    except yaml.YAMLError as e:
+    except YAMLError as e:
         # Extract only the filename from the full path
-        file_name = os.path.basename(file_path)
+        file_name = basename(file_path)
         return False, f"*** The file '{file_name}' is not a valid YAML file: {e}"
     except Exception as e:
         # Extract only the filename from the full path
-        file_name = os.path.basename(file_path)
+        file_name = basename(file_path)
         return False, f"*** An error occurred while reading '{file_name}': {e}"
 
 def test_yaml_files(repo_to_test, options):
@@ -72,8 +72,8 @@ def test_yaml_files(repo_to_test, options):
 
 
     for yaml_file in yaml_files:
-        file_path = os.path.join(repo_to_test, yaml_file)
-        if not os.path.exists(file_path):
+        file_path = join(repo_to_test, yaml_file)
+        if not exists(file_path):
             output.append(f"*** The file '{yaml_file}' does not exist.")
             success = False
         else:

@@ -16,9 +16,9 @@
 #################################################################################
 # version 26/02/25 - 1
 
-import json
-import os
-import requests
+from json import load
+from os.path import join, exists
+from requests import get
 from jsonschema import validate, ValidationError
 
 def validate_json_against_schema(json_data, schema):
@@ -56,7 +56,7 @@ def check_context_url(context):
     if isinstance(context, str):
         # Single URL case
         try:
-            response = requests.get(context)
+            response = get(context)
             if response.status_code == 200:
                 return True, f"The @context URL '{context}' is valid."
             else:
@@ -68,7 +68,7 @@ def check_context_url(context):
         warnings = []
         for url in context:
             try:
-                response = requests.get(url)
+                response = get(url)
                 if response.status_code != 200:
                     warnings.append(f"*** The @context URL '{url}' does not return a valid response (HTTP {response.status_code}).")
             except Exception as e:
@@ -96,9 +96,9 @@ def test_valid_keyvalues_examples(repo_to_test, options):
             output (list): List of messages describing the results of the test.
     """
     # Paths to the files
-    schema_file = os.path.join(repo_to_test, "schema.json")
-    example_json_file = os.path.join(repo_to_test, "examples", "example.json")
-    example_jsonld_file = os.path.join(repo_to_test, "examples", "example.jsonld")
+    schema_file = join(repo_to_test, "schema.json")
+    example_json_file = join(repo_to_test, "examples", "example.json")
+    example_jsonld_file = join(repo_to_test, "examples", "example.jsonld")
 
     output = []
     success = True
@@ -111,17 +111,17 @@ def test_valid_keyvalues_examples(repo_to_test, options):
 
 
     # Check if the schema file exists
-    if not os.path.exists(schema_file):
+    if not exists(schema_file):
         return "Checking that example files are valid against the schema", False, ["Schema file not found."]
 
     # Load the schema
     with open(schema_file, 'r') as f:
-        schema = json.load(f)
+        schema = load(f)
 
     # Validate example.json
-    if os.path.exists(example_json_file):
+    if exists(example_json_file):
         with open(example_json_file, 'r') as f:
-            example_json = json.load(f)
+            example_json = load(f)
         is_valid, message = validate_json_against_schema(example_json, schema)
         output.append(f"example.json: {message}")
         if not is_valid:
@@ -131,9 +131,9 @@ def test_valid_keyvalues_examples(repo_to_test, options):
         success = False
 
     # Validate example.jsonld
-    if os.path.exists(example_jsonld_file):
+    if exists(example_jsonld_file):
         with open(example_jsonld_file, 'r') as f:
-            example_jsonld = json.load(f)
+            example_jsonld = load(f)
         is_valid, message = validate_json_against_schema(example_jsonld, schema)
         output.append(f"example.jsonld: {message}")
         if not is_valid:
@@ -143,10 +143,7 @@ def test_valid_keyvalues_examples(repo_to_test, options):
         if "@context" in example_jsonld:
             context = example_jsonld["@context"]
             is_context_valid, context_message = check_context_url(context)
-            if not is_context_valid:
-                output.append(context_message)  # Warning message
-            else:
-                output.append(context_message)
+            output.append(context_message)  # Warning message
         else:
             output.append("*** example.jsonld is missing the mandatory '@context' attribute.")
             success = False

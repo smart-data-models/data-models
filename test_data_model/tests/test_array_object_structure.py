@@ -15,9 +15,9 @@
 #  Author: Alberto Abella                                                       #
 #################################################################################
 # version 26/02/25 - 1
-import json
-import os
-import requests
+from json import load, JSONDecodeError
+from os.path import join
+from requests import get
 from urllib.parse import urljoin
 from jsonpointer import resolve_pointer
 
@@ -34,10 +34,7 @@ def resolve_ref(repo_path, ref, base_uri=""):
         dict: The resolved schema fragment.
     """
     try:
-        if "#" in ref:
-            url_part, pointer_part = ref.split("#", 1)
-        else:
-            url_part, pointer_part = ref, ""
+        url_part, pointer_part = ref.split("#", 1) if "#" in ref else (ref, "")
 
         if url_part.startswith("http"):
             # External reference (absolute URL)
@@ -48,28 +45,24 @@ def resolve_ref(repo_path, ref, base_uri=""):
         else:
             # Local reference within the same file
             # Use the base URI to determine the file name
-            if base_uri:
-                resolved_url = base_uri
-            else:
-                # Fallback to the primary schema file in the repo path
-                resolved_url = os.path.join(repo_path, "schema.json")
-
+            resolved_url = base_uri or join(repo_path, "schema.json")
+            
         # Fetch the schema
         if resolved_url.startswith("http"):
-            response = requests.get(resolved_url)
+            response = get(resolved_url)
             if response.status_code != 200:
                 raise ValueError(f"Failed to fetch external schema from {resolved_url}")
             schema = response.json()
         else:
             with open(resolved_url, 'r') as file:
-                schema = json.load(file)
+                schema = load(file)
 
         # Resolve the JSON Pointer if it exists
         if pointer_part:
             try:
                 schema = resolve_pointer(schema, pointer_part)
             except Exception as e:
-                raise ValueError(f"Failed to resolve JSON Pointer '{pointer_part}' in schema: {e}")
+                raise ValueError(f"Failed to resolve JSON Pointer '{pointer_part}' in schema: {e}") from e
 
         # Recursively resolve any nested $refs in the resolved schema
         # Use the resolved URL as the base URI for nested $refs
@@ -77,7 +70,7 @@ def resolve_ref(repo_path, ref, base_uri=""):
 
         return schema
     except Exception as e:
-        raise ValueError(f"Error resolving reference {ref}: {e}")
+        raise ValueError(f"Error resolving reference {ref}: {e}") from e
 
 def resolve_nested_refs(schema, base_uri):
     """
@@ -86,16 +79,16 @@ def resolve_nested_refs(schema, base_uri):
     if isinstance(schema, dict):
         if "$ref" in schema:
             return resolve_ref("", schema["$ref"], base_uri)
-        else:
-            for key, value in schema.items():
-                schema[key] = resolve_nested_refs(value, base_uri)
+        
+        for key, value in schema.items():
+            schema[key] = resolve_nested_refs(value, base_uri)
     elif isinstance(schema, list):
         for i, item in enumerate(schema):
             schema[i] = resolve_nested_refs(item, base_uri)
 
     return schema
 
-def validate_properties(repo_path, properties, base_uri, path="", success=True, output=[]):
+def validate_properties(repo_path, properties, base_uri, path="", success=True, output=None):
     """
     Recursively validate properties in the schema, ensuring that arrays have 'items' and objects have 'properties'.
 
@@ -110,6 +103,9 @@ def validate_properties(repo_path, properties, base_uri, path="", success=True, 
     Returns:
         tuple: (success: bool, output: list)
     """
+    if output is None:
+        output = []
+
     for key, value in properties.items():
         current_path = f"{path}.{key}" if path else key
 
@@ -135,9 +131,24 @@ def validate_properties(repo_path, properties, base_uri, path="", success=True, 
 
             # Recursively check nested properties
             if "properties" in value and isinstance(value["properties"], dict):
-                success, output = validate_properties(repo_path, value["properties"], base_uri, current_path + ".", success, output)
+                success, output = validate_properties(
+                    repo_path,
+                    value["properties"],
+                    base_uri,
+                    f"{current_path}.",
+                    success,
+                    output,
+                )
+                
             if "items" in value and isinstance(value["items"], dict):
-                success, output = validate_properties(repo_path, value["items"], base_uri, current_path + ".", success, output)
+                success, output = validate_properties(
+                    repo_path,
+                    value["items"],
+                    base_uri,
+                    f"{current_path}.",
+                    success,
+                    output,
+                )
 
     return success, output
 
@@ -159,7 +170,7 @@ def test_array_object_structure(repo_path, options):
 
     try:
         with open(f"{repo_path}/schema.json", 'r') as file:
-            schema = json.load(file)
+            schema = load(file)
 
         base_uri = schema.get("$id", "")  # Use $id as the base URI for resolving relative $refs
 
@@ -171,7 +182,7 @@ def test_array_object_structure(repo_path, options):
         elif "properties" in schema and isinstance(schema["properties"], dict):
             success, output = validate_properties(repo_path, schema["properties"], base_uri, "", success, output)
 
-    except json.JSONDecodeError:
+    except JSONDecodeError:
         success = False
         output.append("*** schema.json is not a valid JSON file")
     except FileNotFoundError:
