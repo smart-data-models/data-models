@@ -17,7 +17,7 @@
 # version 26/02/25 - 1
 
 from sys import argv
-from json import loads, dump
+from json import dump
 from requests import get
 from datetime import datetime
 from master_tests import quality_analysis
@@ -28,8 +28,7 @@ def get_subdirectories(subject_root):
     Get the list of first-level subdirectories in the specified root directory of a GitHub repository.
 
     Parameters:
-        repo_url (str): The URL of the GitHub repository.
-        root_directory (str): The root directory to list subdirectories from.
+        subject_root (str): The full path to the root directory in the GitHub repository (e.g., https://github.com/smart-data-models/incubated/tree/d7b7b48f03b9b221d141e074e1d311985ab04f25/SMARTMANUFACTURING/dataModel.PredictiveMaintenance).
 
     Returns:
         list: List of subdirectory names.
@@ -48,8 +47,23 @@ def get_subdirectories(subject_root):
     except Exception as e:
         raise Exception(f"Error fetching subdirectories: {e}") from e
 
-
+        
 def get_api_url(subject_root: str) -> str:
+    """
+    Construct the GitHub API URL to fetch the contents of a directory.
+
+    Constructs the URL based on the provided subject_root, which can point to either the master branch or a specific branch/commit.
+    The URL is used to retrieve directory contents from the GitHub API.
+
+    Parameters:
+        subject_root (str): The URL of the GitHub repository, including the root directory.
+
+    Returns:
+        str: The GitHub API URL.
+
+    Raises:
+        ValueError: If the subject_root URL is invalid.
+    """
     # Extract the owner and repo name from the URL
     parts = subject_root.strip("/").split("/")
 
@@ -91,11 +105,13 @@ def run_master_tests(subject_root: str, subdirectory: str, email:str, only_repor
         dict: The results from master_tests.py.
     """
     try:
+        # Construct the full URL to the subdirectory
         # Remove any trailing slashes and append the subdirectory
         subject_root = subject_root.rstrip("/")
         subdirectory_url = f"{subject_root}/{subdirectory}"
         print(f"Testing subdirectory: {subdirectory_url}")
 
+        # Run the master_tests.py script
         result = quality_analysis(base_url=subdirectory_url,
                                   email=email,
                                   only_report_errors=only_report_errors)
@@ -107,6 +123,12 @@ def run_master_tests(subject_root: str, subdirectory: str, email:str, only_repor
 
 
 def main():
+    """
+    Main function to execute tests on multiple subdirectories of a GitHub repository.
+
+    Retrieves the subdirectories from the specified GitHub repository URL and runs quality analysis for each subdirectory.
+    The results are then saved to a JSON file.
+    """
     if len(argv) != 4:
         print("Usage: python3 multiple_tests.py <subject_root> <email> <only_report_errors>")
         exit(1)
@@ -120,7 +142,6 @@ def main():
 
     # Run tests for each subdirectory and collect results
     results = []
-
     results = \
         [{"datamodel": subdirectory,
           "result": run_master_tests(subject_root, subdirectory, email, only_report_errors)}

@@ -61,7 +61,7 @@ def load_config(config_path: str = None) -> Dict[str, Any]:
             raise FileNotFoundError("No configuration file found in default locations")
 
     with open(config_path, 'r') as f:
-        config = load(f)
+        config = json.load(f)
 
     required_keys = ['results_dir', 'download_dir']
     for key in required_keys:
@@ -101,7 +101,6 @@ def convert_github_url_to_raw(subject_root):
         if "github.com" not in subject_root:
             raise ValueError("Invalid GitHub repository URL.")
 
-        # Handle master branch URLs
         if "/blob/" in subject_root:
             return _extracted_from_convert_github_url_to_raw(
                 subject_root, "/blob/", "/"
@@ -117,11 +116,25 @@ def convert_github_url_to_raw(subject_root):
 
 
 def _extracted_from_convert_github_url_to_raw(repo_url: str, arg1: str, arg2: str) -> str:
+    """
+    Replace parts of a repository URL to convert it to a raw file URL.
+
+    Replaces specific parts of the input URL with other parts to construct the raw file URL.
+    This is a helper function used by `convert_github_url_to_raw`.
+
+    Parameters:
+        repo_url (str): The original repository URL.
+        arg1 (str): The part of the URL to be replaced.
+        arg2 (str): The replacement string.
+
+    Returns:
+        str: The modified URL.
+    """
     raw_url = repo_url.replace("github.com", "raw.githubusercontent.com")
     return raw_url.replace(arg1, arg2)
 
 
-def download_file(url: str, file_path):
+def download_file(url, file_path):
     """
     Download a single file from a URL and save it to the specified path.
 
@@ -187,6 +200,7 @@ def download_files(subject_root: str, download_dir: str):
                 for file in files_to_download:
                     file_url = f"{subject_root.rstrip('/')}/{file}"
                     file_path = join(download_dir, file)
+
                     futures.append(executor.submit(download_file, file_url, file_path))
 
                 # Wait for all downloads to complete and check for errors
@@ -227,6 +241,7 @@ def run_tests(test_files: list, repo_to_test: str, only_report_errors: bool, opt
     Returns:
         dict: Results of the tests.
     """
+
     results = {}
     for test_file in test_files:
         try:
@@ -248,13 +263,23 @@ def run_tests(test_files: list, repo_to_test: str, only_report_errors: bool, opt
                 "success": False,
                 "message": f"Error running test: {e}"
             }
+            
     return results
 
 
 def main():
+    """
+    Main function to parse command-line arguments and run quality analysis.
+
+    Parses command-line arguments for repository URL, email, reporting options, and additional settings.
+    Then, it runs the quality analysis process using the provided parameters.
+
+    Returns:
+        dict | None: The result of the quality analysis, or None if an error occurred.
+    """
     try:
         parser = ArgumentParser(description="Run tests on a repository.")
-        # https://github.com/smart-data-models/dataModel.DCAT-AP/tree/a0b2ee1a86be25fa896103c10c0a943558a7d6d2/Agent alberto.abella@fiware.org 0
+
         # Mandatory arguments
         parser.add_argument("subject_root", type=str, help="The subject root of the repository to check.")
         parser.add_argument("email", type=str, help="The email address for reporting results.")
@@ -290,6 +315,27 @@ def main():
 
 def quality_analysis(base_url: str, email: str, only_report_errors: bool, published: bool =False,
                      private: bool =False, output_file: str =None) -> dict | None:
+    """
+    Performs quality analysis on a data model repository.
+
+    Downloads or copies the repository files, runs a series of tests, and saves the results to a JSON file.
+    The analysis can be customized to report only errors and to handle both published and private repositories.
+
+    Parameters:
+        base_url (str): The URL or local path of the repository.
+        email (str): The email address for reporting results.
+        only_report_errors (bool): Whether to report only errors.
+        published (bool, optional): Whether the model is published. Defaults to False.
+        private (bool, optional): Whether the model is private. Defaults to False.
+        output_file (str, optional): An additional output file path. Defaults to None.
+
+    Returns:
+        dict | None: A dictionary containing the analysis results, or None if an error occurred.
+
+    Raises:
+        ValueError: If the email address is missing or invalid, or if the GitHub URL is invalid.
+        Exception: If any error occurs during file download, copying, or test execution.
+    """
     result = {
         "success": False,
         "error": None,
