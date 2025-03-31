@@ -75,6 +75,7 @@ def resolve_ref(ref, base_uri):
     JSON Pointers (starting with #) are resolved relative to the schema being referenced.
     """
     url_part, pointer_part = ref.split("#", 1) if "#" in ref else (ref, "")
+
     if url_part.startswith("http"):
         resolved_url = url_part
     else:
@@ -117,18 +118,36 @@ def resolve_nested_refs(schema, base_uri):
     return schema
 
 
-def check_property_descriptions(properties, base_uri, output, path=""):
+def check_property_descriptions(properties, base_uri, output, path="", processed_refs=None):
     """
     Recursively check descriptions for all properties, including nested ones and arrays.
+    Keeps track of processed references to avoid duplicate processing.
     """
+    if processed_refs is None:
+        processed_refs = set()
+
     for prop_name, prop_details in properties.items():
         current_path = f"{path}.{prop_name}" if path else prop_name
 
+        # Handle $ref properties
         if "$ref" in prop_details:
+            ref = prop_details["$ref"]
+            ref_id = f"{current_path}:{ref}"
+
+            # Skip if this reference has already been processed for this path
+            if ref_id in processed_refs:
+                continue
+
+            processed_refs.add(ref_id)
+
             try:
-                ref_schema = resolve_ref(prop_details["$ref"], base_uri)
+                ref_schema = resolve_ref(ref, base_uri)
                 if "properties" in ref_schema:
-                    check_property_descriptions(ref_schema["properties"], base_uri, output, current_path)
+                    check_property_descriptions(properties=ref_schema["properties"],
+                                                base_uri=base_uri,
+                                                output=output,
+                                                path=current_path,
+                                                processed_refs=processed_refs)
                 if "description" in ref_schema:
                     description = ref_schema["description"]
                     is_valid, message = validate_description(description)
@@ -140,44 +159,90 @@ def check_property_descriptions(properties, base_uri, output, path=""):
                     output.append(f"*** The attribute '{current_path}' is missing a description.")
             except ValueError as e:
                 output.append(f"*** Error resolving $ref for property '{current_path}': {e}")
-        elif "properties" in prop_details:
-            check_property_descriptions(prop_details["properties"], base_uri, output, current_path)
-        elif "items" in prop_details:
+
+            continue
+
+        # Check description for the current property
+        if "description" not in prop_details:
+            # Only report missing description if it's not a container that will have its items checked separately
+            if not ("properties" in prop_details or "items" in prop_details):
+                output.append(f"*** The attribute '{current_path}' is missing a description.")
+            else:
+                # For arrays and objects, explicitly note that the container itself needs a description
+                if "properties" in prop_details:
+                    output.append(f"*** The attribute '{current_path}' (object) is missing a description.")
+                elif "items" in prop_details:
+                    output.append(f"*** The attribute '{current_path}' (array) is missing a description.")
+        else:
+            description = prop_details["description"]
+            is_valid, message = validate_description(description)
+            if not is_valid:
+                output.append(f"*** The attribute '{current_path}' has an invalid description: {message}")
+            else:
+                output.append(f"The attribute '{current_path}' is properly documented.")
+
+        # Check nested properties (for objects)
+        if "properties" in prop_details:
+            check_property_descriptions(prop_details["properties"], base_uri, output, current_path, processed_refs)
+
+        # Check items (for arrays)
+        if "items" in prop_details:
             items = prop_details["items"]
+
             if "$ref" in items:
                 try:
-                    ref_schema = resolve_ref(items["$ref"], base_uri)
-                    if "description" in ref_schema:
-                        description = ref_schema["description"]
-                        is_valid, message = validate_description(description)
-                        if not is_valid:
-                            output.append(f"*** The attribute '{current_path}.items' has an invalid description: {message}")
+                    items_ref = items["$ref"]
+                    items_ref_id = f"{current_path}.items:{items_ref}"
+
+                    if items_ref_id not in processed_refs:
+                        processed_refs.add(items_ref_id)
+                        ref_schema = resolve_ref(items_ref, base_uri)
+
+                        if "description" in ref_schema:
+                            description = ref_schema["description"]
+                            is_valid, message = validate_description(description)
+                            if not is_valid:
+                                output.append(
+                                    f"*** The attribute '{current_path}.items' has an invalid description: {message}")
+                            else:
+                                output.append(f"The attribute '{current_path}.items' is properly documented.")
                         else:
-                            output.append(f"The attribute '{current_path}.items' is properly documented.")
-                    else:
-                        output.append(f"*** The attribute '{current_path}.items' is missing a description.")
+                            output.append(f"*** The attribute '{current_path}.items' is missing a description.")
+
+                        if "properties" in ref_schema:
+                            check_property_descriptions(ref_schema["properties"], base_uri, output,
+                                                        f"{current_path}.items", processed_refs)
                 except ValueError as e:
-                    output.append(f"*** Error resolving $ref for property '{current_path}.items': {e}")
+                    output.append(f"*** Error resolving $ref for items in '{current_path}': {e}")
             elif "anyOf" in items:
                 for idx, any_of_item in enumerate(items["anyOf"]):
                     if "properties" in any_of_item:
-                        check_property_descriptions(any_of_item["properties"], base_uri, output, f"{current_path}.items.anyOf[{idx}]")
+                        check_property_descriptions(any_of_item["properties"], base_uri, output,
+                                                    f"{current_path}.items.anyOf[{idx}]", processed_refs)
                     elif "items" in any_of_item:
-                        check_property_descriptions({"items": any_of_item["items"]}, base_uri, output, f"{current_path}.items.anyOf[{idx}]")
+                        nested_items_path = f"{current_path}.items.anyOf[{idx}]"
+                        if "description" not in any_of_item:
+                            output.append(f"*** The attribute '{nested_items_path}' is missing a description.")
+                        check_property_descriptions({"items": any_of_item["items"]}, base_uri, output,
+                                                    nested_items_path, processed_refs)
                     else:
                         if "description" not in any_of_item:
-                            output.append(f"*** The attribute '{current_path}.items.anyOf[{idx}]' is missing a description.")
+                            output.append(
+                                f"*** The attribute '{current_path}.items.anyOf[{idx}]' is missing a description.")
                         else:
                             description = any_of_item["description"]
                             is_valid, message = validate_description(description)
                             if not is_valid:
-                                output.append(f"*** The attribute '{current_path}.items.anyOf[{idx}]' has an invalid description: {message}")
+                                output.append(
+                                    f"*** The attribute '{current_path}.items.anyOf[{idx}]' has an invalid description: {message}")
                             else:
-                                output.append(f"The attribute '{current_path}.items.anyOf[{idx}]' is properly documented.")
+                                output.append(
+                                    f"The attribute '{current_path}.items.anyOf[{idx}]' is properly documented.")
             elif "properties" in items:
-                check_property_descriptions(items["properties"], base_uri, output, f"{current_path}.items")
+                check_property_descriptions(items["properties"], base_uri, output, f"{current_path}.items",
+                                            processed_refs)
             elif "items" in items:
-                check_property_descriptions({"items": items["items"]}, base_uri, output, current_path)
+                check_property_descriptions({"items": items["items"]}, base_uri, output, current_path, processed_refs)
             else:
                 if "description" not in items:
                     output.append(f"*** The attribute '{current_path}.items' is missing a description.")
@@ -188,15 +253,6 @@ def check_property_descriptions(properties, base_uri, output, path=""):
                         output.append(f"*** The attribute '{current_path}.items' has an invalid description: {message}")
                     else:
                         output.append(f"The attribute '{current_path}.items' is properly documented.")
-        elif "description" not in prop_details:
-            output.append(f"*** The attribute '{current_path}' is missing a description.")
-        else:
-            description = prop_details["description"]
-            is_valid, message = validate_description(description)
-            if not is_valid:
-                output.append(f"*** The attribute '{current_path}' has an invalid description: {message}")
-            else:
-                output.append(f"The attribute '{current_path}' is properly documented.")
 
 def test_schema_descriptions(repo_to_test, options):
     """
@@ -216,15 +272,37 @@ def test_schema_descriptions(repo_to_test, options):
     output = []
     base_uri = schema.get("$id", "")
 
+    # Check the schema description itself - but don't validate it with the NGSI requirements
+    if "description" not in schema:
+        output.append("*** The schema is missing a root description.")
+    else:
+        # For the root schema, we only check that a description exists, not its format
+        output.append("The schema has a root description.")
+
     if "properties" in schema:
         check_property_descriptions(schema["properties"], base_uri, output)
 
     if "allOf" in schema:
-        for item in schema["allOf"]:
-            if "properties" in item:
-                check_property_descriptions(item["properties"], base_uri, output)
+        for idx, item in enumerate(schema["allOf"]):
+            if "$ref" in item:
+                try:
+                    ref_schema = resolve_ref(item["$ref"], base_uri)
+                    if "properties" in ref_schema:
+                        check_property_descriptions(ref_schema["properties"], base_uri, output, f"allOf[{idx}]")
+                except ValueError as e:
+                    output.append(f"*** Error resolving $ref in allOf[{idx}]: {e}")
+            elif "properties" in item:
+                check_property_descriptions(item["properties"], base_uri, output, f"allOf[{idx}]")
 
-    success = not any("invalid" in message or "missing" in message for message in output)
+    # Filter out duplicate messages
+    unique_output = []
+    seen = set()
+    for message in output:
+        if message not in seen:
+            seen.add(message)
+            unique_output.append(message)
+
+    success = not any("invalid" in message or "missing" in message for message in unique_output)
 
     test_name = "Checking that the schema is properly described in all its attributes"
     return test_name, success, output
