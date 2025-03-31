@@ -73,6 +73,7 @@ def load_config(config_path: str = None) -> Dict[str, Any]:
 
     return config
 
+
 def is_url(path):
     """
     Check if the provided path is a URL.
@@ -108,13 +109,17 @@ def convert_github_url_to_raw(subject_root):
         elif "/tree/" in subject_root:
             return _extracted_from_convert_github_url_to_raw(subject_root, "/tree/", "/")
         else:
-            return f"{subject_root.replace("github.com", "raw.githubusercontent.com")}/master"
+            parts = subject_root.split('/')
+            url = '/'.join(parts[:-1]) + '/refs/heads/master/' + parts[-1]
+            return f"{url.replace("github.com", "raw.githubusercontent.com")}"
     except Exception as e:
         raise ValueError(f"Error converting GitHub URL to raw URL: {e}") from e
+
 
 def _extracted_from_convert_github_url_to_raw(repo_url: str, arg1: str, arg2: str) -> str:
     raw_url = repo_url.replace("github.com", "raw.githubusercontent.com")
     return raw_url.replace(arg1, arg2)
+
 
 def download_file(url: str, file_path):
     """
@@ -141,6 +146,7 @@ def download_file(url: str, file_path):
         return file_path, True, "Download successful"
     except Exception as e:
         return file_path, False, f"Error downloading {url}: {e}"
+
 
 def download_files(subject_root: str, download_dir: str):
     """
@@ -207,6 +213,7 @@ def download_files(subject_root: str, download_dir: str):
     except Exception as e:
         raise Exception(f"Error downloading/copying files: {e}")
 
+
 def run_tests(test_files: list, repo_to_test: str, only_report_errors: bool, options: dict) -> dict:
     """
     Run a series of tests on a file.
@@ -243,6 +250,7 @@ def run_tests(test_files: list, repo_to_test: str, only_report_errors: bool, opt
             }
     return results
 
+
 def main():
     try:
         parser = ArgumentParser(description="Run tests on a repository.")
@@ -270,13 +278,7 @@ def main():
         if not args.email or "@" not in args.email:
             raise ValueError("Missing or invalid email address")
 
-        # Validate the subject_root, if the input is a URL, convert it to a raw file base URL
-        if is_url(args.subject_root):
-            raw_base_url = convert_github_url_to_raw(args.subject_root)
-        else:
-            raw_base_url = args.subject_root
-
-        return quality_analysis(raw_base_url=raw_base_url,
+        return quality_analysis(base_url=args.subject_root,
                                 published=published,
                                 private=private,
                                 only_report_errors=only_report_errors,
@@ -285,8 +287,9 @@ def main():
     except Exception as e:
         Exception(f"Error analyzing the data model: {e}")
 
-def quality_analysis(raw_base_url: str, email: str, only_report_errors: bool, published: bool =False,
-                     private: bool =False, output_file: str =None) -> str | None:
+
+def quality_analysis(base_url: str, email: str, only_report_errors: bool, published: bool =False,
+                     private: bool =False, output_file: str =None) -> dict | None:
     result = {
         "success": False,
         "error": None,
@@ -296,14 +299,18 @@ def quality_analysis(raw_base_url: str, email: str, only_report_errors: bool, pu
         }
     }
 
+    # Validate the subject_root, if the input is a URL, convert it to a raw file base URL
+    if is_url(base_url):
+        raw_base_url = convert_github_url_to_raw(base_url)
+    else:
+        raw_base_url = base_url
+
     config = load_config()
     results_dir = config['results_dir']
     download_dir = config['download_dir']
 
     Path(results_dir).mkdir(parents=True, exist_ok=True)
     Path(download_dir).mkdir(parents=True, exist_ok=True)
-
-    results = str()
 
     try:
         # Download or copy the files
@@ -363,7 +370,8 @@ def quality_analysis(raw_base_url: str, email: str, only_report_errors: bool, pu
         # Ensure we always print valid JSON
         print(dumps(result, indent=2))
 
-    return results
+    return result
+
 
 if __name__ == "__main__":
     main()

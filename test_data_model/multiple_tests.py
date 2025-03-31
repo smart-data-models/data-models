@@ -22,6 +22,7 @@ from requests import get
 from datetime import datetime
 from master_tests import quality_analysis
 
+
 def get_subdirectories(subject_root):
     """
     Get the list of first-level subdirectories in the specified root directory of a GitHub repository.
@@ -34,18 +35,7 @@ def get_subdirectories(subject_root):
         list: List of subdirectory names.
     """
     # Extract the owner and repo name from the URL
-    # TODO: Only work with tree structure and not normal url to a data model
-    parts = subject_root.strip("/").split("/")
-    if len(parts) < 7:
-        raise ValueError("Invalid subject_root URL. It must include owner, repo, branch, and root directory.")
-
-    owner = parts[3]  # e.g., "smart-data-models"
-    repo = parts[4]  # e.g., "incubated"
-    branch = parts[6]  # e.g., "d7b7b48f03b9b221d141e074e1d311985ab04f25"
-    root_directory = "/".join(parts[7:])  # e.g., "SMARTMANUFACTURING/dataModel.PredictiveMaintenance"
-
-    # GitHub API URL to list contents of the root directory
-    api_url = f"https://api.github.com/repos/{owner}/{repo}/contents/{root_directory}?ref={branch}"
+    api_url = get_api_url(subject_root=subject_root)
 
     try:
         # Fetch the contents of the root directory
@@ -58,7 +48,36 @@ def get_subdirectories(subject_root):
     except Exception as e:
         raise Exception(f"Error fetching subdirectories: {e}") from e
 
-def run_master_tests(subject_root: str, subdirectory: str, email:str, only_report_errors: bool):
+
+def get_api_url(subject_root: str) -> str:
+    # Extract the owner and repo name from the URL
+    parts = subject_root.strip("/").split("/")
+
+    owner = parts[3]  # e.g., "smart-data-models"
+    repo = parts[4]  # e.g., "incubated"
+
+    if 'tree' in parts:
+        if len(parts) < 7:
+            raise ValueError("Invalid subject_root URL. It must include owner, repo, branch, and root directory.")
+
+        branch = parts[6]  # e.g., "d7b7b48f03b9b221d141e074e1d311985ab04f25"
+        root_directory = "/".join(parts[7:])  # e.g., "SMARTMANUFACTURING/dataModel.PredictiveMaintenance"
+
+        # GitHub API URL to list contents of the root directory
+        api_url = f"https://api.github.com/repos/{owner}/{repo}/contents/{root_directory}?ref={branch}"
+    else:
+        if len(parts) < 5:
+            raise ValueError("Invalid subject_root URL. It must include owner, repo, branch, and root directory.")
+
+        root_directory = "/".join(parts[5:])  # e.g., "SMARTMANUFACTURING/dataModel.PredictiveMaintenance"
+
+        # GitHub API URL to list contents of the root directory
+        api_url = f"https://api.github.com/repos/{owner}/{repo}/contents/{root_directory}?ref=master"
+
+    return api_url
+
+
+def run_master_tests(subject_root: str, subdirectory: str, email:str, only_report_errors: bool) -> dict:
     """
     Run the master_tests.py script for a specific subdirectory.
 
@@ -77,15 +96,15 @@ def run_master_tests(subject_root: str, subdirectory: str, email:str, only_repor
         subdirectory_url = f"{subject_root}/{subdirectory}"
         print(f"Testing subdirectory: {subdirectory_url}")
 
-        result = quality_analysis(raw_base_url=subdirectory_url,
+        result = quality_analysis(base_url=subdirectory_url,
                                   email=email,
                                   only_report_errors=only_report_errors)
 
-        # Parse the output as JSON
-        return loads(result)
+        return result
     except Exception as e:
         print(f"Error running tests for {subdirectory}: {e}")
         return {"error": str(e)}
+
 
 def main():
     if len(argv) != 4:
@@ -114,6 +133,7 @@ def main():
         dump(results, f, indent=4)
 
     print(f"Test results saved to {output_filename}")
+
 
 if __name__ == "__main__":
     main()
