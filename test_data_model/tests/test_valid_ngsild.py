@@ -16,8 +16,8 @@
 #################################################################################
 # version 26/02/25 - 1
 
-import json
-import requests
+from json import load, JSONDecodeError
+from requests import get
 
 
 def check_context_url(context):
@@ -36,7 +36,7 @@ def check_context_url(context):
     if isinstance(context, str):
         # Single URL case
         try:
-            response = requests.get(context)
+            response = get(context)
             if response.status_code == 200:
                 return True, f"The @context URL '{context}' is valid."
             else:
@@ -48,7 +48,7 @@ def check_context_url(context):
         warnings = []
         for url in context:
             try:
-                response = requests.get(url)
+                response = get(url)
                 if response.status_code != 200:
                     warnings.append(
                         f"*** The @context URL '{url}' does not return a valid response (HTTP {response.status_code}).")
@@ -83,7 +83,7 @@ def test_valid_ngsild(repo_path, options):
     try:
         # Load the example-normalized.jsonld file
         with open(f"{repo_path}/examples/example-normalized.jsonld", 'r') as file:
-            entity = json.load(file)
+            entity = load(file)
 
         # Validate that the root element is a single entity (a dictionary)
         if not isinstance(entity, dict):
@@ -152,7 +152,7 @@ def test_valid_ngsild(repo_path, options):
                                 output.append(f"*** Property '{key}' is missing the 'value' field")
 
 
-    except json.JSONDecodeError:
+    except JSONDecodeError:
         success = False
         output.append("*** example-normalized.jsonld is not a valid JSON file")
     except FileNotFoundError:

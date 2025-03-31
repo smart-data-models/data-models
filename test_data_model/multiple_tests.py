@@ -16,11 +16,11 @@
 #################################################################################
 # version 26/02/25 - 1
 
-import sys
-import json
-import subprocess
-import requests
+from sys import argv
+from json import loads, dump
+from requests import get
 from datetime import datetime
+from master_tests import quality_analysis
 
 def get_subdirectories(repo_url, root_directory):
     """
@@ -42,18 +42,16 @@ def get_subdirectories(repo_url, root_directory):
     api_url = f"https://api.github.com/repos/{owner}/{repo}/contents/{root_directory}"
 
     try:
-        response = requests.get(api_url)
-        if response.status_code == 200:
-            contents = response.json()
-            # Filter out only directories
-            subdirectories = [item['name'] for item in contents if item['type'] == 'dir']
-            return subdirectories
-        else:
+        response = get(api_url)
+        if response.status_code != 200:
             raise Exception(f"Failed to fetch directory contents: HTTP {response.status_code}")
-    except Exception as e:
-        raise Exception(f"Error fetching subdirectories: {e}")
 
-def run_master_tests(repo_url, subdirectory, email, only_report_errors):
+        contents = response.json()
+        return [item['name'] for item in contents if item['type'] == 'dir']
+    except Exception as e:
+        raise Exception(f"Error fetching subdirectories: {e}") from e
+
+def run_master_tests(repo_url: str, subdirectory: str, email:str, only_report_errors: bool):
     """
     Run the master_tests.py script for a specific subdirectory.
 
@@ -70,55 +68,55 @@ def run_master_tests(repo_url, subdirectory, email, only_report_errors):
         # Construct the full URL to the subdirectory
         subdirectory_url = f"{repo_url}/tree/master/{subdirectory}"
         print(subdirectory_url)
+
         # Run the master_tests.py script
-        result = subprocess.run(
-            [
-                "python3", "master_tests.py",
-                subdirectory_url,
-                email,
-                "true" if only_report_errors else "false"
-            ],
-            capture_output=True,
-            text=True
-        )
+        # result = run(
+        #     [
+        #         "python3", "master_tests.py",
+        #         subdirectory_url,
+        #         email,
+        #         "true" if only_report_errors else "false"
+        #     ],
+        #     capture_output=True,
+        #     text=True
+        # )
+
+        # only_report_errors = "true" if only_report_errors else "false"
+
+        result = quality_analysis(repo_url_or_local_path=subdirectory_url, email=email, only_report_errors=only_report_errors)
 
         # Parse the output as JSON
-        return json.loads(result.stdout)
+        return loads(result)
     except Exception as e:
         print("hemos tenido un error")
         return {"error": str(e)}
 
 def main():
-    if len(sys.argv) != 5:
+    if len(argv) != 5:
         print("Usage: python3 multiple_tests.py <repo_url> <root_directory> <email> <only_report_errors>")
-        sys.exit(1)
+        exit(1)
 
-    repo_url = sys.argv[1]
-    root_directory = sys.argv[2]
-    email = sys.argv[3]
-    only_report_errors = sys.argv[4].lower() == "true"
+    repo_url = argv[1]
+    root_directory = argv[2]
+    email = argv[3]
+    only_report_errors = argv[4].lower() == "true"
 
     # Get the list of subdirectories
     subdirectories = get_subdirectories(repo_url, root_directory)
     print(subdirectories)
     # Run tests for each subdirectory and collect results
     results = []
-    for subdirectory in subdirectories:
-        print(f"Running tests for {subdirectory}...")
-        test_result = run_master_tests(repo_url, root_directory + "/" + subdirectory, email, only_report_errors)
-        for item in test_result:
-            print(item)
-            item["datamodel"] = subdirectory
-        results.append({
-            "datamodel": subdirectory,
-            "result": test_result
-        })
+
+    results = \
+        [{"datamodel": subdirectory,
+          "result": run_master_tests(repo_url, f"{root_directory}/{subdirectory}", email, only_report_errors)}
+         for subdirectory in subdirectories]
 
     # Save the results to a JSON file
-    timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     output_filename = f"test_results_{timestamp}.json"
     with open(output_filename, "w") as f:
-        json.dump(results, f, indent=4)
+        dump(results, f, indent=4)
 
     print(f"Test results saved to {output_filename}")
 

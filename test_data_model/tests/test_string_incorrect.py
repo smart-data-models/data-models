@@ -16,7 +16,7 @@
 #################################################################################
 # version 26/02/25 - 1
 
-import json
+from json import load, JSONDecodeError
 
 def test_string_incorrect(repo_path, options):
     """
@@ -40,7 +40,7 @@ def test_string_incorrect(repo_path, options):
 
     try:
         with open(f"{repo_path}/schema.json", 'r') as file:
-            schema = json.load(file)
+            schema = load(file)
 
         def validate_properties(properties, path=""):
             nonlocal success
@@ -58,7 +58,7 @@ def test_string_incorrect(repo_path, options):
         if "properties" in schema and isinstance(schema["properties"], dict):
             validate_properties(schema["properties"])
 
-    except json.JSONDecodeError:
+    except JSONDecodeError:
         success = False
         output.append("*** schema.json is not a valid JSON file")
     except FileNotFoundError:

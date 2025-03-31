@@ -16,15 +16,15 @@
 #################################################################################
 # version 26/02/25 - 1
 
-import json
-import importlib
-import sys
-import os
-import requests
-import shutil
+from json import dump, dumps
+from importlib import import_module
+from os.path import join, dirname, exists
+from os import makedirs
+from requests import get
+from shutil import copy, rmtree
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime
-import argparse  # Import argparse for command-line argument parsing
+from argparse import ArgumentParser # Import argparse for command-line argument parsing
 
 def is_url(path):
     """
@@ -54,24 +54,22 @@ def convert_github_url_to_raw(repo_url):
 
         # Handle master branch URLs
         if "/blob/master/" in repo_url:
-            # Replace "github.com" with "raw.githubusercontent.com"
-            raw_url = repo_url.replace("github.com", "raw.githubusercontent.com")
-            # Replace "/blob/master/" with "/refs/heads/master/"
-            raw_url = raw_url.replace("/blob/master/", "/refs/heads/master/")
-            return raw_url
-
-        # Handle PR branch URLs
+            return _extracted_from_convert_github_url_to_raw(
+                repo_url, "/blob/master/", "/refs/heads/master/"
+            )
         elif "/tree/" in repo_url:
-            # Replace "github.com" with "raw.githubusercontent.com"
-            raw_url = repo_url.replace("github.com", "raw.githubusercontent.com")
-            # Replace "/tree/" with "/"
-            raw_url = raw_url.replace("/tree/", "/")
-            return raw_url
-
+            return _extracted_from_convert_github_url_to_raw(repo_url, "/tree/", "/")
         else:
             raise ValueError("Unsupported GitHub URL format.")
     except Exception as e:
-        raise ValueError(f"Error converting GitHub URL to raw URL: {e}")
+        raise ValueError(f"Error converting GitHub URL to raw URL: {e}") from e
+
+# TODO Rename this here and in `convert_github_url_to_raw`
+def _extracted_from_convert_github_url_to_raw(repo_url: str, arg1: str, arg2: str) -> str:
+    # Replace "github.com" with "raw.githubusercontent.com"
+    raw_url = repo_url.replace("github.com", "raw.githubusercontent.com")
+
+    return raw_url.replace(arg1, arg2)
 
 def download_file(url, file_path):
     """
@@ -86,18 +84,19 @@ def download_file(url, file_path):
     """
     try:
         # Ensure the directory structure exists
-        os.makedirs(os.path.dirname(file_path), exist_ok=True)
+        makedirs(dirname(file_path), exist_ok=True)
 
         # Download the file
-        response = requests.get(url)
-        if response.status_code == 200:
-            with open(file_path, "wb") as f:
-                f.write(response.content)
-            return (file_path, True, "Download successful")
-        else:
-            return (file_path, False, f"Failed to download {url}: HTTP {response.status_code}")
+        response = get(url)
+        if response.status_code != 200:
+            return file_path, False, f"Failed to download {url}: HTTP {response.status_code}"
+
+        with open(file_path, "wb") as f:
+            f.write(response.content)
+
+        return file_path, True, "Download successful"
     except Exception as e:
-        return (file_path, False, f"Error downloading {url}: {e}")
+        return file_path, False, f"Error downloading {url}: {e}"
 
 def download_files(base_url_or_path, download_dir):
     """
@@ -112,7 +111,7 @@ def download_files(base_url_or_path, download_dir):
     """
     try:
         # Ensure the download directory exists
-        os.makedirs(download_dir, exist_ok=True)
+        makedirs(download_dir, exist_ok=True)
 
         # List of files to download/copy (adjust as needed)
         files_to_download = [
@@ -131,7 +130,7 @@ def download_files(base_url_or_path, download_dir):
                 futures = []
                 for file in files_to_download:
                     file_url = f"{base_url_or_path.rstrip('/')}/{file}"
-                    file_path = os.path.join(download_dir, file)
+                    file_path = join(download_dir, file)
                     futures.append(executor.submit(download_file, file_url, file_path))
 
                 # Wait for all downloads to complete and check for errors
@@ -142,15 +141,15 @@ def download_files(base_url_or_path, download_dir):
         else:
             # Copy files from a local directory (no parallelization needed)
             for file in files_to_download:
-                src_path = os.path.join(base_url_or_path, file)
-                dest_path = os.path.join(download_dir, file)
+                src_path = join(base_url_or_path, file)
+                dest_path = join(download_dir, file)
 
                 # Ensure the directory structure exists
-                os.makedirs(os.path.dirname(dest_path), exist_ok=True)
+                makedirs(dirname(dest_path), exist_ok=True)
 
                 # Copy the file
-                if os.path.exists(src_path):
-                    shutil.copy(src_path, dest_path)
+                if exists(src_path):
+                    copy(src_path, dest_path)
                 else:
                     raise Exception(f"File not found: {src_path}")
 
@@ -158,7 +157,7 @@ def download_files(base_url_or_path, download_dir):
     except Exception as e:
         raise Exception(f"Error downloading/copying files: {e}")
 
-def run_tests(test_files, repo_to_test, only_report_errors, options):
+def run_tests(test_files: list, repo_to_test: str, only_report_errors: bool, options: dict) -> dict:
     """
     Run a series of tests on a file.
 
@@ -175,7 +174,7 @@ def run_tests(test_files, repo_to_test, only_report_errors, options):
     for test_file in test_files:
         try:
             # Import the test module
-            module = importlib.import_module(f"tests.{test_file}")
+            module = import_module(f"tests.{test_file}")
             # Run the test function (assumes the function name is the same as the module name without 'test_')
             test_function = getattr(module, test_file)
             test_name, success, message = test_function(repo_to_test, options)
@@ -195,10 +194,7 @@ def run_tests(test_files, repo_to_test, only_report_errors, options):
     return results
 
 def main():
-    # Set up argument parser
-    # results_dir = "/var/www/html/extra/test2/results"
-    results_dir = "/home/aabella/PycharmProjects/data-models/test_data_model/results"
-    parser = argparse.ArgumentParser(description="Run tests on a repository.")
+    parser = ArgumentParser(description="Run tests on a repository.")
     
     # Mandatory arguments
     parser.add_argument("repo_url_or_local_path", type=str, help="The repository URL or local path.")
@@ -222,27 +218,43 @@ def main():
     # Validate the email (basic check)
     if not args.email or "@" not in args.email:
         print("Error: Missing or invalid email address.")
-        sys.exit(1)
+        exit(1)
+
+    quality_analysis(repo_url_or_local_path=args.repo_url_or_local_path,
+                     published=published,
+                     private=private,
+                     only_report_errors=only_report_errors,
+                     email=args.email,
+                     output_file=output_file)
+
+
+def quality_analysis(repo_url_or_local_path: str, email: str, only_report_errors: bool, published: bool =False,
+                     private: bool =False, output_file: str =None) -> str | None:
+    # Set up argument parser
+    # results_dir = "/var/www/html/extra/test2/results"
+    # results_dir = "/home/aabella/PycharmProjects/data-models/test_data_model/results"
+    results_dir = "/tmp/test_data_model/results"
+    if not exists(results_dir):
+        makedirs(results_dir)
 
     # Temporary directory to download/copy the files
     # download_dir = "/var/html/www/extra/test2/repo_to_test"
-    download_dir = "/home/aabella/transparentia/CLIENTES/EU/FIWARE/GITHUB/repo_to_test"
+    # download_dir = "/home/aabella/transparentia/CLIENTES/EU/FIWARE/GITHUB/repo_to_test"
+    download_dir = "/tmp/test_data_model/repo_to_test"
+
+    results = str()
+
     try:
         # If the input is a URL, convert it to a raw file base URL
-        if is_url(args.repo_url_or_local_path):
-            raw_base_url = convert_github_url_to_raw(args.repo_url_or_local_path)
+        if is_url(repo_url_or_local_path):
+            raw_base_url = convert_github_url_to_raw(repo_url_or_local_path)
         else:
-            raw_base_url = args.repo_url_or_local_path
+            raw_base_url = repo_url_or_local_path
 
         # Download or copy the files
         repo_path = download_files(raw_base_url, download_dir)
 
         # List of test files to run
-#        test_files = [
-#            "test_valid_json", "test_file_exists", "test_schema_descriptions", 
-#            "test_schema_metadata", "test_duplicated_attributes", "test_yaml_files", 
-#            "test_valid_keyvalues_examples", "test_valid_ngsiv2", "test_valid_ngsild"
-#        ]
         test_files = ["test_file_exists",
                       "test_valid_json",
                       "test_yaml_files",
@@ -267,29 +279,32 @@ def main():
         test_results = run_tests(test_files, repo_path, only_report_errors, options)
 
         # Add email to the results
-        test_results["email"] = args.email
+        test_results["email"] = email
 
         # Display the results
-        print(json.dumps(test_results, indent=4))
+        results = dumps(test_results, indent=4)
+        # print(results)
 
         # Save a file with the results
-        email_name = args.email.replace("@", "_at_")
-        time_name = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        filename = f"{results_dir}/{time_name}_{email_name}.json"
+        email_name = email.replace("@", "_at_")
+        time_name = datetime.now().strftime("%Y%m%d-%H%M%S")
+        filename = f"{results_dir}/test_results_{time_name}_{email_name}.json"
         with open(filename, "w") as f:
-            json.dump(test_results, f, indent=4)
+            dump(test_results, f, indent=4)
 
         # Save an additional copy of the results if --output is provided
         if output_file:
             with open(output_file, "w") as f:
-                json.dump(test_results, f, indent=4)
+                dump(test_results, f, indent=4)
 
     except Exception as e:
         print(f"Error: {e}")
     finally:
         # Clean up the temporary directory
-        if os.path.exists(download_dir):
-            shutil.rmtree(download_dir)
+        if exists(download_dir):
+            rmtree(download_dir)
+
+    return results
 
 if __name__ == "__main__":
     main()

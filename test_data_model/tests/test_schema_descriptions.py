@@ -15,11 +15,12 @@
 #  Author: Alberto Abella                                                       #
 #################################################################################
 # version 26/02/25 - 1
-import json
-import os
-import requests
+from json import load
+from os.path import join, exists
+from requests import get
 from urllib.parse import urljoin
 from jsonpointer import resolve_pointer
+from itertools import product
 
 def validate_description(description):
     """
@@ -32,7 +33,7 @@ def validate_description(description):
     if len(description) < 15:
         return False, "*** Description must be at least 15 characters long."
 
-    parts = [part for part in description.split(". ")]
+    parts = list(description.split(". "))
 
     valid_ngsi_types = ["Property", "GeoProperty", "Relationship", "LanguageProperty", "ListProperty"]
     ngsi_type_found = None
@@ -42,23 +43,28 @@ def validate_description(description):
             break
 
     if not ngsi_type_found:
-        for part in parts:
-            for ngsi_type in valid_ngsi_types:
-                if ngsi_type in part and part != ngsi_type:
-                    return False, f"NGSI type '{part}' contains extra characters."
-        return False, "*** NGSI type is not described. Must be one of: Property, GeoProperty, Relationship, LanguageProperty, ListProperty"
-
+        return next(
+            (
+                (False, f"NGSI type '{part}' contains extra characters.")
+                for part, ngsi_type in product(parts, valid_ngsi_types)
+                if ngsi_type in part and part != ngsi_type
+            ),
+            (
+                False,
+                "*** NGSI type is not described. Must be one of: Property, GeoProperty, Relationship, LanguageProperty, ListProperty",
+            ),
+        )
+    
     if ngsi_type_found.strip() != ngsi_type_found:
         return False, f"*** NGSI type '{ngsi_type_found}' contains extra spaces."
 
     optional_keys = ["Model:", "Units:", "Enum:", "Privacy:", "Multilingual"]
-    for part in parts:
-        for key in optional_keys:
-            if part.startswith(key):
-                if not part[len(key):].startswith("'"):
-                    return False, f"*** Invalid format for '{key}'. Expected format: {key}'value'."
-                if not part.endswith("'"):
-                    return False, f"*** Invalid format for '{key}'. Expected format: {key}'value'."
+    for part, key in product(parts, optional_keys):
+        if part.startswith(key):
+            if not part[len(key):].startswith("'"):
+                return False, f"*** Invalid format for '{key}'. Expected format: {key}'value'."
+            if not part.endswith("'"):
+                return False, f"*** Invalid format for '{key}'. Expected format: {key}'value'."
 
     return True, "Description is valid."
 
@@ -68,17 +74,13 @@ def resolve_ref(ref, base_uri):
     Handles both remote URLs and JSON Pointers, and recursively resolves nested $refs.
     JSON Pointers (starting with #) are resolved relative to the schema being referenced.
     """
-    if "#" in ref:
-        url_part, pointer_part = ref.split("#", 1)
-    else:
-        url_part, pointer_part = ref, ""
-
+    url_part, pointer_part = ref.split("#", 1) if "#" in ref else (ref, "")
     if url_part.startswith("http"):
         resolved_url = url_part
     else:
         resolved_url = urljoin(base_uri, url_part)
 
-    response = requests.get(resolved_url)
+    response = get(resolved_url)
     if response.status_code != 200:
         raise ValueError(f"*** Failed to fetch external schema from {resolved_url}")
 
@@ -89,7 +91,9 @@ def resolve_ref(ref, base_uri):
             # Resolve the JSON Pointer relative to the fetched schema
             schema = resolve_pointer(schema, pointer_part)
         except Exception as e:
-            raise ValueError(f"*** Failed to resolve JSON Pointer '{pointer_part}' in schema: {e}")
+            raise ValueError(
+                f"*** Failed to resolve JSON Pointer '{pointer_part}' in schema: {e}"
+            ) from e
 
     # Recursively resolve any nested $refs in the resolved schema
     schema = resolve_nested_refs(schema, resolved_url if url_part else base_uri)
@@ -103,14 +107,15 @@ def resolve_nested_refs(schema, base_uri):
     if isinstance(schema, dict):
         if "$ref" in schema:
             return resolve_ref(schema["$ref"], base_uri)
-        else:
-            for key, value in schema.items():
-                schema[key] = resolve_nested_refs(value, base_uri)
+
+        for key, value in schema.items():
+            schema[key] = resolve_nested_refs(value, base_uri)
     elif isinstance(schema, list):
         for i, item in enumerate(schema):
             schema[i] = resolve_nested_refs(item, base_uri)
 
     return schema
+
 
 def check_property_descriptions(properties, base_uri, output, path=""):
     """
@@ -201,12 +206,12 @@ def test_schema_descriptions(repo_to_test, options):
         success (bool): True if all descriptions are valid, False otherwise.
         output (list): List of messages describing the results of the test.
     """
-    schema_file = os.path.join(repo_to_test, "schema.json")
-    if not os.path.exists(schema_file):
+    schema_file = join(repo_to_test, "schema.json")
+    if not exists(schema_file):
         return "Checking that the schema is properly described in all its attributes", False, ["Schema file not found."]
 
     with open(schema_file, 'r') as f:
-        schema = json.load(f)
+        schema = load(f)
 
     output = []
     base_uri = schema.get("$id", "")

@@ -15,11 +15,11 @@
 #  Author: Alberto Abella                                                       #
 #################################################################################
 # version 26/02/25 - 1
-import json
-import os
-import jsonref
-import urllib.request
-import urllib.parse
+from json import dumps, load
+from os.path import join, exists, dirname, abspath
+from jsonref import loads
+from urllib.request import pathname2url
+from urllib.parse import urljoin
 
 
 def extract_attributes_from_payload(payload, parent_path=""):
@@ -87,22 +87,22 @@ def test_duplicated_attributes(repo_to_test, options):
         success (bool): True if all attributes are defined, False otherwise.
         output (list): List of messages describing the results of the test.
     """
-    schema_file = os.path.join(repo_to_test, "schema.json")
-    payload_file = os.path.join(repo_to_test, "examples/example.json")
+    schema_file = join(repo_to_test, "schema.json")
+    payload_file = join(repo_to_test, "examples/example.json")
 
-    if not os.path.exists(schema_file):
+    if not exists(schema_file):
         return "Checking that all payload attributes are defined in the schema", False, ["Schema file not found."]
-    if not os.path.exists(payload_file):
+    if not exists(payload_file):
         return "Checking that all payload attributes are defined in the schema", False, ["Payload file not found."]
 
     # Normalize the base URI to ensure proper resolution of references
-    schema_dir = os.path.dirname(os.path.abspath(schema_file))
-    base_uri = urllib.parse.urljoin('file:', urllib.request.pathname2url(schema_dir))
+    schema_dir = dirname(abspath(schema_file))
+    base_uri = urljoin('file:', pathname2url(schema_dir))
 
     # Load the schema and fully resolve all $ref references using jsonref
     with open(schema_file, 'r') as f:
-        schema = jsonref.loads(
-            json.dumps(json.load(f)),
+        schema = loads(
+            dumps(load(f)),
             base_uri=base_uri,
             lazy_load=False,
             load_on_repr=True
@@ -110,7 +110,7 @@ def test_duplicated_attributes(repo_to_test, options):
 
     # Load the payload
     with open(payload_file, 'r') as f:
-        payload = json.load(f)
+        payload = load(f)
 
     output = []
 
@@ -124,17 +124,20 @@ def test_duplicated_attributes(repo_to_test, options):
 
     # Check for attributes in the payload that are not in the schema
     undefined_attributes = []
-    for attribute in payload_attributes:
-        if attribute not in schema_attributes:
-            undefined_attributes.append(attribute)
+    undefined_attributes.extend(
+        attribute
+        for attribute in payload_attributes
+        if attribute not in schema_attributes
+    )
 
     if undefined_attributes:
         output.append("The following attributes in the payload are not defined in the schema:")
-        for attribute in sorted(undefined_attributes):
-            output.append(f"*** Attribute '{attribute}' in the payload is not defined in the schema.")
-
+        output.extend(
+            f"*** Attribute '{attribute}' in the payload is not defined in the schema."
+            for attribute in sorted(undefined_attributes)
+        )
     # Determine if the test was successful
-    success = len(undefined_attributes) == 0
+    success = not undefined_attributes
 
     test_name = "Checking that all payload attributes are defined in the schema"
     return test_name, success, output
