@@ -1,5 +1,5 @@
 {
-  "updatedDate": "2025-02-25T15:56:00.31416",
+  "updatedDate": "2025-04-07T00:14:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -1705,6 +1705,23 @@
       ],
       "domains": [
         "SmartCities"
+      ]
+    },
+    {
+      "repoName": "dataModel.PredictiveMaintenance",
+      "repoLink": "https://github.com/smart-data-models/dataModel.PredictiveMaintenance.git",
+      "dataModels": [
+        "AIPrediction",
+        "Appointment",
+        "InventoryItem",
+        "MachineComponent",
+        "MaintenanceRequest",
+        "MaintenanceService",
+        "MaintenanceSkill",
+        "ServiceTechnician"
+      ],
+      "domains": [
+        "SmartManufacturing"
       ]
     }
   ]

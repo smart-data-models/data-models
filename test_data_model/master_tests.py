@@ -191,7 +191,8 @@ def main():
             "test_valid_ngsiv2",
             "test_valid_ngsild",
             "test_duplicated_attributes",
-            "test_array_object_structure"
+            "test_array_object_structure",
+            "test_name_attributes"
         ]
 
         test_results = run_tests(test_files, repo_path, only_report_errors, {
