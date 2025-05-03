@@ -28,21 +28,28 @@ def get_subdirectories(subject_root):
     Get the list of first-level subdirectories in the specified root directory of a GitHub repository.
 
     Parameters:
-        subject_root (str): The full path to the root directory in the GitHub repository (e.g., https://github.com/smart-data-models/incubated/tree/d7b7b48f03b9b221d141e074e1d311985ab04f25/SMARTMANUFACTURING/dataModel.PredictiveMaintenance).
+        subject_root (str): The full path to the root directory in the GitHub repository.
 
     Returns:
         list: List of subdirectory names.
     """
     try:
+        # Validate URL format
+        if not subject_root.startswith("https://github.com/"):
+            raise ValueError("URL must start with 'https://github.com/'")
+
+        if "/tree/" not in subject_root:
+            raise ValueError("URL must contain '/tree/' before the branch name")
+
         # Extract the owner, repo, branch, and root directory from the subject_root
         parts = subject_root.strip("/").split("/")
         if len(parts) < 7:
             raise ValueError("Invalid subject_root URL. It must include owner, repo, branch, and root directory.")
 
-        owner = parts[3]  # e.g., "smart-data-models"
-        repo = parts[4]   # e.g., "incubated"
-        branch = parts[6]  # e.g., "d7b7b48f03b9b221d141e074e1d311985ab04f25"
-        root_directory = "/".join(parts[7:])  # e.g., "SMARTMANUFACTURING/dataModel.PredictiveMaintenance"
+        owner = parts[3]
+        repo = parts[4]
+        branch = parts[6]
+        root_directory = "/".join(parts[7:])
 
         # GitHub API URL to list contents of the root directory
         api_url = f"https://api.github.com/repos/{owner}/{repo}/contents/{root_directory}?ref={branch}"
@@ -58,6 +65,8 @@ def get_subdirectories(subject_root):
             raise Exception(f"Failed to fetch directory contents: HTTP {response.status_code}")
     except Exception as e:
         raise Exception(f"Error fetching subdirectories: {e}")
+
+
 def run_master_tests(subject_root, subdirectory, email, only_report_errors):
     """
     Run the master_tests.py script for a specific subdirectory.

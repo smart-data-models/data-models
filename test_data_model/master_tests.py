@@ -1,3 +1,46 @@
+"""
+Automated Smart Data Models data model directoryValidator
+
+This script validates a given repository (a directory of the repository) or local directory by running a series of
+predefined tests on expected data files (e.g., JSON, YAML) to check if the data model meet the requirements of the [contribution manual](https://bit.ly/contribution_manual)
+ It supports GitHub URLs and local directories.
+
+Usage:
+    python script.py <subject_root> <email> <only_report_errors> [--published true|false] [--private true|false] [--output <output_file>]
+
+Positional arguments:
+    subject_root          URL or local path to the repository root (e.g., GitHub repo or local folder)
+    email                 Contact email used for identifying results
+    only_report_errors    Set to "true" to include only failed test results in the output (case-insensitive)
+
+Optional arguments:
+    --published           Mark the repository as published (default: false)
+    --private             Mark the repository as private (default: false)
+    --output              Path to a file where output JSON will be saved (in addition to the results' directory)
+
+Configuration:
+    The script looks for a config file (`config.json`) in one of the following locations:
+      - Current directory
+      - $HOME/.your_package_config.json
+      - Same directory as this script
+
+    The config file must be a valid JSON with the following keys:
+      {
+        "results_dir": "path/to/save/results",
+        "download_dir": "path/to/temp/download"
+      }
+
+Example:
+    python script.py https://github.com/example/repo user@example.com true --published true --output result.json
+
+Note:
+    - Requires Python 3.6+
+    - Automatically cleans up temporary downloaded files
+    - Output is always printed as JSON to stdout
+
+Author: Alberto Abella (alberto.abella@fiware.org)
+"""
+
 import json
 import importlib
 import sys
