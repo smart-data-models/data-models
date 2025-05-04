@@ -1,5 +1,5 @@
 {
-  "updatedDate": "2025-04-07T00:14:00.31416",
+  "updatedDate": "2025-05-03T20:16:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -1692,15 +1692,34 @@
       "repoName": "dataModel.ZEB",
       "repoLink": "https://github.com/smart-data-models/dataModel.ZEB.git",
       "dataModels": [
+        "AirConditionerTerminal",
+        "Area",
+        "AreaEnvironmentForecast",
+        "Beacon",
+        "BuildingZEB",
         "Column",
+        "DeviceForecast",
         "Door",
+        "Elevator",
+        "Equipment",
+        "Fan",
+        "GatewayController",
         "Glass",
+        "IndoorAirConditioner",
+        "Lighting",
         "Material",
         "MaterialLayer",
         "Opening",
+        "OutdoorAirConditioner",
+        "OutdoorAirTreatingUnit",
+        "Room",
+        "Sensor",
         "Slab",
         "Stair",
+        "Storey",
+        "TotalHeatExchanger",
         "Wall",
+        "WaterHeater",
         "Window"
       ],
       "domains": [
