@@ -1,0 +1,2 @@
+docker build -t pysmartdatamodels-api .
+docker run -d -p 8080:80 pysmartdatamodels-api

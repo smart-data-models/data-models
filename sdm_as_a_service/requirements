@@ -1,0 +1,4 @@
+fastapi
+uvicorn
+pysmartdatamodels
+gunicorn # For production
