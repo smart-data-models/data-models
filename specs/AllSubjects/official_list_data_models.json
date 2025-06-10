@@ -1,5 +1,5 @@
 {
-  "updatedDate": "2025-05-03T20:16:00.31416",
+  "updatedDate": "2025-06-10T17:25:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -239,8 +239,12 @@
         "DeviceModel",
         "DeviceOperation",
         "Modbus",
+        "PolarH10",
         "PrivacyObject",
-        "SmartMeteringObservation"
+        "SenseHat",
+        "SenseHat",
+        "SmartMeteringObservation",
+        "UWBAnchor"
       ],
       "domains": [
         "Smart-Sensoring"
