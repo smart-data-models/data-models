@@ -200,6 +200,10 @@ print(sdm.validate_dcat_ap_distribution_sdm(content_DCAT))
 print("25:")
 print(sdm.subject_for_datamodel(dataModel))
 
+# Return a fake normalized ngsi-ld format example based on the given json schema (passed as a string)
+print("26 : ")
+print(sdm.ngsi_ld_example_generator_str(schema: str, dataModel: str, subject: str))
+
 ```
 
 ## Functions available include:
@@ -439,7 +443,6 @@ print(sdm.subject_for_datamodel(dataModel))
           if there's any problem related to input parameter and json schema:
               False
 
-
 18- Return a fake key value ngsi-ld format example. Function ngsi_ld_keyvalue_example_generator(schemaUrl)
 
         It returns a fake key value ngsi-ld format example based on the given json schema
@@ -578,6 +581,20 @@ print(sdm.subject_for_datamodel(dataModel))
            Usually only one element in the array isa returned because there are few clashes in data model names
            False if no subject is found         
 
+26- Return a fake normalized ngsi-ld format example. Function ngsi_ld_example_generator_str(schema: str, dataModel: str, subject: str)
+
+        It returns a fake normalized ngsi-ld format example based on the given json schema
+            Parameters:
+                schema: schema.json contents
+                dataModel: repo name
+                subject: model name
+
+            Returns:
+                if the input parameter exists and the json schema is a valide json:
+                    a fake normalized ngsi-ld format example stored in dictionary format
+                if there's any problem related to input parameter and json schema:
+                    False
+
 ## Pending features (glad to receive contributions to them)
 
 A.- Function to allow submission of improvements (i.e. missing recommended units or model) and comments to the different data models. Currently, you can do it searching for your data model here 
@@ -592,6 +609,6 @@ if you want to suggest other functions/ needs please let us know at info@smartda
 
 Special thanks to the following contributors:
 
-- [fdrobnic](https://github.com/fdrobnic): Changes for porting to Windows
+- [fdrobnic](https://github.com/fdrobnic): Changes for porting to Windows and a function for generating a fake example from a non-published schema
 - [Antonio Jara](https://twitter.com/Antonio_Jara): New function for inserting data into broker
 - [María José Bernal](mj.bernal@libelium.com): Necessary extension for function update_broker() to allow updating nonexistent attribute into broker

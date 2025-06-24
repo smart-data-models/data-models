@@ -843,46 +843,7 @@ def ngsi_ld_example_generator(schema_url: str):
     payload = open_jsonref(schema_url)
     if payload == "": return False
 
-    output = {}
-    fullDict = {}
-
-    # Parse the "allOf", "anyOf", "oneOf" structure
-    if "allOf" in payload:
-        for index in range(len(payload["allOf"])):
-            if "properties" in payload["allOf"][index]:
-                fullDict = {**fullDict, **payload["allOf"][index]["properties"]}
-            else:
-                fullDict = {**fullDict, **payload["allOf"][index]}
-    elif "anyOf" in payload:
-        for index in range(len(payload["anyOf"])):
-            if "properties" in payload["anyOf"][index]:
-                fullDict = {**fullDict, **payload["anyOf"][index]["properties"]}
-            else:
-                fullDict = {**fullDict, **payload["anyOf"][index]}
-    elif "oneOf" in payload:
-        for index in range(len(payload["oneOf"])):
-            if "properties" in payload["oneOf"][index]:
-                fullDict = {**fullDict, **payload["oneOf"][index]["properties"]}
-            else:
-                fullDict = {**fullDict, **payload["oneOf"][index]}
-    else:
-        fullDict = payload["properties"].copy()
-
-    for prop in fullDict:
-
-        parsedProperty = parse_property2ngsild_example({prop: fullDict[prop]}, dataModel, 0)
-
-        # id and type should be key-value format in ngsild format
-        if prop in ["id"]:
-            output = {**output, **parsedProperty}
-        elif prop in ["type"]:
-            output = {**output, **{prop: parsedProperty}}
-        else:
-            output = {**output, **{prop: parsedProperty}}
-
-    output["@context"] = [create_context(subject)]
-
-    return output
+    return ngsi_ld_example_generator_str(payload, dataModel, subject)
 
 
 # 18
@@ -1613,3 +1574,78 @@ def subject_for_datamodel(datamodel):
     else:
         return subjects
 
+
+# 26
+def ngsi_ld_example_generator_str(schema: str, dataModel: str, subject: str):
+    """It returns a fake normalized ngsi-ld format example based on the given json schema
+    Parameters:
+        schema: schema.json contents
+        dataModel: repo name
+        subject: model name
+    Returns:
+        if the input parameter exists and the json schema is a valide json:
+            a fake normalized ngsi-ld format example stored in dictionary format
+        if there's any problem related to input parameter and json schema:
+            False
+    """
+
+    if dataModel == "" or subject == "":
+        return False
+
+    output = {}
+    tz = pytz.timezone("Europe/Madrid")
+
+    try:
+        payload = json.loads(schema)
+    except ValueError:
+        output["result"] = False
+        output["cause"] = "Schema parameter value is not a valid json"
+        output["time"] = str(datetime.datetime.now(tz=tz))
+        # output["parameters"] = {"schema_url: ": schema_url}
+        print(json.dumps(output))
+        sys.exit()
+
+    if payload == "":
+        return False
+
+    fullDict = {}
+    fullDict['id'] = {}
+
+    # Parse the "allOf", "anyOf", "oneOf" structure
+    if "allOf" in payload:
+        for index in range(len(payload["allOf"])):
+            if "properties" in payload["allOf"][index]:
+                fullDict = {**fullDict, **payload["allOf"][index]["properties"]}
+            else:
+                fullDict = {**fullDict, **payload["allOf"][index]}
+    elif "anyOf" in payload:
+        for index in range(len(payload["anyOf"])):
+            if "properties" in payload["anyOf"][index]:
+                fullDict = {**fullDict, **payload["anyOf"][index]["properties"]}
+            else:
+                fullDict = {**fullDict, **payload["anyOf"][index]}
+    elif "oneOf" in payload:
+        for index in range(len(payload["oneOf"])):
+            if "properties" in payload["oneOf"][index]:
+                fullDict = {**fullDict, **payload["oneOf"][index]["properties"]}
+            else:
+                fullDict = {**fullDict, **payload["oneOf"][index]}
+    else:
+        fullDict = payload["properties"].copy()
+
+    for prop in fullDict:
+
+        parsedProperty = parse_property2ngsild_example({prop: fullDict[prop]}, dataModel, 0)
+
+        # id and type should be key-value format in ngsild format
+        if prop in ["id"]:
+            output = {**output, **parsedProperty}
+        elif prop in ["type"]:
+            output = {**output, **{prop: parsedProperty}}
+        else:
+            output = {**output, **{prop: parsedProperty}}
+
+    output["@context"] = [create_context('dataModel.' + dataModel)]
+    # output["@context"] = [create_context(subject)]
+
+    return output
