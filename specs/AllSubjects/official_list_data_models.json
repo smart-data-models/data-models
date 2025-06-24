@@ -1,5 +1,5 @@
 {
-  "updatedDate": "2025-06-10T17:25:00.31416",
+  "updatedDate": "2025-06-23T16:59:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -311,6 +311,7 @@
         "AirQualityForecast",
         "AirQualityObserved",
         "AirQualityMonitoring",
+        "CarbonFootprint",
         "ElectroMagneticObserved",
         "EnvironmentObserved",
         "FloodMonitoring",
