@@ -1,5 +1,5 @@
 {
-  "updatedDate": "2025-07-24T18:07:00.31416",
+  "updatedDate": "2025-07-24T18:23:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -1688,8 +1688,8 @@
       "repoLink": "https://github.com/smart-data-models/dataModel.DataSpace.git",
       "dataModels": [
         "InteroperableAssets",
-        "PublicationAgent",
-        "VocabullaryService"
+        "ParticipantAgent",
+        "VocabularyService"
       ],
       "domains": [
         "CrossSector"
