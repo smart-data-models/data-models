@@ -14,7 +14,7 @@
 #  limitations under the License.                                               #
 #  Author: Alberto Abella                                                       #
 #################################################################################
-# version 26/02/25 - 1
+# version 23/09/25 - 2
 import json
 import os
 import jsonref
@@ -76,7 +76,10 @@ def extract_attributes_from_schema(schema, parent_path="", base_uri=""):
     if "additionalProperties" in schema_dict and isinstance(schema_dict["additionalProperties"], dict):
         attributes.update(extract_attributes_from_schema(schema_dict["additionalProperties"], parent_path, base_uri))
 
-    return attributes
+    # removing languageMap for languageMap properties
+    filtered_attributes = [item.replace('.languageMap', '') for item in attributes]
+
+    return filtered_attributes
 
 
 def test_duplicated_attributes(repo_to_test, options):
@@ -117,6 +120,7 @@ def test_duplicated_attributes(repo_to_test, options):
     # Extract attributes from the payload and schema
     payload_attributes = extract_attributes_from_payload(payload)
     schema_attributes = extract_attributes_from_schema(schema, base_uri=base_uri)
+
 
     # Debug information if needed
     # output.append(f"Schema attributes: {sorted(schema_attributes)}")
