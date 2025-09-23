@@ -121,10 +121,9 @@ def test_duplicated_attributes(repo_to_test, options):
     payload_attributes = extract_attributes_from_payload(payload)
     schema_attributes = extract_attributes_from_schema(schema, base_uri=base_uri)
 
-
     # Debug information if needed
-    # output.append(f"Schema attributes: {sorted(schema_attributes)}")
-    # output.append(f"Payload attributes: {sorted(payload_attributes)}")
+    output.append(f"Schema attributes: {sorted(schema_attributes)}")
+    output.append(f"Payload attributes: {sorted(payload_attributes)}")
 
     # Check for attributes in the payload that are not in the schema
     undefined_attributes = []
