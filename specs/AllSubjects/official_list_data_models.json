@@ -1749,6 +1749,17 @@
       "domains": [
         "SmartManufacturing"
       ]
+    },
+    {
+      "repoName": "dataModel.IndustrialProcess",
+      "repoLink": "https://github.com/smart-data-models/dataModel.IndustrialProcess.git",
+      "dataModels": [
+        "ProcessChemicalAnalysis",
+        "ProcessEvent"
+      ],
+      "domains": [
+        "SmartManufacturing"
+      ]
     }
   ]
 }
