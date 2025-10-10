@@ -32,6 +32,7 @@
   "dataModel.IssueTracking": "https://raw.githubusercontent.com/smart-data-models/dataModel.IssueTracking/master/context.jsonld",
   "dataModel.HumanResources": "https://raw.githubusercontent.com/smart-data-models/dataModel.dataModel.HumanResources/master/context.jsonld",
   "dataModel.KeyPerformanceIndicator": "https://raw.githubusercontent.com/smart-data-models/dataModel.KeyPerformanceIndicator/master/context.jsonld",
+  "dataModel.IndustrialProcess": "https://raw.githubusercontent.com/smart-data-models/dataModel.IndustrialProcess/master/context.jsonld",
   "dataModel.MachineLearning": "https://raw.githubusercontent.com/smart-data-models/dataModel.MachineLearning/master/context.jsonld",
   "dataModel.ManufacturingMachine": "https://raw.githubusercontent.com/smart-data-models/dataModel.ManufacturingMachine/master/context.jsonld",
   "dataModel.MarineTransport": "https://raw.githubusercontent.com/smart-data-models/dataModel.MarineTransport/master/context.jsonld",
