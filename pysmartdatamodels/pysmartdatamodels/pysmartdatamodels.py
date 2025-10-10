@@ -1147,7 +1147,6 @@ def generate_sql_schema(model_yaml: str) -> str:
 
     # Initialize SQL schema statements
     sql_schema_statements = []
-    sql_type_statement = []
 
     sql_data_types = ""
 
@@ -1194,8 +1193,6 @@ def generate_sql_schema(model_yaml: str) -> str:
                     field_type = f"{entity}_type"
                 else:
                     field_type = f"{key}_type"
-                # create sql create type statment
-                sql_type_statement.append(f"CREATE TYPE {field_type} AS ENUM ({','.join(map(repr, enum_values))});")
 
                 sql_data_types += "CREATE TYPE " + field_type + " AS ENUM ("
                 sql_data_types += f"{','.join(map(repr, enum_values))}"
