@@ -1,5 +1,5 @@
 {
-  "updatedDate": "2025-07-24T18:23:00.31416",
+  "updatedDate": "2025-11-10T18:29:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -1754,6 +1754,7 @@
       "repoName": "dataModel.IndustrialProcess",
       "repoLink": "https://github.com/smart-data-models/dataModel.IndustrialProcess.git",
       "dataModels": [
+        "MaterialAddition",
         "ProcessChemicalAnalysis",
         "ProcessEvent"
       ],
