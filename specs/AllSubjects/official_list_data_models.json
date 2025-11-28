@@ -1,5 +1,5 @@
 {
-  "updatedDate": "2025-11-10T18:29:00.31416",
+  "updatedDate": "2025-11-20T23:39:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -1652,8 +1652,10 @@
         "I4AAS",
         "I4Asset",
         "I4Submodel",
+        "I4SubmodelElementCapability",
         "I4SubmodelElementOperation",
         "I4SubmodelElementProperty",
+        "I4SubmodelElementRelationship",
         "TimeSeries"
       ],
       "domains": [
