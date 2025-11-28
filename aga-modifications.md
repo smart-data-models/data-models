@@ -20,7 +20,7 @@ The modifications in the `test_data_model` project represent a significant refac
 - **Purpose**: Main test runner script.
 - **Changes**:
   - Added comments explaining lenient handling of missing files (allowing partial downloads).
-  - Modified `download_files()`: No longer raises exceptions for missing files; suppresses 404 errors to let individual tests handle existence.
+  - Modified `download_files()`: No longer raises exceptions for missing files; suppresses 404 errors while warning for other download errors to let individual tests handle existence.
   - Added `load_repo_files()` function: Preloads and parses files into a dictionary with content, parsed JSON, and error info.
   - Updated `run_tests()`: Changed from `repo_path` to `repo_files` dictionary parameter.
   - Test execution now uses loaded files and supports partial failures.
@@ -113,7 +113,7 @@ These changes modernize the test framework without altering the core validation 
 ## Testing
 
 ### /SMARTHEALTH/HL7/FHIR-R4/Account
-python3 test_data_model/master_tests.py "https://github.com/agaldemas/incubated/tree/master/SMARTHEALTH/HL7/FHIR-R4/Account" "alain.galdemas@gmail.com" false --published false
+python3 test_data_model/master_tests.py "https://github.com/agaldemas/incubated/tree/master/SMARTHEALTH/HL7/FHIR-R4/Account" "alain.galdemas@gmail.com" true --published false
 
 ### TrafficFlowObserved:
 python3 test_data_model/master_tests.py "https://github.com/smart-data-models/dataModel.Transportation/tree/master/TrafficFlowObserved" "alain.galdemas@gmail.com" false --published false
