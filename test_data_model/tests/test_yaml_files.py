@@ -19,12 +19,13 @@
 import os
 import yaml
 
-def validate_yaml_file(file_path):
+def validate_yaml_content(content, file_name):
     """
-    Validate that a YAML file is properly formatted.
+    Validate that a YAML string is properly formatted.
 
     Parameters:
-        file_path (str): The path to the YAML file.
+        content (str): The content of the YAML file.
+        file_name (str): The name of the file.
 
     Returns:
         tuple: (success, message)
@@ -32,26 +33,19 @@ def validate_yaml_file(file_path):
             message (str): A message describing the result of the validation.
     """
     try:
-        with open(file_path, 'r') as file:
-            yaml.safe_load(file)
-        # Extract only the filename from the full path
-        file_name = os.path.basename(file_path)
+        yaml.safe_load(content)
         return True, f"The file '{file_name}' is a valid YAML file."
     except yaml.YAMLError as e:
-        # Extract only the filename from the full path
-        file_name = os.path.basename(file_path)
         return False, f"*** The file '{file_name}' is not a valid YAML file: {e}"
     except Exception as e:
-        # Extract only the filename from the full path
-        file_name = os.path.basename(file_path)
         return False, f"*** An error occurred while reading '{file_name}': {e}"
 
-def test_yaml_files(repo_to_test, options):
+def test_yaml_files(repo_files, options):
     """
     Test that the ADOPTERS.yaml and notes.yaml files are valid YAML files.
 
     Parameters:
-        repo_to_test (str): The path to the directory where the files are located.
+        repo_files (dict): Dictionary containing loaded files.
 
     Returns:
         tuple: (test_name, success, output)
@@ -72,12 +66,17 @@ def test_yaml_files(repo_to_test, options):
 
 
     for yaml_file in yaml_files:
-        file_path = os.path.join(repo_to_test, yaml_file)
-        if not os.path.exists(file_path):
+        if yaml_file not in repo_files or repo_files[yaml_file] is None:
             output.append(f"*** The file '{yaml_file}' does not exist.")
             success = False
+            continue
+
+        file_data = repo_files[yaml_file]
+        if "error" in file_data:
+            output.append(f"*** The file '{yaml_file}' could not be read: {file_data['error']}")
+            success = False
         else:
-            is_valid, message = validate_yaml_file(file_path)
+            is_valid, message = validate_yaml_content(file_data["content"], yaml_file)
             output.append(message)
             if not is_valid:
                 success = False

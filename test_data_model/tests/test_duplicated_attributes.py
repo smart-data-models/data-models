@@ -82,7 +82,7 @@ def extract_attributes_from_schema(schema, parent_path="", base_uri=""):
     return filtered_attributes
 
 
-def test_duplicated_attributes(repo_to_test, options):
+def test_duplicated_attributes(repo_files, options):
     """
     Test that all attributes in the JSON payload are defined in the schema.
     Returns:
@@ -90,30 +90,46 @@ def test_duplicated_attributes(repo_to_test, options):
         success (bool): True if all attributes are defined, False otherwise.
         output (list): List of messages describing the results of the test.
     """
-    schema_file = os.path.join(repo_to_test, "schema.json")
-    payload_file = os.path.join(repo_to_test, "examples/example.json")
+    test_name = "Checking that all payload attributes are defined in the schema"
+    
+    schema_file = "schema.json"
+    payload_file = "examples/example.json"
 
-    if not os.path.exists(schema_file):
-        return "Checking that all payload attributes are defined in the schema", False, ["Schema file not found."]
-    if not os.path.exists(payload_file):
-        return "Checking that all payload attributes are defined in the schema", False, ["Payload file not found."]
+    if schema_file not in repo_files or repo_files[schema_file] is None:
+        return test_name, False, ["Schema file not found."]
+    if payload_file not in repo_files or repo_files[payload_file] is None:
+        return test_name, False, ["Payload file not found."]
+
+    schema_data = repo_files[schema_file]
+    if "json" not in schema_data:
+        return test_name, False, ["Schema file is not a valid JSON."]
+    
+    payload_data = repo_files[payload_file]
+    if "json" not in payload_data:
+        return test_name, False, ["Payload file is not a valid JSON."]
 
     # Normalize the base URI to ensure proper resolution of references
-    schema_dir = os.path.dirname(os.path.abspath(schema_file))
-    base_uri = urllib.parse.urljoin('file:', urllib.request.pathname2url(schema_dir))
+    # Use the path from repo_files if available
+    if "path" in schema_data and schema_data["path"]:
+        schema_dir = os.path.dirname(os.path.abspath(schema_data["path"]))
+        base_uri = urllib.parse.urljoin('file:', urllib.request.pathname2url(schema_dir))
+    else:
+        # Fallback if path is not available (should be present)
+        base_uri = ""
 
     # Load the schema and fully resolve all $ref references using jsonref
-    with open(schema_file, 'r') as f:
+    # We use jsonref.loads on the content string, which should be available
+    try:
         schema = jsonref.loads(
-            json.dumps(json.load(f)),
+            schema_data["content"],
             base_uri=base_uri,
             lazy_load=False,
             load_on_repr=True
         )
+    except Exception as e:
+        return test_name, False, [f"Error parsing/resolving schema: {e}"]
 
-    # Load the payload
-    with open(payload_file, 'r') as f:
-        payload = json.load(f)
+    payload = payload_data["json"]
 
     output = []
 
@@ -139,5 +155,4 @@ def test_duplicated_attributes(repo_to_test, options):
     # Determine if the test was successful
     success = len(undefined_attributes) == 0
 
-    test_name = "Checking that all payload attributes are defined in the schema"
     return test_name, success, output
