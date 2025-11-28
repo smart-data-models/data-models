@@ -108,3 +108,12 @@ All test files were refactored to use the new `repo_files` dictionary instead of
 - **User-Specific**: Config paths tailored to current user environment.
 
 These changes modernize the test framework without altering the core validation logic, making it more production-ready and user-friendly for the FIWARE Smart Data Models validation process.
+
+
+## Testing
+
+### /SMARTHEALTH/HL7/FHIR-R4/Account
+python3 test_data_model/master_tests.py "https://github.com/agaldemas/incubated/tree/master/SMARTHEALTH/HL7/FHIR-R4/Account" "alain.galdemas@gmail.com" false --published false
+
+### TrafficFlowObserved:
+python3 test_data_model/master_tests.py "https://github.com/smart-data-models/dataModel.Transportation/tree/master/TrafficFlowObserved" "alain.galdemas@gmail.com" false --published false
