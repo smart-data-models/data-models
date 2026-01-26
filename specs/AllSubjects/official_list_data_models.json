@@ -1,5 +1,5 @@
 {
-  "updatedDate": "2025-11-20T23:39:00.31416",
+  "updatedDate": "2026-01-26T16:34:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -191,6 +191,7 @@
         "BikeLane",
         "CityWork",
         "CrowdFlowObserved",
+        "ElectricVehicleMobility",
         "EVChargingStation",
         "FareCollectionSystem",
         "FleetVehicle",
