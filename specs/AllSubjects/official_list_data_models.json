@@ -1,5 +1,5 @@
 {
-  "updatedDate": "2026-01-26T16:34:00.31416",
+  "updatedDate": "2026-01-30T17:34:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -894,6 +894,7 @@
         "ConsumptionBehaviour",
         "Event",
         "TouristDestination",
+        "TourismDwellTimeObserved",
         "TouristProfile",
         "TouristRental",
         "TouristTrip"
