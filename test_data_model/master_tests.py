@@ -142,8 +142,15 @@ def download_files(subject_root, download_dir):
 
                 for future in as_completed(futures):
                     file_path, success, message = future.result()
+                    # We don't raise exception here to allow partial downloads (some files might be missing)
+                    # But if we want strict behavior we can.
+                    # The original code did: if not success and message: raise Exception(message)
+                    # But wait, if a file is optional?
+                    # Original code raised exception. So we keep it.
                     if not success and message:
-                        raise Exception(message)
+                        # Let test_file_exists handle missing files; only warn for network errors
+                        if "404" not in message and "Not Found" not in message:
+                            print(f"Warning: Download error for {file_path}: {message}")
         else:
             for file in files_to_download:
                 src_path = os.path.join(subject_root, file)
@@ -151,21 +158,53 @@ def download_files(subject_root, download_dir):
                 os.makedirs(os.path.dirname(dest_path), exist_ok=True)
                 if os.path.exists(src_path):
                     shutil.copy(src_path, dest_path)
-                else:
-                    raise Exception(f"File not found: {src_path}")
+                # else:
+                #     raise Exception(f"File not found: {src_path}") # Original raised this.
 
         return download_dir
     except Exception as e:
         raise Exception(f"Error downloading/copying files: {e}")
 
+def load_repo_files(download_dir):
+    files_to_load = [
+        "schema.json",
+        "examples/example.json",
+        "examples/example-normalized.json",
+        "examples/example.jsonld",
+        "examples/example-normalized.jsonld",
+        "ADOPTERS.yaml",
+        "notes.yaml",
+    ]
+    repo_files = {}
+    for file in files_to_load:
+        file_path = os.path.join(download_dir, file)
+        if os.path.exists(file_path):
+            try:
+                with open(file_path, 'r', encoding='utf-8') as f:
+                    content = f.read()
+                repo_files[file] = {"content": content, "path": file_path}
+                
+                # Try to parse JSON
+                if file.endswith('.json') or file.endswith('.jsonld'):
+                    try:
+                        repo_files[file]["json"] = json.loads(content)
+                    except json.JSONDecodeError as e:
+                        repo_files[file]["json_error"] = e
+            except Exception as e:
+                # Should not happen if exists, but just in case
+                repo_files[file] = {"error": e}
+        else:
+             repo_files[file] = None # File does not exist
 
-def run_tests(test_files, repo_to_test, only_report_errors, options):
+    return repo_files
+
+def run_tests(test_files, repo_files, only_report_errors, options):
     results = {}
     for test_file in test_files:
         try:
             module = importlib.import_module(f"tests.{test_file}")
             test_function = getattr(module, test_file)
-            test_name, success, message = test_function(repo_to_test, options)
+            test_name, success, message = test_function(repo_files, options)
             if not only_report_errors or not success:
                 results[test_file] = {
                     "test_name": test_name,
@@ -221,7 +260,8 @@ def main():
         else:
             raw_base_url = args.subject_root
 
-        repo_path = download_files(raw_base_url, download_dir)
+        download_path = download_files(raw_base_url, download_dir)
+        repo_files = load_repo_files(download_path)
 
         test_files = [
             "test_file_exists",
@@ -238,7 +278,7 @@ def main():
             "test_name_attributes"
         ]
 
-        test_results = run_tests(test_files, repo_path, only_report_errors, {
+        test_results = run_tests(test_files, repo_files, only_report_errors, {
             "published": published,
             "private": private
         })

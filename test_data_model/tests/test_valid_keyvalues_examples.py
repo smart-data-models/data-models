@@ -81,13 +81,13 @@ def check_context_url(context):
     else:
         return False, "*** Invalid @context format. Expected a URL or an array of URLs."
 
-def test_valid_keyvalues_examples(repo_to_test, options):
+def test_valid_keyvalues_examples(repo_files, options):
     """
     Test that the example.json and example.jsonld files are valid against the schema.json file.
     Also, check that the @context URL(s) in example.jsonld are valid (report a warning if any are not reachable).
 
     Parameters:
-        repo_to_test (str): The path to the directory where the files are located.
+        repo_files (dict): Dictionary containing loaded files.
 
     Returns:
         tuple: (test_name, success, output)
@@ -95,13 +95,14 @@ def test_valid_keyvalues_examples(repo_to_test, options):
             success (bool): True if both files are valid, False otherwise.
             output (list): List of messages describing the results of the test.
     """
-    # Paths to the files
-    schema_file = os.path.join(repo_to_test, "schema.json")
-    example_json_file = os.path.join(repo_to_test, "examples", "example.json")
-    example_jsonld_file = os.path.join(repo_to_test, "examples", "example.jsonld")
+    # Paths to the files (keys in dict)
+    schema_file = "schema.json"
+    example_json_file = "examples/example.json"
+    example_jsonld_file = "examples/example.jsonld"
 
     output = []
     success = True
+    test_name = "Checking that example files are valid against the schema"
 
 #    Example usage of the options parameter (optional, for future flexibility)
 #    if options.get("published", False):
@@ -111,50 +112,59 @@ def test_valid_keyvalues_examples(repo_to_test, options):
 
 
     # Check if the schema file exists
-    if not os.path.exists(schema_file):
-        return "Checking that example files are valid against the schema", False, ["Schema file not found."]
-
-    # Load the schema
-    with open(schema_file, 'r') as f:
-        schema = json.load(f)
+    if schema_file not in repo_files or repo_files[schema_file] is None:
+        return test_name, False, ["Schema file not found."]
+    
+    schema_data = repo_files[schema_file]
+    if "json" not in schema_data:
+        return test_name, False, ["Schema file is not a valid JSON."]
+    
+    schema = schema_data["json"]
 
     # Validate example.json
-    if os.path.exists(example_json_file):
-        with open(example_json_file, 'r') as f:
-            example_json = json.load(f)
-        is_valid, message = validate_json_against_schema(example_json, schema)
-        output.append(f"example.json: {message}")
-        if not is_valid:
+    if example_json_file in repo_files and repo_files[example_json_file] is not None:
+        example_data = repo_files[example_json_file]
+        if "json" in example_data:
+            example_json = example_data["json"]
+            is_valid, message = validate_json_against_schema(example_json, schema)
+            output.append(f"example.json: {message}")
+            if not is_valid:
+                success = False
+        else:
+            output.append(f"*** example.json is not a valid JSON: {example_data.get('json_error')}")
             success = False
     else:
         output.append("*** example.json file not found.")
         success = False
 
     # Validate example.jsonld
-    if os.path.exists(example_jsonld_file):
-        with open(example_jsonld_file, 'r') as f:
-            example_jsonld = json.load(f)
-        is_valid, message = validate_json_against_schema(example_jsonld, schema)
-        output.append(f"example.jsonld: {message}")
-        if not is_valid:
-            success = False
+    if example_jsonld_file in repo_files and repo_files[example_jsonld_file] is not None:
+        example_ld_data = repo_files[example_jsonld_file]
+        if "json" in example_ld_data:
+            example_jsonld = example_ld_data["json"]
+            is_valid, message = validate_json_against_schema(example_jsonld, schema)
+            output.append(f"example.jsonld: {message}")
+            if not is_valid:
+                success = False
 
-        # Check the @context URL(s) in example.jsonld
-        if "@context" in example_jsonld:
-            context = example_jsonld["@context"]
-            is_context_valid, context_message = check_context_url(context)
-            if not is_context_valid:
-                output.append(context_message)  # Warning message
+            # Check the @context URL(s) in example.jsonld
+            if "@context" in example_jsonld:
+                context = example_jsonld["@context"]
+                is_context_valid, context_message = check_context_url(context)
+                if not is_context_valid:
+                    output.append(context_message)  # Warning message
+                else:
+                    output.append(context_message)
             else:
-                output.append(context_message)
+                output.append("*** example.jsonld is missing the mandatory '@context' attribute.")
+                success = False
         else:
-            output.append("*** example.jsonld is missing the mandatory '@context' attribute.")
-            success = False
+             output.append(f"*** example.jsonld is not a valid JSON: {example_ld_data.get('json_error')}")
+             success = False
     else:
         output.append("*** example.jsonld file not found.")
         success = False
 
-    test_name = "Checking that example files are valid against the schema"
     return test_name, success, output
 
 # Example usage (for standalone testing)
@@ -165,4 +175,4 @@ def test_valid_keyvalues_examples(repo_to_test, options):
 #     print(f"Success: {success}")
 #     print("Output:")
 #     for message in output:
-#         print(message) 
+#         print(message)
