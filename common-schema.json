@@ -405,7 +405,8 @@
           "type": "array",
           "description": "Property. Annotations about the item. Model:'https://schema.org/Text'",
           "items": {
-            "type": "string"
+            "type": "string",
+            "description": "Property. Eventy element in the annotations"
           }
         }
       }
@@ -581,14 +582,14 @@
             },
             "faxNumber": {
               "type": "string",
-              "description": "Property. Model:'http://schema.org/Text'. The fax number of the item"
+              "description": "Property. Model:'https://schema.org/Text'. The fax number of the item"
             },
             "productSupported": {
               "type": "string",
-              "description": "Property. Model:'http://schema.org/Text'. The product or service this support contact point is related to (such as product support for a particular product line). This can be a specific product or product line (e.g. 'iPhone') or a general category of products or services (e.g. 'smartphones')"
+              "description": "Property. Model:'https://schema.org/Text'. The product or service this support contact point is related to (such as product support for a particular product line). This can be a specific product or product line (e.g. 'iPhone') or a general category of products or services (e.g. 'smartphones')"
             },
             "availabilityRestriction": {
-              "description": "Relationship. Model:'http://schema.org/hoursAvailable'. This property links a contact point to information about when the contact point is not available. The details are provided using the Opening Hours Specification class",
+              "description": "Relationship. Model:'https://schema.org/hoursAvailable'. This property links a contact point to information about when the contact point is not available. The details are provided using the Opening Hours Specification class",
               "anyOf": [
                 {
                   "type": "array",
