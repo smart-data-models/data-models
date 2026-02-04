@@ -17,12 +17,12 @@
 # version 26/02/25 - 1
 import os
 
-def test_file_exists(repo_path, options):
+def test_file_exists(repo_files, options):
     """
     Test if a file exists.
 
     Parameters:
-        repo_path (str): The path to the repository containing the files to check.
+        repo_files (dict): Dictionary containing loaded files.
         options (dict): Additional options for the test (e.g., {"published": True, "private": False}).
 
     Returns:
@@ -52,8 +52,7 @@ def test_file_exists(repo_path, options):
 
     # Check if each mandatory file exists
     for file in mandatory_files:
-        path_to_file = os.path.join(repo_path, file)
-        exist_file = os.path.exists(path_to_file)
+        exist_file = repo_files.get(file) is not None
         success = success and exist_file
 
         if exist_file:

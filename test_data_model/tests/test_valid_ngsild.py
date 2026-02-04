@@ -62,12 +62,12 @@ def check_context_url(context):
     else:
         return False, "*** Invalid @context format. Expected a URL or an array of URLs."
 
-def test_valid_ngsild(repo_path, options):
+def test_valid_ngsild(repo_files, options):
     """
     Validate if the example-normalized.jsonld file is a valid NGSI-LD file.
 
     Parameters:
-        repo_path (str): The path to the directory where the files are located.
+        repo_files (dict): Dictionary containing loaded files.
 
     Returns:
         tuple: (test_name: str, success: bool, message: str)
@@ -80,83 +80,84 @@ def test_valid_ngsild(repo_path, options):
     # List of valid attribute types
     valid_attribute_types = ["Property", "GeoProperty", "Relationship", "LanguageProperty", "ListProperty"]
 
-    try:
-        # Load the example-normalized.jsonld file
-        with open(f"{repo_path}/examples/example-normalized.jsonld", 'r') as file:
-            entity = json.load(file)
-
-        # Validate that the root element is a single entity (a dictionary)
-        if not isinstance(entity, dict):
-            success = False
-            output.append("*** The root element must be a single entity (a dictionary)")
-        else:
-            # Check for required fields in the entity
-            required_fields = ["id", "type", "@context"]
-            for field in required_fields:
-                if field not in entity:
-                    success = False
-                    output.append(f"*** Entity is missing required field: {field}")
-
-
-            # Check for the '@context' field
-            if "@context" not in entity:
-                success = False
-                output.append("*** Entity is missing the '@context' field")
-            else:
-                success_context, context_message = check_context_url(entity["@context"])
-                success = success_context and success
-                output.append(context_message)
-
-            # Check properties and relationships
-            for key, value in entity.items():
-                if key not in ["id", "type", "@context"]:
-                    if not isinstance(value, dict):
-                        success = False
-                        output.append(f"*** Property/Relationship '{key}' must be a dictionary")
-
-
-                    # Check for the 'type' field in the attribute
-                    if "type" not in value:
-                        success = False
-                        output.append(f"*** Property/Relationship '{key}' is missing the 'type' field")
-
-
-                    # Validate the attribute type
-                    attribute_type = value.get("type")
-                    if attribute_type not in valid_attribute_types:
-                        success = False
-                        output.append(f"*** Invalid attribute type '{attribute_type}' for '{key}'. Allowed types: {valid_attribute_types}")
-
-
-                    # Handle LanguageProperty type
-                    if attribute_type == "LanguageProperty":
-                        if "languageMap" not in value:
-                            success = False
-                            output.append(f"*** LanguageProperty '{key}' is missing the 'languageMap' field")
-
-                        # Check if 'value' or 'object' are present (they should not be)
-                        if "value" in value or "object" in value:
-                            success = False
-                            output.append(f"*** LanguageProperty '{key}' should not contain 'value' or 'object' fields")
-
-                    else:
-                        # Handle other attribute types
-                        if attribute_type == "Relationship":
-                            if "object" not in value:
-                                success = False
-                                output.append(f"*** Relationship '{key}' is missing the 'object' field")
-
-                        else:
-                            if "value" not in value:
-                                success = False
-                                output.append(f"*** Property '{key}' is missing the 'value' field")
-
-
-    except json.JSONDecodeError:
-        success = False
-        output.append("*** example-normalized.jsonld is not a valid JSON file")
-    except FileNotFoundError:
+    file_name = "examples/example-normalized.jsonld"
+    if file_name not in repo_files or repo_files[file_name] is None:
         success = False
         output.append("*** example-normalized.jsonld file not found")
+        return test_name, success, output
+
+    file_data = repo_files[file_name]
+    if "json" not in file_data:
+        success = False
+        output.append("*** example-normalized.jsonld is not a valid JSON file")
+        return test_name, success, output
+    
+    entity = file_data["json"]
+
+    # Validate that the root element is a single entity (a dictionary)
+    if not isinstance(entity, dict):
+        success = False
+        output.append("*** The root element must be a single entity (a dictionary)")
+    else:
+        # Check for required fields in the entity
+        required_fields = ["id", "type", "@context"]
+        for field in required_fields:
+            if field not in entity:
+                success = False
+                output.append(f"*** Entity is missing required field: {field}")
+
+
+        # Check for the '@context' field
+        if "@context" not in entity:
+            success = False
+            output.append("*** Entity is missing the '@context' field")
+        else:
+            success_context, context_message = check_context_url(entity["@context"])
+            success = success_context and success
+            output.append(context_message)
+
+        # Check properties and relationships
+        for key, value in entity.items():
+            if key not in ["id", "type", "@context"]:
+                if not isinstance(value, dict):
+                    success = False
+                    output.append(f"*** Property/Relationship '{key}' must be a dictionary")
+
+
+                # Check for the 'type' field in the attribute
+                if "type" not in value:
+                    success = False
+                    output.append(f"*** Property/Relationship '{key}' is missing the 'type' field")
+
+
+                # Validate the attribute type
+                attribute_type = value.get("type")
+                if attribute_type not in valid_attribute_types:
+                    success = False
+                    output.append(f"*** Invalid attribute type '{attribute_type}' for '{key}'. Allowed types: {valid_attribute_types}")
+
+
+                # Handle LanguageProperty type
+                if attribute_type == "LanguageProperty":
+                    if "languageMap" not in value:
+                        success = False
+                        output.append(f"*** LanguageProperty '{key}' is missing the 'languageMap' field")
+
+                    # Check if 'value' or 'object' are present (they should not be)
+                    if "value" in value or "object" in value:
+                        success = False
+                        output.append(f"*** LanguageProperty '{key}' should not contain 'value' or 'object' fields")
+
+                else:
+                    # Handle other attribute types
+                    if attribute_type == "Relationship":
+                        if "object" not in value:
+                            success = False
+                            output.append(f"*** Relationship '{key}' is missing the 'object' field")
+
+                    else:
+                        if "value" not in value:
+                            success = False
+                            output.append(f"*** Property '{key}' is missing the 'value' field")
 
     return test_name, success, output

@@ -18,12 +18,12 @@
 
 import json
 
-def test_string_incorrect(repo_path, options):
+def test_string_incorrect(repo_files, options):
     """
     Validate that attributes with type 'string' do not have 'items' or 'properties'.
 
     Parameters:
-        repo_path (str): The path to the schema.json file.
+        repo_files (dict): Dictionary containing loaded files.
 
     Returns:
         tuple: (test_name: str, success: bool, output: list)
@@ -38,39 +38,34 @@ def test_string_incorrect(repo_path, options):
 #    if options.get("private", False):
 #        output.append("This is a private model.")
 
-    try:
-        with open(f"{repo_path}/schema.json", 'r') as file:
-            schema = json.load(file)
-
-        def validate_properties(properties, path=""):
-            nonlocal success
-            for key, value in properties.items():
-                if isinstance(value, dict):
-                    type_value = value.get("type", "")
-                    if type_value == "string" and ("items" in value or "properties" in value):
-                        success = False
-                        output.append(f"*** Error: Attribute '{path + key}' is of type 'string' but has invalid subelements ('items' or 'properties').")
-
-                    # Recursively check nested properties
-                    if "properties" in value and isinstance(value["properties"], dict):
-                        validate_properties(value["properties"], path + key + ".")
-
-        if "properties" in schema and isinstance(schema["properties"], dict):
-            validate_properties(schema["properties"])
-
-    except json.JSONDecodeError:
-        success = False
-        output.append("*** schema.json is not a valid JSON file")
-    except FileNotFoundError:
+    file_name = "schema.json"
+    if file_name not in repo_files or repo_files[file_name] is None:
         success = False
         output.append("*** schema.json file not found")
+        return test_name, success, output
+
+    file_data = repo_files[file_name]
+    if "json" not in file_data:
+        success = False
+        output.append("*** schema.json is not a valid JSON file")
+        return test_name, success, output
+    
+    schema = file_data["json"]
+
+    def validate_properties(properties, path=""):
+        nonlocal success
+        for key, value in properties.items():
+            if isinstance(value, dict):
+                type_value = value.get("type", "")
+                if type_value == "string" and ("items" in value or "properties" in value):
+                    success = False
+                    output.append(f"*** Error: Attribute '{path + key}' is of type 'string' but has invalid subelements ('items' or 'properties').")
+
+                # Recursively check nested properties
+                if "properties" in value and isinstance(value["properties"], dict):
+                    validate_properties(value["properties"], path + key + ".")
+
+    if "properties" in schema and isinstance(schema["properties"], dict):
+        validate_properties(schema["properties"])
 
     return test_name, success, output
-
-# Example of calling the function
-#repo_path = "your_repo_path_here"
-#test_name, success, results = check_invalid_string_attributes(repo_path)
-#print(test_name)
-#for line in results:
-#    print(line)
-
