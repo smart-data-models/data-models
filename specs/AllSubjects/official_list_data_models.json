@@ -1,5 +1,5 @@
 {
-  "updatedDate": "2026-02-01T02:15:46.31416",
+  "updatedDate": "2026-02-10T15:22:46.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -1339,6 +1339,7 @@
       "repoLink": "https://github.com/smart-data-models/dataModel.IT.git",
       "dataModels": [
         "CloudRegion",
+        "Domain",
         "ITTests"
       ],
       "domains": [
