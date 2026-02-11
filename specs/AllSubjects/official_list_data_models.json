@@ -1,5 +1,5 @@
 {
-  "updatedDate": "2026-02-11T09:29:46.31416",
+  "updatedDate": "2026-02-11T11:28:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -1341,7 +1341,16 @@
         "CloudRegion",
         "Domain",
         "InfrastructureElement",
-        "ITTests"
+        "InfrastructureElementRequirements",
+        "ITTests",
+        "LowLevelOrchestrator",
+        "NetworkConnection",
+        "NetworkPort",
+        "PersistentStorage",
+        "PowerSource",
+        "Service",
+        "ServiceComponent",
+        "ServiceType"
       ],
       "domains": [
         "CrossSector"
