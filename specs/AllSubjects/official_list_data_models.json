@@ -1,5 +1,5 @@
 {
-  "updatedDate": "2026-02-10T15:22:46.31416",
+  "updatedDate": "2026-02-11T09:29:46.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -1340,6 +1340,7 @@
       "dataModels": [
         "CloudRegion",
         "Domain",
+        "InfrastructureElement",
         "ITTests"
       ],
       "domains": [
