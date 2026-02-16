@@ -18,12 +18,12 @@
 
 import json
 
-def test_valid_json(file_path, options):
+def test_valid_json(repo_files, options):
     """
     Test if a file contains valid JSON.
 
     Parameters:
-        file_path (str): The path to the file to check.
+        repo_files (dict): Dictionary containing loaded files.
 
     Returns:
         tuple: (success: bool, message: str)
@@ -42,23 +42,25 @@ def test_valid_json(file_path, options):
 
 
     for file in mandatory_json_files:
+        if file not in repo_files or repo_files[file] is None:
+             success = success and False
+             output.append(f"*** file {file} is NOT FOUND")
+             continue
 
-        try:
-            local_path = file_path + "/" + file
-            # print(f"The local path to the file is {local_path}")
-            with open(local_path, 'r') as local_file:
-                json.load(local_file)
+        file_data = repo_files[file]
+        
+        if "json_error" in file_data:
+            success = success and False
+            output.append(f"*** file {file} is NOT a valid json: {file_data['json_error']}")
+        elif "error" in file_data:
+            success = success and False
+            output.append(f"*** file {file} could not be read: {file_data['error']}")
+        elif "json" in file_data:
             success = success and True
             output.append(f"file {file} is a valid json")
-
-        except json.JSONDecodeError as e:
+        else:
+             # Should be handled by json_error, but just in case
             success = success and False
             output.append(f"*** file {file} is NOT a valid json")
 
-        except FileNotFoundError:
-            success = success and False
-            output.append(f"*** file {file} is NOT FOUND")
-
     return test_name, success, output
-
-

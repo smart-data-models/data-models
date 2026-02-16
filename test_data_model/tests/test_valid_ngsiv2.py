@@ -52,12 +52,12 @@ def validate_entity(entity):
     return success, messages
 
 
-def test_valid_ngsiv2(repo_path, options):
+def test_valid_ngsiv2(repo_files, options):
     """
     Validate if the example-normalized.json file is a valid NGSI v2 file in normalized format.
 
     Parameters:
-        repo_path (str): The path to the directory where the files are located.
+        repo_files (dict): Dictionary containing loaded files.
 
     Returns:
         tuple: (test_name: str, success: bool, message: str)
@@ -73,35 +73,37 @@ def test_valid_ngsiv2(repo_path, options):
 #    if options.get("private", False):
 #        output.append("This is a private model.")
 
-
-    try:
-        # Load the example-normalized.json file
-        with open(f"{repo_path}/examples/example-normalized.json", 'r') as file:
-            data = json.load(file)
-
-        success, output = validate_entity(data)
-
-        # Validate the structure of the NGSI v2 normalized format
-        required_fields = ["id", "type"]
-        for entity in data:
-            if entity in required_fields:
-                continue
-            # Check for required fields in each entity
-            if not isinstance(data[entity], dict):
-                success = False
-                output.append(f"*** {entity} have incomplete structure")
-            else:
-                if "type" not in data [entity]:
-                    success = False
-                    output.append(f"*** {entity} has not type")
-                if "value" not in data [entity]:
-                    success = False
-                    output.append(f"*** {entity} has not value")
-    except json.JSONDecodeError:
-        success = False
-        output.append("*** example-normalized.json is not a valid JSON file")
-    except FileNotFoundError:
+    file_name = "examples/example-normalized.json"
+    if file_name not in repo_files or repo_files[file_name] is None:
         success = False
         output.append("*** example-normalized.json file not found")
+        return test_name, success, output
+
+    file_data = repo_files[file_name]
+    if "json" not in file_data:
+        success = False
+        output.append("*** example-normalized.json is not a valid JSON file")
+        return test_name, success, output
+
+    data = file_data["json"]
+
+    success, output = validate_entity(data)
+
+    # Validate the structure of the NGSI v2 normalized format
+    required_fields = ["id", "type"]
+    for entity in data:
+        if entity in required_fields:
+            continue
+        # Check for required fields in each entity
+        if not isinstance(data[entity], dict):
+            success = False
+            output.append(f"*** {entity} have incomplete structure")
+        else:
+            if "type" not in data [entity]:
+                success = False
+                output.append(f"*** {entity} has not type")
+            if "value" not in data [entity]:
+                success = False
+                output.append(f"*** {entity} has not value")
 
     return test_name, success, output
