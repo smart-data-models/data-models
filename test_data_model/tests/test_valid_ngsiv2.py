@@ -14,9 +14,13 @@
 #  limitations under the License.                                               #
 #  Author: Alberto Abella                                                       #
 #################################################################################
-# version 26/02/25 - 1
+# version 26/02/25 - 2
 
 import json
+
+# NGSI-LD attribute types that are invalid in NGSIv2 normalized format
+NGSILD_ATTRIBUTE_TYPES = {"Property", "Relationship", "GeoProperty"}
+
 
 def validate_entity(entity):
     """
@@ -48,6 +52,37 @@ def validate_entity(entity):
     else:
         success = False
         messages.append("*** Missing 'type' key")
+
+    return success, messages
+
+
+def check_ngsild_attribute_types(entity):
+    """
+    Check if any attribute in the entity uses NGSI-LD-specific type values
+    (Property, Relationship, GeoProperty), which are invalid in NGSIv2.
+
+    Parameters:
+        entity (dict): The JSON object to inspect.
+
+    Returns:
+        tuple: (success: bool, messages: list)
+    """
+    success = True
+    messages = []
+
+    required_fields = ["id", "type"]
+
+    for attr_name, attr_value in entity.items():
+        if attr_name in required_fields:
+            continue
+        if isinstance(attr_value, dict):
+            attr_type = attr_value.get("type")
+            if attr_type in NGSILD_ATTRIBUTE_TYPES:
+                success = False
+                messages.append(
+                    f"*** Attribute '{attr_name}' has type '{attr_type}' which is an "
+                    f"NGSI-LD type and is NOT valid in NGSIv2 normalized format"
+                )
 
     return success, messages
 
@@ -91,12 +126,19 @@ def test_valid_ngsiv2(repo_path, options):
                 success = False
                 output.append(f"*** {entity} have incomplete structure")
             else:
-                if "type" not in data [entity]:
+                if "type" not in data[entity]:
                     success = False
                     output.append(f"*** {entity} has not type")
-                if "value" not in data [entity]:
+                if "value" not in data[entity]:
                     success = False
                     output.append(f"*** {entity} has not value")
+
+        # Check for NGSI-LD-specific attribute types that are invalid in NGSIv2
+        ngsild_success, ngsild_messages = check_ngsild_attribute_types(data)
+        if not ngsild_success:
+            success = False
+            output.extend(ngsild_messages)
+
     except json.JSONDecodeError:
         success = False
         output.append("*** example-normalized.json is not a valid JSON file")
