@@ -385,7 +385,7 @@
         "GreenEnergyMeasurement",
         "PhotovoltaicDevice",
         "PhotovoltaicMeasurement",
-        "SolrTracker"
+        "SolarTracker"
       ],
       "domains": [
         "SmartEnergy"
