@@ -1,5 +1,5 @@
 {
-  "updatedDate": "2026-02-11T11:28:00.31416",
+  "updatedDate": "2026-02-25T02:32:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -384,7 +384,8 @@
         "GreenEnergyGenerator",
         "GreenEnergyMeasurement",
         "PhotovoltaicDevice",
-        "PhotovoltaicMeasurement"
+        "PhotovoltaicMeasurement",
+        "SolrTracker"
       ],
       "domains": [
         "SmartEnergy"
