@@ -1,5 +1,5 @@
 {
-  "updatedDate": "2026-02-25T02:32:00.31416",
+  "updatedDate": "2026-02-27T10:00:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -1403,6 +1403,7 @@
       "repoName": "dataModel.MarineTransport",
       "repoLink": "https://github.com/smart-data-models/dataModel.MarineTransport.git",
       "dataModels": [
+        "AisVessel",
         "Berth",
         "Booking",
         "EdiCodeco",
