@@ -1,5 +1,5 @@
 {
-  "updatedDate": "2026-03-15T11:06:00.31416",
+  "updatedDate": "2026-03-15T11:30:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -1409,6 +1409,7 @@
         "Company",
         "EdiCodeco",
         "Facility",
+        "KeyVessel",
         "MasterVessel",
         "Operation",
         "Port",
