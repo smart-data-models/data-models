@@ -1,5 +1,5 @@
 {
-  "updatedDate": "2026-03-15T12:51:00.31416",
+  "updatedDate": "2026-03-22T23:31:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -1412,6 +1412,7 @@
         "KeyVessel",
         "MasterVessel",
         "Metocean",
+        "NavigationSector",
         "Operation",
         "Port",
         "PortAuthority",
