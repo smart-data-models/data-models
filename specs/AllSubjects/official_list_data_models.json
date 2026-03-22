@@ -1,5 +1,5 @@
 {
-  "updatedDate": "2026-03-22T23:31:00.31416",
+  "updatedDate": "2026-03-23T00:11:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -1417,6 +1417,7 @@
         "Port",
         "PortAuthority",
         "PortCall",
+        "Terminal",
         "Vessel"
       ],
       "domains": [
