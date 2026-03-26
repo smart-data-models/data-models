@@ -1185,7 +1185,7 @@ def generate_sql_schema(model_yaml: str) -> str:
                 # format type mapping (format overrides type)
                 field_type = format_mapping.get(value["format"])
                 # add attribute to the SQL schema statement
-                sql_schema_statements.append(f"{key} {field_type}")
+                sql_schema_statements.append(f"\"{key}\" {field_type}")
 
             elif "enum" in value:
                 enum_values = value["enum"]
@@ -1202,15 +1202,15 @@ def generate_sql_schema(model_yaml: str) -> str:
                 sql_data_types += ");"
 
                 # add attribute to the SQL schema statement
-                sql_schema_statements.append(f"{key} {field_type}")
+                sql_schema_statements.append(f"\"{key}\" {field_type}")
 
             else:
                 field_type = type_mapping.get(value["type"])
                 # add attribute to the SQL schema statement
-                sql_schema_statements.append(f"{key} {field_type}")
+                sql_schema_statements.append(f"\"{key}\" {field_type}")
         elif "oneOf" in value:
             field_type = "JSON"
-            sql_schema_statements.append(f"{key} {field_type}")
+            sql_schema_statements.append(f"\"{key}\" {field_type}")
 
         # Handle the case when "allOf" exists
         if key == "allOf" and isinstance(value, list):
@@ -1219,15 +1219,15 @@ def generate_sql_schema(model_yaml: str) -> str:
                     if isinstance(sub_value, dict):
                         if "format" in sub_value:
                             sub_field_type = format_mapping.get(sub_value["format"])
-                            sql_schema_statements.append(f"{sub_key} {sub_field_type}")
+                            sql_schema_statements.append(f"\"{sub_key}\" {sub_field_type}")
                         if "type" in sub_value:
                             sub_field_type = type_mapping.get(sub_value["type"])
-                            sql_schema_statements.append(f"{sub_key} {sub_field_type}")
+                            sql_schema_statements.append(f"\"{sub_key}\" {sub_field_type}")
 
         if key == "id":
             field_type = "TEXT PRIMARY KEY"
             # add attribute to the SQL schema statement
-            sql_schema_statements.append(f"{key} {field_type}")
+            sql_schema_statements.append(f"\"{key}\" {field_type}")
 
     # Complete the CREATE TABLE statement
     table_create_statement += ", ".join(sql_schema_statements)
