@@ -40,6 +40,7 @@
   "dataModel.OCF": "https://raw.githubusercontent.com/smart-data-models/dataModel.OCF/master/context.jsonld",
   "dataModel.OPCUA": "https://raw.githubusercontent.com/smart-data-models/dataModel.OPCUA/master/context.jsonld",
   "dataModel.OpenChannelManagement": "https://raw.githubusercontent.com/smart-data-models/dataModel.OpenChannelManagement/master/context.jsonld",
+  "dataModel.OpenStreetMap": "https://github.com/smart-data-models/dataModel.OpenStreetMap",
   "dataModel.Organization": "https://raw.githubusercontent.com/smart-data-models/dataModel.Organization/master/context.jsonld",
   "dataModel.OSLO": "https://raw.githubusercontent.com/smart-data-models/dataModel.OSLO/master/context.jsonld",
   "dataModel.Parking": "https://raw.githubusercontent.com/smart-data-models/dataModel.Parking/master/context.jsonld",
