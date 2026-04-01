@@ -1,5 +1,5 @@
 {
-  "updatedDate": "2026-03-24T19:36:00.31416",
+  "updatedDate": "2026-04-01T17:17:00.31416",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -1786,6 +1786,30 @@
       ],
       "domains": [
         "SmartManufacturing"
+      ]
+    },
+    {
+      "repoName": "dataModel.OpenStreetMap",
+      "repoLink": "https://github.com/smart-data-models/dataModel.OpenStreetMap.git",
+      "dataModels": [
+        "OSMAerialway",
+        "OSMAmenity",
+        "OSMBuilding",
+        "OSMBuildingPart",
+        "OSMCycleRoute",
+        "OSMHighway",
+        "OSMLanduse",
+        "OSMLeisure",
+        "OSMNatural",
+        "OSMParkingArea",
+        "OSMPublicTransportStop",
+        "OSMRailway",
+        "OSMShop",
+        "OSMTourism",
+        "OSMWaterway"
+      ],
+      "domains": [
+        "CrossSector"
       ]
     }
   ]
