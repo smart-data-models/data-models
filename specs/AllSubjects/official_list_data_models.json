@@ -1,5 +1,5 @@
 {
-  "updatedDate": "2026-05-27T01:17:00.31416",
+  "updatedDate": "2026-05-27T23:48:27.43090",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -1792,9 +1792,11 @@
       "repoName": "dataModel.OpenStreetMap",
       "repoLink": "https://github.com/smart-data-models/dataModel.OpenStreetMap.git",
       "dataModels": [
+        "OSMAdvertising",
         "OSMAerialway",
         "OSMAeroway",
         "OSMAmenity",
+        "OSMBarrier",
         "OSMBuilding",
         "OSMBuildingPart",
         "OSMCycleRoute",
