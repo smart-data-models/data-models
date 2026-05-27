@@ -1793,6 +1793,7 @@
       "repoLink": "https://github.com/smart-data-models/dataModel.OpenStreetMap.git",
       "dataModels": [
         "OSMAerialway",
+        "OSMAeroway",
         "OSMAmenity",
         "OSMBuilding",
         "OSMBuildingPart",
