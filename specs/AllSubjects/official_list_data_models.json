@@ -1,5 +1,5 @@
 {
-  "updatedDate": "2026-05-28T02:23:28.56008",
+  "updatedDate": "2026-05-29T23:32:00.28355",
   "officialList": [
     {
       "repoName": "dataModel.User",
@@ -78,7 +78,9 @@
         "Feed",
         "Feeder",
         "FeedingOperation",
-        "FishPopulation"
+        "FishPopulation",
+        "Specie",
+        "Sump"
       ],
       "domains": [
         "SmartAgrifood"
