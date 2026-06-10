@@ -2,89 +2,67 @@
   "updatedDate": "2026-05-29T23:58:37.89795",
   "officialList": [
     {
-      "repoName": "dataModel.User",
-      "repoLink": "https://github.com/smart-data-models/dataModel.User.git",
+      "repoName": "dataModel.AAS",
+      "repoLink": "https://github.com/smart-data-models/dataModel.AAS.git",
       "dataModels": [
-        "Activity",
-        "UserContext"
+        "I4AAS",
+        "I4Asset",
+        "I4Submodel",
+        "I4SubmodelElementCapability",
+        "I4SubmodelElementOperation",
+        "I4SubmodelElementProperty",
+        "I4SubmodelElementRelationship",
+        "TimeSeries"
       ],
       "domains": [
-        "CrossSector"
+        "SmartManufacturing"
       ]
     },
     {
-      "repoName": "dataModel.PointOfInteraction",
-      "repoLink": "https://github.com/smart-data-models/dataModel.PointOfInteraction.git",
+      "repoName": "dataModel.ACRIS",
+      "repoLink": "https://github.com/smart-data-models/dataModel.ACRIS.git",
       "dataModels": [
-        "SmartPointOfInteraction",
-        "SmartSpot"
+        "AirportElevation",
+        "AirportElevationUnitOfMeasurement",
+        "AirportFacility",
+        "AirportLocation",
+        "CheckpointAreaLocation",
+        "CheckpointFacility",
+        "CheckpointFacilityOperatorParty",
+        "CheckpointFacilityType",
+        "ConcourseFacility",
+        "MeasurementDevice",
+        "MeasurementDeviceLocation",
+        "MeasurementTimePeriod",
+        "OperationTimePeriod",
+        "PassengerProcess",
+        "PassengerProcessType",
+        "PassengerQueue",
+        "QueueLocation",
+        "QueueMeasurement",
+        "QueueStatus",
+        "QueueType",
+        "TerminalAreaLocation",
+        "TerminalFacility",
+        "ZoneAreaLocation"
       ],
       "domains": [
-        "CrossSector"
+        "SmartAeronautics"
       ]
     },
     {
-      "repoName": "dataModel.KeyPerformanceIndicator",
-      "repoLink": "https://github.com/smart-data-models/dataModel.KeyPerformanceIndicator.git",
+      "repoName": "dataModel.Aeronautics",
+      "repoLink": "https://github.com/smart-data-models/dataModel.Aeronautics.git",
       "dataModels": [
-        "KeyPerformanceIndicator"
+        "Aircraft",
+        "AircraftModel",
+        "Airline",
+        "Airport",
+        "Flight",
+        "FlightNotification"
       ],
       "domains": [
-        "CrossSector"
-      ]
-    },
-    {
-      "repoName": "dataModel.UrbanMobility",
-      "repoLink": "https://github.com/smart-data-models/dataModel.UrbanMobility.git",
-      "dataModels": [
-        "ArrivalEstimation",
-        "GtfsAccessPoint",
-        "GtfsAgency",
-        "GtfsCalendarDateRule",
-        "GtfsCalendarRule",
-        "GtfsFrequency",
-        "GtfsRoute",
-        "GtfsService",
-        "GtfsShape",
-        "GtfsStation",
-        "GtfsStop",
-        "GtfsStopTime",
-        "GtfsTransferRule",
-        "GtfsTrip",
-        "PublicTransportRoute",
-        "PublicTransportStop",
-        "TransitManagement"
-      ],
-      "domains": [
-        "SmartCities"
-      ]
-    },
-    {
-      "repoName": "dataModel.ParksAndGardens",
-      "repoLink": "https://github.com/smart-data-models/dataModel.ParksAndGardens.git",
-      "dataModels": [
-        "FlowerBed",
-        "Garden",
-        "GreenspaceRecord"
-      ],
-      "domains": [
-        "SmartCities"
-      ]
-    },
-    {
-      "repoName": "dataModel.Aquaculture",
-      "repoLink": "https://github.com/smart-data-models/dataModel.Aquaculture.git",
-      "dataModels": [
-        "Feed",
-        "Feeder",
-        "FeedingOperation",
-        "FishContainment",
-        "FishPopulation",
-        "Specie",
-        "Sump"
-      ],
-      "domains": [
-        "SmartAgrifood"
+        "SmartAeronautics"
       ]
     },
     {
@@ -118,224 +96,6 @@
       ]
     },
     {
-      "repoName": "dataModel.WaterDistributionManagementEPANET",
-      "repoLink": "https://github.com/smart-data-models/dataModel.WaterDistributionManagementEPANET.git",
-      "dataModels": [
-        "Curve",
-        "Junction",
-        "Pattern",
-        "Pipe",
-        "Pump",
-        "Reservoir",
-        "SimulationResult",
-        "SimulationScenario",
-        "Tank",
-        "Valve",
-        "WaterNetwork"
-      ],
-      "domains": [
-        "SmartWater"
-      ]
-    },
-    {
-      "repoName": "dataModel.Parking",
-      "repoLink": "https://github.com/smart-data-models/dataModel.Parking.git",
-      "dataModels": [
-        "OffStreetParking",
-        "OnStreetParking",
-        "ParkingAccess",
-        "ParkingGroup",
-        "ParkingSpot"
-      ],
-      "domains": [
-        "SmartCities"
-      ]
-    },
-    {
-      "repoName": "dataModel.Weather",
-      "repoLink": "https://github.com/smart-data-models/dataModel.Weather.git",
-      "dataModels": [
-        "SeaConditions",
-        "WeatherAlert",
-        "WeatherForecast",
-        "WeatherObserved"
-      ],
-      "domains": [
-        "SmartEnvironment",
-        "CrossSector",
-        "SmartAgrifood",
-        "SmartDestination",
-        "SmartCities",
-        "SmartEnergy"
-      ]
-    },
-    {
-      "repoName": "dataModel.WasteManagement",
-      "repoLink": "https://github.com/smart-data-models/dataModel.WasteManagement.git",
-      "dataModels": [
-        "WasteContainer",
-        "WasteContainerIsle",
-        "WasteContainerModel",
-        "WasteObserved"
-      ],
-      "domains": [
-        "SmartEnvironment",
-        "SmartCities"
-      ]
-    },
-    {
-      "repoName": "dataModel.Transportation",
-      "repoLink": "https://github.com/smart-data-models/dataModel.Transportation.git",
-      "dataModels": [
-        "AnonymousCommuterId",
-        "AnprFlowObserved",
-        "APDSObservation",
-        "BikeHireDockingStation",
-        "BikeLane",
-        "CityWork",
-        "CrowdFlowObserved",
-        "ElectricVehicleMobility",
-        "EVChargingStation",
-        "FareCollectionSystem",
-        "FleetVehicle",
-        "FleetVehicleOperation",
-        "FleetVehicleStatus",
-        "ItemFlowObserved",
-        "OriginDestinationFlow",
-        "RestrictedTrafficArea",
-        "RestrictionException",
-        "Road",
-        "RoadAccident",
-        "RoadSegment",
-        "SpecialRestriction",
-        "TrafficFlowObserved",
-        "TrafficViolation",
-        "TransportStation",
-        "Vehicle",
-        "VehicleFault",
-        "VehicleModel"
-      ],
-      "domains": [
-        "SmartCities"
-      ]
-    },
-    {
-      "repoName": "dataModel.PointOfInterest",
-      "repoLink": "https://github.com/smart-data-models/dataModel.PointOfInterest.git",
-      "dataModels": [
-        "Beach",
-        "Museum",
-        "PointOfInterest",
-        "Store"
-      ],
-      "domains": [
-        "CrossSector",
-        "SmartDestination",
-        "SmartCities"
-      ]
-    },
-    {
-      "repoName": "dataModel.Device",
-      "repoLink": "https://github.com/smart-data-models/dataModel.Device.git",
-      "dataModels": [
-        "Camera",
-        "Device",
-        "DeviceMeasurement",
-        "DeviceModel",
-        "DeviceOperation",
-        "Modbus",
-        "PolarH10",
-        "PrivacyObject",
-        "SenseHat",
-        "SmartMeteringObservation",
-        "UWBAnchor"
-      ],
-      "domains": [
-        "Smart-Sensoring"
-      ]
-    },
-    {
-      "repoName": "dataModel.Streetlighting",
-      "repoLink": "https://github.com/smart-data-models/dataModel.Streetlighting.git",
-      "dataModels": [
-        "Streetlight",
-        "StreetlightControlCabinet",
-        "StreetlightGroup",
-        "StreetlightFeeder",
-        "StreetlightModel"
-      ],
-      "domains": [
-        "SmartCities"
-      ]
-    },
-    {
-      "repoName": "dataModel.IssueTracking",
-      "repoLink": "https://github.com/smart-data-models/dataModel.IssueTracking.git",
-      "dataModels": [
-        "IssueReporting",
-        "service_requests",
-        "services"
-      ],
-      "domains": [
-        "CrossSector"
-      ]
-    },
-    {
-      "repoName": "dataModel.Energy",
-      "repoLink": "https://github.com/smart-data-models/dataModel.Energy.git",
-      "dataModels": [
-        "ACMeasurement",
-        "InverterDevice",
-        "SolarEnergy",
-        "TechnicalCabinetDevice",
-        "ThreePhaseAcMeasurement"
-      ],
-      "domains": [
-        "SmartEnergy"
-      ]
-    },
-    {
-      "repoName": "dataModel.Building",
-      "repoLink": "https://github.com/smart-data-models/dataModel.Building.git",
-      "dataModels": [
-        "Building",
-        "BuildingOperation",
-        "BuildingType",
-        "VibrationsObserved"
-      ],
-      "domains": [
-        "SmartCities"
-      ]
-    },
-    {
-      "repoName": "dataModel.Environment",
-      "repoLink": "https://github.com/smart-data-models/dataModel.Environment.git",
-      "dataModels": [
-        "AeroAllergenObserved",
-        "AirQualityForecast",
-        "AirQualityObserved",
-        "AirQualityMonitoring",
-        "CarbonFootprint",
-        "ElectroMagneticObserved",
-        "EnvironmentObserved",
-        "FloodMonitoring",
-        "IndoorEnvironmentObserved",
-        "MosquitoDensity",
-        "NightSkyQuality",
-        "NoiseLevelObserved",
-        "NoisePollution",
-        "NoisePollutionForecast",
-        "WaterObserved",
-        "PhreaticObserved",
-        "RainFallRadarObserved",
-        "TrafficEnvironmentImpact",
-        "TrafficEnvironmentImpactForecast"
-      ],
-      "domains": [
-        "SmartEnvironment"
-      ]
-    },
-    {
       "repoName": "dataModel.Alert",
       "repoLink": "https://github.com/smart-data-models/dataModel.Alert.git",
       "dataModels": [
@@ -347,50 +107,19 @@
       ]
     },
     {
-      "repoName": "dataModel.WaterDistribution",
-      "repoLink": "https://github.com/smart-data-models/dataModel.WaterDistribution.git",
+      "repoName": "dataModel.Aquaculture",
+      "repoLink": "https://github.com/smart-data-models/dataModel.Aquaculture.git",
       "dataModels": [
-        "WaterDistributionNetwork"
+        "Feed",
+        "Feeder",
+        "FeedingOperation",
+        "FishContainment",
+        "FishPopulation",
+        "Specie",
+        "Sump"
       ],
       "domains": [
-        "SmartWater"
-      ]
-    },
-    {
-      "repoName": "dataModel.WaterQuality",
-      "repoLink": "https://github.com/smart-data-models/dataModel.WaterQuality.git",
-      "dataModels": [
-        "SludgeQualityObserved",
-        "WaterQualityObserved",
-        "WaterQualityPredicted"
-      ],
-      "domains": [
-        "SmartWater",
-        "SmartEnvironment"
-      ]
-    },
-    {
-      "repoName": "dataModel.WaterConsumption",
-      "repoLink": "https://github.com/smart-data-models/dataModel.WaterConsumption.git",
-      "dataModels": [
-        "WaterConsumptionObserved"
-      ],
-      "domains": [
-        "SmartWater"
-      ]
-    },
-    {
-      "repoName": "dataModel.GreenEnergy",
-      "repoLink": "https://github.com/smart-data-models/dataModel.GreenEnergy.git",
-      "dataModels": [
-        "GreenEnergyGenerator",
-        "GreenEnergyMeasurement",
-        "PhotovoltaicDevice",
-        "PhotovoltaicMeasurement",
-        "SolarTracker"
-      ],
-      "domains": [
-        "SmartEnergy"
+        "SmartAgrifood"
       ]
     },
     {
@@ -422,32 +151,205 @@
       ]
     },
     {
-      "repoName": "dataModel.Ports",
-      "repoLink": "https://github.com/smart-data-models/dataModel.Ports.git",
+      "repoName": "dataModel.Building",
+      "repoLink": "https://github.com/smart-data-models/dataModel.Building.git",
       "dataModels": [
-        "BoatAuthorized",
-        "SeaportFacilities",
-        "BoatPlacesAvailable",
-        "BoatPlacesPricing"
+        "Building",
+        "BuildingOperation",
+        "BuildingType",
+        "VibrationsObserved"
       ],
       "domains": [
-        "SmartCities",
-        "SmartDestination"
+        "SmartCities"
       ]
     },
     {
-      "repoName": "dataModel.Aeronautics",
-      "repoLink": "https://github.com/smart-data-models/dataModel.Aeronautics.git",
+      "repoName": "dataModel.COVID19",
+      "repoLink": "https://github.com/smart-data-models/dataModel.COVID19.git",
       "dataModels": [
-        "Aircraft",
-        "AircraftModel",
-        "Airline",
-        "Airport",
-        "Flight",
-        "FlightNotification"
+        "EUProofOfVaccination",
+        "VaccinationCertificate"
       ],
       "domains": [
-        "SmartAeronautics"
+        "SmartHealth"
+      ]
+    },
+    {
+      "repoName": "dataModel.CPSV-AP",
+      "repoLink": "https://github.com/smart-data-models/dataModel.CPSV-AP.git",
+      "dataModels": [
+        "Address",
+        "BusinessEvent",
+        "Cost",
+        "CriterionRequirement",
+        "Evidence",
+        "LifeEvent",
+        "PublicOrganization",
+        "PublicService",
+        "Rule"
+      ],
+      "domains": [
+        "CrossSector"
+      ]
+    },
+    {
+      "repoName": "dataModel.CallComplaints",
+      "repoLink": "https://github.com/smart-data-models/dataModel.CallComplaints.git",
+      "dataModels": [
+        "CallUser",
+        "Complaint",
+        "ComplaintsCollection",
+        "ComplaintsOrganization"
+      ],
+      "domains": [
+        "CrossSector"
+      ]
+    },
+    {
+      "repoName": "dataModel.Consumption",
+      "repoLink": "https://github.com/smart-data-models/dataModel.Consumption.git",
+      "dataModels": [
+        "ConsumptionCost",
+        "ConsumptionPoint"
+      ],
+      "domains": [
+        "SmartEnergy"
+      ]
+    },
+    {
+      "repoName": "dataModel.DCAT-AP",
+      "repoLink": "https://github.com/smart-data-models/dataModel.DCAT-AP.git",
+      "dataModels": [
+        "Agent",
+        "Catalogue",
+        "CatalogueRecord",
+        "DataService",
+        "DataServiceRun",
+        "Dataset",
+        "Distribution"
+      ],
+      "domains": [
+        "CrossSector"
+      ]
+    },
+    {
+      "repoName": "dataModel.DataQuality",
+      "repoLink": "https://github.com/smart-data-models/dataModel.DataQuality.git",
+      "dataModels": [
+        "DataQualityAssessment"
+      ],
+      "domains": [
+        "CrossSector"
+      ]
+    },
+    {
+      "repoName": "dataModel.DataSpace",
+      "repoLink": "https://github.com/smart-data-models/dataModel.DataSpace.git",
+      "dataModels": [
+        "InteroperableAssets",
+        "ParticipantAgent",
+        "VocabularyService"
+      ],
+      "domains": [
+        "CrossSector"
+      ]
+    },
+    {
+      "repoName": "dataModel.Device",
+      "repoLink": "https://github.com/smart-data-models/dataModel.Device.git",
+      "dataModels": [
+        "Camera",
+        "Device",
+        "DeviceMeasurement",
+        "DeviceModel",
+        "DeviceOperation",
+        "Modbus",
+        "PolarH10",
+        "PrivacyObject",
+        "SenseHat",
+        "SmartMeteringObservation",
+        "UWBAnchor"
+      ],
+      "domains": [
+        "Smart-Sensoring"
+      ]
+    },
+    {
+      "repoName": "dataModel.DigitalInnovationHub",
+      "repoLink": "https://github.com/smart-data-models/dataModel.DigitalInnovationHub.git",
+      "dataModels": [
+        "DigitalInnovationHub",
+        "DigitalInnovationHubService"
+      ],
+      "domains": [
+        "CrossSector"
+      ]
+    },
+    {
+      "repoName": "dataModel.DistributedLedgerTech",
+      "repoLink": "https://github.com/smart-data-models/dataModel.DistributedLedgerTech.git",
+      "dataModels": [
+        "DLTtxReceipt"
+      ],
+      "domains": [
+        "CrossSector"
+      ]
+    },
+    {
+      "repoName": "dataModel.ERA",
+      "repoLink": "https://github.com/smart-data-models/dataModel.ERA.git",
+      "dataModels": [
+        "Certificate",
+        "ContactLineSystem",
+        "ETCSLevel",
+        "Feature",
+        "FrenchTrainDetectionSystemLimitation",
+        "InfrastructureManager",
+        "InfrastructureObject",
+        "LineReference",
+        "LoadCapability",
+        "Manufacturer",
+        "MaximumMagneticField",
+        "MaximumSpeedAndCantDeficiency",
+        "MinAxleLoadVehicleCategory",
+        "NationalRailwayLine",
+        "NetElement",
+        "NetRelation",
+        "OperationalPoint",
+        "PhaseInfo",
+        "Platform",
+        "RaisedPantographsDistanceAndSpeed",
+        "SectionOfLine",
+        "Siding",
+        "Signal",
+        "SpecialArea",
+        "SpecialTunnelArea",
+        "SubsetWithCommonCharacteristics",
+        "SystemSeparationInfo",
+        "TopologicalObject",
+        "Track",
+        "TrainDetectionSystem",
+        "Tunnel",
+        "Vehicle",
+        "VehicleKeeper",
+        "VehicleType"
+      ],
+      "domains": [
+        "SmartLogistics"
+      ]
+    },
+    {
+      "repoName": "dataModel.Energy",
+      "repoLink": "https://github.com/smart-data-models/dataModel.Energy.git",
+      "dataModels": [
+        "ACMeasurement",
+        "InverterDevice",
+        "SolarEnergy",
+        "TechnicalCabinetDevice",
+        "ThreePhaseAcMeasurement"
+      ],
+      "domains": [
+        "SmartEnergy"
       ]
     },
     {
@@ -865,118 +767,44 @@
       ]
     },
     {
-      "repoName": "dataModel.SatelliteImagery",
-      "repoLink": "https://github.com/smart-data-models/dataModel.SatelliteImagery.git",
+      "repoName": "dataModel.EnergyStorage",
+      "repoLink": "https://github.com/smart-data-models/dataModel.EnergyStorage.git",
       "dataModels": [
-        "EOAnalysis",
-        "EODataHub",
-        "EOGeoDataLayer",
-        "EOSatelliteImagery",
-        "EOInstrument",
-        "EOProduct",
-        "EOSatellitePlatform"
+        "Electrolyzer",
+        "ElectrolyzerMeasurement",
+        "FuelCell",
+        "FuelCellMeasurement"
       ],
       "domains": [
-        "CrossSector",
-        "SmartWater"
+        "SmartEnergy"
       ]
     },
     {
-      "repoName": "dataModel.Multimedia",
-      "repoLink": "https://github.com/smart-data-models/dataModel.Multimedia.git",
+      "repoName": "dataModel.Environment",
+      "repoLink": "https://github.com/smart-data-models/dataModel.Environment.git",
       "dataModels": [
-        "MediaEvent"
+        "AeroAllergenObserved",
+        "AirQualityForecast",
+        "AirQualityObserved",
+        "AirQualityMonitoring",
+        "CarbonFootprint",
+        "ElectroMagneticObserved",
+        "EnvironmentObserved",
+        "FloodMonitoring",
+        "IndoorEnvironmentObserved",
+        "MosquitoDensity",
+        "NightSkyQuality",
+        "NoiseLevelObserved",
+        "NoisePollution",
+        "NoisePollutionForecast",
+        "WaterObserved",
+        "PhreaticObserved",
+        "RainFallRadarObserved",
+        "TrafficEnvironmentImpact",
+        "TrafficEnvironmentImpactForecast"
       ],
       "domains": [
-        "CrossSector"
-      ]
-    },
-    {
-      "repoName": "dataModel.TourismDestinations",
-      "repoLink": "https://github.com/smart-data-models/dataModel.TourismDestinations.git",
-      "dataModels": [
-        "ConsumptionBehaviour",
-        "Event",
-        "TouristDestination",
-        "TourismDwellTimeObserved",
-        "TourismPresenceObserved",
-        "TouristProfile",
-        "TouristRental",
-        "TouristTrip"
-      ],
-      "domains": [
-        "SmartDestination"
-      ]
-    },
-    {
-      "repoName": "dataModel.SocialMedia",
-      "repoLink": "https://github.com/smart-data-models/dataModel.SocialMedia.git",
-      "dataModels": [
-        "SMAnalysis",
-        "SMCollection",
-        "SMPost",
-        "SMRefLocation",
-        "SMUser"
-      ],
-      "domains": [
-        "CrossSector"
-      ]
-    },
-    {
-      "repoName": "dataModel.WasteWater",
-      "repoLink": "https://github.com/smart-data-models/dataModel.WasteWater.git",
-      "dataModels": [
-        "Blower",
-        "OffGasStack",
-        "WaterProcess",
-        "WasteWaterJunction",
-        "WasteWaterPlant",
-        "WasteWaterSimulationResult",
-        "WasteWaterTank"
-      ],
-      "domains": [
-        "SmartWater"
-      ]
-    },
-    {
-      "repoName": "dataModel.OPCUA",
-      "repoLink": "https://github.com/smart-data-models/dataModel.OPCUA.git",
-      "dataModels": [
-        "MachineTool",
-        "MotionDeviceSystem",
-        "WoodworkingMachine"
-      ],
-      "domains": [
-        "SmartRobotics"
-      ]
-    },
-    {
-      "repoName": "dataModel.OpenChannelManagement",
-      "repoLink": "https://github.com/smart-data-models/dataModel.OpenChannelManagement.git",
-      "dataModels": [
-        "CrossSection",
-        "OpenChannel",
-        "OpenChannelCurve",
-        "OpenChannelFlowRegulation",
-        "OpenChannelJunction",
-        "OpenChannelSystem",
-        "RegulationStructure",
-        "RegulationStructureSimulation",
-        "SluiceGate",
-        "Spillway"
-      ],
-      "domains": [
-        "SmartWater"
-      ]
-    },
-    {
-      "repoName": "dataModel.QueueManagement",
-      "repoLink": "https://github.com/smart-data-models/dataModel.QueueManagement.git",
-      "dataModels": [
-        "QueueMonitor"
-      ],
-      "domains": [
-        "CrossSector"
+        "SmartEnvironment"
       ]
     },
     {
@@ -987,113 +815,6 @@
       ],
       "domains": [
         "SmartAgrifood"
-      ]
-    },
-    {
-      "repoName": "dataModel.COVID19",
-      "repoLink": "https://github.com/smart-data-models/dataModel.COVID19.git",
-      "dataModels": [
-        "EUProofOfVaccination",
-        "VaccinationCertificate"
-      ],
-      "domains": [
-        "SmartHealth"
-      ]
-    },
-    {
-      "repoName": "dataModel.DistributedLedgerTech",
-      "repoLink": "https://github.com/smart-data-models/dataModel.DistributedLedgerTech.git",
-      "dataModels": [
-        "DLTtxReceipt"
-      ],
-      "domains": [
-        "CrossSector"
-      ]
-    },
-    {
-      "repoName": "dataModel.MachineLearning",
-      "repoLink": "https://github.com/smart-data-models/dataModel.MachineLearning.git",
-      "dataModels": [
-        "MLModel",
-        "MLProcessing",
-        "SubscriptionQuery"
-      ],
-      "domains": [
-        "CrossSector"
-      ]
-    },
-    {
-      "repoName": "dataModel.WifiNetwork",
-      "repoLink": "https://github.com/smart-data-models/dataModel.WifiNetwork.git",
-      "dataModels": [
-        "AccessPoint",
-        "WifiPointOfInterest"
-      ],
-      "domains": [
-        "CrossSector",
-        "SmartCities"
-      ]
-    },
-    {
-      "repoName": "dataModel.RoboticIndustrialActivities",
-      "repoLink": "https://github.com/smart-data-models/dataModel.RoboticIndustrialActivities.git",
-      "dataModels": [
-        "Pallet",
-        "Piece",
-        "RobotArm",
-        "RoboticCell",
-        "VacuumPump"
-      ],
-      "domains": [
-        "SmartRobotics"
-      ]
-    },
-    {
-      "repoName": "dataModel.RiskManagement",
-      "repoLink": "https://github.com/smart-data-models/dataModel.RiskManagement.git",
-      "dataModels": [
-        "Asset",
-        "CyberAnalysis",
-        "Exposure",
-        "GISData",
-        "Hazard",
-        "Measure",
-        "Mitigation",
-        "NetworkServiceAlert",
-        "Risk",
-        "Vulnerability"
-      ],
-      "domains": [
-        "CrossSector"
-      ]
-    },
-    {
-      "repoName": "dataModel.DCAT-AP",
-      "repoLink": "https://github.com/smart-data-models/dataModel.DCAT-AP.git",
-      "dataModels": [
-        "Agent",
-        "Catalogue",
-        "CatalogueRecord",
-        "DataService",
-        "DataServiceRun",
-        "Dataset",
-        "Distribution"
-      ],
-      "domains": [
-        "CrossSector"
-      ]
-    },
-    {
-      "repoName": "dataModel.CallComplaints",
-      "repoLink": "https://github.com/smart-data-models/dataModel.CallComplaints.git",
-      "dataModels": [
-        "CallUser",
-        "Complaint",
-        "ComplaintsCollection",
-        "ComplaintsOrganization"
-      ],
-      "domains": [
-        "CrossSector"
       ]
     },
     {
@@ -1108,18 +829,6 @@
       "domains": [
         "CrossSector",
         "SmartEnvironment"
-      ]
-    },
-    {
-      "repoName": "dataModel.ManufacturingMachine",
-      "repoLink": "https://github.com/smart-data-models/dataModel.ManufacturingMachine.git",
-      "dataModels": [
-        "ManufacturingMachine",
-        "ManufacturingMachineModel",
-        "ManufacturingMachineOperation"
-      ],
-      "domains": [
-        "SmartManufacturing"
       ]
     },
     {
@@ -1145,29 +854,175 @@
       ]
     },
     {
-      "repoName": "dataModel.PublicAccountability",
-      "repoLink": "https://github.com/smart-data-models/dataModel.PublicAccountability.git",
+      "repoName": "dataModel.Gaia-X",
+      "repoLink": "https://github.com/smart-data-models/dataModel.Gaia-X.git",
       "dataModels": [
-        "RevenueCollection"
+        "CPU",
+        "Disk",
+        "GPU",
+        "Memory"
       ],
       "domains": [
         "CrossSector"
       ]
     },
     {
-      "repoName": "dataModel.UnmannedAerialVehicle",
-      "repoLink": "https://github.com/smart-data-models/dataModel.UnmannedAerialVehicle.git",
+      "repoName": "dataModel.GreenEnergy",
+      "repoLink": "https://github.com/smart-data-models/dataModel.GreenEnergy.git",
       "dataModels": [
-        "UnmannedAerialVehicle",
-        "UnmannedAerialVehicleADSB",
-        "UnmannedAerialVehicleEvent",
-        "UnmannedAerialVehicleModel",
-        "UnmannedAerialVehicleTMS",
-        "UnmannedAerialVehicleTMSFlightMessage",
-        "UnmannedAerialVehicleTMSFlightMessageAgent"
+        "GreenEnergyGenerator",
+        "GreenEnergyMeasurement",
+        "PhotovoltaicDevice",
+        "PhotovoltaicMeasurement",
+        "SolarTracker"
       ],
       "domains": [
-        "SmartAeronautics"
+        "SmartEnergy"
+      ]
+    },
+    {
+      "repoName": "dataModel.Hl7",
+      "repoLink": "https://github.com/smart-data-models/dataModel.Hl7.git",
+      "dataModels": [
+        "Account",
+        "Citation",
+        "Claim",
+        "Immunization",
+        "Medication",
+        "MedicationAdministration",
+        "Organization",
+        "Patient",
+        "Practitioner"
+      ],
+      "domains": [
+        "SmartHealth"
+      ]
+    },
+    {
+      "repoName": "dataModel.HumanResources",
+      "repoLink": "https://github.com/smart-data-models/dataModel.HumanResources.git",
+      "dataModels": [
+        "CurriculumVitae"
+      ],
+      "domains": [
+        "CrossSector"
+      ]
+    },
+    {
+      "repoName": "dataModel.IT",
+      "repoLink": "https://github.com/smart-data-models/dataModel.IT.git",
+      "dataModels": [
+        "CloudRegion",
+        "Domain",
+        "InfrastructureElement",
+        "InfrastructureElementRequirements",
+        "ITTests",
+        "LowLevelOrchestrator",
+        "NetworkConnection",
+        "NetworkPort",
+        "PersistentStorage",
+        "PowerSource",
+        "Service",
+        "ServiceComponent",
+        "ServiceType"
+      ],
+      "domains": [
+        "CrossSector"
+      ]
+    },
+    {
+      "repoName": "dataModel.IndustrialProcess",
+      "repoLink": "https://github.com/smart-data-models/dataModel.IndustrialProcess.git",
+      "dataModels": [
+        "MaterialAddition",
+        "ProcessChemicalAnalysis",
+        "ProcessEvent"
+      ],
+      "domains": [
+        "SmartManufacturing"
+      ]
+    },
+    {
+      "repoName": "dataModel.IssueTracking",
+      "repoLink": "https://github.com/smart-data-models/dataModel.IssueTracking.git",
+      "dataModels": [
+        "IssueReporting",
+        "service_requests",
+        "services"
+      ],
+      "domains": [
+        "CrossSector"
+      ]
+    },
+    {
+      "repoName": "dataModel.KeyPerformanceIndicator",
+      "repoLink": "https://github.com/smart-data-models/dataModel.KeyPerformanceIndicator.git",
+      "dataModels": [
+        "KeyPerformanceIndicator"
+      ],
+      "domains": [
+        "CrossSector"
+      ]
+    },
+    {
+      "repoName": "dataModel.MachineLearning",
+      "repoLink": "https://github.com/smart-data-models/dataModel.MachineLearning.git",
+      "dataModels": [
+        "MLModel",
+        "MLProcessing",
+        "SubscriptionQuery"
+      ],
+      "domains": [
+        "CrossSector"
+      ]
+    },
+    {
+      "repoName": "dataModel.ManufacturingMachine",
+      "repoLink": "https://github.com/smart-data-models/dataModel.ManufacturingMachine.git",
+      "dataModels": [
+        "ManufacturingMachine",
+        "ManufacturingMachineModel",
+        "ManufacturingMachineOperation"
+      ],
+      "domains": [
+        "SmartManufacturing"
+      ]
+    },
+    {
+      "repoName": "dataModel.MarineTransport",
+      "repoLink": "https://github.com/smart-data-models/dataModel.MarineTransport.git",
+      "dataModels": [
+        "AisVessel",
+        "Berth",
+        "Bollard",
+        "Booking",
+        "Company",
+        "EdiCodeco",
+        "Facility",
+        "KeyVessel",
+        "MasterVessel",
+        "Metocean",
+        "NavigationSector",
+        "Operation",
+        "Port",
+        "PortAuthority",
+        "PortCall",
+        "Terminal",
+        "TrackedManeuver",
+        "Vessel"
+      ],
+      "domains": [
+        "SmartLogistics"
+      ]
+    },
+    {
+      "repoName": "dataModel.Multimedia",
+      "repoLink": "https://github.com/smart-data-models/dataModel.Multimedia.git",
+      "dataModels": [
+        "MediaEvent"
+      ],
+      "domains": [
+        "CrossSector"
       ]
     },
     {
@@ -1311,67 +1166,88 @@
       ]
     },
     {
-      "repoName": "dataModel.DigitalInnovationHub",
-      "repoLink": "https://github.com/smart-data-models/dataModel.DigitalInnovationHub.git",
+      "repoName": "dataModel.OPCUA",
+      "repoLink": "https://github.com/smart-data-models/dataModel.OPCUA.git",
       "dataModels": [
-        "DigitalInnovationHub",
-        "DigitalInnovationHubService"
+        "MachineTool",
+        "MotionDeviceSystem",
+        "WoodworkingMachine"
       ],
       "domains": [
-        "CrossSector"
+        "SmartRobotics"
       ]
     },
     {
-      "repoName": "dataModel.STAT-DCAT-AP",
-      "repoLink": "https://github.com/smart-data-models/dataModel.STAT-DCAT-AP.git",
+      "repoName": "dataModel.OSLO",
+      "repoLink": "https://github.com/smart-data-models/dataModel.OSLO.git",
       "dataModels": [
-        "AttributeProperty",
-        "Catalogue",
-        "Concept",
-        "ConceptScheme",
-        "Dataset",
-        "DimensionProperty",
-        "Distribution"
+        "BicycleParkingStation",
+        "BicycleParkingStationForecast",
+        "ResourceReport",
+        "ResourceReportForecast"
       ],
       "domains": [
-        "CrossSector"
+        "SmartCities"
       ]
     },
     {
-      "repoName": "dataModel.IT",
-      "repoLink": "https://github.com/smart-data-models/dataModel.IT.git",
+      "repoName": "dataModel.OpenChannelManagement",
+      "repoLink": "https://github.com/smart-data-models/dataModel.OpenChannelManagement.git",
       "dataModels": [
-        "CloudRegion",
-        "Domain",
-        "InfrastructureElement",
-        "InfrastructureElementRequirements",
-        "ITTests",
-        "LowLevelOrchestrator",
-        "NetworkConnection",
-        "NetworkPort",
-        "PersistentStorage",
-        "PowerSource",
-        "Service",
-        "ServiceComponent",
-        "ServiceType"
+        "CrossSection",
+        "OpenChannel",
+        "OpenChannelCurve",
+        "OpenChannelFlowRegulation",
+        "OpenChannelJunction",
+        "OpenChannelSystem",
+        "RegulationStructure",
+        "RegulationStructureSimulation",
+        "SluiceGate",
+        "Spillway"
       ],
       "domains": [
-        "CrossSector"
+        "SmartWater"
       ]
     },
     {
-      "repoName": "dataModel.CPSV-AP",
-      "repoLink": "https://github.com/smart-data-models/dataModel.CPSV-AP.git",
+      "repoName": "dataModel.OpenStreetMap",
+      "repoLink": "https://github.com/smart-data-models/dataModel.OpenStreetMap.git",
       "dataModels": [
-        "Address",
-        "BusinessEvent",
-        "Cost",
-        "CriterionRequirement",
-        "Evidence",
-        "LifeEvent",
-        "PublicOrganization",
-        "PublicService",
-        "Rule"
+        "OSMAdvertising",
+        "OSMAerialway",
+        "OSMAeroway",
+        "OSMAmenity",
+        "OSMBarrier",
+        "OSMBoundary",
+        "OSMBuilding",
+        "OSMBuildingPart",
+        "OSMClub",
+        "OSMCraft",
+        "OSMCycleRoute",
+        "OSMEmergency",
+        "OSMGeological",
+        "OSMHealthcare",
+        "OSMHighway",
+        "OSMHistoric",
+        "OSMIndoor",
+        "OSMLanduse",
+        "OSMLeisure",
+        "OSMManMade",
+        "OSMMilitary",
+        "OSMNatural",
+        "OSMOffice",
+        "OSMParkingArea",
+        "OSMPlace",
+        "OSMPower",
+        "OSMPublicTransportStop",
+        "OSMRailway",
+        "OSMRoute",
+        "OSMShop",
+        "OSMTelecom",
+        "OSMTourism",
+        "OSMTrafficSign",
+        "OSMWater",
+        "OSMWaterway"
       ],
       "domains": [
         "CrossSector"
@@ -1389,106 +1265,139 @@
       ]
     },
     {
-      "repoName": "dataModel.OSLO",
-      "repoLink": "https://github.com/smart-data-models/dataModel.OSLO.git",
+      "repoName": "dataModel.Parking",
+      "repoLink": "https://github.com/smart-data-models/dataModel.Parking.git",
       "dataModels": [
-        "BicycleParkingStation",
-        "BicycleParkingStationForecast",
-        "ResourceReport",
-        "ResourceReportForecast"
+        "OffStreetParking",
+        "OnStreetParking",
+        "ParkingAccess",
+        "ParkingGroup",
+        "ParkingSpot"
       ],
       "domains": [
         "SmartCities"
       ]
     },
     {
-      "repoName": "dataModel.MarineTransport",
-      "repoLink": "https://github.com/smart-data-models/dataModel.MarineTransport.git",
+      "repoName": "dataModel.ParksAndGardens",
+      "repoLink": "https://github.com/smart-data-models/dataModel.ParksAndGardens.git",
       "dataModels": [
-        "AisVessel",
-        "Berth",
-        "Bollard",
-        "Booking",
-        "Company",
-        "EdiCodeco",
-        "Facility",
-        "KeyVessel",
-        "MasterVessel",
-        "Metocean",
-        "NavigationSector",
-        "Operation",
-        "Port",
-        "PortAuthority",
-        "PortCall",
-        "Terminal",
-        "TrackedManeuver",
-        "Vessel"
+        "FlowerBed",
+        "Garden",
+        "GreenspaceRecord"
       ],
       "domains": [
-        "SmartLogistics"
+        "SmartCities"
       ]
     },
     {
-      "repoName": "dataModel.Consumption",
-      "repoLink": "https://github.com/smart-data-models/dataModel.Consumption.git",
+      "repoName": "dataModel.PointOfInteraction",
+      "repoLink": "https://github.com/smart-data-models/dataModel.PointOfInteraction.git",
       "dataModels": [
-        "ConsumptionCost",
-        "ConsumptionPoint"
-      ],
-      "domains": [
-        "SmartEnergy"
-      ]
-    },
-    {
-      "repoName": "dataModel.Hl7",
-      "repoLink": "https://github.com/smart-data-models/dataModel.Hl7.git",
-      "dataModels": [
-        "Account",
-        "Citation",
-        "Claim",
-        "Immunization",
-        "Medication",
-        "MedicationAdministration",
-        "Organization",
-        "Patient",
-        "Practitioner"
-      ],
-      "domains": [
-        "SmartHealth"
-      ]
-    },
-    {
-      "repoName": "dataModel.SDMX",
-      "repoLink": "https://github.com/smart-data-models/dataModel.SDMX.git",
-      "dataModels": [
-        "Observation"
+        "SmartPointOfInteraction",
+        "SmartSpot"
       ],
       "domains": [
         "CrossSector"
       ]
     },
     {
-      "repoName": "dataModel.DataQuality",
-      "repoLink": "https://github.com/smart-data-models/dataModel.DataQuality.git",
+      "repoName": "dataModel.PointOfInterest",
+      "repoLink": "https://github.com/smart-data-models/dataModel.PointOfInterest.git",
       "dataModels": [
-        "DataQualityAssessment"
+        "Beach",
+        "Museum",
+        "PointOfInterest",
+        "Store"
+      ],
+      "domains": [
+        "CrossSector",
+        "SmartDestination",
+        "SmartCities"
+      ]
+    },
+    {
+      "repoName": "dataModel.Ports",
+      "repoLink": "https://github.com/smart-data-models/dataModel.Ports.git",
+      "dataModels": [
+        "BoatAuthorized",
+        "SeaportFacilities",
+        "BoatPlacesAvailable",
+        "BoatPlacesPricing"
+      ],
+      "domains": [
+        "SmartCities",
+        "SmartDestination"
+      ]
+    },
+    {
+      "repoName": "dataModel.PredictiveMaintenance",
+      "repoLink": "https://github.com/smart-data-models/dataModel.PredictiveMaintenance.git",
+      "dataModels": [
+        "AIPrediction",
+        "Appointment",
+        "InventoryItem",
+        "MachineComponent",
+        "MaintenanceRequest",
+        "MaintenanceService",
+        "MaintenanceSkill",
+        "ServiceTechnician"
+      ],
+      "domains": [
+        "SmartManufacturing"
+      ]
+    },
+    {
+      "repoName": "dataModel.PublicAccountability",
+      "repoLink": "https://github.com/smart-data-models/dataModel.PublicAccountability.git",
+      "dataModels": [
+        "RevenueCollection"
       ],
       "domains": [
         "CrossSector"
       ]
     },
     {
-      "repoName": "dataModel.VerifiableCredentials",
-      "repoLink": "https://github.com/smart-data-models/dataModel.VerifiableCredentials.git",
+      "repoName": "dataModel.QueueManagement",
+      "repoLink": "https://github.com/smart-data-models/dataModel.QueueManagement.git",
       "dataModels": [
-        "AccreditedAttestation",
-        "Attestation",
-        "LegalEntity",
-        "NaturalPerson",
-        "Presentation"
+        "QueueMonitor"
       ],
       "domains": [
         "CrossSector"
+      ]
+    },
+    {
+      "repoName": "dataModel.RiskManagement",
+      "repoLink": "https://github.com/smart-data-models/dataModel.RiskManagement.git",
+      "dataModels": [
+        "Asset",
+        "CyberAnalysis",
+        "Exposure",
+        "GISData",
+        "Hazard",
+        "Measure",
+        "Mitigation",
+        "NetworkServiceAlert",
+        "Risk",
+        "Vulnerability"
+      ],
+      "domains": [
+        "CrossSector"
+      ]
+    },
+    {
+      "repoName": "dataModel.RoboticIndustrialActivities",
+      "repoLink": "https://github.com/smart-data-models/dataModel.RoboticIndustrialActivities.git",
+      "dataModels": [
+        "Pallet",
+        "Piece",
+        "RobotArm",
+        "RoboticCell",
+        "VacuumPump"
+      ],
+      "domains": [
+        "SmartRobotics"
       ]
     },
     {
@@ -1588,118 +1497,46 @@
       ]
     },
     {
-      "repoName": "dataModel.ACRIS",
-      "repoLink": "https://github.com/smart-data-models/dataModel.ACRIS.git",
+      "repoName": "dataModel.SDMX",
+      "repoLink": "https://github.com/smart-data-models/dataModel.SDMX.git",
       "dataModels": [
-        "AirportElevation",
-        "AirportElevationUnitOfMeasurement",
-        "AirportFacility",
-        "AirportLocation",
-        "CheckpointAreaLocation",
-        "CheckpointFacility",
-        "CheckpointFacilityOperatorParty",
-        "CheckpointFacilityType",
-        "ConcourseFacility",
-        "MeasurementDevice",
-        "MeasurementDeviceLocation",
-        "MeasurementTimePeriod",
-        "OperationTimePeriod",
-        "PassengerProcess",
-        "PassengerProcessType",
-        "PassengerQueue",
-        "QueueLocation",
-        "QueueMeasurement",
-        "QueueStatus",
-        "QueueType",
-        "TerminalAreaLocation",
-        "TerminalFacility",
-        "ZoneAreaLocation"
-      ],
-      "domains": [
-        "SmartAeronautics"
-      ]
-    },
-    {
-      "repoName": "dataModel.ERA",
-      "repoLink": "https://github.com/smart-data-models/dataModel.ERA.git",
-      "dataModels": [
-        "Certificate",
-        "ContactLineSystem",
-        "ETCSLevel",
-        "Feature",
-        "FrenchTrainDetectionSystemLimitation",
-        "InfrastructureManager",
-        "InfrastructureObject",
-        "LineReference",
-        "LoadCapability",
-        "Manufacturer",
-        "MaximumMagneticField",
-        "MaximumSpeedAndCantDeficiency",
-        "MinAxleLoadVehicleCategory",
-        "NationalRailwayLine",
-        "NetElement",
-        "NetRelation",
-        "OperationalPoint",
-        "PhaseInfo",
-        "Platform",
-        "RaisedPantographsDistanceAndSpeed",
-        "SectionOfLine",
-        "Siding",
-        "Signal",
-        "SpecialArea",
-        "SpecialTunnelArea",
-        "SubsetWithCommonCharacteristics",
-        "SystemSeparationInfo",
-        "TopologicalObject",
-        "Track",
-        "TrainDetectionSystem",
-        "Tunnel",
-        "Vehicle",
-        "VehicleKeeper",
-        "VehicleType"
-      ],
-      "domains": [
-        "SmartLogistics"
-      ]
-    },
-    {
-      "repoName": "dataModel.HumanResources",
-      "repoLink": "https://github.com/smart-data-models/dataModel.HumanResources.git",
-      "dataModels": [
-        "CurriculumVitae"
+        "Observation"
       ],
       "domains": [
         "CrossSector"
       ]
     },
     {
-      "repoName": "dataModel.AAS",
-      "repoLink": "https://github.com/smart-data-models/dataModel.AAS.git",
+      "repoName": "dataModel.STAT-DCAT-AP",
+      "repoLink": "https://github.com/smart-data-models/dataModel.STAT-DCAT-AP.git",
       "dataModels": [
-        "I4AAS",
-        "I4Asset",
-        "I4Submodel",
-        "I4SubmodelElementCapability",
-        "I4SubmodelElementOperation",
-        "I4SubmodelElementProperty",
-        "I4SubmodelElementRelationship",
-        "TimeSeries"
-      ],
-      "domains": [
-        "SmartManufacturing"
-      ]
-    },
-    {
-      "repoName": "dataModel.Gaia-X",
-      "repoLink": "https://github.com/smart-data-models/dataModel.Gaia-X.git",
-      "dataModels": [
-        "CPU",
-        "Disk",
-        "GPU",
-        "Memory"
+        "AttributeProperty",
+        "Catalogue",
+        "Concept",
+        "ConceptScheme",
+        "Dataset",
+        "DimensionProperty",
+        "Distribution"
       ],
       "domains": [
         "CrossSector"
+      ]
+    },
+    {
+      "repoName": "dataModel.SatelliteImagery",
+      "repoLink": "https://github.com/smart-data-models/dataModel.SatelliteImagery.git",
+      "dataModels": [
+        "EOAnalysis",
+        "EODataHub",
+        "EOGeoDataLayer",
+        "EOSatelliteImagery",
+        "EOInstrument",
+        "EOProduct",
+        "EOSatellitePlatform"
+      ],
+      "domains": [
+        "CrossSector",
+        "SmartWater"
       ]
     },
     {
@@ -1713,15 +1550,264 @@
       ]
     },
     {
-      "repoName": "dataModel.DataSpace",
-      "repoLink": "https://github.com/smart-data-models/dataModel.DataSpace.git",
+      "repoName": "dataModel.SocialMedia",
+      "repoLink": "https://github.com/smart-data-models/dataModel.SocialMedia.git",
       "dataModels": [
-        "InteroperableAssets",
-        "ParticipantAgent",
-        "VocabularyService"
+        "SMAnalysis",
+        "SMCollection",
+        "SMPost",
+        "SMRefLocation",
+        "SMUser"
       ],
       "domains": [
         "CrossSector"
+      ]
+    },
+    {
+      "repoName": "dataModel.Streetlighting",
+      "repoLink": "https://github.com/smart-data-models/dataModel.Streetlighting.git",
+      "dataModels": [
+        "Streetlight",
+        "StreetlightControlCabinet",
+        "StreetlightGroup",
+        "StreetlightFeeder",
+        "StreetlightModel"
+      ],
+      "domains": [
+        "SmartCities"
+      ]
+    },
+    {
+      "repoName": "dataModel.TourismDestinations",
+      "repoLink": "https://github.com/smart-data-models/dataModel.TourismDestinations.git",
+      "dataModels": [
+        "ConsumptionBehaviour",
+        "Event",
+        "TouristDestination",
+        "TourismDwellTimeObserved",
+        "TourismPresenceObserved",
+        "TouristProfile",
+        "TouristRental",
+        "TouristTrip"
+      ],
+      "domains": [
+        "SmartDestination"
+      ]
+    },
+    {
+      "repoName": "dataModel.Transportation",
+      "repoLink": "https://github.com/smart-data-models/dataModel.Transportation.git",
+      "dataModels": [
+        "AnonymousCommuterId",
+        "AnprFlowObserved",
+        "APDSObservation",
+        "BikeHireDockingStation",
+        "BikeLane",
+        "CityWork",
+        "CrowdFlowObserved",
+        "ElectricVehicleMobility",
+        "EVChargingStation",
+        "FareCollectionSystem",
+        "FleetVehicle",
+        "FleetVehicleOperation",
+        "FleetVehicleStatus",
+        "ItemFlowObserved",
+        "OriginDestinationFlow",
+        "RestrictedTrafficArea",
+        "RestrictionException",
+        "Road",
+        "RoadAccident",
+        "RoadSegment",
+        "SpecialRestriction",
+        "TrafficFlowObserved",
+        "TrafficViolation",
+        "TransportStation",
+        "Vehicle",
+        "VehicleFault",
+        "VehicleModel"
+      ],
+      "domains": [
+        "SmartCities"
+      ]
+    },
+    {
+      "repoName": "dataModel.UnmannedAerialVehicle",
+      "repoLink": "https://github.com/smart-data-models/dataModel.UnmannedAerialVehicle.git",
+      "dataModels": [
+        "UnmannedAerialVehicle",
+        "UnmannedAerialVehicleADSB",
+        "UnmannedAerialVehicleEvent",
+        "UnmannedAerialVehicleModel",
+        "UnmannedAerialVehicleTMS",
+        "UnmannedAerialVehicleTMSFlightMessage",
+        "UnmannedAerialVehicleTMSFlightMessageAgent"
+      ],
+      "domains": [
+        "SmartAeronautics"
+      ]
+    },
+    {
+      "repoName": "dataModel.UrbanMobility",
+      "repoLink": "https://github.com/smart-data-models/dataModel.UrbanMobility.git",
+      "dataModels": [
+        "ArrivalEstimation",
+        "GtfsAccessPoint",
+        "GtfsAgency",
+        "GtfsCalendarDateRule",
+        "GtfsCalendarRule",
+        "GtfsFrequency",
+        "GtfsRoute",
+        "GtfsService",
+        "GtfsShape",
+        "GtfsStation",
+        "GtfsStop",
+        "GtfsStopTime",
+        "GtfsTransferRule",
+        "GtfsTrip",
+        "PublicTransportRoute",
+        "PublicTransportStop",
+        "TransitManagement"
+      ],
+      "domains": [
+        "SmartCities"
+      ]
+    },
+    {
+      "repoName": "dataModel.User",
+      "repoLink": "https://github.com/smart-data-models/dataModel.User.git",
+      "dataModels": [
+        "Activity",
+        "UserContext"
+      ],
+      "domains": [
+        "CrossSector"
+      ]
+    },
+    {
+      "repoName": "dataModel.VerifiableCredentials",
+      "repoLink": "https://github.com/smart-data-models/dataModel.VerifiableCredentials.git",
+      "dataModels": [
+        "AccreditedAttestation",
+        "Attestation",
+        "LegalEntity",
+        "NaturalPerson",
+        "Presentation"
+      ],
+      "domains": [
+        "CrossSector"
+      ]
+    },
+    {
+      "repoName": "dataModel.WasteManagement",
+      "repoLink": "https://github.com/smart-data-models/dataModel.WasteManagement.git",
+      "dataModels": [
+        "WasteContainer",
+        "WasteContainerIsle",
+        "WasteContainerModel",
+        "WasteObserved"
+      ],
+      "domains": [
+        "SmartEnvironment",
+        "SmartCities"
+      ]
+    },
+    {
+      "repoName": "dataModel.WasteWater",
+      "repoLink": "https://github.com/smart-data-models/dataModel.WasteWater.git",
+      "dataModels": [
+        "Blower",
+        "OffGasStack",
+        "WaterProcess",
+        "WasteWaterJunction",
+        "WasteWaterPlant",
+        "WasteWaterSimulationResult",
+        "WasteWaterTank"
+      ],
+      "domains": [
+        "SmartWater"
+      ]
+    },
+    {
+      "repoName": "dataModel.WaterConsumption",
+      "repoLink": "https://github.com/smart-data-models/dataModel.WaterConsumption.git",
+      "dataModels": [
+        "WaterConsumptionObserved"
+      ],
+      "domains": [
+        "SmartWater"
+      ]
+    },
+    {
+      "repoName": "dataModel.WaterDistribution",
+      "repoLink": "https://github.com/smart-data-models/dataModel.WaterDistribution.git",
+      "dataModels": [
+        "WaterDistributionNetwork"
+      ],
+      "domains": [
+        "SmartWater"
+      ]
+    },
+    {
+      "repoName": "dataModel.WaterDistributionManagementEPANET",
+      "repoLink": "https://github.com/smart-data-models/dataModel.WaterDistributionManagementEPANET.git",
+      "dataModels": [
+        "Curve",
+        "Junction",
+        "Pattern",
+        "Pipe",
+        "Pump",
+        "Reservoir",
+        "SimulationResult",
+        "SimulationScenario",
+        "Tank",
+        "Valve",
+        "WaterNetwork"
+      ],
+      "domains": [
+        "SmartWater"
+      ]
+    },
+    {
+      "repoName": "dataModel.WaterQuality",
+      "repoLink": "https://github.com/smart-data-models/dataModel.WaterQuality.git",
+      "dataModels": [
+        "SludgeQualityObserved",
+        "WaterQualityObserved",
+        "WaterQualityPredicted"
+      ],
+      "domains": [
+        "SmartWater",
+        "SmartEnvironment"
+      ]
+    },
+    {
+      "repoName": "dataModel.Weather",
+      "repoLink": "https://github.com/smart-data-models/dataModel.Weather.git",
+      "dataModels": [
+        "SeaConditions",
+        "WeatherAlert",
+        "WeatherForecast",
+        "WeatherObserved"
+      ],
+      "domains": [
+        "SmartEnvironment",
+        "CrossSector",
+        "SmartAgrifood",
+        "SmartDestination",
+        "SmartCities",
+        "SmartEnergy"
+      ]
+    },
+    {
+      "repoName": "dataModel.WifiNetwork",
+      "repoLink": "https://github.com/smart-data-models/dataModel.WifiNetwork.git",
+      "dataModels": [
+        "AccessPoint",
+        "WifiPointOfInterest"
+      ],
+      "domains": [
+        "CrossSector",
+        "SmartCities"
       ]
     },
     {
@@ -1760,79 +1846,6 @@
       ],
       "domains": [
         "SmartCities"
-      ]
-    },
-    {
-      "repoName": "dataModel.PredictiveMaintenance",
-      "repoLink": "https://github.com/smart-data-models/dataModel.PredictiveMaintenance.git",
-      "dataModels": [
-        "AIPrediction",
-        "Appointment",
-        "InventoryItem",
-        "MachineComponent",
-        "MaintenanceRequest",
-        "MaintenanceService",
-        "MaintenanceSkill",
-        "ServiceTechnician"
-      ],
-      "domains": [
-        "SmartManufacturing"
-      ]
-    },
-    {
-      "repoName": "dataModel.IndustrialProcess",
-      "repoLink": "https://github.com/smart-data-models/dataModel.IndustrialProcess.git",
-      "dataModels": [
-        "MaterialAddition",
-        "ProcessChemicalAnalysis",
-        "ProcessEvent"
-      ],
-      "domains": [
-        "SmartManufacturing"
-      ]
-    },
-    {
-      "repoName": "dataModel.OpenStreetMap",
-      "repoLink": "https://github.com/smart-data-models/dataModel.OpenStreetMap.git",
-      "dataModels": [
-        "OSMAdvertising",
-        "OSMAerialway",
-        "OSMAeroway",
-        "OSMAmenity",
-        "OSMBarrier",
-        "OSMBoundary",
-        "OSMBuilding",
-        "OSMBuildingPart",
-        "OSMClub",
-        "OSMCraft",
-        "OSMCycleRoute",
-        "OSMEmergency",
-        "OSMGeological",
-        "OSMHealthcare",
-        "OSMHighway",
-        "OSMHistoric",
-        "OSMIndoor",
-        "OSMLanduse",
-        "OSMLeisure",
-        "OSMManMade",
-        "OSMMilitary",
-        "OSMNatural",
-        "OSMOffice",
-        "OSMParkingArea",
-        "OSMPlace",
-        "OSMPower",
-        "OSMPublicTransportStop",
-        "OSMRailway",
-        "OSMRoute",
-        "OSMShop",
-        "OSMTelecom",
-        "OSMTourism",
-        "OSMTrafficSign",
-        "OSMWater",
-        "OSMWaterway"
-      ],
-      "domains": [
-        "CrossSector"
       ]
     }
   ]
