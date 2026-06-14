@@ -1,5 +1,5 @@
 {
-  "updatedDate": "2026-06-10T00:09:24.99517",
+  "updatedDate": "2026-06-14T15:43:20.49729",
   "officialList": [
     {
       "repoName": "dataModel.AAS",
@@ -761,6 +761,17 @@
         "WindTurbineType4bIEC",
         "WindType1or2UserDefined",
         "WindType3or4UserDefined"
+      ],
+      "domains": [
+        "SmartEnergy"
+      ]
+    },
+    {
+      "repoName": "dataModel.EnergyCommunity",
+      "repoLink": "https://github.com/smart-data-models/dataModel.EnergyCommunity.git",
+      "dataModels": [
+        "EnergyCommunity",
+        "EnergyProsumer"
       ],
       "domains": [
         "SmartEnergy"
