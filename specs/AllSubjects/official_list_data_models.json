@@ -1386,7 +1386,9 @@
         "nav_msgs_odometry",
         "sensor_msgs_batteryState"
       ],
-      "domains": []
+      "domains": [
+        "SmartRobotics"
+      ]
     },
     {
       "repoName": "dataModel.RiskManagement",
