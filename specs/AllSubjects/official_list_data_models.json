@@ -1,5 +1,5 @@
 {
-  "updatedDate": "2026-06-14T15:43:20.49729",
+  "updatedDate": "2026-07-19T15:56:27.31739",
   "officialList": [
     {
       "repoName": "dataModel.AAS",
@@ -1377,6 +1377,16 @@
       "domains": [
         "CrossSector"
       ]
+    },
+    {
+      "repoName": "dataModel.ROS2",
+      "repoLink": "https://github.com/smart-data-models/dataModel.ROS2.git",
+      "dataModels": [
+        "geometry_msgs_pose",
+        "nav_msgs_odometry",
+        "sensor_msgs_batteryState"
+      ],
+      "domains": []
     },
     {
       "repoName": "dataModel.RiskManagement",
