@@ -1208,7 +1208,7 @@ def generate_sql_schema(model_yaml: str) -> str:
                 field_type = type_mapping.get(value["type"])
                 # add attribute to the SQL schema statement
                 sql_schema_statements.append(f"\"{key}\" {field_type}")
-        elif "oneOf" in value:
+        elif "oneOf" in value or "anyOf" in value:
             field_type = "JSON"
             sql_schema_statements.append(f"\"{key}\" {field_type}")
 
