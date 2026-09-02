@@ -1177,6 +1177,16 @@ def generate_sql_schema(model_yaml: str) -> str:
     table_create_statement = f"CREATE TABLE {entity} ("
 
     for key, value in model_yaml[entity]["properties"].items():
+        # "id" always maps to the primary key column, regardless of what
+        # "type"/"format"/etc. it declares -- handle it here and move on, so
+        # it isn't *also* appended by the type-mapping branches below (that
+        # produced a duplicate "id" column in every generated schema, since
+        # id properties almost always declare a "type").
+        if key == "id":
+            field_type = "TEXT PRIMARY KEY"
+            sql_schema_statements.append(f"\"{key}\" {field_type}")
+            continue
+
         field_type = "JSON"  # Default to JSON if type is not defined
 
         # Field type mapping
@@ -1225,11 +1235,6 @@ def generate_sql_schema(model_yaml: str) -> str:
                         if "type" in sub_value:
                             sub_field_type = type_mapping.get(sub_value["type"])
                             sql_schema_statements.append(f"\"{sub_key}\" {sub_field_type}")
-
-        if key == "id":
-            field_type = "TEXT PRIMARY KEY"
-            # add attribute to the SQL schema statement
-            sql_schema_statements.append(f"\"{key}\" {field_type}")
 
     # Complete the CREATE TABLE statement
     table_create_statement += ", ".join(sql_schema_statements)
