@@ -37,3 +37,17 @@
 - Changed the example of code (one line was wrong)
 - Updated the model assets (attributes, metadata and official list)
 
+# version 0.8.0.2
+- Updated the assets because of publication of new data models
+
+# version 0.8.0.8
+- Updated the assets because of publication of new data models (1066) till 6-3-26
+
+# version 0.8.0.9
+- Refactored __init__.py and utils/__init__.py to use explicit imports instead of wildcard imports
+- Updated README.md (contributor count, links, contact)
+
+# version 0.8.0.10
+- Synced GitHub master and local/PyPI copies, which had diverged
+- Brought in SQL schema generation fixes from GitHub master: quoted identifiers, anyOf support, no more duplicate id column (PRs #93, #94, #95)
+- Fixed __all__ in utils/__init__.py to use string names instead of function objects

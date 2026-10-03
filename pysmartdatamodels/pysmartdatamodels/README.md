@@ -2,16 +2,19 @@
 
 Smart Data Models 
 ==================
-Version 0.8.0.1.1
+Version 0.8.0.10
 
-The [Smart Data Models](https://smartdatamodels.org) is a program lead by [4 organizations](https://smartdatamodels.org/index.php/faqs/) with the collaboration of [more than 100](https://smartdatamodels.org/index.php/statistics/) and open to collaboration. It provides multisector agile standardized free and open-licensed data models based either on actual use cases or on adopted open standards.
-The data models describe the entities and their attributes to be used in digital twins deployments, data spaces and other smart applications. The data models are grouped in subjects. Each subject is available at a unique repository at [https://github.com/smart-data-models/](https://github.com/smart-data-models/). Contributions to existing data models can be done there. New ones are drafted in the [incubated repository](https://github.com/smart-data-models/incubated/) once [filled this form](https://smartdatamodels.org/index.php/new-incubated-data-models/) for getting the permissions. [This manual](https://bit.ly/contribution_manual) helps you with the creation. There is a database of [contributors](https://smartdatamodels.org/index.php/contributors/) available. 
+The [Smart Data Models](https://smartdatamodels.org) is a program lead by [4 organizations](https://smartdatamodels.org/index.php/faqs/) with the collaboration of [more than 130](https://smartdatamodels.org/index.php/statistics/) and open to collaboration. It provides multisector agile standardized free and open-licensed data models based either on actual use cases or on adopted open standards.
+The data models describe the entities and their attributes to be used in digital twins deployments, data spaces and other smart applications. The data models are grouped in subjects. Each subject is available at a unique repository at [https://github.com/smart-data-models/](https://github.com/smart-data-models/). Contributions to existing data models can be done there. New ones are drafted in the [incubated repository](https://github.com/smart-data-models/incubated/) once [filled this form](https://smartdatamodels.org/index.php/new-incubated-data-models/) for getting the permissions. [This manual](https://bit.ly/contribution_manual) helps you with the creation. Credit is provided to the [contributors](https://smartdatamodels.org/index.php/contributors/).
+There is a [service](https://smartdatamodels.org/index.php/test-your-data-model/) and a [source code](https://github.com/smart-data-models/data-models/tree/master/test_data_model) to validate your data models before submission. It also works in local directories and public repositories. 
 
 This python package includes all the data models and several functions (listed below) to use them in your developments.
 
 Every data model is open licensed and the list of its attributes and every attribute definition is included. Also, there is a function to check if a key values payload complies with a data model.  
 
-If you want to be updated on this package you can join this [mailing list](https://smartdatamodels.org/index.php/developers-list/) (Announcements are sent only when something relevant happens). We love to hear from you at info@smartdatamodels.org
+You can use it as a service, [here](https://github.com/smart-data-models/data-models/tree/master/sdm_as_a_service) there is the open licensed source code.
+
+If you want to be updated on this package you can join this [mailing list](https://smartdatamodels.org/index.php/developers-list/) (Announcements are sent only when something relevant happens). We love to hear from you at alberto.abella@transparentia.net
 
 There are several online tools to manage and to create the data models, [generate examples](https://smartdatamodels.org/index.php/generate-a-ngsi-ld-keyvalues-payload-compliant-with-a-data-model/) or to adapt to [existing ontologies](https://smartdatamodels.org/index.php/generate-acontext-based-on-external-ontologies-iris/). See tools menu option at the [home site](https://smartdatamodels.org).
 
@@ -586,7 +589,7 @@ A.- Function to allow submission of improvements (i.e. missing recommended units
 
 B.- Function to submit a new data model to an incubation repository. Currently, this is done manually [incubated repository](https://github.com/smart-data-models/incubated/tree/master). By filling this [form](https://smartdatamodels.org/index.php/new-incubated-data-models/) you are granted to contribute with new data models.     
 
-if you want to suggest other functions/ needs please let us know at info@smartdatamodels.org.
+if you want to suggest other functions/ needs please let us know at alberto.abella@transparentia.net
 
 
 ## Acknowledgments
