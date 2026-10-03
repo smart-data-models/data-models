@@ -54,3 +54,6 @@
 
 # version 0.8.0.11
 - Fixed __init__.py: the main API functions (generate_sql_schema, load_all_datamodels, etc.) listed in __all__ were never actually imported into the top-level package, so `from pysmartdatamodels import *` and `from pysmartdatamodels import generate_sql_schema` raised AttributeError. Both now work.
+
+# version 0.8.0.12
+- Removed unused sql_type_statement list in generate_sql_schema (dead code, no output change) - fixes #75 / closes PR #78
