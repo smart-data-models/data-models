@@ -51,3 +51,6 @@
 - Synced GitHub master and local/PyPI copies, which had diverged
 - Brought in SQL schema generation fixes from GitHub master: quoted identifiers, anyOf support, no more duplicate id column (PRs #93, #94, #95)
 - Fixed __all__ in utils/__init__.py to use string names instead of function objects
+
+# version 0.8.0.11
+- Fixed __init__.py: the main API functions (generate_sql_schema, load_all_datamodels, etc.) listed in __all__ were never actually imported into the top-level package, so `from pysmartdatamodels import *` and `from pysmartdatamodels import generate_sql_schema` raised AttributeError. Both now work.
