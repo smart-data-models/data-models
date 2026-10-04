@@ -18,8 +18,29 @@
 import json
 import os
 import requests
+from functools import lru_cache
 from urllib.parse import urljoin
 from jsonpointer import resolve_pointer
+
+# Deeply nested / self-referential schemas (e.g. FHIR's Extension.extension,
+# which can recurse into itself indefinitely) can drive resolve_ref /
+# resolve_nested_refs / check_property_descriptions into unbounded
+# recursion -- see issue #84. This caps how many $ref hops we'll follow;
+# validated against the real smart-data-models/dataModel.Hl7 models (the
+# ones that originally triggered the RecursionError), which have no issue
+# completing at this depth.
+MAX_REF_RECURSION_DEPTH = 4
+
+
+@lru_cache(maxsize=128)
+def _fetch_json_cached(url):
+    """Fetch and parse a URL as JSON, cached -- complex schemas can reference
+    the same common-schema fragment (e.g. Location-Commons) from dozens of
+    different properties, and refetching it every time is pure waste."""
+    response = requests.get(url)
+    if response.status_code != 200:
+        raise ValueError(f"*** Failed to fetch external schema from {url}")
+    return response.json()
 
 
 def validate_description(description):
@@ -64,7 +85,7 @@ def validate_description(description):
     return True, "Description is valid."
 
 
-def resolve_ref(ref, base_uri):
+def resolve_ref(ref, base_uri, recursion_depth=0):
     """
     Resolve a $ref to its external schema and return the referenced schema.
     Handles both remote URLs and JSON Pointers, and recursively resolves nested $refs.
@@ -80,11 +101,7 @@ def resolve_ref(ref, base_uri):
     else:
         resolved_url = urljoin(base_uri, url_part)
 
-    response = requests.get(resolved_url)
-    if response.status_code != 200:
-        raise ValueError(f"*** Failed to fetch external schema from {resolved_url}")
-
-    schema = response.json()
+    schema = _fetch_json_cached(resolved_url)
 
     if pointer_part:
         try:
@@ -93,36 +110,51 @@ def resolve_ref(ref, base_uri):
         except Exception as e:
             raise ValueError(f"*** Failed to resolve JSON Pointer '{pointer_part}' in schema: {e}")
 
-    # Recursively resolve any nested $refs in the resolved schema
-    schema = resolve_nested_refs(schema, resolved_url if url_part else base_uri)
+    # Recursively resolve any nested $refs in the resolved schema, up to
+    # MAX_REF_RECURSION_DEPTH -- beyond that, return the schema as-is rather
+    # than continuing to chase a possibly-cyclic $ref chain (see issue #84).
+    if recursion_depth < MAX_REF_RECURSION_DEPTH:
+        schema = resolve_nested_refs(schema, resolved_url if url_part else base_uri, recursion_depth + 1)
 
     return schema
 
 
-def resolve_nested_refs(schema, base_uri):
+def resolve_nested_refs(schema, base_uri, recursion_depth=0):
     """
-    Recursively resolve any nested $refs in the schema.
+    Recursively resolve any nested $refs in the schema, up to MAX_REF_RECURSION_DEPTH.
     """
+    if recursion_depth >= MAX_REF_RECURSION_DEPTH:
+        return schema
+
     if isinstance(schema, dict):
         if "$ref" in schema:
-            return resolve_ref(schema["$ref"], base_uri)
+            return resolve_ref(schema["$ref"], base_uri, recursion_depth)
         else:
             for key, value in schema.items():
-                schema[key] = resolve_nested_refs(value, base_uri)
+                schema[key] = resolve_nested_refs(value, base_uri, recursion_depth + 1)
     elif isinstance(schema, list):
         for i, item in enumerate(schema):
-            schema[i] = resolve_nested_refs(item, base_uri)
+            schema[i] = resolve_nested_refs(item, base_uri, recursion_depth + 1)
 
     return schema
 
 
-def check_property_descriptions(properties, base_uri, output, path="", processed_refs=None):
+def check_property_descriptions(properties, base_uri, output, path="", processed_refs=None, recursion_depth=0):
     """
     Recursively check descriptions for all properties, including nested ones and arrays.
     Keeps track of processed references to avoid duplicate processing.
+
+    recursion_depth guards against schemas with cyclic/self-referential $refs
+    (e.g. FHIR's Extension.extension -- see issue #84). processed_refs alone
+    doesn't catch this: its key includes the current path, which grows by one
+    segment on every recursive call, so a true cycle never produces a repeated
+    key and never gets skipped by that check alone.
     """
     if processed_refs is None:
         processed_refs = set()
+
+    if recursion_depth > MAX_REF_RECURSION_DEPTH:
+        return
 
     for prop_name, prop_details in properties.items():
         current_path = f"{path}.{prop_name}" if path else prop_name
@@ -142,7 +174,7 @@ def check_property_descriptions(properties, base_uri, output, path="", processed
                 ref_schema = resolve_ref(ref, base_uri)
                 if "properties" in ref_schema:
                     check_property_descriptions(ref_schema["properties"], base_uri, output, current_path,
-                                                processed_refs)
+                                                processed_refs, recursion_depth + 1)
                 if "description" in ref_schema:
                     description = ref_schema["description"]
                     is_valid, message = validate_description(description)
@@ -177,13 +209,21 @@ def check_property_descriptions(properties, base_uri, output, path="", processed
 
         # Check nested properties (for objects)
         if "properties" in prop_details:
-            check_property_descriptions(prop_details["properties"], base_uri, output, current_path, processed_refs)
+            check_property_descriptions(prop_details["properties"], base_uri, output, current_path, processed_refs,
+                                        recursion_depth + 1)
 
         # Check items (for arrays)
         if "items" in prop_details:
             items = prop_details["items"]
 
-            if "$ref" in items:
+            if not isinstance(items, dict):
+                # items can legitimately be None -- schema generators sometimes
+                # emit this for deeply self-referential structures (e.g. FHIR's
+                # Extension.extension) as their own defensive truncation. It can
+                # also be a list (JSON Schema's tuple-validation form, rare in
+                # practice here). Either way there's no sub-schema to check.
+                pass
+            elif "$ref" in items:
                 try:
                     items_ref = items["$ref"]
                     items_ref_id = f"{current_path}.items:{items_ref}"
@@ -205,20 +245,20 @@ def check_property_descriptions(properties, base_uri, output, path="", processed
 
                         if "properties" in ref_schema:
                             check_property_descriptions(ref_schema["properties"], base_uri, output,
-                                                        f"{current_path}.items", processed_refs)
+                                                        f"{current_path}.items", processed_refs, recursion_depth + 1)
                 except ValueError as e:
                     output.append(f"*** Error resolving $ref for items in '{current_path}': {e}")
             elif "anyOf" in items:
                 for idx, any_of_item in enumerate(items["anyOf"]):
                     if "properties" in any_of_item:
                         check_property_descriptions(any_of_item["properties"], base_uri, output,
-                                                    f"{current_path}.items.anyOf[{idx}]", processed_refs)
+                                                    f"{current_path}.items.anyOf[{idx}]", processed_refs, recursion_depth + 1)
                     elif "items" in any_of_item:
                         nested_items_path = f"{current_path}.items.anyOf[{idx}]"
                         if "description" not in any_of_item:
                             output.append(f"*** The attribute '{nested_items_path}' is missing a description.")
                         check_property_descriptions({"items": any_of_item["items"]}, base_uri, output,
-                                                    nested_items_path, processed_refs)
+                                                    nested_items_path, processed_refs, recursion_depth + 1)
                     else:
                         if "description" not in any_of_item:
                             output.append(
@@ -234,9 +274,10 @@ def check_property_descriptions(properties, base_uri, output, path="", processed
                                     f"The attribute '{current_path}.items.anyOf[{idx}]' is properly documented.")
             elif "properties" in items:
                 check_property_descriptions(items["properties"], base_uri, output, f"{current_path}.items",
-                                            processed_refs)
+                                            processed_refs, recursion_depth + 1)
             elif "items" in items:
-                check_property_descriptions({"items": items["items"]}, base_uri, output, current_path, processed_refs)
+                check_property_descriptions({"items": items["items"]}, base_uri, output, current_path, processed_refs,
+                                            recursion_depth + 1)
             else:
                 if "description" not in items:
                     output.append(f"*** The attribute '{current_path}.items' is missing a description.")
