@@ -143,7 +143,15 @@ def download_files(subject_root, download_dir):
                 for future in as_completed(futures):
                     file_path, success, message = future.result()
                     if not success and message:
-                        raise Exception(message)
+                        # Several of these files are optional (e.g. a model
+                        # may not have ADOPTERS.yaml yet) -- a missing file
+                        # is exactly what test_file_exists is for reporting.
+                        # Only a genuine network/server error here should
+                        # abort the whole run; a plain 404 should not.
+                        if "404" in message or "Not Found" in message:
+                            print(f"Warning: {os.path.basename(file_path)} not found (404), continuing")
+                        else:
+                            raise Exception(message)
         else:
             for file in files_to_download:
                 src_path = os.path.join(subject_root, file)
@@ -152,7 +160,7 @@ def download_files(subject_root, download_dir):
                 if os.path.exists(src_path):
                     shutil.copy(src_path, dest_path)
                 else:
-                    raise Exception(f"File not found: {src_path}")
+                    print(f"Warning: {file} not found at {src_path}, continuing")
 
         return download_dir
     except Exception as e:

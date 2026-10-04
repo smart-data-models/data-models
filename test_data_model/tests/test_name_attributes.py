@@ -33,10 +33,14 @@ def check_attribute_case(properties, base_uri, output, path="", processed_refs=N
     for prop_name, prop_details in properties.items():
         current_path = f"{path}.{prop_name}" if path else prop_name
 
-        # Check if attribute name starts with capital letter
-        if len(prop_name) > 0 and prop_name[0].isupper():
-            output.append(
-                f"Warning: The attribute '{current_path}' starts with a capital letter - it's recommended to use camelCase for attribute names.")
+        # Check if attribute name starts with capital letter. Skip NGSI-LD's
+        # own reserved meta-attributes (@context, id, type) -- their naming
+        # isn't the model author's choice to begin with, so flagging it here
+        # would be noise, not a real recommendation.
+        if prop_name not in ("id", "type") and not prop_name.startswith("@"):
+            if len(prop_name) > 0 and prop_name[0].isupper():
+                output.append(
+                    f"Warning: The attribute '{current_path}' starts with a capital letter - it's recommended to use camelCase for attribute names.")
 
         # Handle $ref properties
         if "$ref" in prop_details:

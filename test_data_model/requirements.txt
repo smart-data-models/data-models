@@ -1,0 +1,5 @@
+jsonpointer>=3.0.0
+jsonref>=1.1.0
+jsonschema>=4.17.3
+pyyaml>=6.0
+requests>=2.28.2
