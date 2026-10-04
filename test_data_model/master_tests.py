@@ -79,6 +79,19 @@ def load_config(config_path: str = None) -> Dict[str, Any]:
     for key in required_keys:
         if key not in config:
             raise ValueError(f"Missing required config key: {key}")
+        # The repo's own committed config.json intentionally ships with
+        # placeholders (<result directory>, <temporal directory>) rather
+        # than a real path, so nobody's personal filesystem layout ends up
+        # committed. '<' and '>' are valid filename characters on Linux, so
+        # an un-edited placeholder doesn't fail -- it silently creates a
+        # literally-named directory and proceeds. Fail loudly instead.
+        if config[key].startswith("<") and config[key].endswith(">"):
+            raise ValueError(
+                f"config.json's '{key}' is still the placeholder {config[key]!r} -- "
+                f"set it to a real path, either by editing this file locally "
+                f"(don't commit your own path over the placeholder) or by creating "
+                f"{Path.home() / '.your_package_config.json'} with your own real paths."
+            )
 
     config['results_dir'] = str(Path(config['results_dir']).expanduser().absolute())
     config['download_dir'] = str(Path(config['download_dir']).expanduser().absolute())
@@ -102,7 +115,18 @@ def convert_github_url_to_raw(subject_root):
             raw_url = subject_root.replace("github.com", "raw.githubusercontent.com")
             return raw_url.replace("/tree/", "/")
         else:
-            return subject_root.replace("github.com", "raw.githubusercontent.com") + "/master"
+            # No /blob/ or /tree/ in the URL (e.g. a plain
+            # "github.com/owner/repo/path/to/model" from multiple_tests.py's
+            # non-/tree/ URL form) -- the branch name belongs right after
+            # the repo, not appended at the very end. Appending it at the
+            # end previously produced a URL one path segment too deep
+            # (.../repo/path/to/model/master instead of
+            # .../repo/master/path/to/model), which 404s on every file.
+            raw_url = subject_root.replace("github.com", "raw.githubusercontent.com")
+            parts = raw_url.rstrip("/").split("/")
+            if len(parts) < 5:
+                raise ValueError("URL must include at least owner and repo.")
+            return "/".join(parts[:5] + ["master"] + parts[5:])
     except Exception as e:
         raise ValueError(f"Error converting GitHub URL to raw URL: {e}")
 
@@ -189,7 +213,27 @@ def run_tests(test_files, repo_to_test, only_report_errors, options):
     return results
 
 
-def main():
+def quality_analysis(base_url, email, only_report_errors, published=False, private=False, output_file=None):
+    """
+    Run the full test suite against one data model and return a result dict.
+
+    Always returns a well-formed dict (success/error/test_results/metadata),
+    never raises -- this is what lets multiple_tests.py call it directly, in
+    a loop over many models, without needing to spawn a subprocess per model
+    and parse its stdout as JSON (fragile: any stray print() anywhere in the
+    dependency chain would have corrupted that).
+
+    Parameters:
+        base_url (str): URL or local path to the repository root to test.
+        email (str): Contact email used for identifying results.
+        only_report_errors (bool): Include only failed test results if True.
+        published (bool): Mark the repository as published.
+        private (bool): Mark the repository as private.
+        output_file (str, optional): Extra path to also write the JSON results to.
+
+    Returns:
+        dict: {"success", "error", "test_results", "metadata"}
+    """
     result = {
         "success": False,
         "error": None,
@@ -199,7 +243,11 @@ def main():
         }
     }
 
+    download_dir = None
     try:
+        if not email or "@" not in email:
+            raise ValueError("Missing or invalid email address")
+
         config = load_config()
         results_dir = config['results_dir']
         download_dir = config['download_dir']
@@ -207,27 +255,7 @@ def main():
         Path(results_dir).mkdir(parents=True, exist_ok=True)
         Path(download_dir).mkdir(parents=True, exist_ok=True)
 
-        parser = argparse.ArgumentParser()
-        parser.add_argument("subject_root", type=str)
-        parser.add_argument("email", type=str)
-        parser.add_argument("only_report_errors", type=str)
-        parser.add_argument("--published", type=str, default="false")
-        parser.add_argument("--private", type=str, default="false")
-        parser.add_argument("--output", type=str, default=None)
-
-        args = parser.parse_args()
-
-        if not args.email or "@" not in args.email:
-            raise ValueError("Missing or invalid email address")
-
-        only_report_errors = args.only_report_errors.lower() in ("true", "1")
-        published = args.published.lower() in ("true", "1")
-        private = args.private.lower() in ("true", "1")
-
-        if is_url(args.subject_root):
-            raw_base_url = convert_github_url_to_raw(args.subject_root)
-        else:
-            raw_base_url = args.subject_root
+        raw_base_url = convert_github_url_to_raw(base_url) if is_url(base_url) else base_url
 
         repo_path = download_files(raw_base_url, download_dir)
 
@@ -251,30 +279,53 @@ def main():
             "private": private
         })
 
-        test_results["email"] = args.email
+        test_results["email"] = email
         result.update({
             "success": True,
             "test_results": test_results
         })
 
-        email_name = args.email.replace("@", "_at_")
+        email_name = email.replace("@", "_at_")
         timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
         filename = f"{results_dir}/{timestamp}_{email_name}.json"
         with open(filename, "w") as f:
             json.dump(test_results, f, indent=4)
 
-        if args.output:
-            with open(args.output, "w") as f:
+        if output_file:
+            with open(output_file, "w") as f:
                 json.dump(test_results, f, indent=4)
 
     except Exception as e:
         result["error"] = str(e)
     finally:
-        if 'download_dir' in locals() and os.path.exists(download_dir):
+        if download_dir and os.path.exists(download_dir):
             shutil.rmtree(download_dir)
 
-        # Ensure we always print valid JSON
-        print(json.dumps(result, indent=2))
+    return result
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("subject_root", type=str)
+    parser.add_argument("email", type=str)
+    parser.add_argument("only_report_errors", type=str)
+    parser.add_argument("--published", type=str, default="false")
+    parser.add_argument("--private", type=str, default="false")
+    parser.add_argument("--output", type=str, default=None)
+
+    args = parser.parse_args()
+
+    result = quality_analysis(
+        base_url=args.subject_root,
+        email=args.email,
+        only_report_errors=args.only_report_errors.lower() in ("true", "1"),
+        published=args.published.lower() in ("true", "1"),
+        private=args.private.lower() in ("true", "1"),
+        output_file=args.output
+    )
+
+    # Ensure we always print valid JSON, matching this script's documented contract
+    print(json.dumps(result, indent=2))
 
 
 if __name__ == "__main__":
