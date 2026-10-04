@@ -55,5 +55,7 @@
 # version 0.8.0.11
 - Fixed __init__.py: the main API functions (generate_sql_schema, load_all_datamodels, etc.) listed in __all__ were never actually imported into the top-level package, so `from pysmartdatamodels import *` and `from pysmartdatamodels import generate_sql_schema` raised AttributeError. Both now work.
 
-# version 0.8.0.12
+# version 0.8.1.0
 - Removed unused sql_type_statement list in generate_sql_schema (dead code, no output change) - fixes #75 / closes PR #78
+- Refreshed model-assets/*.json from their canonical sources (official_list_data_models.json, datamodels_metadata.json, smartdatamodels.json), which had been stale since March 2026. Fixed the generation process along the way: dataModel.ROS2 was private, causing every datamodels_metadata.json regeneration to crash before completion; the metadata MongoDB backing smartdatamodels.json was only ~3% populated (32 of 1047 models) and has now been fully backfilled (164,926 documents, all 82 subjects)
+- smartdatamodels.json is now shipped gzip-compressed as smartdatamodels.json.gz (~5.4MB vs ~109MB uncompressed, ~20:1 ratio) -- this is the reason for the minor version bump rather than another 0.8.0.x patch: anyone reading model-assets/smartdatamodels.json directly from the installed package (bypassing the documented API) will need to update to the new filename/format. The documented usage (load_all_attributes(), etc.) is unaffected. update_data() now fetches the pre-compressed file directly (~5MB instead of ~110MB)
