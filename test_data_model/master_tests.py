@@ -47,6 +47,7 @@ import sys
 import os
 import requests
 import shutil
+import tempfile
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime
 import argparse
@@ -250,10 +251,21 @@ def quality_analysis(base_url, email, only_report_errors, published=False, priva
 
         config = load_config()
         results_dir = config['results_dir']
-        download_dir = config['download_dir']
+        download_base_dir = config['download_dir']
 
         Path(results_dir).mkdir(parents=True, exist_ok=True)
-        Path(download_dir).mkdir(parents=True, exist_ok=True)
+        Path(download_base_dir).mkdir(parents=True, exist_ok=True)
+
+        # A fresh, unique subdirectory per call -- not the configured
+        # download_dir itself. quality_analysis() is invoked as a fresh
+        # process per request by the public validation form (run_tests.php),
+        # and previously every invocation downloaded into and rmtree'd the
+        # same fixed directory. Two overlapping requests would then race:
+        # one request's cleanup or download could delete/overwrite files a
+        # concurrent request was still reading mid-test, which is exactly
+        # what issue #83 reported (test_file_exists finds schema.json, the
+        # very next test doesn't -- the file was there, then wasn't).
+        download_dir = tempfile.mkdtemp(dir=download_base_dir)
 
         raw_base_url = convert_github_url_to_raw(base_url) if is_url(base_url) else base_url
 
