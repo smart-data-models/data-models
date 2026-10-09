@@ -2,7 +2,7 @@
 name = "pysmartdatamodels"
 repository = "https://github.com/smart-data-models/data-models/tree/master/pysmartdatamodels"
 description = "Open-licensed and free data models to model your digital twins, share data in data spaces or develop smart applications"
-version = "0.8.1.0"
+version = "0.8.1.1"
 authors = ["aabella <alberto.abella@fiware.org>", "jilin <jilin.he@fiware.org>"]
 readme = "./pysmartdatamodels/README.md"
 packages = [{include = "pysmartdatamodels"}]
@@ -46,7 +46,7 @@ classifiers = [
   "Programming Language :: Python :: 3.11"
 ]
 dependencies = ["jsonref", "jsonschema", "pytz", "requests", "os-sys", "rstr", "Faker", "fuzzywuzzy", "python-Levenshtein", "ruamel.yaml", "date-time", "validator_collection"]
-version = "0.8.1.0"
+version = "0.8.1.1"
 readme = "README.md"
 
 [project.urls]

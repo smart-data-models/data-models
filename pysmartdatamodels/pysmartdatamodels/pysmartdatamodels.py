@@ -1,11 +1,11 @@
 import datetime
 
+import functools
 import re
 
 import gzip
 import json
 import os
-import sys
 import urllib.request
 
 import jsonschema
@@ -39,6 +39,35 @@ returnPendingMessage = "====== Examples are unable to be generated for the model
 github_url_pattern = r"https://github\.com/([^/]+)/([^/]+)/blob/([^/]+)/(.+)"
 
 
+@functools.lru_cache(maxsize=1)
+def _load_attributes_db():
+    """Load and cache the full attributes database (smartdatamodels.json.gz).
+
+    This file has 160,000+ entries and was previously re-read and
+    re-parsed from disk on every single call to any of the per-attribute
+    lookup functions below (description_attribute, datatype_attribute,
+    attributes_datamodel, etc.), each doing its own linear scan. Cached in
+    memory for the life of the process -- call update_data() to refresh
+    the on-disk file, which also invalidates this cache.
+    """
+    with gzip.open(ddbb_attributes_file, "rt", encoding='utf-8') as f:
+        return json.load(f)
+
+
+@functools.lru_cache(maxsize=1)
+def _load_official_list():
+    """Load and cache the official list of data models grouped by subject."""
+    with open(official_list_file_name, "r", encoding='utf-8') as f:
+        return json.load(f)["officialList"]
+
+
+@functools.lru_cache(maxsize=1)
+def _load_metadata_db():
+    """Load and cache the per-data-model metadata file."""
+    with open(metadata_file, "r", encoding='utf-8') as f:
+        return json.load(f)
+
+
 # 1
 def load_all_datamodels():
     """Returns a dict with all data models with this object structure
@@ -55,8 +84,7 @@ def load_all_datamodels():
 
     output = []
     # Opens the file with the list of data models
-    with open(official_list_file_name, "r", encoding='utf-8') as list_of_datamodels_pointer:
-        output = json.load(list_of_datamodels_pointer)["officialList"]
+    output = _load_official_list()
     return output
 
 
@@ -84,8 +112,7 @@ def load_all_attributes():
 
     output = []
     # Opens the file with the list of data models
-    with gzip.open(ddbb_attributes_file, "rt", encoding='utf-8') as ddbb_attributes_file_pointer:
-        output = json.load(ddbb_attributes_file_pointer)
+    output = _load_attributes_db()
     return output
 
 
@@ -123,10 +150,9 @@ def list_all_subjects():
     output = []
 
     # Opens the file with the list of data models
-    with open(official_list_file_name, "r", encoding='utf-8') as list_of_datamodels_pointer:
-        datamodelsdict = json.load(list_of_datamodels_pointer)["officialList"]
-        for item in datamodelsdict:
-            output.append(item["repoName"])
+    datamodelsdict = _load_official_list()
+    for item in datamodelsdict:
+        output.append(item["repoName"])
 
     return output
 
@@ -147,13 +173,12 @@ def datamodels_subject(subject: str):
     output = []
     done = False
 
-    with open(official_list_file_name, "r", encoding='utf-8') as list_of_datamodels_pointer:
-        datamodelsdict = json.load(list_of_datamodels_pointer)["officialList"]
-        for item in datamodelsdict:
-            if "repoName" and "dataModels" in item:
-                if item["repoName"] == subject:
-                    output = item["dataModels"]
-                    done = True
+    datamodelsdict = _load_official_list()
+    for item in datamodelsdict:
+        if "repoName" and "dataModels" in item:
+            if item["repoName"] == subject:
+                output = item["dataModels"]
+                done = True
     if not done:
         output = False
 
@@ -179,8 +204,7 @@ def description_attribute(subject, datamodel, attribute):
     done = False
 
     # Access the full database of attributes and stores is in a dictionary
-    with gzip.open(ddbb_attributes_file, "rt", encoding='utf-8') as ddbb_attributes_pointer:
-        datamodelsdict = json.load(ddbb_attributes_pointer)
+    datamodelsdict = _load_attributes_db()
 
     # Looks for the attribute in the dictionary
     for item in datamodelsdict:
@@ -220,8 +244,7 @@ def datatype_attribute(subject, datamodel, attribute):
     done = False
 
     # Access the full database of attributes and stores is in a dictionary
-    with gzip.open(ddbb_attributes_file, "rt", encoding='utf-8') as ddbb_attributes_pointer:
-        datamodelsdict = json.load(ddbb_attributes_pointer)
+    datamodelsdict = _load_attributes_db()
 
     # Looks for the attribute in the dictionary
     for item in datamodelsdict:
@@ -266,8 +289,7 @@ def model_attribute(subject, datamodel, attribute):
     done = False
 
     # Access the full database of attributes and stores is in a dictionary
-    with gzip.open(ddbb_attributes_file, "rt", encoding='utf-8') as ddbb_attributes_pointer:
-        datamodelsdict = json.load(ddbb_attributes_pointer)
+    datamodelsdict = _load_attributes_db()
 
     # Looks for the attribute in the dictionary
     for item in datamodelsdict:
@@ -312,8 +334,7 @@ def units_attribute(subject, datamodel, attribute):
     done = False
 
     # Access the full database of attributes and stores is in a dictionary
-    with gzip.open(ddbb_attributes_file, "rt", encoding='utf-8') as ddbb_attributes_pointer:
-        datamodelsdict = json.load(ddbb_attributes_pointer)
+    datamodelsdict = _load_attributes_db()
 
     # Looks for the attribute in the dictionary
     for item in datamodelsdict:
@@ -357,8 +378,7 @@ def attributes_datamodel(subject, datamodel):
     done = False
 
     # Access the full database of attributes and stores is in a dictionary
-    with gzip.open(ddbb_attributes_file, "rt", encoding='utf-8') as ddbb_attributes_pointer:
-        datamodelsdict = json.load(ddbb_attributes_pointer)
+    datamodelsdict = _load_attributes_db()
 
     # Looks for the attribute in the dictionary
     for item in datamodelsdict:
@@ -398,8 +418,7 @@ def ngsi_datatype_attribute(subject, datamodel, attribute):
     done = False
 
     # Access the full database of attributes and stores is in a dictionary
-    with gzip.open(ddbb_attributes_file, "rt", encoding='utf-8') as ddbb_attributes_pointer:
-        datamodelsdict = json.load(ddbb_attributes_pointer)
+    datamodelsdict = _load_attributes_db()
 
     # Looks for the attribute in the dictionary
     for item in datamodelsdict:
@@ -454,22 +473,25 @@ def validate_data_model_schema(schema_url):
         Returns:
             dict: The updated output dictionary with property warnings.
         """
+        lowKey = None
+        existing = "alreadyUsedProperties"
+        available = "availableProperties"
         try:
             commonProperties = ["id", "name", "description", "location", "seeAlso", "dateCreated", "dateModified",
                                 "source", "alternateName", "dataProvider", "owner", "address", "areaServed", "type"]
-            existing = "alreadyUsedProperties"
-            available = "availableProperties"
 
             output[existing] = []
             output[available] = []
+
+            # Loaded once outside the loop -- this used to re-open and
+            # re-parse the ~5MB gzip attributes database once per
+            # non-common property in the schema being validated.
+            datamodelsdict = _load_attributes_db()
 
             for key in yamlDict:
                 if key in commonProperties:
                     continue
                 lowKey = key.lower()
-
-                with gzip.open(ddbb_attributes_file, "rt", encoding='utf-8') as ddbb_attributes_pointer:
-                    datamodelsdict = json.load(ddbb_attributes_pointer)
 
                 results = []
                 for item in datamodelsdict:
@@ -502,8 +524,9 @@ def validate_data_model_schema(schema_url):
                 else:
                     output[available].append({key: "Available"})
 
-        except:
-            output[existing].append({"Error": lowKey})
+        except Exception as e:
+            output.setdefault(existing, [])
+            output[existing].append({"Error": lowKey if lowKey is not None else str(e)})
 
         return output
 
@@ -523,7 +546,7 @@ def validate_data_model_schema(schema_url):
         output["cause"] = "Cannot find the schema at " + schema_url
         output["time"] = str(datetime.datetime.now(tz=tz))
         print(json.dumps(output))
-        sys.exit()
+        return output
 
     # url is actually a json
     try:
@@ -534,7 +557,7 @@ def validate_data_model_schema(schema_url):
         output["time"] = str(datetime.datetime.now(tz=tz))
         output["parameters"] = {"schema_url: ": schema_url}
         print(json.dumps(output))
-        sys.exit()
+        return output
 
     # test that it is a valid schema against the metaschema
     try:
@@ -545,7 +568,7 @@ def validate_data_model_schema(schema_url):
             output["time"] = str(datetime.datetime.now(tz=tz))
             output["parameters"] = {"schema_url: ": schema_url}
             print(json.dumps(output))
-            sys.exit()
+            return output
 
     except:
         output["result"] = False
@@ -553,7 +576,7 @@ def validate_data_model_schema(schema_url):
         output["time"] = str(datetime.datetime.now(tz=tz))
         output["parameters"] = {"schema_url": schema_url}
         print(json.dumps(output))
-        sys.exit()
+        return output
 
     try:
         validate(instance=schema, schema=metaSchema, format_checker=Draft202012Validator.FORMAT_CHECKER)
@@ -565,7 +588,7 @@ def validate_data_model_schema(schema_url):
         output["parameters"] = {"schema_url": schema_url}
         output["errorSchema"] = str(err)
         print(json.dumps(output))
-        sys.exit()
+        return output
 
     # extract properties' definitions
     # check if they are populated
@@ -578,7 +601,7 @@ def validate_data_model_schema(schema_url):
         output["time"] = str(datetime.datetime.now(tz=tz))
         output["parameters"] = {"schema_url": schema_url}
         print(json.dumps(output))
-        sys.exit()
+        return output
 
     # check the duplicated attributes
     if len(attributes[2]) != len(set(attributes[2])):
@@ -602,12 +625,13 @@ def validate_data_model_schema(schema_url):
 
             return list(duplicates)
 
+        output["result"] = False
         output[
             "cause"] = f"Duplicated attributes (User-defined properties is duplicated with system-defined properties):\n\t{', '.join(find_duplicates(attributes[2]))}"
         output["time"] = str(datetime.datetime.now(tz=tz))
         output["parameters"] = {"schema_url": schema_url}
         print(json.dumps(output))
-        sys.exit()
+        return output
 
     output[documented] = parse_yamlDict(yamlDict, schema_url, 1)
     allProperties = 0
@@ -681,8 +705,7 @@ def print_datamodel(subject, datamodel, separator, meta_attributes):
     """
 
     output = []
-    with gzip.open(ddbb_attributes_file, "rt", encoding='utf-8') as ddbb_attributes_pointer:
-        datamodelsdict = json.load(ddbb_attributes_pointer)
+    datamodelsdict = _load_attributes_db()
 
     # available metadata in the list
     validmetadata = [
@@ -699,12 +722,8 @@ def print_datamodel(subject, datamodel, separator, meta_attributes):
     ]
     defaultmetadata = ["property", "type", "typeNGSI", "description"]
     newline = chr(13) + chr(10)
-    with gzip.open(ddbb_attributes_file, "rt", encoding='utf-8') as ddbb_attributes_pointer:
-        datamodelsdict = json.load(ddbb_attributes_pointer)
-    print(datamodelsdict[0])
     selectedattributes = []
     for d in datamodelsdict:
-        print(d)
         if "dataModel" in d and "repoName" in d:
             if d["dataModel"] == datamodel and d["repoName"] == subject:
                 selectedattributes.append(d)
@@ -721,17 +740,12 @@ def print_datamodel(subject, datamodel, separator, meta_attributes):
 
         # for every attribute in the data model
         for item in selectedattributes:
-            print("item:" + str(item))
-
             try:
                 # if all metadata are available for the attribute it is done in one shot
                 selectedmeta = [item[d] for d in listedmetadata]
-                print("selectedmeta:" + str(selectedmeta))
                 row = separator.join(selectedmeta)
-                print("row:" + str(row))
-            except:
+            except KeyError:
                 # if all metadata are not available for the attribute it is done with a loop
-                print("error")
                 rowitems = []
                 for d in listedmetadata:
                     if d in item:
@@ -760,13 +774,12 @@ def subject_repolink(subject: str):
     # output = []
     done = False
 
-    with open(official_list_file_name, "r", encoding='utf-8') as list_of_datamodels_pointer:
-        datamodelsdict = json.load(list_of_datamodels_pointer)["officialList"]
-        for item in datamodelsdict:
-            if "repoName" and "dataModels" in item:
-                if item["repoName"] == subject:
-                    output = item["repoLink"]
-                    done = True
+    datamodelsdict = _load_official_list()
+    for item in datamodelsdict:
+        if "repoName" and "dataModels" in item:
+            if item["repoName"] == subject:
+                output = item["repoLink"]
+                done = True
     if not done:
         output = False
 
@@ -789,14 +802,13 @@ def datamodel_repolink(datamodel: str):
     output = []
     done = False
 
-    with open(official_list_file_name, "r", encoding='utf-8') as list_of_datamodels_pointer:
-        datamodelsdict = json.load(list_of_datamodels_pointer)["officialList"]
-        for item in datamodelsdict:
-            if "repoName" and "dataModels" in item:
-                dataModels = item["dataModels"]
-                if datamodel in dataModels:
-                    output.append(item["repoLink"])
-                    done = True
+    datamodelsdict = _load_official_list()
+    for item in datamodelsdict:
+        if "repoName" and "dataModels" in item:
+            dataModels = item["dataModels"]
+            if datamodel in dataModels:
+                output.append(item["repoLink"])
+                done = True
     if not done:
         output = False
 
@@ -818,8 +830,13 @@ def update_data():
     urllib.request.urlretrieve("https://smartdatamodels.org/extra/smartdatamodels.json.gz", os.path.join(data_dir, "smartdatamodels.json.gz"))
     urllib.request.urlretrieve("https://smartdatamodels.org/extra/datamodels_metadata.json", os.path.join(data_dir, "datamodels_metadata.json"))
 
-    # Update the data files with the latest information
-    # (This will depend on the specific data files and the format they use)
+    # The three files above are cached in memory (see _load_attributes_db,
+    # _load_official_list, _load_metadata_db) -- without clearing those
+    # caches here, a long-running process that calls update_data() would
+    # keep serving the pre-update data for the rest of its lifetime.
+    _load_attributes_db.cache_clear()
+    _load_official_list.cache_clear()
+    _load_metadata_db.cache_clear()
 
 
 # 17
@@ -1203,10 +1220,16 @@ def generate_sql_schema(model_yaml: str) -> str:
             elif "enum" in value:
                 enum_values = value["enum"]
                 enum_values = [str(element) for element in enum_values]
+                # Namespaced per entity (not just f"{key}_type") so two
+                # unrelated models that happen to both have e.g. a "status"
+                # enum don't generate an identically-named CREATE TYPE,
+                # which made it impossible to load more than one model's
+                # schema.sql into the same database -- see
+                # smart-data-models/data-models#74.
                 if key == "type":
                     field_type = f"{entity}_type"
                 else:
-                    field_type = f"{key}_type"
+                    field_type = f"{entity}_{key}_type"
                 sql_data_types += "CREATE TYPE " + field_type + " AS ENUM ("
                 sql_data_types += f"{','.join(map(repr, enum_values))}"
                 sql_data_types += ");"
@@ -1215,7 +1238,16 @@ def generate_sql_schema(model_yaml: str) -> str:
                 sql_schema_statements.append(f"\"{key}\" {field_type}")
 
             else:
-                field_type = type_mapping.get(value["type"])
+                # A multityped attribute (e.g. type: [Property, Relationship])
+                # loads as a list, which isn't hashable -- dict.get() would
+                # raise TypeError instead of falling through to the
+                # documented "JSON" default for cases this exporter doesn't
+                # fully translate. An unrecognized-but-hashable type (e.g. a
+                # typo) previously fell through to field_type = None,
+                # silently producing invalid SQL ("key" None) -- also
+                # defaulted to JSON now.
+                raw_type = value["type"]
+                field_type = type_mapping.get(raw_type, "JSON") if isinstance(raw_type, str) else "JSON"
                 # add attribute to the SQL schema statement
                 sql_schema_statements.append(f"\"{key}\" {field_type}")
         elif "oneOf" in value or "anyOf" in value:
@@ -1239,9 +1271,8 @@ def generate_sql_schema(model_yaml: str) -> str:
     # Complete the CREATE TABLE statement
     table_create_statement += ", ".join(sql_schema_statements)
     table_create_statement += ");"
-    # PostgreSQL schema 
+    # PostgreSQL schema
     result = sql_data_types + "\n" + table_create_statement
-    print(result)
 
     return result
 
@@ -1335,8 +1366,7 @@ def list_datamodel_metadata(datamodel, subject):
     output = []
 
     # Opens the file with the metadata about the data models
-    with open(metadata_file, "r", encoding='utf-8') as metadata_file_pointer:
-        metadata_dict = json.load(metadata_file_pointer)
+    metadata_dict = _load_metadata_db()
 
     # It looks if this datamodel-subject pair is in the metadata. Although only one result is expected execution this way is quicker than other alternatives
     output = [metadata for metadata in metadata_dict if (metadata["dataModel"] == datamodel) and (metadata["subject"] == subject)]
@@ -1554,12 +1584,10 @@ def validate_dcat_ap_distribution_sdm(json_data):
         return validated
     else:
         download_url = json_data.get('downloadURL')
-        print(download_url)
 
     for distribution in download_url:
         payload = open_jsonref(distribution)  # It retrieves the content of the payload to be validated
         for schema in schemas:
-            print(schema)
             schema = open_jsonref(schema)  # It retrieves the schema for validating the payload
             try:
                 validate(instance=payload, schema=schema)
@@ -1591,9 +1619,8 @@ def subject_for_datamodel(datamodel):
            False if no subject is found
     """
 
-    with open(official_list_file_name, "r", encoding='utf-8') as list_of_datamodels_pointer:
-        list_of_datamodels = json.load(list_of_datamodels_pointer)["officialList"]
-        subjects = [repo["repoName"] for repo in list_of_datamodels if datamodel in repo["dataModels"]]
+    list_of_datamodels = _load_official_list()
+    subjects = [repo["repoName"] for repo in list_of_datamodels if datamodel in repo["dataModels"]]
     if len(subjects) == 0:
         return False
     else:
@@ -1624,12 +1651,57 @@ def validate_payload(datamodel, subject, payload):
         -       validate that there is a type attribute coinciding to the data model name
         -       validate that the pointed data model really exist in the database
     """
-    output = [False, "No validation performed"]
-    subjects = load_all_datamodels()
-    datamodels_found = [datamodel for subject in subjects if datamodel in subject["dataModels"]]
-    if datamodels_found:
-        return [True, datamodels_found]
-    else:
-        return [False, "datamodel/subject not found"]
-# result = validate_payload("WeatherObserved", "dataModel.Weather", "")
-# print(result)
+    details = []
+
+    # validate that the payload is a real json object (key-values format,
+    # not a normalized-NGSI payload with {"type": "Property", "value": ...}
+    # envelopes -- this validates against the plain schema.json)
+    if not isinstance(payload, dict):
+        return {"result": False, "details": [f"payload must be a JSON object (dict), got {type(payload).__name__}"]}
+
+    # validate that the pointed data model really exists in that subject
+    datamodels_in_subject = datamodels_subject(subject)
+    if datamodels_in_subject is False:
+        return {"result": False, "details": [f"Subject '{subject}' not found"]}
+    if datamodel not in datamodels_in_subject:
+        return {"result": False, "details": [f"Data model '{datamodel}' not found in subject '{subject}'"]}
+
+    # validate that there is a type attribute coinciding with the data model name
+    if payload.get("type") != datamodel:
+        return {
+            "result": False,
+            "details": [
+                f"payload's \"type\" ({payload.get('type')!r}) does not match the data model name ({datamodel!r})"
+            ],
+        }
+
+    # fetch and resolve the actual schema, then validate the payload against it
+    schema_url = f"https://raw.githubusercontent.com/smart-data-models/{subject}/master/{datamodel}/schema.json"
+    try:
+        schema = open_jsonref(schema_url)
+    except Exception as e:
+        return {"result": False, "details": [f"Cannot fetch/parse schema at {schema_url}: {e}"]}
+    if not schema:
+        return {"result": False, "details": [f"Cannot fetch/parse schema at {schema_url}"]}
+
+    validator = jsonschema.Draft202012Validator(schema)
+    schema_errors = sorted(validator.iter_errors(payload), key=lambda e: list(e.path))
+    if schema_errors:
+        for err in schema_errors:
+            path = ".".join(str(p) for p in err.path) or "(root)"
+            details.append(f"{path}: {err.message}")
+        return {"result": False, "details": details}
+
+    # the payload is schema-valid -- separately flag (as a warning, not a
+    # failure) any top-level attribute not defined in the data model, since
+    # jsonschema only rejects this when additionalProperties: false is set,
+    # which Smart Data Models schemas generally don't set
+    try:
+        known_properties, _ = parse_payload_v2(schema, 1)
+        unknown = [k for k in payload if k not in known_properties and k != "@context"]
+        if unknown:
+            details.append(f"Warning: attribute(s) not defined in the data model: {', '.join(unknown)}")
+    except Exception:
+        pass
+
+    return {"result": True, "details": details or ["payload is valid"]}
