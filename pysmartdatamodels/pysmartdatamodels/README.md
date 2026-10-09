@@ -2,7 +2,7 @@
 
 Smart Data Models 
 ==================
-Version 0.8.1.1
+Version 0.8.2.0
 
 The [Smart Data Models](https://smartdatamodels.org) is a program lead by [4 organizations](https://smartdatamodels.org/index.php/faqs/) with the collaboration of [more than 130](https://smartdatamodels.org/index.php/statistics/) and open to collaboration. It provides multisector agile standardized free and open-licensed data models based either on actual use cases or on adopted open standards.
 The data models describe the entities and their attributes to be used in digital twins deployments, data spaces and other smart applications. The data models are grouped in subjects. Each subject is available at a unique repository at [https://github.com/smart-data-models/](https://github.com/smart-data-models/). Contributions to existing data models can be done there. New ones are drafted in the [incubated repository](https://github.com/smart-data-models/incubated/) once [filled this form](https://smartdatamodels.org/index.php/new-incubated-data-models/) for getting the permissions. [This manual](https://bit.ly/contribution_manual) helps you with the creation. Credit is provided to the [contributors](https://smartdatamodels.org/index.php/contributors/).
@@ -10,7 +10,7 @@ There is a [service](https://smartdatamodels.org/index.php/test-your-data-model/
 
 This python package includes all the data models and several functions (listed below) to use them in your developments.
 
-Every data model is open licensed and the list of its attributes and every attribute definition is included. Also, there is a function to check if a key values payload complies with a data model.  
+Every data model is open licensed and the list of its attributes and every attribute definition is included. Also, there is a function to check if a key values payload complies with a data model (`validate_payload`), and a function aimed at **data spaces**: `identify_or_draft_datamodel` takes any payload a data space participant sends you -- plain key-values, NGSI-v2 normalized, or NGSI-LD normalized, auto-detected -- and either recognizes it as an existing Smart Data Model (returning its real schema and validating the payload against it) or drafts a ready-to-review schema.json for it on the spot, reusing descriptions already established elsewhere in the catalog wherever the same attribute name is already in use. The aim is to let a payload arriving in a data space get a semantic description even when the sender never provided one.
 
 You can use it as a service, [here](https://github.com/smart-data-models/data-models/tree/master/sdm_as_a_service) there is the open licensed source code.
 
@@ -203,6 +203,17 @@ print(sdm.validate_dcat_ap_distribution_sdm(content_DCAT))
 
 print("25:")
 print(sdm.subject_for_datamodel(dataModel))
+
+# Validate a key-values payload against the data model it claims to be ("type")
+print("26:")
+print(sdm.validate_payload("WeatherObserved", "dataModel.Weather", {"id": "x", "type": "WeatherObserved", "dateObserved": "2026-01-01T00:00:00Z", "location": {"type": "Point", "coordinates": [-3.7, 40.4]}}))
+
+# Identify whether a payload (plain key-values, NGSI-v2 normalized, or NGSI-LD
+# normalized -- auto-detected) follows an existing data model, or draft a new
+# schema.json for it if it doesn't. Aimed at data spaces: gives a payload a
+# semantic description even when the sender never provided one.
+print("27:")
+print(sdm.identify_or_draft_datamodel({"id": "x", "type": "WeatherObserved", "temperature": 21.5}))
 
 ```
 
@@ -581,6 +592,62 @@ print(sdm.subject_for_datamodel(dataModel))
            An array (always) if there is only one element with the names of the subjects
            Usually only one element in the array isa returned because there are few clashes in data model names
            False if no subject is found         
+
+26- Validate a key-values payload against the data model it claims to be. Function validate_payload(datamodel, subject, payload)
+
+       Parameters:
+           datamodel: Exact name of the data model
+           subject: Exact name of the subject
+           payload: the payload to validate, in key-values format (not normalized NGSI)
+
+       Returns:
+           An object with two keys:
+           - result: True or False
+           - details: a list of strings -- ["payload is valid"] when result is True
+             and there's nothing else to say, warnings (attributes present in the
+             payload but not defined in the data model) even when result is True,
+             or the full list of JSON Schema validation errors when result is False
+
+27- Identify whether a payload follows an existing Smart Data Model, or draft a new schema.json for it if not. Function identify_or_draft_datamodel(payload, fuzzy=False, fuzzy_threshold=0.3)
+
+       Aimed at **data spaces**: a payload arriving from another participant often
+       has no accompanying semantic description. This function accepts the payload
+       in any of the three formats actually used in practice -- plain key-values,
+       NGSI-v2 normalized, or NGSI-LD normalized -- auto-detecting and flattening
+       it internally, and either:
+       - recognizes it as an existing data model (via its "type" field, or via
+         attribute-name overlap with the catalog when fuzzy=True and "type" is
+         missing/unrecognized) and returns that model's real schema plus a
+         validate_payload() check against it, or
+       - drafts a new schema.json on the spot, following the same structural
+         conventions as a real Smart Data Model (the right common-schema.json
+         references, the standard "type" enum property, required: [id, type]),
+         reusing the existing description/model/units for any attribute name
+         that's already established elsewhere in the catalog, and leaving an
+         explicit TODO placeholder only for attributes that are genuinely new.
+
+       Parameters:
+           payload: a sample payload, in any of the three formats above
+           fuzzy: when "type" doesn't match a known data model, also try
+               matching by attribute-name overlap against every known model.
+               Off by default -- see the note on confidence below
+           fuzzy_threshold: minimum coverage score (0-1) for the fuzzy match's
+               top candidate to be accepted instead of drafting a new schema
+
+       Returns:
+           Always exactly {"schema", "candidates"}:
+           - schema: {"content", "source", "datamodel", "subject", "url", "validation"}
+             (plus "confidence" when source is "existing_fuzzy"). "source" is
+             "existing" (type matched directly), "existing_fuzzy" (attribute-overlap
+             match), or "generated" (content is a freshly drafted schema.json)
+           - candidates: the attribute-overlap ranking ({"subject", "dataModel",
+             "score"}), when fuzzy=True was used; empty otherwise
+
+       A note on the fuzzy match's score: it's the fraction of the payload's own
+       (non-common) attributes that are also attributes of that candidate model --
+       not a confidence that the payload is complete or correct for it. It's a
+       noisy signal meant to help a human judge a plausible candidate, not an
+       identification on its own; that's why it's opt-in rather than always on.
 
 ## Pending features (glad to receive contributions to them)
 

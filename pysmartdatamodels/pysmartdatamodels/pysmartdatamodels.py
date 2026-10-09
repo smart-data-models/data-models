@@ -1,3 +1,4 @@
+import collections
 import datetime
 
 import functools
@@ -1705,3 +1706,399 @@ def validate_payload(datamodel, subject, payload):
         pass
 
     return {"result": True, "details": details or ["payload is valid"]}
+
+
+# -- identify_or_draft_datamodel and its helpers -----------------------------
+
+_COMMON_SCHEMA_URL = "https://smart-data-models.github.io/data-models/common-schema.json"
+_GSMA_COMMONS_PROPERTIES = {
+    "id", "dateCreated", "dateModified", "source", "name", "alternateName",
+    "description", "dataProvider", "owner", "seeAlso",
+}
+_LOCATION_COMMONS_PROPERTIES = {"location", "address", "areaServed"}
+
+
+@functools.lru_cache(maxsize=1)
+def _build_attribute_index():
+    """Group the cached attributes database by (subject, dataModel) -> set of
+    its property names. Built once (then cached) from the same in-memory
+    data _load_attributes_db() already holds, for fuzzy-matching an unknown
+    payload's attribute names against every known data model at once instead
+    of looking them up one at a time.
+    """
+    index = {}
+    for item in _load_attributes_db():
+        subject = item.get("repoName")
+        datamodel = item.get("dataModel")
+        prop = item.get("property")
+        if subject is None or datamodel is None or prop is None:
+            continue
+        index.setdefault((subject, datamodel), set()).add(prop)
+    return index
+
+
+_COMMON_ATTRIBUTE_NAMES = _GSMA_COMMONS_PROPERTIES | _LOCATION_COMMONS_PROPERTIES | {"id", "type"}
+
+
+def _fuzzy_match_candidates(payload_keys, top_n=5):
+    """Rank known data models by what fraction of the payload's own
+    (non-common) attribute names also appear in each model's attribute set.
+
+    This is "payload coverage", not Jaccard similarity: the denominator is
+    the payload's own attribute count, not the union with the model's full
+    attribute set. Jaccard systematically penalizes a real, correct match
+    whenever the payload doesn't populate every optional attribute the
+    model defines -- which is the normal case, not the exception, so a
+    genuinely correct match could score as low as ~0.3 even with zero
+    wrong attributes. Coverage reports what it actually should: "of what
+    you gave me, how much of it belongs to this model."
+
+    GSMA-Commons/Location-Commons attributes (name, description, location,
+    ...) and id/type are excluded from both sides, since nearly every
+    model has them -- without this, a payload using only those common
+    attributes would score 100% against almost the entire catalog, which
+    was verified to happen (1,035 of ~1,118 models) before this exclusion
+    was added.
+
+    Returns a list of {"subject", "dataModel", "score"} dicts, highest
+    score first. Still a noisy signal, not an identification -- a high
+    score means "most of what you gave me belongs to this model," not
+    "this payload is complete or correct for this model."
+    """
+    keys = set(payload_keys) - _COMMON_ATTRIBUTE_NAMES
+    if not keys:
+        return []
+    scored = []
+    for (subject, datamodel), attrs in _build_attribute_index().items():
+        attrs = attrs - _COMMON_ATTRIBUTE_NAMES
+        if not attrs:
+            continue
+        score = len(keys & attrs) / len(keys)
+        if score > 0:
+            scored.append({"subject": subject, "dataModel": datamodel, "score": round(score, 3)})
+    scored.sort(key=lambda c: c["score"], reverse=True)
+    return scored[:top_n]
+
+
+def _looks_like_geojson(value):
+    return (
+        isinstance(value, dict)
+        and value.get("type") in ("Point", "LineString", "Polygon", "MultiPoint", "MultiLineString", "MultiPolygon")
+        and "coordinates" in value
+    )
+
+
+def _infer_ngsi_type(key, value):
+    """Heuristic NGSI type guess for a draft schema -- GeoProperty for
+    GeoJSON-shaped values, Relationship for the refXxx naming convention
+    (e.g. refDevice), Property for everything else. This is a guess to
+    label the TODO placeholder, not a validated classification."""
+    if _looks_like_geojson(value):
+        return "GeoProperty"
+    if len(key) > 3 and key.startswith("ref") and key[3].isupper():
+        return "Relationship"
+    return "Property"
+
+
+@functools.lru_cache(maxsize=1)
+def _build_property_name_index():
+    """Group the cached attributes database by property name -> list of
+    every entry using that exact name across every model (regardless of
+    which data model or subject it belongs to). Used to reuse an existing
+    attribute's description/model/units when drafting a new schema instead
+    of emitting a bare TODO for a name that's already well-established
+    elsewhere in the catalog (e.g. "precipitation", "solarRadiation")."""
+    index = {}
+    for item in _load_attributes_db():
+        prop = item.get("property")
+        if prop is None:
+            continue
+        index.setdefault(prop, []).append(item)
+    return index
+
+
+def _lookup_known_attribute(property_name):
+    """Returns the most common existing definition of this exact property
+    name elsewhere in the catalog -- {"description", "model", "units",
+    "typeNGSI", "occurrences"} -- or None if the name has never appeared.
+
+    Many attribute names are reused verbatim with a consistent description
+    across models (precipitation, solarRadiation, ...); some common/generic
+    names (temperature, status, ...) are used with genuinely different
+    descriptions by unrelated models. Picking the most common description
+    for the name is a reasonable default either way: for the consistent
+    case it's exactly right, for the generic case it's still a real,
+    plausible starting point for a human to edit -- strictly more useful
+    than a bare TODO, even though it isn't guaranteed to fit this draft.
+    """
+    matches = _build_property_name_index().get(property_name)
+    if not matches:
+        return None
+    descriptions = collections.Counter(m.get("description") for m in matches if m.get("description"))
+    if not descriptions:
+        return None
+    best_description = descriptions.most_common(1)[0][0]
+    for m in matches:
+        if m.get("description") == best_description:
+            return {
+                "description": best_description,
+                "model": m.get("model"),
+                "units": m.get("units"),
+                "typeNGSI": m.get("typeNGSI"),
+                "occurrences": len(matches),
+            }
+    return None
+
+
+def _format_description(ngsi_type, description=None, model=None, units=None):
+    """Assemble a description string matching the real convention used
+    throughout Smart Data Models schemas, e.g.
+    "Property. Model:'https://schema.org/Number'. Amount of water rain. Units:'Liters per square meter'"."""
+    text = f"{ngsi_type}."
+    if model:
+        text += f" Model:'{model}'."
+    text += f" {description}" if description else " TODO: describe this attribute."
+    if units:
+        if not text.endswith("."):
+            text += "."
+        text += f" Units:'{units}'"
+    return text
+
+
+def _infer_property_schema(key, value):
+    """Build one property's draft JSON Schema fragment from a sample value.
+    If this exact attribute name is already used elsewhere in the catalog,
+    its existing description/model/units are reused instead of a bare
+    TODO -- see _lookup_known_attribute. Otherwise the description is an
+    explicit TODO, since a sample value tells you a shape, never a
+    meaning, and this never fabricates a plausible-looking description."""
+    known = _lookup_known_attribute(key)
+    ngsi_type = (known and known.get("typeNGSI")) or _infer_ngsi_type(key, value)
+    if known:
+        description = _format_description(ngsi_type, known.get("description"), known.get("model"), known.get("units"))
+    else:
+        description = _format_description(ngsi_type)
+
+    if isinstance(value, bool):
+        return {"type": "boolean", "description": description}
+    if isinstance(value, int):
+        return {"type": "integer", "description": description}
+    if isinstance(value, float):
+        return {"type": "number", "description": description}
+    if isinstance(value, str):
+        return {"type": "string", "description": description}
+    if isinstance(value, list):
+        schema = {"type": "array", "description": description}
+        if value:
+            schema["items"] = _infer_property_schema(key, value[0])
+            schema["items"].pop("description", None)
+        return schema
+    if isinstance(value, dict):
+        if _looks_like_geojson(value):
+            return {
+                "type": "object",
+                "description": description,
+                "properties": {
+                    "type": {"type": "string", "enum": [value["type"]]},
+                    "coordinates": {"type": "array"},
+                },
+            }
+        return {
+            "type": "object",
+            "description": description,
+            "properties": {k: _infer_property_schema(k, v) for k, v in value.items()},
+        }
+    return {"description": description}
+
+
+def generate_draft_schema(payload, datamodel=None, subject=None):
+    """Generate a draft schema.json from a sample payload, following the
+    same structural conventions as a real Smart Data Models schema (allOf
+    with the relevant common-schema.json definitions, the standard "type"
+    enum property, required: [id, type]) so the output can be dropped into
+    the existing contribution workflow with minimal editing -- not a bare
+    JSON Schema fragment.
+
+    Parameters:
+        payload (dict): a sample key-values format payload.
+        datamodel (str, optional): name for the entity type. Defaults to
+            payload.get("type") or "MyEntity".
+        subject (str, optional): subject name, used only in $id/title text.
+
+    Returns:
+        dict: a draft schema.json. Every description is a TODO placeholder
+        -- a sample value can tell you a shape, never what it means.
+    """
+    datamodel = datamodel or payload.get("type") or "MyEntity"
+    subject = subject or "dataModel.MySubject"
+
+    allof = [{"$ref": f"{_COMMON_SCHEMA_URL}#/definitions/GSMA-Commons"}]
+    covered = set(_GSMA_COMMONS_PROPERTIES)
+
+    has_location_like = any(
+        k in _LOCATION_COMMONS_PROPERTIES or _looks_like_geojson(v) for k, v in payload.items()
+    )
+    if has_location_like:
+        allof.append({"$ref": f"{_COMMON_SCHEMA_URL}#/definitions/Location-Commons"})
+        covered |= _LOCATION_COMMONS_PROPERTIES
+
+    properties = {
+        "type": {
+            "type": "string",
+            "enum": [datamodel],
+            "description": f"Property. NGSI Entity type. It has to be {datamodel}",
+        }
+    }
+    for key, value in payload.items():
+        if key in ("id", "type") or key in covered:
+            continue
+        properties[key] = _infer_property_schema(key, value)
+
+    allof.append({"properties": properties})
+
+    return {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "$schemaVersion": "0.1.0",
+        "$id": f"https://smart-data-models.github.io/{subject}/{datamodel}/schema.json",
+        "title": f"{datamodel} - draft schema (auto-generated, not yet reviewed)",
+        "description": "TODO: describe this entity type.",
+        "modelTags": "",
+        "type": "object",
+        "allOf": allof,
+        "required": ["id", "type"],
+    }
+
+
+def _looks_like_normalized_envelope(value):
+    """True for a value shaped like an NGSI-v2 or NGSI-LD normalized
+    attribute envelope: {"type": <tag>, "value": ...} or
+    {"type": <tag>, "object": ...} (the Relationship form). Checking for
+    "type" alongside "value"/"object" (rather than just "value" alone)
+    keeps this from false-positiving on an ordinary nested JSON object
+    that happens to have its own unrelated "value" key."""
+    return isinstance(value, dict) and isinstance(value.get("type"), str) and ("value" in value or "object" in value)
+
+
+def _is_normalized_payload(payload):
+    """True if payload looks like NGSI-v2 or NGSI-LD normalized format
+    rather than plain key-values -- checked by sampling its own attributes
+    rather than assuming a format, since both flavors use the exact same
+    envelope shape and "id"/"type" themselves are never wrapped in either
+    format, so they can't be used to tell the two apart."""
+    return any(
+        _looks_like_normalized_envelope(v)
+        for k, v in payload.items()
+        if k not in ("id", "type", "@context")
+    )
+
+
+def _fetch_schema_content(schema_url):
+    """Fetch and return the raw (unresolved $ref) schema.json content at a
+    URL, or None if it can't be fetched. Deliberately not open_jsonref --
+    that resolves every $ref into a much larger expanded tree, which
+    wouldn't be comparable to generate_draft_schema's raw-$ref output."""
+    try:
+        response = requests.get(schema_url, timeout=10)
+        response.raise_for_status()
+        return response.json()
+    except Exception:
+        return None
+
+
+def identify_or_draft_datamodel(payload, fuzzy=False, fuzzy_threshold=0.3):
+    """Identify whether a payload follows an existing Smart Data Model, or
+    draft a new schema.json for it if not.
+
+    Parameters:
+        payload (dict): a sample payload in any of the three formats data
+            space participants actually send -- plain key-values, NGSI-v2
+            normalized ({"type": "Number", "value": ...}), or NGSI-LD
+            normalized ({"type": "Property", "value"/"object": ...}).
+            Auto-detected and flattened to key-values internally before
+            identification, validation, or drafting, since all of those
+            need to inspect actual attribute values, not envelopes.
+        fuzzy (bool): when the payload's "type" doesn't match any known
+            data model (or is missing), also try matching by attribute-name
+            overlap against every known model. Off by default -- it's a
+            noisy signal (see _fuzzy_match_candidates), not a reliable
+            identification, so it's opt-in rather than silently guessing.
+        fuzzy_threshold (float): minimum coverage score (0-1) for the fuzzy
+            match's top candidate to be reported as a match instead of
+            falling through to drafting a new schema.
+
+    Returns:
+        dict, always exactly {"schema", "candidates"}:
+
+        schema (dict): {"content", "source", "datamodel", "subject", "url", "validation"}
+            - content: the schema.json itself -- fetched from the matched
+              model when source is "existing"/"existing_fuzzy", or the
+              freshly generated draft when source is "generated".
+            - source: "existing" (payload's "type" matched directly),
+              "existing_fuzzy" (fuzzy match scored >= fuzzy_threshold), or
+              "generated" (nothing matched -- content is a new draft).
+            - confidence: only present when source is "existing_fuzzy" --
+              the winning candidate's coverage score (0-1).
+            - url: the real schema.json's URL, or None when generated.
+            - validation: the validate_payload() result against the matched
+              model, or None when generated. A "type" match doesn't
+              guarantee the payload is actually valid for that model, so
+              this is reported alongside rather than assumed.
+
+        candidates (list): the fuzzy-match ranking ({"subject", "dataModel",
+            "score"}, highest first). Populated whenever fuzzy=True was
+            used to find/consider a match; empty otherwise. When source is
+            "existing_fuzzy", the winning candidate is excluded (it's
+            already described in "schema") -- these are the runner-ups.
+    """
+    if _is_normalized_payload(payload):
+        payload = normalized2keyvalues_v2(payload)
+
+    payload_type = payload.get("type")
+    subjects = subject_for_datamodel(payload_type) if payload_type else False
+
+    if subjects:
+        subject = subjects[0]
+        metadata = list_datamodel_metadata(payload_type, subject)
+        schema_url = metadata["jsonSchemaUrl"] if metadata else None
+        return {
+            "schema": {
+                "content": _fetch_schema_content(schema_url) if schema_url else None,
+                "source": "existing",
+                "datamodel": payload_type,
+                "subject": subject,
+                "url": schema_url,
+                "validation": validate_payload(payload_type, subject, payload),
+            },
+            "candidates": [],
+        }
+
+    candidates = _fuzzy_match_candidates(payload.keys()) if fuzzy else []
+
+    if candidates and candidates[0]["score"] >= fuzzy_threshold:
+        top = candidates[0]
+        metadata = list_datamodel_metadata(top["dataModel"], top["subject"])
+        schema_url = metadata["jsonSchemaUrl"] if metadata else None
+        return {
+            "schema": {
+                "content": _fetch_schema_content(schema_url) if schema_url else None,
+                "source": "existing_fuzzy",
+                "datamodel": top["dataModel"],
+                "subject": top["subject"],
+                "confidence": top["score"],
+                "url": schema_url,
+                "validation": validate_payload(top["dataModel"], top["subject"], payload),
+            },
+            "candidates": candidates[1:],
+        }
+
+    return {
+        "schema": {
+            "content": generate_draft_schema(payload),
+            "source": "generated",
+            "datamodel": payload.get("type") or "MyEntity",
+            "subject": None,
+            "url": None,
+            "validation": None,
+        },
+        "candidates": candidates,
+    }
