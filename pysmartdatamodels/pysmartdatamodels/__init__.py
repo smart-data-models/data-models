@@ -26,10 +26,13 @@ from pysmartdatamodels.pysmartdatamodels import (
     datamodels_subject,
     datatype_attribute,
     description_attribute,
+    generate_draft_schema,
     generate_sql_schema,
     geojson_features_example_generator,
+    identify_or_draft_datamodel,
     load_all_attributes,
     load_all_datamodels,
+    list_all_datamodels,
     list_all_subjects,
     list_datamodel_metadata,
     look_for_datamodel,
@@ -45,6 +48,7 @@ from pysmartdatamodels.pysmartdatamodels import (
     update_data,
     validate_data_model_schema,
     validate_dcat_ap_distribution_sdm,
+    validate_payload,
 )
 
 # Define what gets imported when using `from pysmartdatamodels import *`
@@ -54,10 +58,13 @@ __all__ = [
     'datamodels_subject',
     'datatype_attribute',
     'description_attribute',
+    'generate_draft_schema',
     'generate_sql_schema',
     'geojson_features_example_generator',
+    'identify_or_draft_datamodel',
     'load_all_attributes',
     'load_all_datamodels',
+    'list_all_datamodels',
     'list_all_subjects',
     'list_datamodel_metadata',
     'look_for_datamodel',
@@ -72,5 +79,6 @@ __all__ = [
     'update_broker',
     'update_data',
     'validate_data_model_schema',
-    'validate_dcat_ap_distribution_sdm'
+    'validate_dcat_ap_distribution_sdm',
+    'validate_payload'
 ]
